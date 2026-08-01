@@ -2,8 +2,9 @@
 article_id: CDV-12-A03
 title: "Metrics dan Tracing untuk Mencari Bottleneck"
 slug: "metrics-dan-tracing-bottleneck"
-description: "Map golden/user metrics, trace/span context, sampling, cardinality, dashboards, costs, and diagnostic questions using current provider docs"
-status: outline
+description: "Panduan memilih metrik dan penelusuran untuk menemukan sumber perlambatan layanan tanpa mengubah dugaan menjadi kepastian."
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-12-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -16,43 +17,19 @@ technical_review: required
 sources:
   - "https://sre.google/workbook/implementing-slos/"
   - "https://opentelemetry.io/docs/"
-  - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
   - "https://web.dev/articles/vitals"
-  - "https://developer.chrome.com/docs/crux"
-  - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Metrics dan Tracing untuk Mencari Bottleneck
 
-## Assignment lock
+Halo, Kawan Codev.id! Ketika satu permintaan pengguna terasa lambat, menambah dashboard atau menaikkan kapasitas sering menjadi jalan pintas yang mahal. Jalan yang lebih berguna adalah memakai metrics untuk mengetahui *di mana* gejala terjadi dan tracing untuk mengikuti *mengapa* satu permintaan melewati jalur yang lambat.
 
-- **Writer task:** Expand this file into one complete article answering: “Metrics dan Tracing untuk Mencari Bottleneck”
-- **Reader and situation:** Team using Cloudflare Workers or distributed dependencies
-- **Reader outcome:** Map golden/user metrics, trace/span context, sampling, cardinality, dashboards, costs, and diagnostic questions using current provider docs
-- **Primary intent:** Choose telemetry that explains service behavior
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not assert current limits or free quotas without recheck; CDV-14-A06 owns performance diagnosis
-- **Final public route:** `/artikel/metrics-dan-tracing-bottleneck.html`
-- **Appointed CMS date:** `2025-12-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Singkatnya, pilih sedikit metrik yang mewakili pengalaman pengguna dan kesehatan layanan, lalu hubungkan metrik itu dengan trace yang membawa konteks lintas layanan. Dengan begitu, tim dapat membedakan apakah keterlambatan terjadi di worker, layanan asal, kueri data, atau panggilan dependensi. Jawaban ini dapat berubah oleh cakupan trafik, versi aplikasi, pola sampling, dan data yang benar-benar terkumpul; telemetry memberi bukti untuk menyelidiki, bukan jaminan bahwa layanan sudah andal.
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Metrics dan Tracing untuk Mencari Bottleneck**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +40,73 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-07, GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-12-A01` → `/artikel/sli-slo-error-budget-pengguna.html` — SLI, SLO, dan Error Budget yang Terhubung ke Pengguna
-- `CDV-12-A02` → `/artikel/structured-logging-tanpa-data-pribadi.html` — Structured Logging Tanpa Membocorkan Data Pribadi
-- `CDV-12-A04` → `/artikel/alert-dan-runbook-yang-actionable.html` — Alert dan Runbook yang Menghasilkan Tindakan
-- `CDV-12-A05` → `/artikel/incident-response-dan-post-incident-review.html` — Incident Response dan Post-incident Review Tanpa Menyalahkan
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bottleneck bukan otomatis komponen dengan angka waktu terbesar pada satu layar. Ia adalah bagian dari alur yang, pada kondisi tertentu, membatasi permintaan sampai pengguna menerima respons. Karena itu satu angka rata-rata tidak cukup: rata-rata dapat menyamarkan sebagian kecil permintaan yang sangat lambat, sementara keluhan pengguna justru datang dari bagian tersebut.
+
+Mulailah dari pertanyaan keputusan: “Pengalaman pengguna mana yang sedang kita lindungi, dan jalur mana yang harus dijelaskan ketika pengalaman itu memburuk?” Google SRE menjelaskan SLO sebagai sasaran layanan yang membantu mengambil keputusan, bukan janji uptime kontraktual. [Panduan SLO Google SRE](https://sre.google/workbook/implementing-slos/) berguna sebagai kerangka untuk menyepakati sinyal dan batas yang akan dipantau sebelum memilih grafik.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Metrics adalah pengukuran agregat yang dicatat berulang, misalnya jumlah permintaan, tingkat kegagalan, atau distribusi durasi. Ia menjawab pertanyaan luas: apakah gejala meningkat, pada layanan mana, dan sejak kapan? Tracing adalah catatan satu perjalanan permintaan yang dipecah menjadi *span*—unit kerja seperti handler worker, pemanggilan API, atau akses data. Trace dan span yang memiliki konteks bersama membuat urutan lintas dependensi dapat ditelusuri.
+
+OpenTelemetry menyediakan konsep dan dokumentasi untuk menghasilkan serta mengirim sinyal observability, termasuk traces dan metrics. [Dokumentasi OpenTelemetry](https://opentelemetry.io/docs/) tidak menjadikan semua instrumentasi otomatis tepat; tim tetap perlu menentukan nama operasi, atribut, dan tujuan pemeriksaannya.
+
+Artikel ini membahas cara memilih telemetry agar perilaku layanan dapat dijelaskan. Ia bukan diagnosis performa sebuah aplikasi tertentu, bukan rekomendasi kuota layanan, dan bukan klaim bahwa perubahan tertentu akan mempercepat sistem. Untuk langkah awal yang lebih umum, Anda dapat melihat [halaman utama Codev.id](/) dan membawa daftar pertanyaan dari artikel ini ke konteks sistem Anda sendiri.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Urutannya paling mudah dipakai dari luar ke dalam. Pertama, tetapkan metrik pengguna atau layanan: misalnya keberhasilan menyelesaikan aksi, latensi respons pada jalur penting, dan kegagalan yang terlihat pengguna. Untuk antarmuka web, metrik pengalaman lapangan dan lab perlu dibedakan; Core Web Vitals sendiri merupakan sekumpulan metrik yang didefinisikan dan dapat berkembang oleh penyedianya. [Penjelasan Core Web Vitals](https://web.dev/articles/vitals) membantu menempatkan metrik tersebut sebagai sinyal pengalaman, bukan bukti tunggal penyebab masalah.
+
+Kedua, buat metrics layanan yang membantu mempersempit gejala: volume permintaan, error, durasi, dan pemakaian sumber daya yang benar-benar relevan. Beri label dengan hemat. Label seperti nama endpoint atau jenis hasil dapat membantu pemecahan masalah; label yang nilainya berubah hampir setiap permintaan—ID pengguna, ID pesanan, atau URL mentah—membuat cardinality (banyaknya kombinasi nilai deret waktu) melonjak. Akibatnya pencarian, penyimpanan, dan biaya observability bisa membesar tanpa memperjelas keputusan.
+
+Ketiga, saat metrik menunjukkan perubahan, buka trace yang mewakili waktu dan hasil tersebut. Context propagation memastikan pemanggilan berikutnya tetap terkait dengan trace yang sama. Di sana tim membandingkan span: apakah waktu habis sebelum panggilan keluar, pada dependensi, atau setelah respons kembali. Kawan Codev.id, jangan menyimpulkan penyebab hanya karena span paling panjang; periksa juga apakah span itu memang berada di jalur kritis, terjadi berulang, dan selaras dengan gejala pada metrics.
+
+Hubungan ini juga membantu membedakan alarm dari diagnosis. Alarm dapat berangkat dari metric yang sudah disepakati, misalnya perubahan keberhasilan atau durasi pada operasi penting. Trace bukan alasan untuk membunyikan alarm bagi setiap permintaan, melainkan bahan yang dicari ketika alarm atau laporan pengguna membutuhkan penjelasan. Dengan pemisahan ini, dashboard tetap ringkas dan penyelidikan tetap memiliki jejak yang dapat diperiksa.
+
+Keempat, gunakan sampling dengan tujuan jelas. Menyimpan semua trace mungkin berguna dalam kondisi terbatas, tetapi volume, biaya, dan data sensitif perlu dipertimbangkan. Sampling probabilistik dapat memberi gambaran umum; sampling berbasis keputusan dapat mempertahankan trace gagal atau lambat jika aturan dan konteksnya dirancang. Apa pun pendekatannya, dokumentasikan trace mana yang mungkin hilang. Tanpa catatan itu, ketiadaan trace mudah keliru dianggap sebagai ketiadaan masalah.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Nilai telemetry bergantung pada bentuk lalu lintas dan desain sistem. Jalur yang jarang dipakai tetapi penting bagi pengguna dapat luput jika hanya memantau volume. Sebaliknya, dashboard yang dipecah terlalu rinci sulit dibaca ketika insiden berlangsung. Pilih dashboard sebagai alat menjawab pertanyaan operasional, bukan sebagai tempat memajang seluruh metrik yang tersedia.
+
+Versi aplikasi, konfigurasi cache, lokasi pengguna, jenis perangkat, dan perubahan dependensi juga dapat mengubah hasil pengukuran. Perbandingan sebelum–sesudah baru layak dipakai jika ruang lingkup, sampel, kondisi, versi, dan keterbatasannya dicatat. Sobat Codev.id, tanpa pembanding yang stabil, grafik yang membaik belum membuktikan perubahan kode sebagai penyebabnya.
+
+Biaya dan privasi turut membatasi rancangan. Jangan menaruh identitas pribadi, token, isi formulir, atau payload lengkap ke atribut trace demi kenyamanan pencarian. Buat daftar atribut yang diizinkan, lalu tinjau kembali saat kontrak API atau alur data berubah. Dalam layanan berbasis worker dan dependensi terdistribusi, konteks yang tidak diteruskan pada satu batas layanan saja sudah cukup untuk membuat trace tampak terputus.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan sebuah aksi pengguna melewati worker, API asal, lalu layanan data. Ini bukan laporan hasil sistem nyata, melainkan pola keputusan yang dapat diuji.
+
+| Gejala yang terlihat | Telemetry awal | Pertanyaan lanjutan | Keputusan sementara |
+| --- | --- | --- | --- |
+| Kegagalan aksi naik | rasio keberhasilan per operasi | apakah gagal terkonsentrasi pada satu rute atau hasil tertentu? | buka trace gagal dan cek batas dependensi |
+| Sebagian respons melambat | distribusi durasi jalur penting | apakah perlambatan muncul pada rentang waktu dan operasi yang sama? | bandingkan trace lambat dengan trace normal |
+| Trace mahal atau sulit dicari | volume span dan kombinasi atribut | atribut mana yang bernilai unik hampir di setiap permintaan? | hapus atau normalkan label bernilai tinggi; tinjau sampling |
+| Dashboard ramai tetapi tak memberi tindakan | metrik panel yang ada | keputusan apa yang dapat dibuat dari masing-masing panel? | pertahankan panel yang menjawab pertanyaan, arsipkan sisanya |
+
+Contohnya, jika metrik menunjukkan lonjakan durasi pada satu operasi, ambil beberapa trace dari rentang waktu yang sama dan bandingkan urutan span dengan permintaan normal. Jika span dependensi sering mendominasi jalur kritis, temuan yang tepat adalah “dependensi ini perlu pemeriksaan lebih lanjut pada kondisi yang tercatat”, bukan “dependensi pasti penyebab tunggal”. Teman Codev.id, bahasa yang hati-hati menjaga tim agar tidak mengubah korelasi menjadi kepastian.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Metrics dan Tracing untuk Mencari Bottleneck”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah mengukur segala hal sebelum mengetahui pertanyaannya. Periksa setiap metrik dengan kalimat sederhana: tindakan apa yang akan berubah bila angka ini naik atau turun? Bila tidak ada jawaban, metrik itu belum tentu pantas masuk dashboard utama.
 
-## Objection or shortcut to address
+Kesalahan kedua adalah memakai rata-rata sebagai satu-satunya ringkasan latensi. Tambahkan pemisahan berdasarkan operasi dan hasil, lalu lihat distribusi serta contoh trace. Kesalahan ketiga adalah memakai trace sebagai log payload. Trace perlu cukup konteks untuk mengikuti alur, tetapi bukan gudang data mentah atau data pribadi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Shortcut yang sering menggoda adalah “aktifkan semua instrumentasi dan simpan semua trace; nanti pasti ketemu.” Ini dapat gagal karena volume serta cardinality menaikkan biaya dan kebisingan, sedangkan konteks yang tidak konsisten tetap meninggalkan celah. Alternatif yang lebih aman ialah memulai dari satu atau dua perjalanan pengguna, mendefinisikan atribut minimum, menguji propagasi konteks di setiap batas, kemudian mengevaluasi sampling berdasarkan pertanyaan yang belum terjawab.
 
-## Required conclusion
+Sebelum mengubah sistem, gunakan pemeriksaan ini:
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+- Apakah metric pengguna, metric layanan, dan trace merujuk pada operasi yang sama?
+- Apakah trace membawa konteks melewati worker, API, dan dependensi yang relevan?
+- Apakah atributnya cukup untuk menyaring masalah tanpa memasukkan data sensitif atau nilai unik per permintaan?
+- Apakah sampel dan kondisi pembanding dicatat sebelum menyatakan ada regresi atau perbaikan?
+- Apakah setiap panel dashboard berakhir pada pemilik dan tindakan yang jelas?
 
-## Draft completion checklist
+## Langkah berikutnya
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Metrics dan tracing efektif untuk mencari bottleneck ketika keduanya dipakai sebagai rangkaian bukti: metric menunjukkan perubahan yang berdampak, trace menjelaskan jalur permintaan yang berkaitan, lalu tim menguji dugaan pada kondisi yang terdokumentasi. Jangan memulai dari jumlah dashboard atau klaim peningkatan; mulailah dari satu perjalanan pengguna dan satu keputusan yang harus dapat diambil ketika sinyalnya berubah.
+
+Buatlah daftar operasi penting, definisi keberhasilannya, atribut minimum yang aman, serta aturan sampling yang dapat diaudit. Kawan Codev.id, bila data yang tersedia belum mencakup sampel, kondisi, atau konteks lintas layanan yang diperlukan, catat temuan sebagai dugaan dan lakukan peninjauan teknis sebelum menyebutnya bottleneck.

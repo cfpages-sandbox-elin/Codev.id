@@ -2,8 +2,8 @@
 article_id: CDV-20-A03
 title: "Studi Kasus Before-after dengan Baseline yang Adil"
 slug: "studi-kasus-before-after-baseline"
-description: "Define baseline/window/cohort, intervention, confounders, instrument/version, result distribution, task/business relevance, caveats, and current status"
-status: outline
+description: "Cara menetapkan titik pembanding, jendela waktu, kelompok pengamatan, intervensi, faktor perancu, alat ukur, sebaran hasil, relevansi bisnis, batasan, dan kondisi terkini."
+status: draft
 publication_date: "2026-07-13"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -13,46 +13,24 @@ reader_community: "Codev.id"
 reader_address: "Kawan Codev.id"
 final_route: "/artikel/studi-kasus-before-after-baseline.html"
 technical_review: required
+writing_contract_version: "native-id-v2"
 sources:
-  - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
-  - "https://www.cisa.gov/securebydesign"
-  - "https://www.gov.uk/guidance/the-technology-code-of-practice"
   - "https://www.gov.uk/service-manual/service-standard"
-  - "https://csrc.nist.gov/pubs/sp/800/218/final"
   - "https://www.w3.org/TR/WCAG-EM/"
+  - "https://www.gov.uk/guidance/the-technology-code-of-practice"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # Studi Kasus Before-after dengan Baseline yang Adil
 
-## Assignment lock
+Halo, Kawan Codev.id! Sebuah studi kasus before-after layak dipublikasikan bila pembaca dapat melihat apa kondisi awalnya, apa yang berubah, siapa yang dibandingkan, dan apa saja yang mungkin ikut memengaruhi hasil. Tanpa itu, angka setelah peluncuran hanya menunjukkan dua keadaan yang berbeda—bukan otomatis bukti bahwa perangkat lunak menjadi penyebab tunggal.
 
-- **Writer task:** Expand this file into one complete article answering: “Studi Kasus Before-after dengan Baseline yang Adil”
-- **Reader and situation:** Provider with permission and measured project data
-- **Reader outcome:** Define baseline/window/cohort, intervention, confounders, instrument/version, result distribution, task/business relevance, caveats, and current status
-- **Primary intent:** Document a project outcome without misleading attribution
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not invent metrics or attribute all change to software; CDV-14-A02 owns performance measurement and ranking alone is not success
-- **Final public route:** `/artikel/studi-kasus-before-after-baseline.html`
-- **Appointed CMS date:** `2026-07-13` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: tetapkan baseline sebelum menilai intervensi, pakai jendela waktu dan kohor yang sebanding, catat versi alat ukur, lalu tampilkan sebaran hasil serta batasannya. Klaim hasil kasus baru dapat diterbitkan setelah ada bukti proyek yang memverifikasi ruang lingkup, peran, persetujuan, dan hasilnya. **[NEEDS GATE-09: kontrak/penawaran saat ini serta bukti penyedia terverifikasi untuk peran, ruang lingkup, consent, hasil, dan handover.]**
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Studi Kasus Before-after dengan Baseline yang Adil**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +41,81 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-### KR-17
-
-- **Original sources:** [UK Government Service Standard](https://www.gov.uk/service-manual/service-standard), [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/).
-- **Purpose for this article:** Establish an evidence hierarchy for provider selection, portfolios, cases, and measured outcomes.
-- **Safe grounded facts:** A screenshot, domain, logo, testimonial, tool badge, or live page alone does not prove authorship, scope, conformance, security, or business impact.
-- **Limits:** Do not invent clients, results, certifications, team competence, or consent. Apply GATE-09. ## Recurring intent-shape map | Intent shape | Representative catalog families | Main records | Control | |---|---|---|---| | Foundation/definitions | CDV-01, CDV-03, CDV-06, CDV-13 | KR-02, KR-03, KR-04, KR-11 | Define term, scope, version, and non-equivalent concepts. | | Selection/decision | CDV-03–CDV-05, CDV-11, CDV-16 | KR-03, KR-09, KR-14 | Compare constraints, alternatives, operating burden, exit, and evidence. | | Specification | CDV-01, CDV-06, CDV-07, CDV-17 | KR-02, KR-04, KR-05, KR-15 | Translate goals into testable contracts and acceptance. | | Design/interfaces | CDV-02, CDV-04, CDV-08 | KR-03, KR-04, KR-07, KR-11 | Model users, states, trust boundaries, data, and failure paths. | | Execution/QC | CDV-09–CDV-14 | KR-06, KR-08–KR-12 | Version evidence and connect controls to tests and release authority. | | Diagnosis | CDV-10, CDV-12, CDV-14, CDV-15 | KR-08, KR-10, KR-12, KR-13 | Preserve environment/timeline; distinguish symptom, cause, and decision. | | Maintenance | CDV-07, CDV-12, CDV-15, CDV-19 | KR-05, KR-10, KR-13, KR-16 | Track ownership, change, restore/rollback, deletion, and refresh. | | Procurement/handover | CDV-17, CDV-18, CDV-20 | KR-07, KR-15, KR-17 | Normalize scope and preserve source, accounts, evidence, and exit. | ## Evidence gates | Gate | Release condition | Held claims | |---|---|---| | `GATE-01` | Named users/stakeholders, current process, constraints, baseline, and acceptance owner are evidenced. | Need, priority, MVP, usability, or fitness for purpose. | | `GATE-02` | Current system/data/dependency inventory, quality attributes, capacity/cost assumptions, and ADR review exist. | Architecture/stack suitability, rewrite/migration, scalability, or cost. | | `GATE-03` | Versioned threat model, control set, secure-development evidence, and qualified verification cover the exact release. | Secure, ASVS-aligned, vulnerability-free, or penetration-tested. | | `GATE-04` | Current provider/API/auth contract, scopes, quotas, data flow, failure behavior, tests, and exit are verified. | Integration compatibility, OAuth safety, API reliability, or vendor behavior. | | `GATE-05` | Current consolidated Indonesian law, sector/local rules, roles, data map, purposes/bases, rights, vendors/transfers, retention, incident and legal review exist. | PDP/legal compliance, consent need, transfer, retention, deletion, or notification duty. | | `GATE-06` | Defined release scope, environments, representative data/users, criteria, test results, defects/exceptions, and decision owner exist. | Quality, accessibility conformance, acceptance, or release readiness. | | `GATE-07` | Actual Cloudflare/account/runtime configuration, current provider docs/limits, deployment, migration, secret, rollback, DNS/cache and smoke tests are recorded. | Production design, deployability, rollback, regional behavior, price, or quota. | | `GATE-08` | Dated lab/field/telemetry evidence states build, environment, sample, percentile, cache, tool/version, baseline, incident/cost window, and owner. | Speed, reliability, uptime, capacity, SEO, conversion, or operating-cost result. | | `GATE-09` | Contract/current offer and verified provider evidence cover entity/team, scope, ownership, consent, source/accounts, subcontractors, warranty/support, results, handover, and exit. | Price, competence, client relationship, certification, warranty, or case outcome. | | `GATE-10` | AI use-case baseline, data rights/provider handling, versioned evaluation set, failure/abuse results, human authority, monitoring, fallback, and retirement plan exist. | AI accuracy, autonomy, safety, privacy, copyright, savings, or business outcome. | ## Parent-topic coverage matrix | Topic family | Main research IDs | Safe ground for the six articles | Remaining gate | |---|---|---|---| | `CDV-01` | KR-01, KR-02 | Software discovery and requirements: problem, users, assumptions, functional/quality requirements, MVP, traceability, acceptance. | GATE-01 | | `CDV-02` | KR-02, KR-11 | Product/UX/interface design: research, flows, prototypes, content, usability, responsive states, accessible handoff. | GATE-01, GATE-06 | | `CDV-03` | KR-03, KR-07 | Architecture and technology decisions: constraints, ADRs, trade-offs, resilience, cost, operability, exit. | GATE-02 | | `CDV-04` | KR-03, KR-11, KR-12 | Website/web-app engineering: standards, rendering/state, CMS/custom, forms, identity, progressive enhancement. | GATE-02, GATE-06 | | `CDV-05` | KR-03, KR-11 | Mobile/installable apps: web/PWA/native choices, offline/sync, permissions, release, telemetry, accessibility. | GATE-02, GATE-06 | | `CDV-06` | KR-04, KR-08 | API lifecycle: contracts, HTTP, auth, errors, pagination, idempotency, versions, deprecation, consumer tests. | GATE-03, GATE-04 | | `CDV-07` | KR-05, KR-13 | Data architecture/quality/privacy/recovery: meaning, integrity, lifecycle, migration, backup/restore, deletion. | GATE-02, GATE-05 | | `CDV-08` | KR-04, KR-07 | Integrations: identity, payments/messaging, webhooks/queues, retry, reconciliation, fallback, vendor exit. | GATE-04, GATE-09 | | `CDV-09` | KR-04–KR-07 | Security and privacy engineering: threat/control lifecycle, identity/access, supply chain, PDP mapping, incidents. | GATE-03, GATE-05 | | `CDV-10` | KR-08, KR-11, KR-12 | Testing and release evidence: risk-based levels, specialist tests, traceability, defects, acceptance, release report. | GATE-06 | | `CDV-11` | KR-09, KR-10 | Cloudflare deployment: Pages/Workers choice, environments, CI/CD, secrets, migrations, cache, rollback. | GATE-07 | | `CDV-12` | KR-10, KR-12 | Operations: SLOs, telemetry, alerts, runbooks, incidents, capacity, quotas, cost and vendor status. | GATE-07, GATE-08 | | `CDV-13` | KR-02, KR-08, KR-11 | Accessibility: WCAG 2.2 scope, design/dev criteria, manual/automated/AT evaluation, procurement and maintenance. | GATE-05, GATE-06 | | `CDV-14` | KR-10, KR-12 | Performance/reliability: budgets, lab/field evidence, bottlenecks, caching, load/resilience and regression. | GATE-08 | | `CDV-15` | KR-07, KR-13 | Maintenance/modernization/decommissioning: dependencies, debt, upgrades, migration/recovery, archive/deletion. | GATE-02, GATE-05, GATE-08 | | `CDV-16` | KR-05, KR-14 | AI/automation delivery: use-case baseline, data/model/provider, evaluation, human control, monitoring, fallback. | GATE-05, GATE-10 | | `CDV-17` | KR-07, KR-15 | Estimation/procurement/contracts/TCO: comparable scope, uncertainty, ownership, risk, change, lifecycle cost, lock-in. | GATE-09 | | `CDV-18` | KR-08–KR-10, KR-15 | Governance/release/handover/vendor exit: roles, decisions, change, gates, source/accounts, runbooks, transition. | GATE-06, GATE-07, GATE-09 | | `CDV-19` | KR-13, KR-16 | Content systems/discoverability/migration: models, workflow, crawl/index/canonical, structured data, redirects, analytics. | GATE-05, GATE-08 | | `CDV-20` | KR-15, KR-17 | Capability proof/cases/provider selection: identity, role, consent, scope, methods, baselines, results, caveats, references. | GATE-09 | ## Mechanical acceptance - [x] Seventeen stable records contain every required field and direct source links. - [x] All 20 frozen topic IDs appear exactly once in the coverage matrix. - [x] Actual recurring intent shapes map to reusable records. - [x] Ten stable gates hold legal, security, project, vendor, release, production, performance, procurement, and AI claims. - [x] No article prose, production change, portfolio-ledger edit, invented metric, vendor endorsement, or compliance declaration is included.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-20-A01` → `/artikel/audit-bukti-kapabilitas-perusahaan-software.html` — Audit Bukti Kapabilitas Perusahaan Software
-- `CDV-20-A02` → `/artikel/verifikasi-portfolio-peran-scope-provenance.html` — Memverifikasi Portfolio: Peran, Scope, dan Provenance
-- `CDV-20-A04` → `/artikel/testimonial-logo-klien-consent.html` — Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan
-- `CDV-20-A05` → `/artikel/pelajaran-proyek-gagal-tidak-sesuai-target.html` — Menulis Pelajaran dari Proyek Gagal atau Tidak Sesuai Target
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Before-after bukan lomba mencari angka terbesar. Ia adalah catatan keputusan yang memungkinkan pembaca menguji apakah perbandingan itu masuk akal. Misalnya, peningkatan penyelesaian sebuah tugas setelah perubahan antarmuka belum membuktikan perubahan tersebut berhasil bila periode setelahnya bertepatan dengan kampanye, perubahan aturan layanan, atau masuknya jenis pengguna baru.
+
+Yang perlu dibuktikan bukan hanya bahwa suatu halaman, aplikasi, atau proses ada. Screenshot, domain, logo, testimoni, dan halaman yang sedang aktif tidak dengan sendirinya membuktikan penulisannya, cakupan pekerjaan, kesesuaian, keamanan, maupun dampak bisnis. Praktik penilaian layanan juga menempatkan bukti kebutuhan pengguna dan pengukuran kinerja sebagai bagian dari keputusan layanan, bukan hiasan presentasi semata. [UK Government Service Standard](https://www.gov.uk/service-manual/service-standard)
+
+Karena itu, tulis kesimpulan dengan tingkat kepastian yang sesuai. “Pada kohor dan periode yang dicatat, metrik X berubah setelah intervensi Y” lebih jujur daripada “Y menyebabkan X naik”, kecuali rancangan dan bukti proyek memang cukup untuk mendukung atribusi tersebut.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Baseline adalah rekaman kondisi sebelum intervensi dengan definisi metrik yang tetap. Rekaman ini harus menyebut peristiwa yang dihitung, sumber data, aturan pengecualian, serta waktu pengukuran. Jendela pengukuran adalah rentang tanggal atau sesi yang digunakan; kohor adalah kelompok pengguna, transaksi, atau pekerjaan yang dibandingkan. Ketiganya membuat pembaca tahu apakah yang dibandingkan benar-benar sejenis.
+
+Intervensi adalah perubahan yang diuji: misalnya alur formulir diganti, informasi dibuat lebih jelas, atau proses internal diberi langkah baru. Jangan memperluasnya menjadi daftar seluruh aktivitas tim bila tidak semua aktivitas itu dapat dibuktikan. Hasil pula bukan satu angka tunggal; ia dapat mencakup sebaran, kasus gagal, pengecualian, dan kondisi operasi saat data direkam.
+
+Batas pentingnya, artikel ini bukan panduan untuk memilih metrik performa atau mengejar peringkat. Ia membahas cara mendokumentasikan perubahan secara adil. Jika hasil menyangkut aksesibilitas, evaluasi perlu menyatakan cakupan, sampel, metode, dan temuan; metodologi evaluasi W3C memang menekankan ruang lingkup evaluasi yang didefinisikan dan pelaporan hasilnya. [W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/)
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dari satu keputusan pembaca: tugas atau hasil bisnis apa yang hendak diperbaiki? Tetapkan pemilik penerimaan yang menyetujui definisinya. Kemudian simpan snapshot baseline sebelum perubahan: tanggal, populasi, sumber data, versi aplikasi, konfigurasi instrumen, dan aturan perhitungannya. Bila sebuah alat analitik atau skrip berubah di tengah periode, versi tersebut adalah bagian dari konteks, bukan detail teknis yang boleh dibuang.
+
+Sesudah itu, catat intervensi dalam bahasa yang dapat diperiksa: apa yang diubah, kapan tersedia, kepada siapa, dan perubahan terkait apa yang sengaja tidak dimasukkan. Pilih jendela sesudah perubahan yang cukup sebanding dengan baseline. Jangan mencampur hari kerja dengan hari libur, pengguna baru dengan pelanggan lama, atau data produksi dengan pengujian internal tanpa label.
+
+Kawan Codev.id, hasilnya sebaiknya disajikan sebagai distribusi atau pemecahan yang relevan, bukan rerata yang menutupi variasi. Tampilkan jumlah observasi, rentang waktu, pembagian kohor, nilai yang dikecualikan beserta alasannya, dan peristiwa penting selama periode tersebut. Lalu hubungkan angka itu ke tugas nyata: apakah pengguna dapat menyelesaikan langkah yang dimaksud, atau apakah pemilik proses punya dasar untuk mengambil keputusan? Jangan melompat dari perubahan metrik ke janji pendapatan, keandalan, atau kualitas layanan tanpa bukti yang tepat.
+
+Terakhir, minta pemilik data dan pihak yang berwenang meninjau draf. Bukti handover, kepemilikan, peran pihak-pihak terkait, dan izin untuk memakai hasil perlu tersimpan bersama bahan kasus. Prinsip pengadaan dan pengelolaan teknologi yang baik juga menekankan penilaian nilai sepanjang siklus hidup serta pengelolaan risiko, bukan semata harga awal atau tampilan portofolio. [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Beberapa faktor berikut tidak selalu membuat studi kasus batal, tetapi harus dicatat karena dapat mengubah makna perbandingan.
+
+| Faktor | Pertanyaan yang perlu dicatat | Dampak bila diabaikan |
+| --- | --- | --- |
+| Kohor | Apakah pengguna atau jenis pekerjaan sama pada dua periode? | Perubahan dapat berasal dari komposisi pengguna. |
+| Waktu | Apakah ada musim, kampanye, libur, atau perubahan kebijakan? | Periode tidak lagi sebanding. |
+| Instrumen | Apakah alat, event, filter, dan versinya tetap? | Selisih mungkin berasal dari cara menghitung. |
+| Operasi | Apakah ada gangguan, perubahan proses manual, atau pelatihan? | Intervensi perangkat lunak bukan satu-satunya perubahan. |
+| Data | Apa yang hilang, diduplikasi, atau dikecualikan? | Angka tampak rapi tetapi tidak mewakili keadaan. |
+
+Sobat Codev.id, sebuah caveat bukan kelemahan tulisan. Caveat menjelaskan kondisi di mana pembaca boleh memakai temuan dan kondisi di mana mereka harus berhenti menyimpulkan. Bila penyebab perubahan tidak dapat dipisahkan dari faktor lain, nyatakan bahwa hasil hanya menunjukkan asosiasi dalam periode yang dicatat.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan sebuah tim ingin menulis bahwa perubahan alur pendaftaran memperbaiki penyelesaian tugas. Mereka memiliki data sebelum dan sesudah, tetapi pada minggu yang sama tim pemasaran juga mengubah sumber trafik. Keputusan yang aman bukan menolak semua data, melainkan mempersempit klaim dan menambah pemecahan kohor.
+
+| Keadaan bukti | Cara menulis | Keputusan publikasi |
+| --- | --- | --- |
+| Baseline, kohor, instrumen, dan perubahan lain terdokumentasi; izin serta peran terverifikasi | Jelaskan perubahan pada periode dan kohor yang didefinisikan, berikut variasi serta caveat | Dapat diajukan untuk tinjauan teknis dan pemilik bukti |
+| Data ada, tetapi sumber trafik atau proses lain berubah tanpa catatan yang cukup | Jelaskan bahwa perbandingan tidak dapat dipakai untuk atribusi | Tunda klaim hasil; publikasikan metode hanya bila scope dan izin aman |
+| Hanya ada tangkapan layar atau cerita informal | Jangan menyebut hasil atau peran sebagai fakta | Kumpulkan bukti proyek terlebih dahulu |
+
+Teman Codev.id, skenario ini tidak membutuhkan angka rekaan untuk berguna. Yang pembaca perlukan ialah alasan mengapa sebuah klaim dipersempit, bukti apa yang tersedia, dan tindakan apa yang harus dilakukan sebelum menyatakan keberhasilan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Studi Kasus Before-after dengan Baseline yang Adil”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah memilih baseline setelah hasil diketahui. Ini memberi ruang memilih periode yang paling menguntungkan. Perbaikannya: arsipkan definisi baseline dan jendela pengukuran sebelum membaca hasil akhir.
 
-## Objection or shortcut to address
+Kesalahan kedua adalah mengubah event, alat, atau filter lalu memperlakukan semua angka sebagai satu seri. Perbaikannya: beri nama versi instrumen dan jelaskan titik perubahan. Bila pemetaan lama dan baru tidak ekuivalen, jangan tampilkan selisih sebagai kemajuan.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan ketiga adalah memakai satu angka rata-rata untuk menyimpulkan semua pengguna terbantu. Periksa pemecahan kohor, kasus gagal, dan data yang dikecualikan. Jika variasinya besar, tuliskan variasi itu dan hindari kesimpulan umum.
 
-## Required conclusion
+Shortcut yang sering menggoda adalah “cukup tunjukkan tampilan lama dan baru; pembaca akan mengerti.” Tampilan dapat membantu menjelaskan intervensi, tetapi tidak membuktikan siapa yang mengerjakan, apa cakupannya, atau hasil apa yang terjadi. Alternatifnya adalah paket bukti ringkas: definisi baseline, log intervensi, catatan confounder, versi instrumen, ringkasan distribusi, persetujuan penggunaan, dan status saat ini.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Gunakan pemeriksaan akhir berikut sebelum sebuah klaim dipublikasikan:
 
-## Draft completion checklist
+- Apakah baseline dan periode sesudahnya punya definisi metrik yang sama?
+- Apakah kohor serta pengecualian dijelaskan sehingga pembaca dapat menilai kesetaraannya?
+- Apakah perubahan lain selama periode dicatat, termasuk yang tidak dikendalikan?
+- Apakah versi aplikasi dan alat ukur tercantum?
+- Apakah hubungan ke tugas pengguna atau keputusan bisnis dijelaskan tanpa melebihkan sebab-akibat?
+- Apakah pihak yang berwenang telah memverifikasi peran, scope, izin, dan hasil?
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Langkah berikutnya: siapkan paket bukti sebelum menulis
+
+Studi kasus before-after yang adil bukan klaim bahwa semua perubahan berasal dari software. Ia adalah catatan terverifikasi tentang baseline, intervensi, kondisi pembanding, hasil yang tersebar, dan batas kesimpulan.
+
+Mulailah dengan satu dokumen kerja yang memuat definisi metrik, jendela waktu, kohor, versi instrumen, daftar confounder, serta pemilik keputusan. Sebelum menambahkan kalimat tentang hasil proyek, minta bukti peran, scope, consent, dan hasil ditinjau oleh pemiliknya. Bila Anda perlu memeriksa konteks penerbitnya lebih dahulu, kembali ke [halaman utama Codev.id](/). Aturan operasinya sederhana: bila pembaca tidak dapat memeriksa perbandingannya, jangan minta mereka mempercayai atribusinya.

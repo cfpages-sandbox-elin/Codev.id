@@ -1,9 +1,10 @@
 ---
 article_id: CDV-17-A02
+writing_contract_version: "native-id-v2"
 title: "Estimasi Software dengan Range, Asumsi, dan Risiko"
 slug: "estimasi-software-range-asumsi-risiko"
-description: "Build scope/work breakdown, dependencies, assumptions, uncertainty range, risk reserve, validation work, exclusions, change triggers, and confidence update"
-status: outline
+description: "Panduan menilai estimasi software melalui ruang lingkup, asumsi, rentang ketidakpastian, cadangan risiko, validasi, pengecualian, dan pemicu perubahan."
+status: draft
 publication_date: "2026-04-26"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -21,37 +22,7 @@ sources:
   - "https://www.gov.uk/guidance/the-technology-code-of-practice"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Estimasi Software dengan Range, Asumsi, dan Risiko
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Estimasi Software dengan Range, Asumsi, dan Risiko”
-- **Reader and situation:** Buyer comparing a fixed number with a range or breakdown
-- **Reader outcome:** Build scope/work breakdown, dependencies, assumptions, uncertainty range, risk reserve, validation work, exclusions, change triggers, and confidence update
-- **Primary intent:** Understand and review an uncertain software estimate
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not publish market prices or guarantee time/cost; `/kontak` owns actual quote and CDV-18-A03 owns changes
-- **Final public route:** `/artikel/estimasi-software-range-asumsi-risiko.html`
-- **Appointed CMS date:** `2026-04-26` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Estimasi Software dengan Range, Asumsi, dan Risiko**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -62,118 +33,88 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Estimasi Software dengan Range, Asumsi, dan Risiko
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id! Angka tunggal seperti “selesai 12 minggu dengan biaya sekian” terlihat tegas, tetapi sering menyembunyikan pekerjaan yang belum diurai, ketergantungan yang belum tersedia, dan keputusan yang masih berubah. Estimasi yang dapat ditinjau seharusnya berbentuk rentang, dilengkapi asumsi, cadangan risiko, serta cara memperbarui keyakinan setelah bukti baru muncul.
 
-### KR-07
+Jawaban singkatnya: mulai dari *scope* yang dipecah menjadi pekerjaan dan dependensi, tulis asumsi yang membuat hitungan berlaku, lalu tampilkan rentang (misalnya skenario rendah–tengah–tinggi) beserta pemicu perubahan. Sisihkan pekerjaan validasi dan cadangan untuk risiko yang masuk akal. Rentang itu bukan janji waktu atau harga; ia adalah alat untuk memilih keputusan yang masih aman ketika informasi belum lengkap. Kondisi yang dapat mengubahnya meliputi akses sistem, batas API, kualitas data, keputusan pemilik produk, dan hasil uji awal.
 
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-17-A01` → `/artikel/template-brief-rfp-proyek-software.html` — Template Brief dan RFP Proyek Software
-- `CDV-17-A03` → `/artikel/membandingkan-vendor-software-dengan-bukti.html` — Membandingkan Vendor Software dengan Bukti
-- `CDV-17-A04` → `/artikel/source-code-ip-data-akun-lisensi-kontrak.html` — Source Code, IP, Data, Akun, dan Lisensi dalam Kontrak
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan paling mahal adalah menganggap angka terendah sebagai harga “sebenarnya”. Angka rendah biasanya hanya menghitung pembuatan fitur inti, bukan klarifikasi kebutuhan, integrasi, pengujian, migrasi, dokumentasi, atau dukungan setelah rilis. Sebaliknya, angka tinggi tanpa penjelasan juga tidak membantu karena pembeli tidak tahu risiko apa yang sedang dibayar.
+
+Mintalah tiga hal pada setiap baris estimasi: pekerjaan apa yang termasuk, bukti apa yang mendasarinya, dan kejadian apa yang membuatnya berubah. Bila vendor hanya memberi total, minta *work breakdown structure* (WBS), yaitu daftar pekerjaan yang cukup rinci untuk dibandingkan. Tambahkan kolom pemilik keputusan dan status bukti: sudah diverifikasi, asumsi, atau perlu validasi.
+
+Inventaris komponen juga penting ketika aplikasi memakai layanan pihak ketiga. CISA menjelaskan bahwa *software bill of materials* (SBOM) meningkatkan transparansi komponen, tetapi SBOM sendiri tidak membuktikan bahwa komponen aman. [CISA SBOM resources](https://www.cisa.gov/sbom) Karena itu, estimasi untuk integrasi harus memuat pemeriksaan lisensi, asal komponen, serta rencana jika dependensi berubah.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Estimasi di sini adalah model keputusan untuk pekerjaan software tertentu, bukan daftar harga pasar atau jaminan durasi. Objeknya mencakup ruang lingkup produk, aktivitas rekayasa, dependensi teknis dan organisasi, ketidakpastian, cadangan risiko, serta pekerjaan pembuktian seperti prototipe dan uji penerimaan.
+
+Yang tidak dicakup: penetapan harga aktual untuk proyek Anda, interpretasi kewajiban hukum, atau persetujuan arsitektur dan kontrak. Angka final memerlukan data proyek, negosiasi, dan tinjauan profesional yang berwenang. [NEEDS GATE-09 REVIEW: verifikasi syarat vendor, kuota API, subprosesor, kerentanan terkini, dan pembagian tanggung jawab kontraktual sebelum angka dipakai sebagai komitmen.]
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Urutan praktisnya dapat dibuat seperti berikut.
+
+1. **Tetapkan hasil dan batas.** Tulis siapa pengguna, alur yang harus berhasil, sistem yang disentuh, serta fitur yang sengaja dikeluarkan. “Integrasi pembayaran” perlu dijelaskan apakah hanya pengiriman transaksi, rekonsiliasi, notifikasi, atau semuanya.
+2. **Pecah pekerjaan dan dependensi.** Untuk tiap hasil, catat desain, implementasi, migrasi, pengujian, rilis, dan handover. Tandai akses yang harus disediakan pihak lain; pekerjaan yang menunggu akses bukan sekadar tambahan jam coding.
+3. **Nyatakan asumsi.** Contoh: API tersedia di lingkungan uji, format data disepakati, satu pengambil keputusan hadir mingguan, dan tidak ada perubahan regulasi selama iterasi. Setiap asumsi harus punya pemilik dan tanggal pemeriksaan.
+4. **Buat rentang.** Skenario rendah mengandaikan asumsi utama benar; skenario tengah memasukkan gangguan biasa; skenario tinggi memasukkan risiko yang sudah teridentifikasi. Jelaskan penggerak rentang, bukan sekadar menambahkan persentase acak.
+5. **Pisahkan validasi dan cadangan.** Prototipe, *spike* teknis, uji beban, atau pembersihan data adalah pekerjaan nyata. Cadangan risiko dipakai hanya saat pemicu yang disepakati terjadi, dengan catatan keputusan dan sisa saldo.
+6. **Perbarui keyakinan.** Setelah akses diuji atau prototipe berjalan, ubah asumsi menjadi fakta, pertahankan, atau gugurkan. Rentang boleh menyempit maupun melebar; perubahan itu tanda model diperbarui, bukan kegagalan moral.
+
+Untuk dependensi rantai pasok, NIST SP 800-161 Rev.1 menekankan perlunya mengelola risiko pemasok dan komponen sepanjang siklus hidup. [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final) Dalam praktik estimasi, itu berarti menyebutkan siapa yang menyediakan komponen, bagaimana asalnya diverifikasi, dan apa rencana penggantiannya.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kelompokkan penggerak perubahan agar diskusi tidak kabur.
+
+| Kelompok | Pertanyaan pemeriksaan | Dampak pada estimasi |
+|---|---|---|
+| Scope | Apa definisi “selesai” dan apa yang dikecualikan? | Menambah atau mengurangi WBS dan pengujian |
+| Data | Apakah contoh data nyata tersedia dan bersih? | Mengubah pekerjaan migrasi, pemetaan, dan validasi |
+| Integrasi | Siapa pemilik API, kredensial, kuota, dan lingkungan uji? | Menambah waktu tunggu serta *fallback* |
+| Keputusan | Berapa lama persetujuan desain dan penerimaan? | Mengubah urutan kerja dan kapasitas tim |
+| Operasi | Siapa memantau, merespons insiden, dan memegang akun? | Menambah handover, pelatihan, dan biaya siklus hidup |
+| Bukti | Uji apa yang harus lulus sebelum rilis? | Menentukan pekerjaan validasi dan kriteria berhenti |
+
+Logo sertifikasi atau skor repositori dapat menjadi sinyal awal, bukan pengganti pemeriksaan. OpenSSF Scorecard sendiri menyajikan sinyal praktik keamanan repositori; [OpenSSF Scorecard](https://securityscorecards.dev/) gunakan hasilnya untuk menentukan pertanyaan lanjutan, bukan untuk menyimpulkan vendor pasti aman atau cocok.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan estimasi integrasi dengan sistem akuntansi yang dokumentasi API-nya belum diuji. Buat tiga skenario berikut, lalu tulis pemicu perpindahannya.
+
+| Skenario | Asumsi kunci | Pekerjaan wajib | Keputusan |
+|---|---|---|---|
+| Rendah | Endpoint uji lengkap dan format data stabil | Implementasi, uji kontrak, penerimaan | Boleh mulai setelah akses diverifikasi |
+| Tengah | Ada dua format data dan respons vendor lambat | Mapping tambahan, *retry*, dan satu putaran perbaikan | Jadwalkan cadangan serta titik keputusan |
+| Tinggi | Endpoint penting belum tersedia | Prototipe, *mock*, desain fallback, negosiasi ulang | Jangan mengunci tanggal rilis; hentikan perluasan scope |
+
+Kawan Codev.id, minta setiap skenario menjawab “bukti apa yang menurunkan ketidakpastian?” Jika akses sandbox berhasil, asumsi akses berubah menjadi fakta. Jika tidak, cadangan tidak boleh diam-diam dipakai untuk menutup masalah; pemilik produk harus memilih fallback atau mengubah scope.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Estimasi Software dengan Range, Asumsi, dan Risiko”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Mengunci angka sebelum WBS.** Periksa apakah setiap fitur memiliki aktivitas pengujian, rilis, dan handover. Jika tidak, angka belum sebanding.
 
-## Objection or shortcut to address
+**Menyamakan cadangan dengan keuntungan tersembunyi.** Minta daftar risiko, pemicu penggunaan, pemilik persetujuan, dan saldo cadangan pada setiap pembaruan.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**Menganggap dependensi eksternal pasti tersedia.** Minta bukti akses, batas kuota, lingkungan uji, dan jalur eskalasi. Tanpa itu, tulis sebagai asumsi dan jadwalkan validasi.
 
-## Required conclusion
+**Memakai skor atau logo sebagai bukti lengkap.** Cocokkan sinyal dengan ruang lingkup yang benar-benar akan dikerjakan, referensi yang relevan, dan proses serah-terima. Prinsip *secure by design* CISA menempatkan pertimbangan keamanan sejak awal, bukan sebagai pemeriksaan kosmetik di akhir. [CISA Secure by Design](https://www.cisa.gov/securebydesign)
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**Menyamakan harga build dengan biaya seumur hidup.** Rencana operasi, akun, lisensi, dukungan, dan penggantian komponen dapat menentukan biaya setelah rilis. UK Technology Code of Practice juga mendorong keputusan teknologi yang mempertimbangkan pengguna, nilai, dan pengelolaan sepanjang layanan, bukan hanya pengadaan awal. [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)
 
-## Draft completion checklist
+## Saat angka tunggal terasa lebih mudah
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Shortcut yang sering dipilih adalah meminta satu vendor “langsung beri harga terbaik” lalu membandingkan totalnya. Cara ini gagal ketika vendor menghitung scope dan asumsi yang berbeda; total tampak murah karena pekerjaan validasi atau risiko dipindahkan tanpa nama. Alternatif yang lebih aman: kirimkan batas hasil yang sama, minta WBS dan rentang dengan format seragam, kemudian bandingkan asumsi, dependensi, bukti, pengecualian, serta pemicu perubahan. Perbandingan harga baru bermakna setelah objek yang dihitung setara.
+
+## Langkah berikutnya
+
+Estimasi software yang dapat dipercaya bukan satu angka, melainkan rentang yang dapat ditelusuri ke scope, WBS, asumsi, dependensi, pekerjaan validasi, dan cadangan risiko. Sebelum menyetujui, minta satu lembar yang mencantumkan skenario, bukti pemicu, pengecualian, pemilik keputusan, dan tanggal pembaruan keyakinan. Anda dapat memulai dari [beranda Codev.id](/) untuk menemukan konteks layanan sebelum membawa lembar tersebut ke review teknis dan kontrak; jangan menganggapnya sebagai penawaran harga atau jaminan waktu. Teman Codev.id, aturan operasionalnya sederhana: setiap angka harus punya asumsi yang bisa diuji dan tindakan yang jelas ketika asumsi itu berubah.

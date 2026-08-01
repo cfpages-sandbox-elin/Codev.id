@@ -2,8 +2,9 @@
 article_id: CDV-19-A06
 title: "Quality Gate untuk Konten Teknis dan Konten Berbantu AI"
 slug: "quality-gate-konten-teknis-ai"
-description: "Require intent/boundary, primary sources, expert review, examples, uncertainty, claims/evidence, originality, disclosure, links, update owner, and correction path"
-status: outline
+description: "Memeriksa niat dan batas, sumber primer, tinjauan ahli, contoh, ketidakpastian, bukti klaim, orisinalitas, pengungkapan, tautan, pemilik pembaruan, dan jalur koreksi"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-07-02"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,17 @@ sources:
   - "https://schema.org/docs/documents.html"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Quality Gate untuk Konten Teknis dan Konten Berbantu AI
 
-## Assignment lock
+Halo, Sobat Codev.id! Konten teknis yang terbit tanpa pemeriksaan berlapis dapat terlihat meyakinkan sekaligus menyesatkan. Draf yang dibantu AI menambah risiko: kalimat lancar tidak sama dengan fakta benar, dan tautan yang tampak relevan belum tentu mendukung klaimnya.
 
-- **Writer task:** Expand this file into one complete article answering: “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”
-- **Reader and situation:** Publisher scaling content or using AI assistance
-- **Reader outcome:** Require intent/boundary, primary sources, expert review, examples, uncertainty, claims/evidence, originality, disclosure, links, update owner, and correction path
-- **Primary intent:** Review technical content for truth, usefulness, originality, and maintenance
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not equate volume with authority or allow fabricated expertise/cases; CDV-20 owns business evidence
-- **Final public route:** `/artikel/quality-gate-konten-teknis-ai.html`
-- **Appointed CMS date:** `2026-07-02` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Quality gate adalah keputusan terdokumentasi sebelum publikasi: siapa pembacanya, apa batas jawabannya, sumber primer apa yang mendukung tiap klaim penting, siapa yang meninjau, bagaimana ketidakpastian dinyatakan, serta kapan dan oleh siapa halaman diperiksa ulang. Gate bukan stempel “pasti benar”; ia adalah rem yang membuat kesalahan terlihat, dapat dikoreksi, dan tidak diam-diam diwariskan ke versi berikutnya.
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Quality Gate untuk Konten Teknis dan Konten Berbantu AI**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,122 +44,68 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-13
-
-- **Original sources:** [NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications), [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), [Google Search site-move guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
-- **Purpose for this article:** Ground dependency/runtime maintenance, vulnerability prioritization, migration, recovery, and decommissioning.
-- **Safe grounded facts:** Vulnerability severity is not the sole prioritization input; exposure, exploitation, business impact, fix safety, rollback, and ownership matter. URL/data migrations need inventories and reconciliation.
-- **Limits:** Never prescribe replacement from age alone or delete history/data without GATE-02, GATE-05, and GATE-08.
-
-### KR-16
-
-- **Original sources:** [Google Search Essentials](https://developers.google.com/search/docs/essentials), [Google people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [Schema.org documentation](https://schema.org/docs/documents.html).
-- **Purpose for this article:** Ground content models, crawl/index controls, structured data, migrations, and evidence-led SEO.
-- **Safe grounded facts:** Sitemaps and structured data aid discovery/interpretation but do not guarantee indexing, rich results, ranking, traffic, or revenue.
-- **Limits:** Search systems and policies change. No city swaps, link schemes, approval, ranking, or income promises; apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-05, GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/konten` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/website` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/seo` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/deskripsi-produk` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/blog-post` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-19-A04` → `/artikel/structured-data-kapan-guna-validasi.html` — Structured Data: Kapan Berguna dan Cara Memvalidasi
-- `CDV-19-A05` → `/artikel/migrasi-url-konten-redirect-ledger.html` — Migrasi URL dan Konten dengan Redirect Ledger
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Tentukan objek, kondisi, dan tahap siklus hidup
 
-- **Purpose:** Jelaskan apa yang dikelola dan bukti kondisi awalnya.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan satu kalimat keputusan: “Halaman ini membantu [pembaca] melakukan [tindakan] dalam kondisi [batas].” Bedakan artikel pengantar, prosedur operasional, ulasan produk, dan catatan perubahan. Masing-masing membutuhkan bukti dan peninjau berbeda. Jika pembaca, tindakan, atau batas belum jelas, gate berhenti pada status *needs revision*.
+
+Buat daftar klaim sebelum menyunting gaya bahasa. Untuk setiap klaim, catat apakah ia fakta dari dokumentasi resmi, inferensi yang harus diberi label, pengalaman proyek yang memiliki bukti, atau rekomendasi editorial. Jangan mengubah ketiadaan data proyek menjadi kepastian umum. Standar atau katalog dapat membuktikan identitas dan ruang lingkup publikasi, bukan bahwa suatu implementasi pasti lulus.
+
+Siklus hidup juga perlu ditulis: draf, tinjauan, terbit, pemantauan, revisi, dan pengarsipan. Pada konten yang menyentuh perangkat lunak, publikasi NIST tentang Secure Software Development Framework membantu menempatkan pemeliharaan dan respons kerentanan sebagai aktivitas berulang, bukan pekerjaan sekali selesai (https://csrc.nist.gov/Projects/ssdf/publications).
 
 ## Mekanisme perubahan atau penurunan kinerja
 
-- **Purpose:** Hubungkan penggunaan, lingkungan, material/sistem, dan waktu tanpa mengarang umur layanan.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Konten menurun bukan hanya karena “sudah lama”. Dokumentasi berubah, API dihentikan, ancaman baru muncul, kebijakan mesin pencari diperbarui, atau contoh tidak lagi cocok dengan lingkungan pembaca. Tulis mekanismenya: perubahan dependensi membuat langkah instalasi gagal; perubahan URL memutus rujukan; atau bukti baru membatasi kesimpulan lama.
+
+Untuk isu keamanan, jangan memakai skor keparahan sebagai satu-satunya urutan kerja. Paparan, apakah kerentanan sedang dieksploitasi, dampak bisnis, keamanan perbaikan, rencana *rollback*, dan pemilik keputusan ikut menentukan prioritas. Katalog Known Exploited Vulnerabilities CISA adalah salah satu input untuk memeriksa eksploitasi yang diketahui, bukan pengganti penilaian konteks (https://www.cisa.gov/known-exploited-vulnerabilities-catalog). Sobat Codev.id, bila tidak ada pemilik yang dapat menilai dampak dan rollback, klaim “aman diperbarui” harus ditahan.
 
 ## Inspeksi dan data yang perlu dicatat
 
-- **Purpose:** Buat baseline, indikator, foto/ukur, riwayat, dan batas pengamatan.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Sediakan lembar pemeriksaan yang dapat diulang. Minimal, rekam:
+
+- tujuan, audiens, batas geografis atau versi, dan tanggal pemeriksaan;
+- tabel klaim–sumber, termasuk bagian sumber yang benar-benar dibaca;
+- contoh input dan output yang dapat diuji ulang, tanpa data pribadi atau rahasia;
+- nama peran penulis, peninjau teknis, dan pemilik pembaruan;
+- keputusan: lulus, lulus dengan catatan, atau ditahan, beserta alasan.
+
+Untuk alur editorial yang lebih luas, mulai dari [panduan pengelolaan konten](/konten) lalu tetapkan pemilik halaman sebelum meminta tinjauan. Pisahkan catatan internal dari teks yang dibaca publik agar keputusan dapat diaudit tanpa membebani pembaca.
+
+AI boleh membantu mengelompokkan pertanyaan atau menemukan bagian yang belum jelas, tetapi manusia harus membuka sumber primer dan menguji langkah yang dapat dijalankan. Simpan perubahan penting dalam *changelog*. Untuk migrasi konten, inventaris URL lama–baru, status respons, pemilik, dan hasil rekonsiliasi lebih berguna daripada sekadar mengandalkan sitemap. Panduan Google tentang perpindahan situs menekankan perlunya pemetaan dan pemeriksaan setelah perubahan URL (https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
 
 ## Pilihan perawatan atau intervensi
 
-- **Purpose:** Bandingkan pemantauan, perawatan, perbaikan, penguatan, penggantian, atau penghentian.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Tidak setiap temuan memerlukan penulisan ulang total. Pilih tindakan sesuai bukti:
+
+1. **Pantau** bila fakta masih berlaku tetapi ada pemicu perubahan yang jelas.
+2. **Perbaiki** klaim, langkah, atau tautan yang salah dan minta tinjauan ulang.
+3. **Perkuat** dengan sumber primer, contoh yang dapat diuji, atau batasan yang belum tertulis.
+4. **Ganti** bagian yang tidak lagi didukung, sambil menyimpan catatan perubahan.
+5. **Arsipkan atau tarik** halaman bila tujuan pembaca tidak dapat dipenuhi secara bertanggung jawab.
+
+Jangan menghapus riwayat atau mengganti URL hanya karena halaman sepi. Tindakan itu memerlukan pemeriksaan dampak, pemetaan, dan rencana pemulihan. Untuk aspek penemuan di mesin pencari, Search Essentials dan panduan konten *people-first* menjelaskan prinsip umum, tetapi tidak menjanjikan indeks, peringkat, trafik, atau pendapatan (https://developers.google.com/search/docs/essentials; https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
 
 ## Cara menentukan prioritas
 
-- **Purpose:** Gunakan konsekuensi, urgensi, akses, biaya siklus hidup, dan otoritas keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan matriks sederhana: dampak salah informasi × kemungkinan pembaca bertindak × kedekatan perubahan × biaya menunggu. Klaim yang dapat memicu konfigurasi keamanan, keputusan pembelian, atau penghapusan data masuk jalur tinjauan tertinggi. Klaim definisional dengan sumber stabil dapat memakai jalur ringan. Tetapkan otoritas: peninjau teknis menyatakan apakah mekanisme dan batasnya masuk akal; pemilik editorial memutuskan kejelasan dan kesesuaian pembaca; pemilik produk atau keamanan menyetujui keputusan operasionalnya.
 
-## Rekaman, handover, dan pemicu pemeriksaan ulang
+Tautan, sitemap, dan data terstruktur membantu sistem menemukan atau menafsirkan halaman, tetapi bukan bukti bahwa isi benar atau akan mendapat hasil kaya. Dokumentasi Schema.org menjelaskan model dan penggunaan kosakata, bukan jaminan tampilan atau ranking (https://schema.org/docs/documents.html). Kawan Codev.id, perlakukan klaim performa pencarian sebagai hipotesis yang perlu dipantau, bukan keluaran yang boleh dijanjikan.
 
-- **Purpose:** Tentukan bukti yang harus bertahan untuk pemilik dan peninjau berikutnya.
-- **Tie back to this article:** Keep the explanation specific to “Quality Gate untuk Konten Teknis dan Konten Berbantu AI”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Jika artikel juga menjelaskan struktur halaman atau metadata, gunakan [praktik konten website](/konten/website) sebagai langkah berikutnya untuk memeriksa konteks implementasi. Tautan itu membantu orientasi, tetapi tidak menggantikan pemeriksaan sumber primer.
 
-## Objection or shortcut to address
+## Rekaman, serah-terima, dan pemicu pemeriksaan ulang
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Handover harus memungkinkan orang lain memahami mengapa gate diluluskan. Simpan versi draf, daftar sumber dengan tanggal akses, keputusan peninjau, konflik yang belum selesai, dan tanggal pemeriksaan berikutnya. Cantumkan jalur koreksi yang terlihat pembaca: alamat atau formulir, pemilik respons, dan cara menandai revisi substansial.
 
-## Required conclusion
+Tetapkan pemicu: rilis besar, perubahan API, peringatan keamanan, perubahan kebijakan, laporan pembaca yang dapat diverifikasi, atau kegagalan contoh. Saat pemicu terjadi, bekukan klaim yang terdampak sampai sumber primer diperiksa. Jangan mengisi celah dengan keluaran AI yang terdengar pasti; tandai “[NEEDS TECHNICAL REVIEW]” bila keputusan menyentuh lingkungan produksi atau keselamatan.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang sering menggoda
 
-## Draft completion checklist
+Jalan pintasnya adalah meminta AI merangkum beberapa halaman, lalu menerbitkan hasilnya setelah pemeriksaan ejaan. Ini gagal karena ringkasan dapat menghilangkan pengecualian, mencampur versi, atau menyulap dugaan menjadi fakta. Alternatif yang lebih aman: kunci ruang lingkup, pecah draf menjadi klaim, buka sumber asli, uji contoh, minta peninjau teknis menandatangani keputusan, dan ungkapkan penggunaan AI bila kebijakan penerbit mengharuskannya. Orisinalitas berarti analisis dan batas yang benar-benar berguna bagi pembaca, bukan sekadar susunan ulang kalimat.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan
+
+Quality gate untuk konten teknis dan konten berbantu AI adalah sistem keputusan yang menghubungkan niat, batas, klaim, bukti, peninjauan, pemeliharaan, dan koreksi. Langkah berikutnya: buat satu lembar klaim–sumber untuk artikel yang akan diterbitkan, tetapkan peninjau serta pemicu pemeriksaan ulang, lalu tahan publikasi untuk klaim yang belum memiliki bukti memadai.
+
+Aturan operasionalnya sederhana: semakin besar konsekuensi tindakan pembaca, semakin kuat bukti dan otoritas peninjauan yang wajib ada. [NEEDS TECHNICAL REVIEW: GATE-05 dan GATE-08 sebelum publikasi final]

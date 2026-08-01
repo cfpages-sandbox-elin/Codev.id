@@ -2,8 +2,9 @@
 article_id: CDV-20-A04
 title: "Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan"
 slug: "testimonial-logo-klien-consent"
-description: "Record permission, approved wording/assets, speaker identity/role, relationship, date, edits, substantiation, expiry/review, revocation, and privacy"
-status: outline
+description: "Catat izin, redaksi dan aset yang disetujui, identitas serta peran pembicara, hubungan, tanggal, penyuntingan, pembuktian klaim, masa berlaku dan peninjauan, pencabutan, serta privasi"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-07-18"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -16,43 +17,20 @@ technical_review: required
 sources:
   - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
   - "https://www.cisa.gov/securebydesign"
-  - "https://www.gov.uk/guidance/the-technology-code-of-practice"
   - "https://www.gov.uk/service-manual/service-standard"
   - "https://csrc.nist.gov/pubs/sp/800/218/final"
   - "https://www.w3.org/TR/WCAG-EM/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
+Halo, Kawan Codev.id!
 
 # Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan
 
-## Assignment lock
+Logo klien dan testimonial boleh tampil di website hanya ketika izin, konteks, dan asal buktinya dapat ditunjukkan kembali. Persetujuan lisan yang tidak tercatat, kutipan yang dipoles melewati maksud pembicara, atau logo yang dipasang karena pernah berinteraksi bukan bukti yang cukup. Jawaban praktisnya: perlakukan setiap testimonial dan logo sebagai paket evidence—izin tertulis, aset serta redaksi yang disetujui, identitas dan peran pemberi komentar, hubungan kerja, tanggal, riwayat edit, sumber klaim, masa berlaku, dan jalur pencabutan.
 
-- **Writer task:** Expand this file into one complete article answering: “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”
-- **Reader and situation:** Company preparing testimonials or portfolio logos
-- **Reader outcome:** Record permission, approved wording/assets, speaker identity/role, relationship, date, edits, substantiation, expiry/review, revocation, and privacy
-- **Primary intent:** Publish client evidence with authorization and context
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not fabricate praise, imply endorsement beyond permission, or mark up reviews without eligibility; CDV-19-A04 owns structured data
-- **Final public route:** `/artikel/testimonial-logo-klien-consent.html`
-- **Appointed CMS date:** `2026-07-18` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jika salah satu bagian itu belum ada, tampilkan lebih sedikit atau tahan publikasi. [NEEDS GATE-09 REVIEW: bukti kontrak/consent, hubungan klien, kepemilikan aset, dan hasil yang boleh diklaim belum disediakan dalam paket ini.] NIST menempatkan verifikasi pihak, peran, ruang lingkup, dan bukti serah-terima sebagai bagian dari pengelolaan risiko rantai pasok; prinsip yang sama membantu mencegah portofolio mengklaim lebih dari yang dikerjakan ([NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)).
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +41,85 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-### KR-17
-
-- **Original sources:** [UK Government Service Standard](https://www.gov.uk/service-manual/service-standard), [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/).
-- **Purpose for this article:** Establish an evidence hierarchy for provider selection, portfolios, cases, and measured outcomes.
-- **Safe grounded facts:** A screenshot, domain, logo, testimonial, tool badge, or live page alone does not prove authorship, scope, conformance, security, or business impact.
-- **Limits:** Do not invent clients, results, certifications, team competence, or consent. Apply GATE-09. ## Recurring intent-shape map | Intent shape | Representative catalog families | Main records | Control | |---|---|---|---| | Foundation/definitions | CDV-01, CDV-03, CDV-06, CDV-13 | KR-02, KR-03, KR-04, KR-11 | Define term, scope, version, and non-equivalent concepts. | | Selection/decision | CDV-03–CDV-05, CDV-11, CDV-16 | KR-03, KR-09, KR-14 | Compare constraints, alternatives, operating burden, exit, and evidence. | | Specification | CDV-01, CDV-06, CDV-07, CDV-17 | KR-02, KR-04, KR-05, KR-15 | Translate goals into testable contracts and acceptance. | | Design/interfaces | CDV-02, CDV-04, CDV-08 | KR-03, KR-04, KR-07, KR-11 | Model users, states, trust boundaries, data, and failure paths. | | Execution/QC | CDV-09–CDV-14 | KR-06, KR-08–KR-12 | Version evidence and connect controls to tests and release authority. | | Diagnosis | CDV-10, CDV-12, CDV-14, CDV-15 | KR-08, KR-10, KR-12, KR-13 | Preserve environment/timeline; distinguish symptom, cause, and decision. | | Maintenance | CDV-07, CDV-12, CDV-15, CDV-19 | KR-05, KR-10, KR-13, KR-16 | Track ownership, change, restore/rollback, deletion, and refresh. | | Procurement/handover | CDV-17, CDV-18, CDV-20 | KR-07, KR-15, KR-17 | Normalize scope and preserve source, accounts, evidence, and exit. | ## Evidence gates | Gate | Release condition | Held claims | |---|---|---| | `GATE-01` | Named users/stakeholders, current process, constraints, baseline, and acceptance owner are evidenced. | Need, priority, MVP, usability, or fitness for purpose. | | `GATE-02` | Current system/data/dependency inventory, quality attributes, capacity/cost assumptions, and ADR review exist. | Architecture/stack suitability, rewrite/migration, scalability, or cost. | | `GATE-03` | Versioned threat model, control set, secure-development evidence, and qualified verification cover the exact release. | Secure, ASVS-aligned, vulnerability-free, or penetration-tested. | | `GATE-04` | Current provider/API/auth contract, scopes, quotas, data flow, failure behavior, tests, and exit are verified. | Integration compatibility, OAuth safety, API reliability, or vendor behavior. | | `GATE-05` | Current consolidated Indonesian law, sector/local rules, roles, data map, purposes/bases, rights, vendors/transfers, retention, incident and legal review exist. | PDP/legal compliance, consent need, transfer, retention, deletion, or notification duty. | | `GATE-06` | Defined release scope, environments, representative data/users, criteria, test results, defects/exceptions, and decision owner exist. | Quality, accessibility conformance, acceptance, or release readiness. | | `GATE-07` | Actual Cloudflare/account/runtime configuration, current provider docs/limits, deployment, migration, secret, rollback, DNS/cache and smoke tests are recorded. | Production design, deployability, rollback, regional behavior, price, or quota. | | `GATE-08` | Dated lab/field/telemetry evidence states build, environment, sample, percentile, cache, tool/version, baseline, incident/cost window, and owner. | Speed, reliability, uptime, capacity, SEO, conversion, or operating-cost result. | | `GATE-09` | Contract/current offer and verified provider evidence cover entity/team, scope, ownership, consent, source/accounts, subcontractors, warranty/support, results, handover, and exit. | Price, competence, client relationship, certification, warranty, or case outcome. | | `GATE-10` | AI use-case baseline, data rights/provider handling, versioned evaluation set, failure/abuse results, human authority, monitoring, fallback, and retirement plan exist. | AI accuracy, autonomy, safety, privacy, copyright, savings, or business outcome. | ## Parent-topic coverage matrix | Topic family | Main research IDs | Safe ground for the six articles | Remaining gate | |---|---|---|---| | `CDV-01` | KR-01, KR-02 | Software discovery and requirements: problem, users, assumptions, functional/quality requirements, MVP, traceability, acceptance. | GATE-01 | | `CDV-02` | KR-02, KR-11 | Product/UX/interface design: research, flows, prototypes, content, usability, responsive states, accessible handoff. | GATE-01, GATE-06 | | `CDV-03` | KR-03, KR-07 | Architecture and technology decisions: constraints, ADRs, trade-offs, resilience, cost, operability, exit. | GATE-02 | | `CDV-04` | KR-03, KR-11, KR-12 | Website/web-app engineering: standards, rendering/state, CMS/custom, forms, identity, progressive enhancement. | GATE-02, GATE-06 | | `CDV-05` | KR-03, KR-11 | Mobile/installable apps: web/PWA/native choices, offline/sync, permissions, release, telemetry, accessibility. | GATE-02, GATE-06 | | `CDV-06` | KR-04, KR-08 | API lifecycle: contracts, HTTP, auth, errors, pagination, idempotency, versions, deprecation, consumer tests. | GATE-03, GATE-04 | | `CDV-07` | KR-05, KR-13 | Data architecture/quality/privacy/recovery: meaning, integrity, lifecycle, migration, backup/restore, deletion. | GATE-02, GATE-05 | | `CDV-08` | KR-04, KR-07 | Integrations: identity, payments/messaging, webhooks/queues, retry, reconciliation, fallback, vendor exit. | GATE-04, GATE-09 | | `CDV-09` | KR-04–KR-07 | Security and privacy engineering: threat/control lifecycle, identity/access, supply chain, PDP mapping, incidents. | GATE-03, GATE-05 | | `CDV-10` | KR-08, KR-11, KR-12 | Testing and release evidence: risk-based levels, specialist tests, traceability, defects, acceptance, release report. | GATE-06 | | `CDV-11` | KR-09, KR-10 | Cloudflare deployment: Pages/Workers choice, environments, CI/CD, secrets, migrations, cache, rollback. | GATE-07 | | `CDV-12` | KR-10, KR-12 | Operations: SLOs, telemetry, alerts, runbooks, incidents, capacity, quotas, cost and vendor status. | GATE-07, GATE-08 | | `CDV-13` | KR-02, KR-08, KR-11 | Accessibility: WCAG 2.2 scope, design/dev criteria, manual/automated/AT evaluation, procurement and maintenance. | GATE-05, GATE-06 | | `CDV-14` | KR-10, KR-12 | Performance/reliability: budgets, lab/field evidence, bottlenecks, caching, load/resilience and regression. | GATE-08 | | `CDV-15` | KR-07, KR-13 | Maintenance/modernization/decommissioning: dependencies, debt, upgrades, migration/recovery, archive/deletion. | GATE-02, GATE-05, GATE-08 | | `CDV-16` | KR-05, KR-14 | AI/automation delivery: use-case baseline, data/model/provider, evaluation, human control, monitoring, fallback. | GATE-05, GATE-10 | | `CDV-17` | KR-07, KR-15 | Estimation/procurement/contracts/TCO: comparable scope, uncertainty, ownership, risk, change, lifecycle cost, lock-in. | GATE-09 | | `CDV-18` | KR-08–KR-10, KR-15 | Governance/release/handover/vendor exit: roles, decisions, change, gates, source/accounts, runbooks, transition. | GATE-06, GATE-07, GATE-09 | | `CDV-19` | KR-13, KR-16 | Content systems/discoverability/migration: models, workflow, crawl/index/canonical, structured data, redirects, analytics. | GATE-05, GATE-08 | | `CDV-20` | KR-15, KR-17 | Capability proof/cases/provider selection: identity, role, consent, scope, methods, baselines, results, caveats, references. | GATE-09 | ## Mechanical acceptance - [x] Seventeen stable records contain every required field and direct source links. - [x] All 20 frozen topic IDs appear exactly once in the coverage matrix. - [x] Actual recurring intent shapes map to reusable records. - [x] Ten stable gates hold legal, security, project, vendor, release, production, performance, procurement, and AI claims. - [x] No article prose, production change, portfolio-ledger edit, invented metric, vendor endorsement, or compliance declaration is included.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-20-A02` → `/artikel/verifikasi-portfolio-peran-scope-provenance.html` — Memverifikasi Portfolio: Peran, Scope, dan Provenance
-- `CDV-20-A03` → `/artikel/studi-kasus-before-after-baseline.html` — Studi Kasus Before-after dengan Baseline yang Adil
-- `CDV-20-A05` → `/artikel/pelajaran-proyek-gagal-tidak-sesuai-target.html` — Menulis Pelajaran dari Proyek Gagal atau Tidak Sesuai Target
-- `CDV-20-A06` → `/artikel/claim-register-website-perusahaan-digital.html` — Claim Register untuk Website Perusahaan Digital
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Testimonial adalah pernyataan yang diatribusikan kepada seseorang tentang pengalaman atau penilaiannya. Logo klien adalah aset merek yang menandai hubungan atau referensi, bukan otomatis dukungan terhadap semua layanan Anda. Consent adalah izin yang dapat ditelusuri: siapa yang memberi, atas nama siapa, untuk media apa, dengan redaksi atau versi aset yang mana, dan sampai kapan.
+
+Ketiganya perlu dipisahkan dari bukti teknis. Screenshot, domain, logo, testimonial, lencana alat, atau halaman live tidak sendirinya membuktikan siapa pembuatnya, ruang lingkup pekerjaan, kesesuaian standar, keamanan, maupun dampak bisnis. Service Standard Inggris, misalnya, menekankan pembuktian kebutuhan pengguna, pengujian, dan pengukuran layanan; itu bukan lisensi untuk mengubah satu komentar menjadi klaim hasil universal ([UK Government Service Standard](https://www.gov.uk/service-manual/service-standard)).
+
+Batas artikel ini adalah tata kelola bukti publik. Ia tidak menetapkan kewajiban hukum privasi, tidak menentukan apakah sebuah logo merupakan merek dagang yang boleh dipakai, dan tidak menggantikan persetujuan kontraktual atau pemeriksaan profesional. Penandaan review terstruktur juga berada di luar cakupan halaman ini.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dengan satu record untuk setiap testimonial atau logo. Record tersebut dapat berupa entri di sistem konten atau spreadsheet terkunci, asalkan perubahan dan lampirannya dapat ditelusuri. Isi minimum yang berguna adalah:
+
+| Field | Yang harus dicatat | Mengapa penting |
+|---|---|---|
+| Pemberi dan peran | Nama, jabatan saat memberi izin, organisasi, serta kewenangan yang dinyatakan | Pembaca dapat membedakan suara pengguna, sponsor, dan perwakilan resmi |
+| Hubungan dan ruang lingkup | Proyek/layanan, periode hubungan, serta bagian yang benar-benar dikerjakan | Mencegah hubungan kecil dibaca sebagai kemitraan menyeluruh |
+| Izin | Media, halaman, bahasa, bentuk logo, penggunaan nama, tanggal, masa berlaku, dan cara mencabut | Editor tahu apa yang boleh dipublikasikan dan kapan harus berhenti |
+| Redaksi dan aset | Teks persis yang disetujui, versi terjemahan, file logo, aturan ukuran/warna, checksum atau nama versi | Menjaga publikasi tetap sama dengan persetujuan |
+| Substansiasi | Dokumen sumber, metrik yang diizinkan, baseline, periode, dan pemilik verifikasi | Klaim dapat diperiksa tanpa mengarang hasil |
+| Riwayat | Tanggal permintaan, edit, persetujuan akhir, review, dan publikasi | Menunjukkan keputusan mana yang berlaku |
+
+Urutannya sederhana. Pertama, minta izin dengan contoh tampilan nyata, bukan kalimat abstrak. Kedua, kunci redaksi dan aset dalam versi yang jelas. Ketiga, cek klaim terhadap sumbernya: brief, tiket, acceptance record, atau laporan yang memang boleh dibagikan. Keempat, minta persetujuan final dari orang yang berwenang. Kelima, publikasikan dengan konteks singkat—peran, ruang lingkup, dan tanggal—lalu jadwalkan review.
+
+Untuk proses pengembangan yang aman, NIST SSDF menganjurkan praktik yang dapat diulang dan bukti yang dipelihara sepanjang siklus hidup; prinsip ini relevan untuk record konten juga, meski SSDF bukan panduan testimonial ([NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)). Ketika halaman berubah, jangan menimpa record lama. Simpan versi sebelum dan sesudah, alasan perubahan, serta siapa yang menyetujui.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Identitas pemberi izin adalah faktor pertama. Komentar dari pengguna akhir, product owner, dan direktur memiliki konteks berbeda. Jika jabatan berubah, jangan memperbarui biografi secara otomatis; catat jabatan saat pernyataan dibuat dan minta persetujuan untuk perubahan.
+
+Ruang lingkup juga mengubah makna. “Membantu peluncuran situs” tidak sama dengan “membangun seluruh platform dan menjamin pertumbuhannya”. Gunakan kata kerja yang sesuai dengan deliverable yang dapat dibuktikan. Hindari superlatif seperti “terbaik” atau “tanpa risiko” kecuali ada dasar yang disetujui dan dapat diaudit.
+
+Waktu dan status hubungan menentukan apakah bukti masih relevan. Tetapkan tanggal review, terutama saat kontrak berakhir, organisasi berganti nama, layanan berubah, atau hasil lama tidak lagi mewakili versi sekarang. Sediakan status aktif, kedaluwarsa, ditahan, dan dicabut; jangan menghapus record pencabutan karena riwayat itu menjelaskan keputusan editorial.
+
+Privasi dan akses perlu dipertimbangkan sejak pengumpulan. Simpan kontak atau dokumen izin pada lokasi dengan akses terbatas, dan tampilkan hanya nama, jabatan, serta organisasi yang memang disetujui. Untuk komponen yang harus dapat diakses, teks alternatif logo dan struktur halaman perlu diuji dalam konteks halaman nyata; WCAG-EM menjelaskan evaluasi kesesuaian sebagai proses berbasis sampel dan bukti, bukan asumsi dari satu screenshot ([W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/)).
+
+Sobat Codev.id, faktor paling sering dilupakan adalah pihak yang berwenang mencabut izin. Catat kanal pencabutan, pemilik respons, target waktu internal, dan permukaan publik yang harus dibersihkan: halaman, PDF, presentasi, media sosial, maupun cache yang berada dalam kendali Anda. Jika kewajiban hukum atau kontrak tidak jelas, hentikan interpretasi dan minta review yang kompeten.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan matriks kecil berikut sebelum menerbitkan:
+
+| Kondisi record | Keputusan publikasi |
+|---|---|
+| Izin, redaksi, aset, peran, dan sumber klaim lengkap; tidak kedaluwarsa | Terbitkan sesuai versi yang disetujui, dengan konteks hubungan |
+| Izin ada, tetapi redaksi diedit atau diterjemahkan tanpa approval akhir | Tahan; kirim versi final untuk disetujui kembali |
+| Logo dikirim oleh kontak proyek, tetapi kewenangan merek tidak jelas | Tahan logo; minta konfirmasi pemilik atau perwakilan yang berwenang |
+| Testimonial menyebut angka hasil, tetapi baseline dan periode tidak tersedia | Hapus angka atau tahan seluruh kutipan sampai bukti diverifikasi |
+| Izin dicabut atau masa berlaku lewat | Unpublish aset publik, catat waktu penghapusan, dan pertahankan record pencabutan |
+
+Misalkan sebuah tim menerima kalimat, “Tim ini membuat proses kami jauh lebih cepat.” Jangan langsung menambahkan persentase. Tanyakan apa prosesnya, periode pembandingnya, siapa yang mengukur, dan apakah pemberi komentar menyetujui konteks tersebut. Jika jawabannya tidak tersedia, tampilkan kutipan sebagai opini yang terbatas pada pengalaman yang dinyatakan—atau jangan tampilkan sama sekali.
+
+Logo dapat diperlakukan lebih konservatif. Bila izin hanya menyebut halaman studi kasus, jangan memindahkannya ke halaman utama, proposal, dan iklan. Setiap kanal tambahan adalah perubahan penggunaan yang perlu dicatat dan, bila perlu, disetujui ulang.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menganggap “pernah menjadi klien” sama dengan izin memakai logo. Pertanyaan pemeriksaannya: di record mana izin logo, kanal, periode, dan pemilik persetujuan dicatat?
 
-## Objection or shortcut to address
+Kesalahan kedua adalah memoles kutipan sampai terdengar seperti janji. Bandingkan naskah terbit dengan versi yang disetujui secara kata demi kata; tandai setiap penghapusan, terjemahan, dan perubahan tanda baca yang memengaruhi makna.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan ketiga adalah menampilkan jabatan atau hasil tanpa sumber. Minta dokumen asal, pemilik verifikasi, dan batas klaim. Pedoman Secure by Design CISA mengingatkan bahwa keamanan perlu dipikirkan sejak desain, bukan disimpulkan dari label atau tampilan akhir; analoginya, kredibilitas testimonial berasal dari proses dan bukti, bukan dari dekorasi halaman ([CISA Secure by Design](https://www.cisa.gov/securebydesign)).
 
-## Required conclusion
+Kesalahan keempat adalah tidak menguji pencabutan. Lakukan latihan: siapa menerima permintaan, daftar aset mana yang dicari, siapa menghapusnya, dan bagaimana tim membuktikan bahwa versi lama tidak lagi dipakai? Jika jawabannya bergantung pada ingatan satu orang, kontrolnya belum siap.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Kesalahan kelima adalah mengubah logo atau testimoni menjadi klaim kemampuan tim. Pisahkan “klien mengizinkan referensi” dari “tim memiliki kompetensi tertentu”. Klaim kompetensi, sertifikasi, jaminan, harga, dan hasil proyek memerlukan bukti kontrak serta verifikasi tersendiri, bukan inferensi dari logo.
 
-## Draft completion checklist
+## Keberatan atau jalan pintas yang perlu dihindari
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Shortcut yang terlihat efisien adalah menyalin logo dari daftar vendor atau halaman publik klien, lalu menganggap keberadaan online sebagai consent. Cara itu gagal karena publikasi di satu tempat tidak otomatis memberi izin untuk konteks, kanal, atau periode yang berbeda. Ia juga menghapus jejak siapa yang menyetujui redaksi dan bagaimana pencabutan ditangani.
+
+Alternatifnya adalah meminta paket persetujuan singkat: contoh tampilan, teks dan aset versi, kanal, periode, identitas pemberi izin, serta instruksi pencabutan. Simpan jawaban dan lampiran bersama record. Bila organisasi klien mensyaratkan procurement atau legal review, tunggu keputusan mereka; jangan menggantinya dengan asumsi editor.
+
+## Kesimpulan: buktikan izin sebelum membuktikan reputasi
+
+Testimonial dan logo klien yang dapat dipertanggungjawabkan bukan yang paling banyak, melainkan yang asal, konteks, dan izinnya dapat ditunjukkan. Sebelum menekan publish, cocokkan record dengan redaksi serta aset yang akan tampil, verifikasi ruang lingkup dan sumber klaim, cek tanggal review, lalu pastikan jalur pencabutan diketahui.
+
+Teman Codev.id, langkah berikutnya adalah membuat satu record untuk satu aset dan meminta review atas paket itu dari pemilik hubungan atau pihak berwenang. Jika Anda perlu menata konteks layanan sebelum meminta persetujuan, gunakan [halaman utama Codev.id](/) sebagai titik awal, bukan sebagai bukti testimonial. Jangan mengubah izin terbatas menjadi endorsement luas, dan jangan mengisi celah bukti dengan bahasa percaya diri. Jika GATE-09 belum terpenuhi, tahan klaim kompetensi, hubungan klien, hasil, atau warranty sampai review kontrak dan bukti provider selesai.

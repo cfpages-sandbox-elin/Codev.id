@@ -2,8 +2,9 @@
 article_id: CDV-03-A06
 title: "Checklist Review Arsitektur Sebelum Build Besar"
 slug: "checklist-review-arsitektur"
-description: "Review requirements, data, interfaces, security, privacy, accessibility, operability, cost, migration, and unresolved risks"
-status: outline
+description: "Daftar periksa untuk meninjau kebutuhan, data, antarmuka, keamanan, privasi, aksesibilitas, operasi, biaya, migrasi, dan risiko yang belum terselesaikan"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-05-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,15 @@ sources:
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Checklist Review Arsitektur Sebelum Build Besar
 
-## Assignment lock
+Halo, Kawan Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Checklist Review Arsitektur Sebelum Build Besar”
-- **Reader and situation:** Team before a major build, migration, or commitment
-- **Reader outcome:** Review requirements, data, interfaces, security, privacy, accessibility, operability, cost, migration, and unresolved risks
-- **Primary intent:** Run a cross-functional architecture review
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not certify fitness or replace specialist review; CDV-09, CDV-13, and CDV-17 own specialist decisions
-- **Final public route:** `/artikel/checklist-review-arsitektur.html`
-- **Appointed CMS date:** `2025-05-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Sebelum tim mengikat diri pada build besar, jawab dulu satu pertanyaan: apakah keputusan arsitektur dapat ditelusuri dari kebutuhan, bukti, dan risiko yang benar-benar diketahui? Checklist review arsitektur membantu menemukan jawaban itu sebelum biaya perubahan membesar. Ia bukan stempel bahwa desain pasti cocok, melainkan forum terstruktur untuk memutuskan apa yang siap dibangun, apa yang harus diuji, dan apa yang masih membutuhkan persetujuan spesialis.
 
-## Opening instructions
+Mulailah dengan keputusan yang ingin dibuat, bukan dengan memilih teknologi. Kumpulkan kebutuhan bisnis, alur data, kontrak antarmuka, batas keamanan dan privasi, kebutuhan aksesibilitas, operasi harian, biaya, rencana migrasi, serta daftar risiko terbuka. Jika data proyek atau keputusan pemilik belum tersedia, kesimpulan harus ditahan dan ditandai **[NEEDS GATE-02: bukti dan persetujuan arsitektur proyek]**. Pilihan static, server-rendered, client-rendered, CMS, custom, monolitik, modular, atau serverless adalah opsi desain, bukan urutan tingkat kematangan; trade-off-nya harus dicatat untuk konteks proyek.
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Checklist Review Arsitektur Sebelum Build Besar**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,118 +42,74 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/pembuatan-website-aceh-besar.html` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/pembuatan-website-aceh-besar` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-03-A04` → `/artikel/build-buy-open-source-atau-saas.html` — Build, Buy, Open Source, atau SaaS
-- `CDV-03-A05` → `/artikel/kapasitas-dan-resiliensi-dari-skenario.html` — Merancang Kapasitas dan Resiliensi dari Skenario
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Hasil akhir dan prasyarat
 
-- **Purpose:** Nyatakan hasil yang ingin dicapai, siapa yang berwenang, data awal, alat/dokumen, dan kondisi yang harus tersedia.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil review yang baik adalah paket keputusan: tujuan dan batas scope, diagram konteks, daftar asumsi, keputusan arsitektur beserta alasan, matriks risiko, rencana verifikasi, pemilik tindak lanjut, dan kriteria berhenti. Pesertanya minimal mewakili pemilik produk, pengembang, operasi, keamanan atau privasi, dan pihak yang mengelola data. Tetapkan satu fasilitator dan satu pengambil keputusan; peserta lain memberi bukti atau mengajukan keberatan.
 
-## Langkah 1 — tetapkan scope
+Siapkan requirement yang diberi prioritas, inventaris data dan klasifikasinya, daftar integrasi, batasan lingkungan, perkiraan beban yang sudah diukur, anggaran, serta rencana migrasi atau rollback. Satu keputusan harus memiliki catatan singkat: konteks, opsi yang dipertimbangkan, keputusan, konsekuensi, dan pemicu untuk meninjau ulang. Pola ini sejalan dengan praktik Architecture Decision Record (ADR) yang menjadikan alasan keputusan dapat dilacak, bukan sekadar menyimpan diagram akhir ([panduan ADR AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)).
 
-- **Purpose:** Jelaskan objek, batas pekerjaan, antarmuka, risiko, serta hal yang sengaja tidak dikerjakan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Jangan menyamakan kelengkapan dokumen dengan kelayakan. Review ini tidak menggantikan penilaian profesional untuk keamanan, kepatuhan, privasi, atau kapasitas. Kawan Codev.id, sepakati sejak awal siapa yang boleh menyatakan “lanjut”, siapa yang hanya memberi rekomendasi, dan bukti apa yang membuat keputusan berubah.
+
+## Langkah 1 — tetapkan cakupan
+
+Tuliskan objek yang ditinjau dalam satu kalimat, misalnya “alur pemesanan dari kanal publik sampai pencatatan pembayaran”. Lalu gambar batas: komponen yang dimiliki tim, layanan pihak ketiga, pengguna, sumber data, dan jalur keluar. Tandai antarmuka masuk dan keluar dengan pemilik, format, autentikasi, batas waktu respons, penanganan error, dan versi. Hal yang sengaja tidak dikerjakan juga harus tertulis agar tidak menyusup ke komitmen build.
+
+Uji scope dengan pertanyaan berikut:
+
+- Kebutuhan mana yang wajib dipenuhi pada rilis ini, dan mana yang hanya asumsi?
+- Data apa yang boleh disimpan, berapa lama, siapa yang dapat mengakses, dan bagaimana penghapusannya diminta?
+- Di titik mana kegagalan satu dependensi menghentikan proses, dan adakah jalur manual yang disetujui?
+- Siapa pemilik keputusan untuk perubahan kontrak antarmuka?
+
+Untuk sistem web, perilaku dokumen dan interaksi perlu diuji terhadap definisi platform yang relevan, bukan hanya tampilan pada satu browser. WHATWG HTML Living Standard menjelaskan aturan platform web yang menjadi rujukan implementasi ([WHATWG HTML Standard](https://html.spec.whatwg.org/)). Pada komunikasi HTTP, semantik metode, status, header, dan caching harus konsisten dengan kontrak yang disepakati; gunakan RFC 9110 sebagai rujukan protokol ([HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)). Rujukan ini membantu memeriksa perilaku, tetapi tidak memilihkan arsitektur untuk proyek Anda.
 
 ## Langkah 2 — kumpulkan dan cocokkan bukti
 
-- **Purpose:** Susun dokumen, observasi, data, produk, atau standar yang harus cocok dengan kasus.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Buat matriks sederhana dengan kolom: kebutuhan, keputusan desain, bukti, pemilik bukti, tanggal, dan status. Cocokkan setiap klaim dengan artefak yang bisa diperiksa: contoh payload, log, hasil uji, kebijakan, konfigurasi, atau pernyataan vendor yang masih berlaku. Jika hanya ada opini, labeli sebagai asumsi dan beri cara verifikasinya.
+
+Untuk data dan dependensi, susun inventaris komponen serta asalnya. Software Bill of Materials (SBOM) meningkatkan transparansi komponen, tetapi tidak membuktikan bahwa komponen aman; CISA menjelaskan SBOM sebagai sarana visibilitas, bukan sertifikat keselamatan ([CISA SBOM](https://www.cisa.gov/sbom)). Evaluasi pemasok juga perlu mencakup proses pengadaan, provenance (asal-usul artefak), akses subprosesor, perubahan syarat, dan rencana ketika API atau kuota berubah. NIST SP 800-161 Rev. 1 dapat dipakai sebagai kerangka pertanyaan risiko rantai pasok, bukan sebagai bukti bahwa pemasok tertentu telah memenuhi semuanya ([NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)).
+
+Skor repositori dari OpenSSF Scorecard berguna sebagai sinyal awal untuk praktik keamanan proyek sumber terbuka. Ia bukan due diligence, audit, atau jaminan bebas kerentanan ([OpenSSF Scorecard](https://securityscorecards.dev/)). Mintalah bukti tambahan yang sesuai dampak: riwayat advisori, proses patch, kepemilikan paket, dan kemampuan keluar. Sobat Codev.id, ketika sebuah bukti tidak dapat diperoleh sebelum komitmen, ubah keputusan menjadi “lanjut dengan eksperimen terbatas” atau “tahan”, bukan “anggap aman”.
 
 ## Langkah 3 — jalankan urutan kerja
 
-- **Purpose:** Berikan urutan konseptual yang dapat diikuti tanpa berubah menjadi instruksi teknis berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Urutkan sesi agar peserta tidak melompat ke debat framework. Pertama, validasi tujuan, aktor, dan alur utama. Kedua, petakan data, klasifikasi akses, retensi, dan perpindahan lintas batas. Ketiga, tinjau kontrak antarmuka dan perilaku gagal. Keempat, bahas keamanan, privasi, aksesibilitas, dan operabilitas: logging, pemantauan, backup, pemulihan, serta siapa yang berjaga. Kelima, hitung konsekuensi biaya dan migrasi berdasarkan data yang tersedia. Terakhir, bandingkan opsi dan catat keputusan dalam ADR.
 
-## Hold point dan kondisi berhenti
+Pada setiap tahap, fasilitator meminta peserta menyebutkan bukti dan asumsi secara terpisah. Buat tabel keputusan ringkas:
 
-- **Purpose:** Nyatakan kapan pekerjaan tidak boleh diteruskan tanpa review, tes, atau persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+| Pertanyaan | Bukti minimum | Konsekuensi jika belum ada |
+|---|---|---|
+| Apakah alur utama terpenuhi? | Requirement dan skenario penerimaan | Build dibatasi pada prototipe |
+| Apakah antarmuka dapat berubah dengan aman? | Kontrak versi dan kasus error | Tambah adapter atau tahan integrasi |
+| Apakah dependensi dapat dipantau dan diganti? | Inventaris, pemilik, dan rencana keluar | Persetujuan pemasok ditunda |
+| Apakah operasi siap? | Runbook, alert, backup, dan pemilik | Tidak ada go-live |
 
-## Verifikasi hasil dan handover
+Pisahkan keputusan yang reversible (mudah dibatalkan) dari yang mahal untuk dibalik, seperti migrasi skema atau kontrak publik. Uji keputusan mahal dengan spike kecil, data sintetis, atau review independen sebelum tim membangun seluruh permukaan. Untuk langkah praktis berikutnya, Anda dapat melihat [layanan pembuatan website Aceh Besar](/pembuatan-website-aceh-besar.html) sebagai konteks koordinasi kebutuhan dan ruang lingkup; halaman tersebut bukan pengganti persetujuan arsitektur proyek ini.
 
-- **Purpose:** Buat checklist penerimaan, rekaman, tindak lanjut, dan pemicu koreksi.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Review Arsitektur Sebelum Build Besar”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+## Titik tahan dan kondisi berhenti
 
-## Objection or shortcut to address
+Tetapkan hold point tertulis. Pekerjaan berhenti ketika pemilik data belum menyetujui penggunaan dan retensi; kontrak antarmuka belum memiliki pemilik; akses istimewa atau jalur audit belum dipahami; rencana rollback belum dapat diuji; atau risiko kritis belum memiliki mitigasi dan penerima risiko. Berhenti juga bila keputusan hanya bersandar pada skor vendor, demo, atau klaim pemasaran tanpa bukti yang cocok dengan konteks.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Gate utama artikel ini adalah **[NEEDS GATE-02: validasi kebutuhan, batasan, dan persetujuan pemilik keputusan]**. Tanpa itu, checklist boleh dipakai untuk menemukan pertanyaan, tetapi tidak untuk menyimpulkan stack, target performa, kepatuhan, atau kesiapan produksi. Kawan Codev.id, dokumentasikan siapa yang menahan pekerjaan, alasan, bukti yang kurang, dan tanggal peninjauan ulang. Isu keamanan, privasi, aksesibilitas, dan keputusan kapasitas tetap memerlukan reviewer spesialis sesuai proyek.
 
-## Required conclusion
+## Verifikasi hasil dan serah-terima
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Sebelum handover, fasilitator membacakan keputusan satu per satu. Pastikan setiap keputusan memiliki pemilik, tanggal, asumsi, bukti, konsekuensi, dan pemicu revisi. Simpan diagram konteks dan data-flow yang memiliki versi; tautkan requirement ke skenario penerimaan; serta catat risiko tersisa dengan perlakuan: mitigasi, transfer, penerimaan, atau penghindaran.
 
-## Draft completion checklist
+Handover belum selesai jika operator tidak bisa menjawab cara mendeteksi gangguan, memulihkan data, mengubah kredensial, atau menghubungi pemilik dependensi. Jadwalkan verifikasi ulang setelah eksperimen, perubahan vendor, migrasi, atau insiden. Gunakan hasil uji dan observasi aktual, bukan janji desain. Jika rute implementasi memerlukan koordinasi layanan web, [informasi pembuatan website Aceh Besar](/pembuatan-website-aceh-besar) dapat menjadi titik kontak operasional; tetap verifikasi bahwa kebutuhan dan persetujuan proyek Anda sudah lengkap.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Jalan pintas yang sering menggoda
+
+Shortcut paling umum adalah menyetujui desain dari diagram dan demo yang tampak berjalan. Cara ini gagal ketika data nyata memiliki aturan berbeda, antarmuka pihak ketiga mengembalikan error yang tidak diuji, atau operasi tidak memiliki pemilik. Diagram menjawab “apa yang direncanakan”, bukan “apa yang terbukti”. Alternatif yang lebih andal adalah review bertahap: uji alur dan kontrak dengan data sintetis, minta bukti pemasok, jalankan eksperimen terbatas untuk keputusan mahal, lalu dokumentasikan konsekuensinya. Jika bukti belum cukup, kecilkan komitmen dan pasang hold point.
+
+## Kesimpulan
+
+Checklist review arsitektur sebelum build besar berarti memeriksa kebutuhan, data, antarmuka, keamanan, privasi, aksesibilitas, operabilitas, biaya, migrasi, dan risiko terbuka dalam satu keputusan yang dapat ditelusuri. Mulai rapat berikutnya dengan matriks bukti dan ADR, tetapkan pemilik keputusan, lalu minta validasi **[NEEDS GATE-02]** sebelum memilih stack atau menyatakan siap produksi.
+
+Teman Codev.id, aksi terdekat Anda adalah mengundang perwakilan lintas fungsi, mengisi kolom bukti yang kosong, dan menandai satu hold point yang tidak boleh dilewati. Review ini membantu tim melihat ketidakpastian; ia tidak menyatakan fitness atau menggantikan persetujuan profesional. Operasikan aturan sederhana: tidak ada build besar tanpa keputusan tertulis, bukti yang cocok, dan jalur berhenti yang disepakati.

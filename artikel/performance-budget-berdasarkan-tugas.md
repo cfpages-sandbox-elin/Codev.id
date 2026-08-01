@@ -3,7 +3,8 @@ article_id: CDV-14-A01
 title: "Performance Budget Berdasarkan Tugas Pengguna"
 slug: "performance-budget-berdasarkan-tugas"
 description: "Define critical tasks, representative devices/networks, resource and timing budgets, ownership, test point, exception, and regression gate"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-02-08"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,17 @@ sources:
   - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Performance Budget Berdasarkan Tugas Pengguna
 
-## Assignment lock
+Halo, Kawan Codev.id! Performance budget yang berguna bukan angka “halaman harus selesai dalam sekian detik”. Budget yang dapat dipakai tim dimulai dari tugas pengguna: apa yang harus berhasil dilakukan, pada perangkat dan jaringan yang mewakili pengguna, dengan batas sumber daya dan waktu yang disepakati sebelum build dimulai.
 
-- **Writer task:** Expand this file into one complete article answering: “Performance Budget Berdasarkan Tugas Pengguna”
-- **Reader and situation:** Team planning a new web experience or feature
-- **Reader outcome:** Define critical tasks, representative devices/networks, resource and timing budgets, ownership, test point, exception, and regression gate
-- **Primary intent:** Set measurable performance constraints before build
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not guarantee one load time or ranking; CDV-14-A02 owns field/lab measurement and CDV-20-A03 owns case results
-- **Final public route:** `/artikel/performance-budget-berdasarkan-tugas.html`
-- **Appointed CMS date:** `2026-02-08` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Urutannya sederhana: tulis tugas kritis, pilih kondisi uji yang realistis, tetapkan batas untuk ukuran/permintaan serta momen interaksi, lalu beri pemilik, titik pengukuran, aturan pengecualian, dan gerbang regresi. Angka awal adalah hipotesis kerja, bukan jaminan ranking, konversi, energi, atau satu waktu muat universal. Ambang dan alat perlu ditinjau saat konteks, browser, atau data pengguna berubah [NEEDS GATE-08 REVIEW].
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Performance Budget Berdasarkan Tugas Pengguna**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,117 +44,77 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-14-A02` → `/artikel/lab-field-data-core-web-vitals.html` — Lab Data, Field Data, dan Core Web Vitals
-- `CDV-14-A03` → `/artikel/optimasi-gambar-dan-font.html` — Optimasi Gambar dan Font Tanpa Merusak Pengalaman
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan kalimat tugas, misalnya “pengunjung menemukan produk, membuka detail, lalu mengirim permintaan”. Dari kalimat itu, pilih momen yang menentukan keberhasilan: konten utama terlihat, kontrol dapat dipakai, dan konfirmasi terkirim. Setiap momen mendapat target yang dapat diukur serta kondisi uji yang ditulis.
+
+Kesalahpahaman paling berbahaya adalah menganggap budget sebagai satu angka untuk semua halaman. Pengguna yang membaca artikel, mengisi formulir, dan memeriksa status transaksi memiliki jalur dan toleransi berbeda. Budget juga bukan laporan setelah rilis; ia adalah batas desain dan implementasi. Jika batas terlewati, keputusan harus terjadi sebelum perubahan masuk, bukan setelah keluhan muncul.
+
+Core Web Vitals adalah metrik yang didefinisikan penyedianya dan dapat berkembang; ia membantu membaca pengalaman, tetapi tidak otomatis menjawab apakah tugas bisnis selesai [web.dev Core Web Vitals](https://web.dev/articles/vitals). Karena itu, metrik pengalaman dipasangkan dengan indikator tugas seperti “tombol kirim siap dipakai” atau “pesan sukses tampil”.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Performance budget adalah dokumen kendali yang menghubungkan empat hal: tugas pengguna, kondisi representatif, batas kinerja, dan respons ketika batas dilanggar. Batas dapat mencakup ukuran aset, jumlah permintaan, waktu menuju konten atau interaksi, serta reliabilitas alur. Pilih hanya yang punya hubungan sebab-akibat dengan tugas; daftar metrik yang panjang tanpa keputusan hanya menambah kebisingan.
+
+Yang dibahas di sini adalah penetapan constraint sebelum build: siapa yang mengukur, kapan, dengan data apa, dan kapan perubahan dihentikan. Pengukuran lab dan field secara mendalam adalah pekerjaan lanjutan; data CrUX, misalnya, merepresentasikan pengalaman pengguna nyata dalam kumpulan data tertentu, bukan jaminan untuk setiap pengguna [Chrome UX Report](https://developer.chrome.com/docs/crux). Hasil kasus, harga, kapasitas, dan klaim sebelum-sesudah juga berada di luar halaman ini.
+
+SLO (service level objective) dapat dipakai sebagai cara menyepakati tingkat layanan dan keputusan, bukan sebagai janji uptime kontraktual [Google SRE Workbook](https://sre.google/workbook/implementing-slos/). Untuk fitur web, terjemahkan prinsip itu menjadi sasaran alur: berapa proporsi percobaan yang mencapai konfirmasi dalam kondisi yang telah ditentukan. Jangan menulis persentase tanpa data operasi yang benar-benar dimiliki tim.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+1. **Petakan tugas kritis.** Tulis pemicu, langkah, dan bukti selesai. Bedakan jalur utama dari halaman yang hanya informatif. Mintalah pemilik produk mengonfirmasi urutan ini.
+2. **Pilih profil representatif.** Catat kelas perangkat, browser, ukuran layar, kondisi CPU, serta jaringan yang memang ingin dilayani. “Laptop cepat dan Wi-Fi kantor” hanya valid bila itu benar-benar populasi sasaran.
+3. **Pisahkan batas sumber daya dan waktu.** Batas sumber daya mengendalikan byte, gambar, font, JavaScript, dan permintaan. Batas waktu mengendalikan kapan konten utama, kontrol, dan konfirmasi tersedia. Satu perubahan dapat memperbaiki satu batas sambil merusak yang lain.
+4. **Tentukan titik ukur.** Ukur pada commit atau build yang jelas, dengan skrip dan data uji yang disimpan. Instrumentasi memberi sinyal, bukan reliabilitas dengan sendirinya; dokumentasi OpenTelemetry menjelaskan bagaimana telemetri dikumpulkan dan dikontekstualkan [OpenTelemetry documentation](https://opentelemetry.io/docs/).
+5. **Tetapkan pemilik dan gerbang.** Pemilik frontend, platform, desain, dan produk perlu tahu batas yang mereka jaga. Pull request yang menambah aset besar atau langkah jaringan harus memicu pemeriksaan budget.
+6. **Kelola pengecualian.** Pengecualian harus menyebut alasan tugas, durasi, pemilik, kompensasi, dan tanggal tinjau. Tanpa tanggal kedaluwarsa, pengecualian berubah menjadi budget baru yang tidak pernah disetujui.
+
+Simpan keputusan dalam satu tabel yang dapat dibaca saat perencanaan:
+
+| Tugas dan bukti selesai | Kondisi uji | Batas contoh yang disepakati | Titik ukur dan pemilik | Respons pelanggaran |
+|---|---|---|---|---|
+| Membuka detail dan melihat konten utama | Perangkat/jaringan profil A | Byte, permintaan, dan momen konten sesuai target tim | CI dan pemeriksaan release; pemilik frontend | Tahan merge, cari penyebab, atau ajukan pengecualian |
+| Mengirim formulir dan menerima konfirmasi | Profil B, data valid | Kontrol siap dan konfirmasi tidak tertunda oleh pekerjaan nonkritis | Uji alur; pemilik fitur | Nonaktifkan perubahan penyebab atau pecah pekerjaan |
+
+Angka pada kolom batas harus diisi tim berdasarkan kebutuhan dan pengukuran awal, bukan disalin dari contoh. RFC 9111 membantu menjelaskan semantik cache HTTP; gunakan pemahaman itu untuk menetapkan aturan cache yang konsisten, bukan untuk menjanjikan waktu respons tertentu [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Tugas dan konten.** Formulir dengan validasi berbeda memiliki titik selesai berbeda. Aset wajib untuk memahami produk tidak boleh diperlakukan seperti dekorasi yang dapat ditunda.
+
+**Perangkat dan jaringan.** CPU, memori, latensi, kehilangan paket, dan kebijakan browser mengubah urutan pekerjaan. Profil harus cukup spesifik untuk mengungkap risiko, tetapi tidak begitu banyak hingga tidak pernah diuji.
+
+**Implementasi dan platform.** Cache, kompresi, rendering sisi klien, pihak ketiga, dan API dapat menggeser bottleneck. Perubahan cache perlu ditinjau terhadap kontrol invalidasi dan umur respons sesuai kebijakan yang disepakati.
+
+**Bukti dan operasi.** Lab terkontrol berguna untuk membandingkan commit; data field berguna untuk melihat variasi populasi. Jangan menyamakan keduanya. Rencana telemetri sebaiknya menjawab tindakan apa yang diambil ketika sinyal melewati batas. Praktik respons insiden NIST menekankan persiapan, deteksi, respons, dan pembelajaran; gunakan siklus itu untuk regresi kinerja tanpa mengklaim kepatuhan hukum tertentu [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
+
+**Perubahan tujuan.** Ketika tugas utama, populasi pengguna, atau komponen pihak ketiga berubah, budget lama perlu ditinjau. [NEEDS GATE-08 REVIEW: ambang numerik, sampel, versi alat, dan kondisi produksi proyek ini belum diberikan.]
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim merencanakan alur permintaan demo. Tugas kritisnya bukan “halaman beranda cepat”, melainkan “pengunjung menemukan formulir, mengisi tiga bidang, dan melihat konfirmasi”. Tim dapat membuat dua profil uji: perangkat dengan CPU terbatas dan jaringan latensi lebih tinggi, serta perangkat kerja dengan jaringan stabil. Profil itu adalah asumsi yang harus disetujui; bukan klaim tentang seluruh audiens.
+
+Keputusan berikutnya: logo dan teks utama diperlukan untuk orientasi, sedangkan widget analitik tidak diperlukan untuk mengirim formulir. Aset wajib masuk budget jalur kritis; widget dimuat setelah bukti selesai atau dikeluarkan dari jalur. Jika perubahan desain menambah font baru, pemilik harus menunjukkan dampaknya pada byte, permintaan, dan momen kontrol siap.
+
+Kawan Codev.id, gunakan aturan “gagal berarti berhenti sejenak”. Jika pemeriksaan CI melewati batas, jangan langsung menaikkan angka. Cari diff yang menyebabkannya, cek apakah profil uji masih sah, lalu pilih: optimalkan, pecah pekerjaan, tunda fitur nonkritis, atau ajukan pengecualian berjangka. Setelah pengecualian disetujui, buat tiket penghapusan dan pemiliknya.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Performance Budget Berdasarkan Tugas Pengguna”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+- **Satu angka untuk semua tugas.** Tanyakan: bukti selesai tugas mana yang sebenarnya diukur?
+- **Profil “rata-rata” yang tidak terdokumentasi.** Tanyakan: perangkat, browser, jaringan, data, dan versi build apa yang dipakai?
+- **Metrik tanpa tindakan.** Tanyakan: siapa yang menerima alert, apa keputusan dalam satu siklus kerja, dan kapan kondisi dinyatakan pulih?
+- **Menganggap telemetri sebagai bukti sebab.** Tanyakan: apakah perubahan, sampel, dan kondisi stabil sehingga perbandingan adil? Tanpa itu, tulis sebagai sinyal atau hipotesis.
+- **Membiarkan pengecualian permanen.** Tanyakan: siapa pemiliknya dan kapan ditinjau ulang?
+- **Menjadikan metrik sebagai janji bisnis.** Tanyakan: apakah ada data operasi dan kontrak yang mendukung? Jika tidak, jangan menyebut jaminan ranking, konversi, energi, atau uptime.
 
-## Objection or shortcut to address
+## Jalan pintas yang perlu ditolak
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Shortcut yang sering dipilih adalah memakai ambang bawaan alat lalu menyatakan fitur “lulus”. Alat memang membantu konsistensi, tetapi ambang generik tidak mengetahui tugas, perangkat, atau biaya kegagalan Anda. Teman Codev.id, alternatif yang lebih aman ialah mulai dari tugas kritis, catat profil dan versi alat, gunakan ambang awal sebagai hipotesis, lalu kalibrasikan dengan pengukuran lab dan field yang stabil. Setiap perubahan ambang harus memiliki alasan dan persetujuan pemilik, bukan sekadar menghilangkan alarm.
 
-## Required conclusion
+## Kesimpulan
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Performance budget berdasarkan tugas pengguna berarti membatasi hal yang menentukan keberhasilan alur—sumber daya, waktu, dan reliabilitas—pada kondisi uji yang mewakili, dengan pemilik, titik ukur, pengecualian, dan gerbang regresi yang jelas. Ia mengarahkan keputusan sebelum build; bukan janji satu waktu muat atau hasil bisnis.
 
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Langkah berikutnya: buka backlog fitur, pilih satu tugas kritis, lalu isi tabel budget bersama pemilik produk dan teknis. Simpan profil uji, skrip, serta alasan setiap angka. Untuk konteks awal dan pekerjaan lanjutan, Anda dapat mulai dari [beranda Codev.id](/). Tinjau ulang budget ketika tugas, populasi, atau alat berubah; sampai bukti proyek tersedia, perlakukan ambang sebagai hipotesis dan minta review teknis.

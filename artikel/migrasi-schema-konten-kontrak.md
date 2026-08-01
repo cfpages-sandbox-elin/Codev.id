@@ -2,8 +2,9 @@
 article_id: CDV-15-A05
 title: "Migrasi Schema, Konten, dan Kontrak Secara Kompatibel"
 slug: "migrasi-schema-konten-kontrak"
-description: "Map consumers, compatibility windows, data reconciliation, URL redirects, dual-read/write risks, release sequence, verification, and cleanup"
-status: outline
+description: "Panduan memetakan pemakai, menjaga kompatibilitas, merekonsiliasi data, mengatur pengalihan URL, serta memverifikasi urutan rilis dan pembersihan migrasi."
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-03-17"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,13 @@ sources:
   - "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Migrasi Schema, Konten, dan Kontrak Secara Kompatibel
 
-## Assignment lock
+Halo, Teman Codev.id! Migrasi database, API, dan konten pada saat yang sama bukan sekadar mengganti nama kolom atau memindahkan URL. Keputusan yang paling aman adalah memetakan semua consumer, menetapkan jendela kompatibilitas, lalu merilis perubahan secara bertahap dengan rekonsiliasi data dan rencana kembali (rollback). Jika salah satu prasyarat itu belum tersedia, tunda pemotongan trafik dan minta persetujuan teknis.
 
-- **Writer task:** Expand this file into one complete article answering: “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”
-- **Reader and situation:** Team changing database, APIs, and website content together
-- **Reader outcome:** Map consumers, compatibility windows, data reconciliation, URL redirects, dual-read/write risks, release sequence, verification, and cleanup
-- **Primary intent:** Coordinate multiple migration surfaces during modernization
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not own detailed data or SEO migration; CDV-07-A03 and CDV-19-A05 own those evidence plans
-- **Final public route:** `/artikel/migrasi-schema-konten-kontrak.html`
-- **Appointed CMS date:** `2026-03-17` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Hasil migrasi yang baik membuat versi lama dan baru dapat hidup berdampingan untuk waktu yang disepakati, tanpa kehilangan makna data, putusnya kontrak API, atau halaman yang hilang. Bukti yang dapat mengubah keputusan adalah inventaris consumer yang belum lengkap, aturan transformasi yang belum diuji, atau persetujuan pemilik data dan kanal distribusi yang belum ada.
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Migrasi Schema, Konten, dan Kontrak Secara Kompatibel**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,123 +40,60 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-### KR-13
-
-- **Original sources:** [NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications), [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), [Google Search site-move guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
-- **Purpose for this article:** Ground dependency/runtime maintenance, vulnerability prioritization, migration, recovery, and decommissioning.
-- **Safe grounded facts:** Vulnerability severity is not the sole prioritization input; exposure, exploitation, business impact, fix safety, rollback, and ownership matter. URL/data migrations need inventories and reconciliation.
-- **Limits:** Never prescribe replacement from age alone or delete history/data without GATE-02, GATE-05, and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-05, GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/konten` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/website` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/seo` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/deskripsi-produk` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/blog-post` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-15-A03` → `/artikel/technical-debt-register-dampak.html` — Technical Debt Register yang Terhubung ke Dampak
-- `CDV-15-A04` → `/artikel/refactor-replatform-strangler-atau-rewrite.html` — Refactor, Replatform, Strangler, atau Rewrite
-- `CDV-15-A06` → `/artikel/decommission-software-data-akses.html` — Decommission Software Tanpa Meninggalkan Data dan Akses
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.*
 
 ## Hasil akhir dan prasyarat
 
-- **Purpose:** Nyatakan hasil yang ingin dicapai, siapa yang berwenang, data awal, alat/dokumen, dan kondisi yang harus tersedia.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Tentukan satu hasil penerimaan: consumer lama tetap dilayani selama jendela yang disetujui, consumer baru membaca schema dan kontrak baru, konten memiliki URL kanonis, dan setiap rekaman yang dipindahkan dapat direkonsiliasi. Pemilik produk menyetujui perubahan perilaku; pemilik data menyetujui makna dan retensi; tim platform menyetujui urutan rilis serta rollback.
 
-## Langkah 1 — tetapkan scope
+Siapkan katalog consumer (layanan, job, aplikasi, partner, laporan), kamus field lama-baru, spesifikasi kontrak, daftar URL, sampel data anonim, dashboard error, serta keputusan go/no-go. Inventaris komponen perangkat lunak dan asal dependensi membantu transparansi, tetapi SBOM tidak membuktikan keamanan dengan sendirinya ([CISA SBOM resources](https://www.cisa.gov/sbom)). Untuk vendor, provenance dan rencana kegagalan perlu diperiksa; skor repositori hanyalah sinyal awal, bukan pengganti uji tuntas ([NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/)).
 
-- **Purpose:** Jelaskan objek, batas pekerjaan, antarmuka, risiko, serta hal yang sengaja tidak dikerjakan.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Untuk memulai discovery, gunakan [ruang lingkup konten Codev.id](/konten) sebagai daftar titik masuk, lalu cocokkan setiap halaman dengan consumer teknisnya. Bila perubahan menyentuh navigasi dan template, rujuk juga [panduan konten website](/konten/website); tautan itu membantu tim konten dan platform memakai istilah yang sama tanpa memperluas migrasi menjadi audit SEO penuh.
+
+## Langkah 1 — tetapkan cakupan
+
+Tuliskan apa yang berubah: struktur tabel atau dokumen, bentuk request/response, model konten, dan peta URL. Nyatakan juga yang tidak berubah, misalnya aturan bisnis, hak akses, atau histori yang belum mendapat keputusan. Pisahkan migrasi isi dan SEO rinci ke rencana khusus; halaman ini hanya mengoordinasikan dependensinya.
+
+Buat matriks consumer × versi kontrak × mode baca/tulis. Tandai consumer yang tidak dapat di-deploy serentak. Untuk setiap field, catat apakah ditambah, dipetakan, dipecah, digabung, atau dihentikan. Field yang hilang makna tidak boleh diisi dengan nilai tebakan; gunakan status tidak tersedia dan minta keputusan pemilik data.
 
 ## Langkah 2 — kumpulkan dan cocokkan bukti
 
-- **Purpose:** Susun dokumen, observasi, data, produk, atau standar yang harus cocok dengan kasus.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bandingkan schema aktual dengan schema target melalui migrasi yang dapat diulang di lingkungan uji. Cocokkan jumlah rekaman, kunci unik, relasi, zona waktu, encoding, status publikasi, dan sampel nilai batas. Untuk API, replay permintaan nyata yang sudah disanitasi dan ukur respons versi lama serta baru. Untuk konten, cocokkan slug, canonical, tautan internal, status, dan lampiran.
+
+Catat checksum atau hitungan per partisi sebagai bukti rekonsiliasi, bukan hanya log “berhasil”. Setiap selisih harus memiliki kategori: transformasi yang diharapkan, data rusak, keterlambatan replikasi, atau keputusan manual. Inventaris URL dan pengalihan harus diuji bersama; Google menekankan pemetaan URL lama-ke-baru, pengalihan permanen, dan pemantauan setelah perpindahan ([Google Search site-move guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)).
+
+Periksa dependensi runtime dan jalur pemasok. Publikasi NIST SSDF membantu memasukkan praktik pengembangan aman ke siklus rilis ([NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications)). Kerentanan yang sedang dieksploitasi perlu diprioritaskan, tetapi tingkat keparahan saja tidak cukup: pertimbangkan paparan, dampak bisnis, keamanan perbaikan, rollback, dan pemilik tindakan ([CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)).
 
 ## Langkah 3 — jalankan urutan kerja
 
-- **Purpose:** Berikan urutan konseptual yang dapat diikuti tanpa berubah menjadi instruksi teknis berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dengan perubahan yang kompatibel: tambahkan kolom atau endpoint baru tanpa menghapus yang lama, dan biarkan parser mengabaikan field tambahan. Deploy consumer yang dapat membaca kedua bentuk. Setelah metrik stabil, lakukan backfill bertahap dengan checkpoint dan rekonsiliasi.
 
-## Hold point dan kondisi berhenti
+Dual-read (membaca dua sumber) dapat membandingkan hasil, tetapi jangan langsung memilih salah satu tanpa aturan deterministik. Dual-write (menulis dua sumber) berisiko menghasilkan urutan berbeda, retry ganda, dan konflik. Tetapkan sumber kebenaran, idempotency key, batas waktu, serta prosedur memperbaiki selisih sebelum mengaktifkannya.
 
-- **Purpose:** Nyatakan kapan pekerjaan tidak boleh diteruskan tanpa review, tes, atau persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan feature flag atau routing bertahap untuk sebagian consumer. Urutan umum: perluas schema, rilis pembaca kompatibel, aktifkan penulisan target, backfill, pindahkan pembacaan, migrasikan consumer terakhir, lalu hentikan jalur lama setelah jendela kompatibilitas berakhir. Untuk URL, pasang redirect dan pertahankan halaman tujuan sebelum trafik dialihkan. Setiap tahap memiliki ambang error, latency, selisih rekonsiliasi, dan owner yang jelas.
 
-## Verifikasi hasil dan handover
+Pisahkan keputusan teknis dari keputusan editorial. Perubahan judul, deskripsi, atau struktur artikel memerlukan pemilik konten; perubahan response API memerlukan pemilik kontrak. Catat keduanya dalam satu release record agar rollback tidak hanya mengembalikan database, tetapi juga flag, cache, dan konfigurasi routing.
 
-- **Purpose:** Buat checklist penerimaan, rekaman, tindak lanjut, dan pemicu koreksi.
-- **Tie back to this article:** Keep the explanation specific to “Migrasi Schema, Konten, dan Kontrak Secara Kompatibel”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+## Titik henti dan kondisi berhenti
 
-## Objection or shortcut to address
+Berhenti sebelum cutover jika consumer belum terpetakan, kontrak partner tidak memiliki versi, backup belum diuji pemulihannya, atau rollback hanya berupa harapan. [NEEDS GATE-02: persetujuan perubahan dan kepemilikan data belum tersedia dalam paket ini.] Hentikan dual-write bila selisih meningkat, urutan event tidak dapat dijelaskan, atau retry menciptakan duplikasi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Jangan menghapus kolom, endpoint, histori, atau redirect hanya karena versi baru tampak sehat. [NEEDS GATE-05: bukti retensi, kebutuhan audit, dan keputusan penghapusan.] Jika pemulihan, akses, atau dampak keamanan belum ditinjau, [NEEDS GATE-08: persetujuan recovery dan dekomisioning.] minta review teknis sebelum melanjutkan.
 
-## Required conclusion
+## Verifikasi hasil dan serah terima
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Selama jendela kompatibilitas, simpan daftar versi consumer, waktu perubahan flag, hasil rekonsiliasi, error per endpoint, redirect yang gagal, dan keputusan manual. Uji baca, tulis, retry, timeout, izin, ekspor, pencarian, dan pemulihan dari backup. Validasi beberapa URL lama secara langsung dan pantau status respons serta trafik setelah redirect.
 
-## Draft completion checklist
+Handover harus memuat schema dan kontrak final, kamus transformasi, daftar pengecualian, bukti checksum, dashboard, runbook rollback, tanggal berakhirnya dukungan versi lama, dan nama pemilik. Tutup migrasi hanya setelah consumer lama tidak lagi terdeteksi selama periode yang disepakati dan keputusan penghapusan telah disetujui.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Jalan pintas yang sering menggoda
+
+“Sekalian ubah semua dan hapus versi lama setelah deploy” tampak lebih cepat. Dalam konteks ini, satu consumer tersembunyi dapat gagal, data yang tertulis ke dua tempat dapat bercabang, dan URL lama dapat kehilangan sinyal maupun pembaca. Sobat Codev.id, alternatif yang lebih dapat diaudit adalah kompatibilitas sementara, metrik per tahap, dan bukti rekonsiliasi sebelum cleanup. Jangan mengganti komponen hanya karena usianya; keputusan harus mempertimbangkan paparan, dampak, keamanan perbaikan, dan kemampuan rollback.
+
+## Kesimpulan
+
+Migrasi schema, konten, dan kontrak secara kompatibel berarti mengoordinasikan peta consumer, perubahan aditif, jendela versi, rekonsiliasi, redirect, dan cleanup yang disetujui. Langkah berikutnya: jadwalkan review dengan pemilik data dan platform, bawa matriks consumer-versi serta hasil replay dan rekonsiliasi, lalu tetapkan ambang go/no-go. Kawan Codev.id, aturan operasinya sederhana: tidak ada cutover atau penghapusan tanpa bukti pemulihan, kepemilikan, dan rollback yang benar-benar dapat diuji.

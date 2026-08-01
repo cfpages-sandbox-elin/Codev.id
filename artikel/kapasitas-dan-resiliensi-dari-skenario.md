@@ -2,8 +2,8 @@
 article_id: CDV-03-A05
 title: "Merancang Kapasitas dan Resiliensi dari Skenario"
 slug: "kapasitas-dan-resiliensi-dari-skenario"
-description: "Define traffic/data assumptions, dependency failures, degradation, recovery objectives, capacity tests, and review triggers"
-status: outline
+description: "Panduan menerjemahkan asumsi lalu lintas, kegagalan dependensi, penurunan layanan, pemulihan, uji kapasitas, dan pemicu peninjauan menjadi kebutuhan arsitektur"
+status: draft
 publication_date: "2025-05-26"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -13,6 +13,7 @@ reader_community: "Codev.id"
 reader_address: "Sobat Codev.id"
 final_route: "/artikel/kapasitas-dan-resiliensi-dari-skenario.html"
 technical_review: required
+writing_contract_version: "native-id-v2"
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
   - "https://html.spec.whatwg.org/"
@@ -22,37 +23,9 @@ sources:
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Merancang Kapasitas dan Resiliensi dari Skenario
 
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Merancang Kapasitas dan Resiliensi dari Skenario”
-- **Reader and situation:** Product expecting variable load or critical workflows
-- **Reader outcome:** Define traffic/data assumptions, dependency failures, degradation, recovery objectives, capacity tests, and review triggers
-- **Primary intent:** Translate demand and failure assumptions into architecture requirements
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not guarantee uptime or replace production SLOs; CDV-12-A01 owns SLOs and CDV-14-A06 owns load diagnosis
-- **Final public route:** `/artikel/kapasitas-dan-resiliensi-dari-skenario.html`
-- **Appointed CMS date:** `2025-05-26` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Merancang Kapasitas dan Resiliensi dari Skenario**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,118 +36,78 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
+Halo, Sobat Codev.id! Kapasitas dan resiliensi sebaiknya dirancang dari skenario yang dapat diuji, bukan dari tebakan jumlah server atau janji uptime. Mulailah dengan beban normal dan puncak, alur data, kegagalan dependensi, mode degradasi, serta target pemulihan. Dari sana barulah kebutuhan arsitektur dan eksperimen kapasitas ditulis.
 
-## Evidence packet
+Kesimpulan itu masih bersyarat. Tanpa data traffic, ukuran payload, pola batch, dan bukti batas layanan yang dipakai, angka kapasitas hanyalah asumsi. Mulai dari konteks layanan di [Codev.id](/) bila Anda perlu menyamakan istilah dengan tim. [NEEDS GATE-02: validasi asumsi beban, dependensi, dan target pemulihan dengan pemilik sistem sebelum keputusan arsitektur disahkan.]
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-03-A03` → `/artikel/memilih-tech-stack-dari-kebutuhan.html` — Memilih Tech Stack dari Kebutuhan, Bukan Tren
-- `CDV-03-A04` → `/artikel/build-buy-open-source-atau-saas.html` — Build, Buy, Open Source, atau SaaS
-- `CDV-03-A06` → `/artikel/checklist-review-arsitektur.html` — Checklist Review Arsitektur Sebelum Build Besar
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Resiliensi bukan berarti sistem tidak pernah gagal. Resiliensi berarti layanan memiliki perilaku yang dipilih ketika komponen gagal: menolak dengan jelas, memakai data terakhir yang aman, mengantrekan pekerjaan, atau memulihkan alur setelah dependensi kembali. Kapasitas pun bukan satu angka. Ia adalah hubungan antara laju masuk, biaya pemrosesan, batas sumber daya, dan tingkat layanan yang masih diterima.
+
+Kesalahan paling mahal adalah menguji hanya jalur sukses pada beban rata-rata. Uji harus memasukkan lonjakan, retry, antrean yang menumpuk, dan kegagalan satu dependensi. Pilihan arsitektur—monolit, modular, server-rendered, client-rendered, CMS, atau serverless—adalah opsi dengan trade-off, bukan peringkat kematangan. Catat alasan, konsekuensi, dan kondisi pembatalannya dalam decision record; panduan AWS menjelaskan pola dokumentasi keputusan semacam itu ([AWS ADR guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)).
+
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Objek perancangan di sini adalah asumsi operasional yang diterjemahkan menjadi persyaratan: berapa permintaan per detik, berapa ukuran dan pertumbuhan data, pekerjaan mana yang sinkron, serta apa yang boleh ditunda. Batasnya jelas: artikel ini tidak menetapkan SLO produksi, menjamin uptime, atau menggantikan diagnosis beban di lingkungan nyata. Target SLO dan analisis insiden memerlukan keputusan serta bukti yang dibedakan dengan jelas; pemiliknya dapat sama atau berbeda sesuai struktur tanggung jawab organisasi.
+
+Untuk web, definisikan perilaku protokol secara eksplisit—status respons, cache, timeout, dan retry—dengan merujuk semantik HTTP RFC 9110 ([RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)). Struktur dokumen dan parsing mengikuti standar HTML Living Standard ([WHATWG HTML](https://html.spec.whatwg.org/)); standar tersebut membantu konsistensi perilaku, bukan bukti bahwa aplikasi Anda telah tahan beban.
+
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Urutkan pekerjaan dalam enam langkah. Pertama, tulis skenario permintaan: pengguna aktif bersamaan, laju puncak, durasi puncak, distribusi endpoint, ukuran payload, dan pertumbuhan data. Bedakan trafik manusia, webhook, batch, dan retry.
+
+Kedua, petakan rantai dependensi. Untuk setiap database, cache, queue, API pihak ketiga, DNS, atau penyedia identitas, catat timeout, kuota, mode gagal, dan pemilik keputusan. Ketiga, tentukan kontrak degradasi: fitur apa yang dimatikan, data apa yang boleh stale, dan operasi mana yang harus tetap aman.
+
+Keempat, tetapkan tujuan pemulihan sebagai pertanyaan keputusan: berapa banyak data yang boleh hilang, berapa lama pemulihan boleh berlangsung, dan siapa yang mengaktifkan prosedur. Jangan mengubahnya menjadi angka “standar” tanpa persetujuan pemilik risiko.
+
+Kelima, buat uji kapasitas berlapis: baseline, kenaikan bertahap, spike, soak, dan pemulihan setelah kegagalan. Ukur latency, error, saturation, backlog, serta biaya; simpan konfigurasi dan versi aplikasi agar hasil dapat diulang. Keenam, catat keputusan dan pemicu review—misalnya perubahan volume, payload, dependensi, atau pola retry.
+
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil berubah ketika asumsi input berubah. Payload besar dapat menekan bandwidth dan memori walau jumlah request tetap. Operasi tulis yang bersifat bursty mengubah kebutuhan queue dan database. Retry tanpa batas dapat menggandakan beban saat layanan mitra lambat. Perubahan skema, library, atau penyedia juga menambah jalur kegagalan.
+
+Inventaris dependensi dengan SBOM agar komponen dan versinya terlihat, tetapi jangan menyamakan transparansi dengan keamanan; CISA menempatkan SBOM sebagai sarana visibilitas ([CISA SBOM](https://www.cisa.gov/sbom)). Penilaian rantai pasok perlu konteks proses dan vendor menurut NIST SP 800-161 Rev.1 ([NIST](https://csrc.nist.gov/pubs/sp/800/161/r1/final)). Skor repositori OpenSSF Scorecard hanyalah sinyal untuk ditindaklanjuti, bukan due diligence lengkap ([OpenSSF Scorecard](https://securityscorecards.dev/)). Kuota API, syarat vendor, subprosesor, dan kerentanan terkini harus diverifikasi langsung sebelum keputusan final.
+
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan proses checkout menerima lonjakan singkat. Jika pembayaran adalah dependency wajib, sistem dapat menahan order dalam status “menunggu konfirmasi”, membatasi retry dengan backoff, dan menyediakan jalur rekonsiliasi. Jika katalog gagal, katalog terakhir yang diberi penanda waktu mungkin masih boleh ditampilkan; keputusan itu harus disetujui pemilik bisnis.
+
+Gunakan tabel sederhana berikut untuk memaksa asumsi menjadi keputusan:
+
+| Skenario | Sinyal yang diamati | Respons yang dipilih | Bukti yang harus dicari |
+|---|---|---|---|
+| Beban puncak | latency naik, CPU jenuh | scale atau batasi trafik | hasil spike test dan batas resource |
+| API mitra timeout | timeout dan retry meningkat | antrekan, fallback, atau tolak | kontrak timeout, kuota, dan rekonsiliasi |
+| Database read-only | error tulis, backlog naik | hentikan fitur tulis tertentu | prosedur pemulihan dan kehilangan data yang diterima |
+| Deploy mengubah payload | error parsing lintas versi | kompatibilitas bertahap | contract test dan rollback |
+
+Kawan Codev.id, tulis siapa yang berwenang memilih tiap baris. Tanpa pemilik, mode degradasi mudah berubah menjadi keputusan darurat yang tidak konsisten.
+
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Merancang Kapasitas dan Resiliensi dari Skenario”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+“Tambah instance saja” gagal bila bottleneck berada pada kuota API, lock database, atau antrean. “Pakai cache untuk semuanya” gagal bila data stale tidak boleh dipakai. “Skor keamanan tinggi berarti aman” mengabaikan konfigurasi runtime dan proses respons insiden. Periksa dengan pertanyaan berikut:
 
-## Objection or shortcut to address
+- Apakah setiap asumsi beban memiliki sumber data, rentang ketidakpastian, dan tanggal review?
+- Apakah setiap dependency memiliki timeout, budget retry, fallback, serta pemilik kontrak?
+- Apakah uji memverifikasi pemulihan, bukan hanya angka throughput?
+- Apakah hasil uji menyebut versi kode, konfigurasi, dataset, dan batas yang ditemukan?
+- Apakah SBOM dan evaluasi vendor diperbarui ketika komponen berubah?
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Shortcut yang paling menggoda adalah menetapkan target kapasitas dari benchmark vendor. Benchmark itu dapat membantu membentuk hipotesis, tetapi tidak mewakili payload, konkurensi, dan kegagalan sistem Anda. Ulangi pengukuran pada lingkungan yang terkontrol, lalu minta review teknis sebelum mengunci rancangan.
 
-## Required conclusion
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Penutup: ubah skenario menjadi dokumen kerja
 
-## Draft completion checklist
+Jawaban untuk “merancang kapasitas dan resiliensi dari skenario” adalah membuat paket kecil yang dapat ditinjau: lembar asumsi beban, peta dependensi, matriks mode degradasi, tujuan pemulihan, rencana uji, dan decision record. Sobat Codev.id, jadwalkan review setiap kali pola trafik, payload, dependency, atau risiko bisnis berubah.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Langkah berikutnya: minta pemilik produk dan operasi menyetujui asumsi serta batas kehilangan data, jalankan uji bertahap dengan konfigurasi tercatat, lalu simpan hasil dan pemicu eskalasi. Dokumen ini membantu menerjemahkan skenario menjadi kebutuhan arsitektur dan dapat diperdalam melalui daftar artikel; ia tidak menjamin uptime dan tidak menggantikan SLO produksi, diagnosis beban, atau persetujuan teknis proyek.

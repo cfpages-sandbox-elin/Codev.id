@@ -2,8 +2,9 @@
 article_id: CDV-09-A02
 title: "Secure Development Lifecycle dengan SSDF dan ASVS"
 slug: "secure-development-lifecycle-ssdf-asvs"
-description: "Map NIST SSDF practices and versioned OWASP ASVS requirements to roles, backlog, code, tests, release, and response evidence"
-status: outline
+description: "Panduan memetakan praktik NIST SSDF dan persyaratan OWASP ASVS ke peran, daftar kerja, kode, pengujian, rilis, serta bukti respons keamanan."
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-10-13"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -23,37 +24,15 @@ sources:
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Secure Development Lifecycle dengan SSDF dan ASVS
 
-## Assignment lock
+Halo, Kawan Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Secure Development Lifecycle dengan SSDF dan ASVS”
-- **Reader and situation:** Buyer or team replacing ad hoc security checks
-- **Reader outcome:** Map NIST SSDF practices and versioned OWASP ASVS requirements to roles, backlog, code, tests, release, and response evidence
-- **Primary intent:** Integrate security practices and verification into delivery
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not claim compliance from a checklist or copy every control; project risk selects scope and review
-- **Final public route:** `/artikel/secure-development-lifecycle-ssdf-asvs.html`
-- **Appointed CMS date:** `2025-10-13` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jika keamanan baru diperiksa menjelang rilis, tim biasanya menemukan temuan ketika biaya perubahan sudah tinggi. Secure Development Lifecycle (SDL) dengan NIST Secure Software Development Framework (SSDF) dan OWASP Application Security Verification Standard (ASVS) membantu memindahkan keputusan keamanan ke sepanjang alur kerja: mulai dari penentuan risiko, backlog, desain, kode, pengujian, rilis, sampai respons insiden.
 
-## Opening instructions
+Jawaban singkatnya: gunakan SSDF sebagai kerangka praktik dan pembagian tanggung jawab, lalu gunakan ASVS versi yang dipilih sebagai daftar persyaratan verifikasi yang dapat ditelusuri ke bukti. Keduanya tidak otomatis menyatakan aplikasi patuh atau aman. Ruang lingkup harus dipilih dari threat model, jenis data, jalur akses, dan keputusan pemilik sistem. [NEEDS THREAT MODEL DAN PERSETUJUAN SCOPE PROYEK]
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Secure Development Lifecycle dengan SSDF dan ASVS**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -64,119 +43,79 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-04
-
-- **Original sources:** [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html), [OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/), [WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/), [OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/).
-- **Purpose for this article:** Ground contract-first APIs, authorization flows, passkeys, and API abuse controls.
-- **Safe grounded facts:** RFC 9700 is a 2025 best-current-practice update for OAuth 2.0. OpenAPI describes an interface; it does not prove implementation behavior or security.
-- **Limits:** Never publish secrets/private schemas or prescribe a flow without client/threat context. Apply GATE-03 and GATE-04.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-03, GATE-05
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/web-development` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-09-A01` → `/artikel/threat-modeling-praktis-aplikasi.html` — Threat Modeling Praktis untuk Aplikasi
-- `CDV-09-A03` → `/artikel/login-session-dan-access-control.html` — Login, Session, dan Access Control yang Bisa Diuji
-- `CDV-09-A04` → `/artikel/secrets-dan-software-supply-chain.html` — Secrets dan Software Supply Chain
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.
 
 ## Tentukan objek, kondisi, dan tahap siklus hidup
 
-- **Purpose:** Jelaskan apa yang dikelola dan bukti kondisi awalnya.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan memetakan objek yang benar-benar akan dilindungi, bukan langsung menyalin semua kontrol. Objeknya dapat berupa API, aplikasi web, layanan internal, pipeline CI/CD, dependensi, kredensial, atau data yang diproses. Catat pemilik produk, pemilik teknis, tim pengembang, penguji, operator, dan pihak yang menyetujui risiko. Peta ini menjadi dasar penerapan SSDF: praktik organisasi, perlindungan perangkat lunak, produksi perangkat lunak yang aman, serta respons terhadap kerentanan.
+
+ASVS kemudian menerjemahkan risiko aplikasi menjadi persyaratan yang bisa diverifikasi. Pilih versi ASVS dan tingkat verifikasi yang sesuai dengan konteks proyek; jangan mengklaim seluruh standar sudah dipenuhi hanya karena beberapa butir tercentang. Setiap persyaratan perlu memiliki pemilik, status, bukti, dan alasan bila dinyatakan tidak berlaku.
+
+Pada lokakarya awal, tanyakan tiga hal. Data apa yang paling berdampak bila bocor atau berubah? Jalur mana yang dapat dipanggil pengguna, integrasi, atau administrator? Tahap mana yang saat ini tidak memiliki pemilik keputusan? Jawaban tersebut menentukan apakah item keamanan masuk ke discovery, desain, implementasi, atau rilis. Untuk pekerjaan pengembangan yang lebih luas, Anda dapat melihat konteks layanan pada halaman [web development](/web-development), tetapi keputusan scope tetap harus berasal dari proyek yang sedang dinilai.
 
 ## Mekanisme perubahan atau penurunan kinerja
 
-- **Purpose:** Hubungkan penggunaan, lingkungan, material/sistem, dan waktu tanpa mengarang umur layanan.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Risiko keamanan berubah ketika kode, konfigurasi, dependensi, identitas, atau lingkungan berubah. Endpoint baru dapat memperluas permukaan serangan; perubahan otorisasi dapat mengubah siapa yang boleh membaca atau mengubah objek; pembaruan library dapat mengubah perilaku transitive dependency. Karena itu, backlog keamanan tidak boleh dianggap pekerjaan satu kali.
+
+Gunakan SSDF untuk menetapkan pemicu perubahan: pull request pada komponen sensitif, perubahan skema API, perubahan penyedia identitas, penambahan dependensi, atau migrasi lingkungan. Gunakan ASVS untuk menentukan pemeriksaan yang relevan pada pemicu itu. Misalnya, kontrak API dapat ditulis dalam OpenAPI agar bentuk antarmuka, parameter, dan respons terlihat oleh pengembang serta penguji. Spesifikasi OpenAPI mendeskripsikan antarmuka; spesifikasi itu tidak membuktikan implementasi benar-benar menegakkan autentikasi atau otorisasi ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)).
+
+Untuk alur OAuth, dokumentasikan klien, redirect, token, dan batas kepercayaan sebelum memilih pola implementasi. RFC 9700 adalah pembaruan best current practice keamanan OAuth 2.0, tetapi penerapannya tetap bergantung pada konteks klien dan ancaman ([RFC 9700](https://www.rfc-editor.org/info/rfc9700/)). Jika passkey dipertimbangkan, catat perangkat, pemulihan akun, dan fallback; WebAuthn mendefinisikan API dan protokol untuk autentikasi berbasis kriptografi, bukan jaminan bahwa desain pemulihan Anda aman ([WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/)).
 
 ## Inspeksi dan data yang perlu dicatat
 
-- **Purpose:** Buat baseline, indikator, foto/ukur, riwayat, dan batas pengamatan.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Buat satu matriks yang menghubungkan risiko, persyaratan ASVS, perubahan kode, pemeriksaan, dan bukti. Kolom minimalnya:
+
+| Area | Pertanyaan inspeksi | Bukti yang disimpan |
+|---|---|---|
+| Peran | Siapa pemilik risiko dan siapa yang menyetujui pengecualian? | keputusan, tiket, dan tanggal review |
+| Desain | Aset, trust boundary, dan penyalahgunaan apa yang dipertimbangkan? | threat model dan keputusan desain |
+| Kode | Validasi input, otorisasi objek, error, dan secret ditangani di mana? | pull request, hasil review, dan konfigurasi |
+| Uji | Skenario negatif apa yang harus gagal? | hasil unit, integrasi, dan security test |
+| Rilis | Apa syarat go/no-go dan siapa yang berwenang menunda? | checklist rilis, approval, dan artefak build |
+| Respons | Bagaimana kerentanan dilaporkan, diprioritaskan, dan ditutup? | tiket, timeline, patch, dan verifikasi ulang |
+
+Untuk API, cocokkan kontrak dengan pemeriksaan abuse case seperti otorisasi tingkat objek, pembatasan resource, dan validasi alur bisnis. OWASP API Security Top 10 2023 dapat menjadi daftar risiko untuk dipetakan ke skenario uji, bukan bukti bahwa API Anda telah aman ([OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/)). Simpan versi dokumen, commit atau build identifier, lingkungan pengujian, dan hasil yang dapat direproduksi. Hindari menyimpan token, secret, atau data produksi dalam tiket.
+
+Dependensi juga perlu baseline. SBOM membantu transparansi komponen dan relasinya, tetapi tidak menetapkan bahwa setiap komponen aman ([CISA SBOM resources](https://www.cisa.gov/sbom)). Catat sumber paket, versi yang dipakai, lisensi, pemilik tindak lanjut, serta cara menanggapi advisory. Skor repositori dari OpenSSF Scorecard dapat menjadi sinyal untuk pemeriksaan awal, bukan pengganti due diligence terhadap pemasok ([OpenSSF Scorecard](https://securityscorecards.dev/)).
 
 ## Pilihan perawatan atau intervensi
 
-- **Purpose:** Bandingkan pemantauan, perawatan, perbaikan, penguatan, penggantian, atau penghentian.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Tidak semua temuan harus diselesaikan dengan cara yang sama. Pilihan yang masuk akal bergantung pada exploitability, dampak aset, paparan, dan kemampuan rollback.
+
+- **Pantau:** dipakai bila risiko rendah, terisolasi, dan ada indikator yang jelas. Tetapkan tanggal peninjauan, bukan status “nanti”.
+- **Perbaiki di kode:** ubah validasi, otorisasi, manajemen sesi, logging, atau dependensi; sertakan regresi agar masalah tidak kembali.
+- **Perkuat kontrol kompensasi:** batasi akses, tambahkan rate limit, isolasi layanan, atau perketat konfigurasi sementara. Dokumentasikan bahwa ini bukan perbaikan akar masalah.
+- **Tunda atau hentikan rilis:** pilih ini bila bukti minimum belum ada, jalur serangan terbuka, atau pemilik risiko tidak menyetujui pengecualian.
+- **Ganti komponen atau vendor:** lakukan bila asal-usul, dukungan, atau respons pemasok tidak dapat diverifikasi. NIST SP 800-161 Rev.1 memberi konteks pengelolaan risiko rantai pasok siber; ia tidak menilai vendor tertentu untuk Anda ([NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)).
+
+Kawan Codev.id, bedakan “kontrol ada” dari “kontrol terbukti bekerja”. Sebuah scan yang hijau hanya menjawab aturan yang dijalankan oleh alat tersebut. Bukti yang lebih kuat menggabungkan review manusia, uji negatif, konfigurasi yang diterapkan, dan jejak rilis.
 
 ## Cara menentukan prioritas
 
-- **Purpose:** Gunakan konsekuensi, urgensi, akses, biaya siklus hidup, dan otoritas keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Prioritaskan dengan matriks sederhana: dampak aset × kemungkinan penyalahgunaan × paparan × kesulitan pemulihan. Tambahkan urgensi bila ada indikasi eksploitasi aktif atau perubahan yang akan segera dirilis. Skala angka hanyalah alat bantu; keputusan akhir harus menyebut asumsi dan otoritas yang menyetujuinya.
 
-## Rekaman, handover, dan pemicu pemeriksaan ulang
+Contoh: endpoint yang mengubah data pelanggan dan dapat dipanggil lintas tenant mendapat prioritas lebih tinggi daripada halaman informasi publik, meskipun keduanya memiliki temuan validasi input. Untuk temuan dependency, pertimbangkan apakah komponen dimuat saat runtime, jalur kodenya tercapai, dan apakah patch kompatibel. Jangan menjadikan skor otomatis sebagai vonis. [NEEDS REVIEW KEPEMILIKAN RISIKO, PAPARAN, DAN KONSEKUENSI AKTUAL]
 
-- **Purpose:** Tentukan bukti yang harus bertahan untuk pemilik dan peninjau berikutnya.
-- **Tie back to this article:** Keep the explanation specific to “Secure Development Lifecycle dengan SSDF dan ASVS”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Tetapkan Definition of Done keamanan untuk tiap jenis perubahan. Perubahan otorisasi mungkin memerlukan threat model yang diperbarui, uji akses lintas peran, dan approval pemilik data. Perubahan library mungkin memerlukan SBOM baru, pemeriksaan advisory, dan rencana rollback. Dengan begitu, ASVS masuk ke backlog sebagai pekerjaan berukuran jelas, sedangkan SSDF menjaga agar pekerjaan itu memiliki pemilik dan bukti.
 
-## Objection or shortcut to address
+## Rekaman, serah terima, dan pemicu pemeriksaan ulang
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Simpan paket bukti yang dapat dibaca orang berikutnya: scope dan versi ASVS, keputusan threat model, pemetaan SSDF, matriks risiko, kontrak API, hasil pengujian, SBOM, keputusan vendor, pengecualian, serta bukti build dan deployment. Tautkan artefak ke commit atau release yang tepat. Hapus secret dan data pribadi dari lampiran; catat lokasi aman bila reviewer berwenang perlu mengaksesnya.
 
-## Required conclusion
+Serah terima bukan sekadar mengirim tautan. Tulis apa yang berubah, apa yang belum diverifikasi, siapa pemilik tindak lanjut, dan kapan pemeriksaan diulang. Pemicu review ulang dapat berupa perubahan autentikasi, penambahan endpoint, insiden, advisory kritis, pergantian vendor, atau perubahan batas tenant. Jika bukti tidak cukup untuk menyimpulkan, tampilkan status “belum diverifikasi” dan eskalasikan—jangan mengubahnya menjadi klaim kepatuhan.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang sering dipilih
 
-## Draft completion checklist
+Jalan pintas yang menggoda adalah menjalankan satu scanner pada branch utama, menyalin hasilnya ke tiket, lalu menyebut SDL selesai. Cara ini gagal karena scanner tidak mengetahui seluruh konteks bisnis, bisa melewatkan penyalahgunaan alur, dan tidak menetapkan siapa yang menerima risiko. Ia juga tidak memberi jejak keputusan untuk perubahan berikutnya.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Alternatif yang lebih dapat dipertanggungjawabkan adalah membuat baseline kecil namun tertelusur: pilih risiko paling penting, petakan ke persyaratan ASVS, tetapkan praktik SSDF dan pemiliknya, jalankan uji yang sesuai, lalu simpan keputusan rilis. Perluas cakupan saat bukti dan kapasitas bertambah. Sobat Codev.id, lebih baik satu alur sensitif memiliki bukti lengkap daripada seluruh aplikasi memiliki checklist tanpa pemilik.
+
+## Kesimpulan
+
+Secure Development Lifecycle dengan SSDF dan ASVS berarti menghubungkan praktik organisasi dengan persyaratan verifikasi yang dipilih untuk risiko proyek. SSDF mengatur siapa melakukan apa dan bukti apa yang harus bertahan; ASVS membantu merumuskan pemeriksaan aplikasi yang dapat diuji. OpenAPI, panduan OAuth, WebAuthn, OWASP API Top 10, SBOM, dan penilaian rantai pasok memberi bahan keputusan—bukan sertifikat keamanan otomatis.
+
+Langkah berikutnya: pilih satu alur paling sensitif, tulis threat model ringkas, tetapkan versi dan tingkat ASVS, buat matriks risiko-ke-bukti, lalu minta persetujuan pemilik risiko sebelum rilis. Teman Codev.id, operating rule-nya sederhana: tidak ada klaim “aman” atau “patuh” tanpa scope, bukti yang dapat ditelusuri, dan review teknis yang berwenang.

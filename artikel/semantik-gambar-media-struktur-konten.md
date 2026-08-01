@@ -3,7 +3,8 @@ article_id: CDV-13-A04
 title: "Semantik, Gambar, Media, dan Struktur Konten"
 slug: "semantik-gambar-media-struktur-konten"
 description: "Define headings/landmarks, link purpose, alternative text decision, captions/transcripts, tables, language, reading order, and responsive presentation"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-01-27"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -14,45 +15,24 @@ reader_address: "Teman Codev.id"
 final_route: "/artikel/semantik-gambar-media-struktur-konten.html"
 technical_review: required
 sources:
-  - "https://www.gov.uk/service-manual/agile-delivery"
   - "https://www.w3.org/TR/WCAG22/"
-  - "https://csrc.nist.gov/pubs/sp/800/218/final"
   - "https://www.w3.org/TR/WCAG-EM/"
-  - "https://spec.openapis.org/oas/v3.1.1.html"
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Semantik, Gambar, Media, dan Struktur Konten
 
-## Assignment lock
+Halo, Teman Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Semantik, Gambar, Media, dan Struktur Konten”
-- **Reader and situation:** Content, design, and development teams publishing web pages
-- **Reader outcome:** Define headings/landmarks, link purpose, alternative text decision, captions/transcripts, tables, language, reading order, and responsive presentation
-- **Primary intent:** Make content understandable across modalities
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not create marketing copy or metadata strategy; CDV-19-A06 owns editorial quality
-- **Final public route:** `/artikel/semantik-gambar-media-struktur-konten.html`
-- **Appointed CMS date:** `2026-01-27` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Halaman yang tampak rapi belum tentu dapat dipahami ketika judul dibaca melalui pembaca layar, gambar tidak tampil, video diputar tanpa suara, atau layar dipersempit. Keputusan utamanya adalah memperlakukan semantik, media, dan urutan konten sebagai satu sistem: struktur HTML harus menjelaskan hubungan, setiap media harus punya alternatif yang setara bila dibutuhkan, dan tampilan responsif tidak boleh mengubah urutan makna.
 
-## Opening instructions
+Caranya bukan menambahkan `alt` ke semua gambar atau menyebarkan heading sebanyak mungkin. Tentukan dulu informasi yang ingin disampaikan, siapa yang memakainya, lalu pilih elemen, teks alternatif, keterangan, transkrip, tabel, bahasa, dan urutan baca yang paling tepat. [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) memberi kriteria untuk diuji, tetapi halaman ini tidak menyatakan bahwa satu pola otomatis membuat proyek konforman. Hasil akhirnya berubah sesuai konten nyata, komponen yang dipakai, perangkat, dan pengujian manual.
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Semantik, Gambar, Media, dan Struktur Konten**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu. Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,131 +43,83 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-02
-
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-05, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/konten` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/website` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/seo` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/deskripsi-produk` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/blog-post` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/konten/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-13-A02` → `/artikel/keyboard-focus-komponen-interaktif.html` — Keyboard, Focus, dan Komponen Interaktif
-- `CDV-13-A03` → `/artikel/form-error-autentikasi-aksesibel.html` — Form, Error, dan Autentikasi yang Aksesibel
-- `CDV-13-A05` → `/artikel/audit-aksesibilitas-otomatis-manual-at.html` — Audit Aksesibilitas: Otomatis, Manual, dan Assistive Technology
-- `CDV-13-A06` → `/artikel/pengguna-disabilitas-dalam-riset-pengadaan.html` — Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Semantik menjawab “apa peran bagian ini”, bukan “bagaimana bagian ini terlihat”. Heading membentuk hierarki topik, landmark membantu berpindah antarwilayah, dan elemen seperti `button`, `nav`, `main`, `table`, atau `figure` memberi sinyal yang dapat dipakai teknologi bantu. Gambar dan media melengkapi pesan itu; teks alternatif, caption, atau transkrip dipilih berdasarkan fungsi, bukan berdasarkan jenis berkasnya.
+
+Salah paham yang sering mahal adalah menganggap pemeriksaan otomatis sebagai sertifikat. Scanner dapat menemukan sebagian pola yang bisa dipastikan dari kode, tetapi tidak dapat memutuskan apakah `alt` benar-benar menyampaikan tujuan gambar, apakah urutan baca masuk akal, atau apakah transkrip cukup untuk memahami demonstrasi. [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/) menempatkan pemeriksaan cepat sebagai langkah awal, sedangkan evaluasi yang lebih lengkap perlu mencakup halaman dan proses yang relevan. Untuk proyek tertentu, keputusan konformitas, legalitas, dan penerimaan harus ditinjau oleh pemilik keputusan: **[NEEDS GATE-05/GATE-06 REVIEW: konfirmasi ruang lingkup evaluasi, perangkat bantu, dan kriteria penerimaan proyek sebelum menyatakan halaman aksesibel atau konforman.]**
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Dalam artikel ini, “struktur konten” berarti hubungan yang dapat dipahami tanpa bergantung pada posisi visual: satu judul memiliki bagian, paragraf menjelaskan konteks, daftar mengelompokkan item, dan tabel menghubungkan header dengan sel. “Media” mencakup gambar, audio, video, dan ilustrasi yang membawa atau menghias pesan. “Presentasi responsif” mencakup reflow, pembesaran, dan perubahan tata letak selama hubungan informasi tetap terjaga.
+
+Yang tidak dibahas adalah penulisan materi promosi, strategi metadata, atau keputusan merek. Kita juga tidak menetapkan satu pustaka komponen, ambang ukuran layar, tingkat kontras tertentu, atau klaim kepatuhan hukum Indonesia. Batas ini penting: tim dapat membuat keputusan implementasi yang dapat diuji tanpa berpura-pura telah menguji semua pengguna, perangkat, atau konteks penggunaan.
+
+Mulailah dari tugas pembaca. Apakah ia mencari definisi, membandingkan dua nilai, mengisi formulir, atau mengikuti langkah? Jawaban itu menentukan apakah konten cocok menjadi paragraf, daftar, tabel, atau rangkaian langkah. Jika kebutuhan dan pemilik keputusan belum jelas, dokumentasikan asumsi dan minta validasi sebelum mengunci struktur.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan alur berikut saat menyusun atau merombak halaman.
+
+1. **Petakan tujuan dan urutan.** Tulis satu kalimat tujuan halaman, kemudian daftar tugas yang harus selesai. Susun heading mengikuti urutan tugas, bukan ukuran font. Gunakan satu `h1` yang menjelaskan halaman, lalu tingkat heading yang tidak melompat tanpa alasan. Landmark seperti `header`, `nav`, `main`, `aside`, dan `footer` membagi wilayah; gunakan label yang membedakan dua navigasi yang berbeda.
+2. **Hubungkan tindakan dengan tujuan.** Teks tautan harus tetap bermakna ketika dibaca di luar paragraf, misalnya “lihat panduan struktur website” alih-alih banyak tautan “selengkapnya”. Tautan yang sama tidak perlu diulang jika pembaca sudah memiliki jalan yang jelas; sebaliknya, jangan menyamarkan tujuan dengan URL yang tidak deskriptif.
+3. **Klasifikasikan setiap gambar.** Gambar informatif mendapat `alt` yang menyampaikan fakta atau fungsi yang dibutuhkan untuk tugas. Gambar dekoratif memakai `alt=""` agar tidak menambah gangguan. Gambar kompleks memerlukan penjelasan di teks sekitar atau halaman data; jangan memadatkan seluruh temuan penting ke satu kalimat `alt`.
+4. **Lengkapi media bergerak dan suara.** Caption memberi konteks atau identitas yang terlihat. Subtitle membantu memahami dialog dan suara penting; transkrip menyajikan isi audio atau video sebagai teks yang dapat dicari dan dibaca ulang. Jika video hanya dekorasi, jangan menjadikannya satu-satunya pembawa instruksi.
+5. **Tandai data.** Untuk perbandingan, berikan header kolom dan baris yang jelas, hubungan header-sel yang dapat diprogram, serta ringkasan singkat sebelum tabel. Jika pembaca lebih terbantu oleh urutan langkah atau daftar, jangan memaksa data kecil menjadi tabel.
+6. **Tetapkan bahasa dan urutan baca.** Atribut bahasa pada dokumen dan penanda perubahan bahasa membantu pengucapan. Pastikan urutan DOM mengikuti urutan visual dan logika tugas; CSS tidak boleh memindahkan tombol penting jauh dari penjelasannya hanya demi komposisi.
+7. **Uji dalam beberapa cara.** Periksa keyboard dan fokus, pembesaran serta reflow, pembaca layar, gambar yang gagal dimuat, media tanpa suara, dan viewport sempit. Catat halaman, kondisi, hasil, dan cacat yang belum selesai. [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/) menekankan bahwa pemilihan sampel dan cakupan evaluasi harus dinyatakan; satu halaman yang lolos tidak otomatis mewakili seluruh situs.
+
+Teman Codev.id, pisahkan “terlihat benar” dari “terbaca dan dapat dioperasikan”. Hasil setiap pemeriksaan harus kembali ke tugas pembaca dan risiko yang ingin dikurangi.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Beberapa kondisi membuat keputusan yang sama menghasilkan kebutuhan berbeda. Sobat Codev.id, jadikan kondisi ini pertanyaan saat review, bukan asumsi yang disembunyikan di balik tampilan.
+
+| Kondisi | Keputusan yang perlu dibuat | Bukti yang disimpan |
+| --- | --- | --- |
+| Gambar menyampaikan angka, lokasi, atau status | Tulis nilai yang diperlukan; jangan hanya “gambar grafik” | Teks sumber atau data yang menjadi dasar `alt` |
+| Gambar dekoratif di antara dua paragraf | Kosongkan `alt` dan pastikan tidak menjadi tautan tersembunyi | Pemeriksaan DOM dan pembaca layar |
+| Diagram memiliki banyak relasi | Sediakan ringkasan relasi dan, bila perlu, tabel/data alternatif | Teks penjelasan yang dapat dibaca tanpa gambar |
+| Video memuat instruksi visual | Subtitle untuk dialog, deskripsi audio atau narasi untuk informasi visual, dan transkrip bila tepat | Berkas media serta contoh pemutaran |
+| Tabel melebar di layar sempit | Pertahankan header dan hubungan sel; gunakan reflow atau scroll yang tetap dapat dioperasikan | Uji zoom, keyboard, dan viewport sempit |
+| Bahasa berganti di tengah paragraf | Tandai perubahan bahasa dan periksa pelafalan | Markup bahasa dan contoh pembacaan |
+| Komponen dirakit ulang oleh CSS | Kembalikan urutan DOM ke urutan tugas | Snapshot struktur dan skenario keyboard |
+
+Konteks juga menentukan kedalaman. Foto produk dengan satu ciri pembeda membutuhkan `alt` singkat; foto yang menjadi bukti perbandingan mungkin membutuhkan angka dan kondisi di teks pendamping. Caption tidak menggantikan `alt` secara otomatis: caption terlihat bagi semua pembaca, sedangkan `alt` memberi nama atau fungsi ketika gambar tidak tersedia. Pilih kombinasi setelah mengetahui siapa yang membutuhkan informasi tersebut.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan halaman berisi instruksi tiga langkah, diagram alur, dan tabel status. Keputusan yang dapat ditelusuri adalah sebagai berikut:
+
+| Pertanyaan | Jika jawabannya “ya” | Jika jawabannya “tidak” |
+| --- | --- | --- |
+| Apakah diagram diperlukan untuk menyelesaikan tugas? | Beri ringkasan urutan dan hubungan dalam teks; sediakan detail yang setara | Perlakukan sebagai dekorasi atau pendukung, lalu gunakan `alt` kosong bila memang tidak informatif |
+| Apakah tabel dipakai untuk membandingkan nilai? | Tetapkan header, satuan, dan keterangan sebelum tabel | Ubah menjadi daftar atau paragraf yang lebih mudah diikuti |
+| Apakah video memiliki dialog atau suara yang mengubah makna? | Sediakan subtitle dan transkrip yang sesuai | Jangan menambahkan kontrol yang tidak memberi manfaat; pastikan instruksi tetap ada di teks |
+| Apakah tampilan sempit memotong kolom atau tombol? | Uji reflow, zoom, dan navigasi keyboard sebelum rilis | Tetap uji pembaca layar dan gambar/media yang gagal dimuat |
+
+Contoh ini adalah pola keputusan, bukan klaim bahwa proyek tertentu sudah mengujinya. Pada tahap penerimaan, hubungkan setiap keputusan ke halaman, komponen, kondisi uji, hasil, dan cacat terbuka. Tautkan pembaca yang sedang menyusun halaman ke [panduan konten website yang relevan](/konten/website), lalu gunakan rute [konten umum sebagai titik mulai perencanaan](/konten) bila kebutuhan belum terpetakan. Masing-masing tautan hanya dipakai sekali agar tujuan navigasinya jelas.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Semantik, Gambar, Media, dan Struktur Konten”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**“Semua gambar diberi alt yang sama.”** Tanyakan: bila gambar dihapus, fakta apa yang hilang? Jika tidak ada fakta, gunakan `alt=""`; jika ada, sebutkan fungsi atau hasil yang dibutuhkan, bukan detail visual yang tidak relevan.
 
-## Objection or shortcut to address
+**“Heading dipilih karena ukurannya.”** Matikan CSS atau lihat outline di DOM. Bila urutan topik masih logis, struktur tidak bergantung pada gaya. Bila tidak, perbaiki heading dan landmark, bukan sekadar ukuran huruf.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**“Caption sudah cukup untuk video.”** Putar tanpa suara dan minta orang mengikuti instruksi hanya dari teks. Jika dialog atau informasi visual hilang, tambahkan subtitle, transkrip, atau narasi yang sesuai.
 
-## Required conclusion
+**“Tabel responsif berarti selesai.”** Uji pembesaran, fokus keyboard, pembacaan header, dan hubungan baris-kolom. Scroll horizontal yang masih dapat dioperasikan berbeda dari kolom yang terpotong atau urutan data yang berubah.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**“Satu scanner hijau berarti aksesibel.”** Gunakan hasil otomatis untuk menemukan pola, kemudian lakukan pemeriksaan manual dan dengan teknologi bantu pada sampel yang mewakili alur penting. Laporkan lingkungan, data, dan keterbatasan; jangan mengubah hasil sampel menjadi klaim seluruh situs. Penilaian resmi harus mengikuti metode dan ruang lingkup yang disepakati, bukan ambang universal yang tidak ditetapkan proyek.
 
-## Draft completion checklist
+## Jangan menunda semantik sampai akhir
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Shortcut yang masuk akal adalah menunda semantik dan alternatif media sampai akhir, setelah desain visual dianggap selesai. Itu sering gagal karena perubahan struktur DOM, naskah subtitle, atau tabel pada tahap akhir dapat mengubah komponen dan jadwal uji. Perbaikan yang lebih aman adalah membuat keputusan fungsi bersama konten, desain, dan pengembangan sejak contoh pertama: tetapkan heading dan urutan, tulis satu contoh `alt`, siapkan transkrip untuk satu cuplikan, lalu uji pada viewport sempit dan pembaca layar. Jika keputusan itu belum dapat dibuktikan pada konten nyata, tandai sebagai pekerjaan terbuka dan jangan menyebutnya selesai.
+
+## Kesimpulan
+
+Semantik, gambar, media, dan struktur konten bekerja sebagai satu kontrak: hubungan informasi harus tetap terbaca, media harus memiliki alternatif yang sesuai fungsi, dan tata letak responsif tidak boleh merusak urutan tugas. Mulailah dari tujuan pembaca, pilih elemen yang menyatakan hubungan, dokumentasikan keputusan alternatif, lalu uji otomatis, manual, dan dengan teknologi bantu pada cakupan yang disepakati.
+
+Langkah berikutnya adalah membuat lembar pemeriksaan untuk satu alur penting: daftar heading dan landmark, tujuan setiap tautan, keputusan `alt`, caption/subtitle/transkrip, header tabel, bahasa, urutan DOM, kondisi zoom, serta hasil uji. Minta pemilik produk menyetujui kriteria penerimaan dan minta peninjau teknis mengonfirmasi batas evaluasi. Kawan Codev.id, aturan operasionalnya sederhana: jangan menyatakan konten aksesibel atau konforman hanya karena tampilannya rapi atau satu alat pemeriksa tidak menemukan masalah.

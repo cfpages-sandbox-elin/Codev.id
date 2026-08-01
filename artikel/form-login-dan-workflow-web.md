@@ -2,8 +2,9 @@
 article_id: CDV-04-A05
 title: "Form, Login, dan Workflow Bisnis di Web"
 slug: "form-login-dan-workflow-web"
-description: "Map states, validation, identity, authorization, notifications, audit trail, privacy, accessibility, recovery, and acceptance"
-status: outline
+description: "Panduan memetakan status, validasi, identitas, otorisasi, notifikasi, audit trail, privasi, aksesibilitas, pemulihan, dan penerimaan workflow web."
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-06-20"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -25,37 +26,72 @@ sources:
   - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Form, Login, dan Workflow Bisnis di Web
 
-## Assignment lock
+Halo, Teman Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Form, Login, dan Workflow Bisnis di Web”
-- **Reader and situation:** Team moving beyond a brochure website
-- **Reader outcome:** Map states, validation, identity, authorization, notifications, audit trail, privacy, accessibility, recovery, and acceptance
-- **Primary intent:** Specify a secure, usable transactional workflow
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not implement payment or third-party identity; CDV-08 owns integrations and CDV-09 owns control verification
-- **Final public route:** `/artikel/form-login-dan-workflow-web.html`
-- **Appointed CMS date:** `2025-06-20` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Form dan login bukan sekadar kumpulan kolom lalu tombol kirim. Untuk website bisnis yang menerima permintaan, membuat akun, atau memproses persetujuan, Anda perlu memetakan keadaan (state), aturan validasi, identitas, kewenangan, notifikasi, rekam audit, privasi, aksesibilitas, pemulihan, dan kriteria penerimaan. Jawaban praktisnya: gambar alur dari tindakan pengguna sampai status akhir, tulis aturan pada tiap transisi, lalu uji alur berhasil, gagal, dan dipulihkan sebelum memilih implementasi.
 
-## Opening instructions
+Pilihan arsitektur—server-rendered, client-rendered, CMS, custom, monolitik, modular, atau serverless—adalah opsi dengan trade-off, bukan jenjang kedewasaan. Catat alasan pilihan dan konsekuensinya dalam keputusan arsitektur; panduan AWS tentang Architecture Decision Record (ADR) dapat menjadi rujukan cara mendokumentasikan keputusan, bukan kewajiban memakai produk AWS ([ADR process](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)). [NEEDS GATE-02 REVIEW: keputusan stack dan batas tanggung jawab belum diberikan dalam paket ini.]
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Form, Login, dan Workflow Bisnis di Web**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+## Definisi dan batas objek
+
+“Form” adalah antarmuka untuk mengumpulkan atau mengubah data. “Login” adalah proses mengaitkan sesi dengan identitas yang telah dikenali. “Workflow bisnis” adalah rangkaian status dan aturan—misalnya draf, diajukan, ditinjau, perlu perbaikan, disetujui, atau ditolak—yang mengatur siapa boleh melakukan apa. Ketiganya saling terkait: validasi mencegah data cacat, autentikasi menjawab “siapa”, dan otorisasi menjawab “boleh melakukan tindakan ini atau tidak”.
+
+Artikel ini menyusun spesifikasi dan pengujian alurnya. Ia tidak mengimplementasikan pembayaran, integrasi identitas pihak ketiga, atau verifikasi kontrol secara formal; dua area terakhir memiliki kepemilikan lain. Untuk konteks lebih luas tentang membangun situs, Anda dapat melanjutkan ke [layanan web development](/web-development), tetapi rute itu bukan pengganti keputusan workflow pada proyek Anda.
+
+## Cara kerjanya
+
+Mulailah dari peta status, bukan dari desain layar. Untuk setiap status, tulis pemiliknya, data minimum yang wajib ada, tindakan yang tersedia, dan peristiwa yang memindahkan data ke status berikutnya. Contoh sederhana: `draft → submitted → review → approved` dengan cabang `review → changes_requested` dan `review → rejected`. Tetapkan apakah pengguna boleh membatalkan, mengirim ulang, atau melihat riwayat.
+
+Kemudian pisahkan tiga lapisan validasi. Validasi antarmuka memberi umpan balik cepat, validasi server menjadi sumber kebenaran, dan aturan bisnis memeriksa konteks seperti batas kewenangan atau kelengkapan dokumen. Jangan menganggap pesan “field wajib” sebagai kontrol keamanan; endpoint tetap harus menolak data yang tidak sah ketika dipanggil langsung. Struktur elemen form, label, tipe input, dan pesan kesalahan sebaiknya mengikuti perilaku HTML yang didefinisikan WHATWG ([HTML Living Standard](https://html.spec.whatwg.org/)).
+
+Pada login, tentukan siklus sesi: kapan sesi dibuat, diperbarui, berakhir, dan dicabut. Rancang jalur lupa kredensial dan perubahan alamat kontak tanpa membocorkan apakah suatu akun ada. Setelah identitas dikenali, matriks otorisasi memetakan peran ke tindakan dan objek; jangan menyimpulkan izin hanya dari tombol yang disembunyikan di browser. Respons HTTP harus menyampaikan hasil secara konsisten—misalnya keberhasilan, permintaan tidak sah, atau konflik—sesuai semantik HTTP ([RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)).
+
+Setiap transisi penting memicu notifikasi yang dapat ditindaklanjuti: siapa melakukan apa, pada objek mana, dan apa langkah berikutnya. Simpan audit trail yang membedakan waktu kejadian, aktor, perubahan, dan sumber permintaan. Tentukan masa simpan, akses internal, serta cara menangani koreksi tanpa menghapus jejak yang diperlukan. Untuk data sensitif, tulis tujuan pengumpulan, minimisasi, dan penghapusan dalam spesifikasi; jangan menjanjikan kepatuhan hukum tertentu tanpa tinjauan yang berwenang.
+
+Terakhir, definisikan penerimaan per alur. Skenario minimal mencakup berhasil, input salah, sesi kedaluwarsa, izin kurang, permintaan ganda, kegagalan jaringan, notifikasi gagal, dan pemulihan. Kriteria harus dapat diamati: status berubah sesuai aturan, pesan terbaca, dan tidak ada data yang terduplikasi.
+
+## Faktor yang mengubah hasil
+
+Jumlah peran dan tingkat sensitivitas data mengubah desain. Form kontak publik cukup berbeda dari pengajuan internal yang berisi dokumen. Banyaknya status meningkatkan kebutuhan akan riwayat dan aturan transisi eksplisit. Ketergantungan pada jaringan lambat membuat penyimpanan draf lokal atau pengiriman ulang perlu dipertimbangkan—dengan risiko duplikasi yang harus ditangani memakai idempotency key atau pemeriksaan server.
+
+Perangkat dan cara akses juga menentukan hasil. Keyboard, pembaca layar, pembesaran, reflow, dan pesan kesalahan harus diuji pada keseluruhan proses, bukan satu halaman. WCAG 2.2 menekankan keberulangan evaluasi dan cakupan proses; WCAG-EM serta Easy Checks membantu menyusun pendekatan evaluasi, tetapi satu pemindai otomatis tidak dapat menyatakan seluruh proses konform ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)). [NEEDS GATE-06 REVIEW: kriteria aksesibilitas, target konformansi, dan review hukum proyek belum ditetapkan.]
+
+Kinerja juga perlu dilihat sesuai konteks. Core Web Vitals adalah metrik yang dapat berubah dan harus dibaca bersama kondisi pengukuran; data lapangan dari Chrome UX Report bukan bukti otomatis bahwa alur tertentu cepat atau menghasilkan konversi ([Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report](https://developer.chrome.com/docs/crux)). Tetapkan halaman, versi, perangkat, sampel, dan periode sebelum membandingkan regresi. Cache membantu mengurangi permintaan berulang, tetapi respons yang mengandung data pribadi harus memiliki aturan cache yang tepat sesuai semantik HTTP caching ([RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)).
+
+## Contoh keputusan praktis
+
+Bayangkan formulir pengajuan layanan untuk tiga peran: pemohon, pemeriksa, dan administrator. Pemohon dapat menyimpan draf dan mengirim; pemeriksa dapat meminta perbaikan atau menyetujui; administrator dapat mencabut akses dan melihat audit. Dari sini lahir tabel keputusan berikut.
+
+| Keadaan | Aktor | Tindakan | Pemeriksaan minimum | Hasil |
+|---|---|---|---|---|
+| Draf | Pemohon | Kirim | Field wajib, format, sesi aktif | Menjadi `submitted`, audit tercatat |
+| Submitted | Pemeriksa | Minta perbaikan | Pemeriksa berwenang, alasan wajib | Menjadi `changes_requested`, notifikasi |
+| Submitted | Pemeriksa | Setujui | Dokumen lengkap, tidak ada konflik | Menjadi `approved`, waktu dan aktor dicatat |
+| Apa pun | Tanpa sesi/izin | Ubah data | Verifikasi server | Ditolak tanpa membocorkan data |
+
+Ini contoh metode, bukan klaim bahwa proyek Anda memiliki peran tersebut. Jika bisnis hanya memiliki satu pemeriksa, matriks dapat lebih kecil; jika ada pemisahan tugas, konflik kepentingan perlu menjadi kondisi yang memblokir persetujuan. Sobat Codev.id, minta pemilik proses menandatangani peta status dan matriks izin sebelum tim membangun layar. Untuk langkah berikutnya tentang konteks bisnis online, gunakan [panduan website bisnis online](/website/bisnis-online) bila memang relevan dengan tujuan situs Anda.
+
+## Kesalahan umum dan cara memeriksanya
+
+Kesalahan pertama adalah menganggap satu pesan sukses berarti workflow selesai. Periksa status yang tersimpan, audit, notifikasi, dan tampilan bagi tiap peran. Kedua, hanya mengandalkan validasi JavaScript. Nonaktifkan JavaScript atau panggil endpoint dengan data tak sah untuk memastikan server tetap menolak. Ketiga, menyamakan autentikasi dengan otorisasi. Uji akun yang sah tetapi tidak memiliki izin terhadap setiap objek dan aksi.
+
+Keempat, membuat login yang tidak memiliki jalan pulang. Uji kedaluwarsa sesi, token pemulihan yang dipakai ulang, perubahan kontak, dan permintaan ganda. Kelima, menambahkan cache tanpa klasifikasi data. Tinjau header dan perilaku browser untuk halaman publik versus respons pribadi. Keenam, menyatakan “sudah aksesibel” setelah memeriksa kontras atau label saja. Jalankan uji keyboard, fokus, pembaca layar, zoom, reflow, dan seluruh cabang error; dokumentasikan cakupan dan batas evaluasinya.
+
+Shortcut yang sering dipilih adalah membeli template login lalu menempelkan status bisnis di atasnya. Template dapat menghemat pekerjaan visual, tetapi tidak mengetahui aturan siapa boleh menyetujui, bagaimana konflik dicatat, atau kapan notifikasi harus diulang. Alternatif yang lebih aman adalah memakai komponen yang teruji untuk presentasi, sambil membuat state machine, matriks izin, dan kriteria penerimaan khusus proses Anda.
+
+## Kesimpulan
+
+Form, login, dan workflow bisnis di web harus diperlakukan sebagai satu sistem keputusan: data divalidasi di server, identitas dipisahkan dari izin, setiap transisi punya audit dan notifikasi, dan pengguna memiliki jalur pemulihan yang dapat diuji. Sebelum implementasi, minta pemilik proses meninjau peta status, matriks otorisasi, klasifikasi privasi, skenario aksesibilitas, serta rencana pengukuran kinerja. Catat keputusan arsitektur dan bukti uji pada versi yang dapat dilacak.
+
+Kawan Codev.id, jadikan aturan operasi Anda sederhana: tidak ada status baru tanpa pemilik, tidak ada aksi tanpa pemeriksaan izin, dan tidak ada klaim penerimaan tanpa skenario uji yang dapat diamati. Pembayaran, identitas pihak ketiga, dan verifikasi kontrol tetap memerlukan spesifikasi serta review teknis terpisah.
+
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -66,130 +102,4 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/web-google-adsense` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/website/bisnis-online` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-google-adsense/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/website/bisnis-online/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-04-A03` → `/artikel/siklus-request-back-end.html` — Siklus Request Back-end: Validasi sampai Respons
-- `CDV-04-A04` → `/artikel/cms-builder-atau-custom-development.html` — CMS, Website Builder, atau Custom Development
-- `CDV-04-A06` → `/artikel/memilih-arketipe-website-dari-tugas.html` — Memilih Arketipe Website dari Tugas Pengguna
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Definisi dan batas objek
-
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Cara kerjanya
-
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Faktor yang mengubah hasil
-
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Contoh keputusan praktis
-
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Kesalahan umum dan cara memeriksanya
-
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Form, Login, dan Workflow Bisnis di Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+END MANAGED IMAGE PLAN -->

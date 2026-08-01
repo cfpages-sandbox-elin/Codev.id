@@ -3,7 +3,8 @@ article_id: CDV-14-A03
 title: "Optimasi Gambar dan Font Tanpa Merusak Pengalaman"
 slug: "optimasi-gambar-dan-font"
 description: "Cover sizing, formats, responsive images, loading priority, dimensions, compression evidence, font subset/fallback/loading, and visual checks"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-02-15"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,90 @@ sources:
   - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Optimasi Gambar dan Font Tanpa Merusak Pengalaman
 
-## Assignment lock
+Halo, Sobat Codev.id! Gambar dan font yang diperkecil tidak otomatis membuat situs lebih nyaman. Penghematan transfer bisa dibayar dengan teks yang bergeser, gambar utama terlambat, atau tulisan yang sulit dibaca saat font belum siap. Jawaban praktisnya: ukur kebutuhan visual lebih dulu, tetapkan ukuran maksimum per konteks, kirim varian responsif, lalu uji kembali tampilan dan data lapangan. Kompresi adalah alat, bukan tujuan akhir.
 
-- **Writer task:** Expand this file into one complete article answering: “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”
-- **Reader and situation:** Website team with large image/font transfer or layout shift
-- **Reader outcome:** Cover sizing, formats, responsive images, loading priority, dimensions, compression evidence, font subset/fallback/loading, and visual checks
-- **Primary intent:** Reduce media cost while preserving quality and accessibility
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not select a format solely by trend or omit meaningful alternatives; CDV-13-A04 owns accessibility semantics
-- **Final public route:** `/artikel/optimasi-gambar-dan-font.html`
-- **Appointed CMS date:** `2026-02-15` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Urutan itu penting karena perubahan format, prioritas, dan cache dapat memengaruhi metrik yang berbeda. Core Web Vitals merupakan metrik yang didefinisikan penyedianya dan terus dapat berkembang; hasil lab tidak sama dengan pengalaman pengguna lapangan ([web.dev menjelaskan Core Web Vitals](https://web.dev/articles/vitals)). Karena itu, keputusan “lebih cepat” baru sahih setelah ruang lingkup, sampel, kondisi jaringan, dan versi halaman dicatat. [NEEDS VALIDATION: sebelum/sesudah optimasi belum memiliki sampel, kondisi, dan versi rilis yang terdokumentasi.]
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Optimasi Gambar dan Font Tanpa Merusak Pengalaman**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.
 
+## Mulai dari gejala, bukan tebakan penyebab
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+Catat gejala yang benar-benar terlihat: gambar mana yang paling besar, apakah ruang gambar meloncat ketika halaman dimuat, kapan teks berubah bentuk, dan pada perangkat atau rute mana masalah muncul. Sertakan waktu pengamatan, perubahan rilis, jenis koneksi, serta apakah data berasal dari pengujian lab atau pengguna nyata. Chrome UX Report (CrUX) mengumpulkan pengalaman pengguna lapangan, sedangkan alat lab mereproduksi kondisi uji tertentu; keduanya menjawab pertanyaan yang berbeda ([dokumentasi CrUX](https://developer.chrome.com/docs/crux)).
+
+Gunakan inventaris sederhana untuk setiap aset:
+
+| Pertanyaan | Catatan yang diperlukan |
+|---|---|
+| Peran visual | hero, kartu, avatar, ikon, atau dekorasi |
+| Ukuran tampilan | lebar dan tinggi pada breakpoint yang benar-benar dipakai |
+| Berkas yang dikirim | format, dimensi piksel, bobot, dan URL |
+| Dampak | apakah menjadi gambar terbesar, memicu pergeseran, atau menghalangi teks |
+| Bukti | screenshot, rekaman, atau pengukuran dengan tanggal dan versi |
+
+Jika keluhan hanya muncul pada satu rute, jangan mengubah seluruh pustaka media. Pisahkan aset yang menjadi jalur kritis dari aset di bawah lipatan. Tautan [halaman utama Codev.id](/) berguna bila Anda perlu memeriksa konteks rute dan navigasi, tetapi jangan menganggap tampilan di sana mewakili semua halaman.
+
+## Saringan risiko langsung
+
+Hentikan perubahan ketika gambar yang sedang dioptimasi adalah satu-satunya petunjuk visual untuk tindakan penting, ketika font baru membuat label bertumpuk, atau ketika fallback mengubah arti data. Simpan berkas asli dan siapkan rollback sebelum mengganti URL produksi. Jangan menghapus dimensi intrinsik gambar hanya untuk menghilangkan peringatan; ruang yang tidak dipesan dapat menyebabkan layout shift.
+
+Kawan Codev.id, batasi akses perubahan pada orang yang dapat mengembalikan rilis dan melihat log. Instrumentasi memberi sinyal, bukan jaminan keandalan; dokumentasi OpenTelemetry menempatkan telemetry sebagai cara mengumpulkan dan mengirim data observabilitas, bukan bukti bahwa layanan pasti sehat ([OpenTelemetry documentation](https://opentelemetry.io/docs/)). Jika alarm menunjukkan regresi luas atau cache salah menyajikan berkas, perlakukan sebagai insiden: tetapkan pemilik, waktu mulai, dampak, dan langkah pemulihan. Kerangka respons insiden NIST menekankan persiapan, penanganan, dan pembelajaran; detail prosedur tetap perlu disesuaikan dengan organisasi ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)).
+
+## Kemungkinan mekanisme
+
+Beberapa mekanisme dapat menghasilkan gejala serupa:
+
+- **Ukuran dan kepadatan piksel tidak cocok.** Berkas dua kali lebih lebar dari kotak tampil mengirim data yang tidak terlihat manfaatnya; berkas terlalu kecil tampak pecah ketika diperbesar.
+- **Format dipilih tanpa konteks.** Format baru mungkin efisien pada satu browser atau jenis gambar, tetapi fallback dan biaya dekode tetap perlu diuji. Jangan memilih format hanya karena sedang populer.
+- **Prioritas salah.** Memuat semua gambar dengan prioritas tinggi dapat bersaing dengan HTML, CSS, dan font; menunda gambar utama terlalu jauh juga merusak persepsi awal.
+- **Dimensi tidak dicantumkan.** Browser tidak memiliki ruang pasti sebelum berkas tiba, sehingga konten di bawahnya dapat bergeser.
+- **Font terlalu gemuk.** Banyak bobot, karakter, dan gaya yang tidak dipakai memperbesar transfer. Font fallback yang metriknya berbeda dapat mengubah panjang baris.
+- **Cache dan URL tidak konsisten.** Cache menyimpan respons sesuai aturan HTTP, tetapi perubahan nama atau header dapat membuat klien menerima versi berbeda ([RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)).
+
+Kelompokkan hipotesis ini, lalu ubah satu variabel pada satu waktu. Sebuah sinyal telemetri tidak membuktikan penyebab; korelasi harus ditinjau bersama rute, perangkat, dan versi.
+
+## Urutan pemeriksaan dan pengujian
+
+Mulai dari tindakan yang aman dan mudah dibalik.
+
+1. **Bekukan baseline.** Simpan URL, commit atau versi aset, dimensi tampilan, ukuran berkas, jenis koneksi uji, dan screenshot. Tandai gambar terbesar dan font yang benar-benar dipakai.
+2. **Tetapkan ukuran.** Buat varian gambar untuk lebar tampilan yang nyata, dengan `width` dan `height` atau rasio aspek yang konsisten. Gunakan `srcset` dan `sizes` bila server serta template mampu memilih varian.
+3. **Uji format per kelompok.** Bandingkan foto, ilustrasi, dan ikon secara terpisah. Periksa artefak pada teks kecil, tepi, transparansi, serta hasil dekode di perangkat sasaran.
+4. **Atur urutan muat.** Gambar utama yang terlihat segera perlu jalur jelas; gambar di bawah lipatan dapat ditunda. Font utama sebaiknya memiliki subset karakter yang diperlukan dan fallback yang dapat dibaca. Muat bobot font yang digunakan saja, dan pastikan kegagalan font tidak menyembunyikan teks.
+5. **Pesan cache dengan rencana invalidasi.** Gunakan URL berversi untuk berkas yang berubah dan dokumentasikan kapan cache lama boleh kedaluwarsa. Jangan menyimpulkan keberhasilan hanya dari satu kunjungan yang kebetulan sudah warm cache.
+6. **Uji visual dan akses.** Bandingkan screenshot sebelum/sesudah pada viewport sempit dan lebar, zoom, mode kontras, serta perangkat dengan koneksi lambat. Periksa fokus, keterbacaan, pemotongan teks, dan apakah gambar masih memiliki alternatif teks yang benar sesuai komponen.
+7. **Pantau lapangan.** Amati distribusi metrik, bukan satu angka terbaik. Catat rilis dan segmen pengguna agar regresi dapat dihubungkan dengan perubahan.
+
+Teman Codev.id, sebuah eksperimen yang mengubah format, font, dan header cache sekaligus sulit dipelajari. Pecah menjadi perubahan kecil, tetapkan kriteria berhenti, dan simpan hasil yang gagal sebagai pengetahuan untuk rollback berikutnya.
+
+## Cara membaca hasil tanpa melompat ke kesimpulan
+
+Pisahkan lima lapisan: hasil tes, kriteria proyek, dugaan sebab, konsekuensi bagi pembaca, dan siapa yang berwenang menyetujui rilis. Penurunan ukuran berkas adalah hasil teknis; belum tentu berarti pengalaman membaik bila teks bergeser atau kontras menurun. Sebaliknya, sedikit kenaikan bobot font dapat diterima bila mencegah fallback yang mengganggu—keputusan itu harus tertulis sebagai trade-off, bukan disamarkan sebagai kemenangan universal.
+
+Untuk klaim sebelum/sesudah, gunakan tabel yang memuat versi, rute, perangkat, kondisi jaringan, ukuran sampel, metode, dan rentang hasil. Core Web Vitals memiliki ambang dan definisi yang dapat diperbarui, jadi sebutkan alat serta tanggal pengukuran. Data CrUX membantu melihat distribusi lapangan, tetapi tidak menjelaskan perubahan kode tertentu. Jika salah satu kolom hilang, tulis “belum dapat dibandingkan” dan ulangi pengujian; jangan mengubahnya menjadi janji tentang ranking, waktu muat, energi, atau konversi.
+
+## Pilihan tindakan dan titik eskalasi
+
+Kontrol sementara dapat berupa mengembalikan URL aset sebelumnya, menahan rollout pada sebagian kecil trafik, atau menonaktifkan varian yang menghasilkan artefak. Perbaikan permanen mencakup pipeline ukuran dan kompresi, kontrak dimensi di komponen, subset font yang teruji, serta aturan cache yang terdokumentasi. Setiap tindakan perlu pemilik, tanggal tinjau, sinyal pemantauan, dan kondisi rollback.
+
+Eskalasi ke reviewer yang kompeten bila perubahan menyentuh template bersama, fitur pembaca layar, lisensi font, kebijakan keamanan, atau data pengguna. Tim operasi dapat memakai SLO sebagai tujuan pengambilan keputusan, bukan janji uptime tanpa bukti operasi ([Google SRE menjelaskan SLO](https://sre.google/workbook/implementing-slos/)). Minta persetujuan sebelum menghapus fallback, mengubah kontrak API gambar, atau menimpa cache secara luas. Technical review tetap diperlukan untuk menilai bukti proyek yang belum tersedia.
+
+## Jalan pintas yang sering gagal
+
+Jalan pintasnya adalah mengubah semua gambar ke satu format, mengaktifkan lazy-load di semua elemen, lalu menyimpulkan halaman sudah optimal dari satu skor lab. Cara ini gagal karena jenis gambar, posisi visual, browser, cache, dan kebutuhan font berbeda. Gambar utama yang ditunda dapat terasa lambat; format yang tidak cocok dapat menambah kerja dekode; skor tunggal tidak menggambarkan distribusi pengguna.
+
+Alternatif yang lebih aman adalah matriks kecil: peran aset, varian yang dikirim, prioritas, bukti visual, dan hasil lapangan. Pertahankan opsi fallback sampai pengujian lintas perangkat selesai. Sobat Codev.id, bila data belum cukup untuk memilih, pilihan yang jujur adalah menunda optimasi berisiko sambil mengumpulkan baseline—bukan menebak dari tren.
+
+## Penutup: aturan operasi yang bisa dijalankan
+
+Optimasi gambar dan font tanpa merusak pengalaman berarti mengurangi data yang tidak perlu sambil menjaga ruang layout, keterbacaan, prioritas visual, fallback, dan bukti lapangan. Mulailah dari satu rute dan satu kelompok aset; catat baseline, ubah satu variabel, uji visual, lalu pantau distribusinya setelah rilis.
+
+Tindakan berikutnya: buat lembar inventaris berisi URL, dimensi, bobot, format, bobot font, kondisi cache, versi, dan screenshot sebelum/sesudah. Minta reviewer teknis memeriksa kolom yang kosong serta batas rollback. Aturan operasinya sederhana: jangan menyebut aset “lebih cepat” atau “lebih ringan” tanpa konteks pengukuran yang dapat diulang, dan jangan mengorbankan teks yang dapat dibaca demi angka kompresi.
+
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +117,4 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-14-A01` → `/artikel/performance-budget-berdasarkan-tugas.html` — Performance Budget Berdasarkan Tugas Pengguna
-- `CDV-14-A02` → `/artikel/lab-field-data-core-web-vitals.html` — Lab Data, Field Data, dan Core Web Vitals
-- `CDV-14-A04` → `/artikel/mengurangi-biaya-javascript-css.html` — Mengurangi Biaya JavaScript dan CSS
-- `CDV-14-A05` → `/artikel/cache-cdn-freshness-invalidation.html` — Cache dan CDN: Freshness, Invalidation, dan Variasi
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Mulai dari gejala, bukan tebakan penyebab
-
-- **Purpose:** Tentukan apa yang terlihat/terukur, lokasi, waktu, perubahan, dan keterbatasan pengamatan.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Saringan risiko langsung
-
-- **Purpose:** Jelaskan kapan pembaca harus membatasi akses, menghentikan pekerjaan, atau meminta pemeriksaan kompeten.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Kemungkinan mekanisme
-
-- **Purpose:** Kelompokkan kemungkinan penyebab tanpa menyatakan diagnosis dari bukti yang belum cukup.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Urutan pemeriksaan dan pengujian
-
-- **Purpose:** Susun observasi, dokumen, tes, sampel, atau pengukuran dari yang paling aman dan informatif.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Cara membaca hasil tanpa melompat ke kesimpulan
-
-- **Purpose:** Pisahkan hasil tes, kriteria proyek, sebab, konsekuensi, dan otoritas keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Pilihan tindakan dan titik eskalasi
-
-- **Purpose:** Bedakan kontrol sementara, pemantauan, perbaikan, penggantian, dan review profesional.
-- **Tie back to this article:** Keep the explanation specific to “Optimasi Gambar dan Font Tanpa Merusak Pengalaman”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+END MANAGED IMAGE PLAN -->

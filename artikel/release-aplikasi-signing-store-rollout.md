@@ -2,8 +2,9 @@
 article_id: CDV-05-A05
 title: "Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback"
 slug: "release-aplikasi-signing-store-rollout"
-description: "Cover account ownership, signing, build provenance, store metadata, review, phased rollout, telemetry, support, rollback limits, and records"
-status: outline
+description: "Mencakup kepemilikan akun, penandatanganan, asal-usul artefak, metadata toko aplikasi, peninjauan, peluncuran bertahap, telemetri, dukungan, batas pemulihan, dan pencatatan"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-07-13"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,44 +16,12 @@ final_route: "/artikel/release-aplikasi-signing-store-rollout.html"
 technical_review: required
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
-  - "https://html.spec.whatwg.org/"
-  - "https://www.rfc-editor.org/rfc/rfc9110"
   - "https://www.w3.org/TR/WCAG22/"
   - "https://www.w3.org/TR/WCAG-EM/"
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”
-- **Reader and situation:** Team approaching app-store submission
-- **Reader outcome:** Cover account ownership, signing, build provenance, store metadata, review, phased rollout, telemetry, support, rollback limits, and records
-- **Primary intent:** Prepare a controlled mobile release
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not state current store rules without rechecking primary docs; CDV-18-A04 owns organization release approval
-- **Final public route:** `/artikel/release-aplikasi-signing-store-rollout.html`
-- **Appointed CMS date:** `2025-07-13` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-004`
@@ -63,118 +32,113 @@ sources:
 - **Selection basis:** filename/source metadata identifies `a store` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-004]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id! Rilis aplikasi yang terkendali bukan sekadar menekan tombol **Submit** di store. Anda perlu memastikan akun pemiliknya jelas, artefak yang ditandatangani dapat ditelusuri ke sumber kode, metadata siap ditinjau, pemantauan dan dukungan tersedia, serta ada keputusan tertulis tentang kapan peluncuran dihentikan atau dibalik. Signing, store submission, staged rollout, dan rollback adalah satu rantai kendali; celah pada satu mata rantai membuat bukti untuk mata rantai berikutnya lemah.
 
-### KR-03
+Jawaban singkatnya: pilih satu *release candidate* (build kandidat rilis) yang identitasnya dapat diverifikasi, tanda tangani di lingkungan yang aksesnya dibatasi, kirim metadata yang konsisten dengan build itu, lalu lepaskan ke kelompok kecil bila platform dan rencana operasi mengizinkannya. Perluas distribusi hanya setelah telemetri, laporan dukungan, dan pemeriksaan aksesibilitas tidak menunjukkan alasan untuk berhenti. Rollback harus disiapkan sebagai tindakan pengurangan dampak, bukan janji bahwa semua perangkat dapat kembali seketika ke versi lama.
 
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
+Kebijakan store dan jalur persetujuan organisasi dapat mengubah urutan maupun bukti yang diperlukan. Packet ini tidak memeriksa aturan store terkini atau keputusan persetujuan organisasi. **[NEEDS GATE-02/GATE-06 REVIEW: verifikasi kebijakan store yang berlaku, otoritas persetujuan, dan bukti evaluasi aksesibilitas sebelum submit.]**
 
-### KR-11
+![Ilustrasi a store](/wp-content/uploads/2020/12/a_store.png)
 
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-05-A03` → `/artikel/offline-first-dan-sinkronisasi-data.html` — Offline-first dan Sinkronisasi Data Tanpa Duplikasi
-- `CDV-05-A04` → `/artikel/izin-perangkat-dan-privasi-aplikasi.html` — Izin Perangkat dan Privasi pada Aplikasi Mobile
-- `CDV-05-A06` → `/artikel/memelihara-aplikasi-setelah-versi-pertama.html` — Memelihara Aplikasi setelah Versi Pertama
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ada empat salah paham yang sering membuat tim terlalu percaya diri.
+
+Pertama, signing bukan bukti bahwa aplikasi aman atau sudah lolos review. Signing mengikat artefak pada identitas kunci tertentu; ia membantu penerima mengenali artefak yang dimaksud, tetapi tidak menggantikan pengujian, peninjauan kode, atau keputusan rilis. Catat siapa yang boleh memakai kunci, untuk artefak mana, dan bagaimana aksesnya dicabut atau diganti menurut prosedur internal.
+
+Kedua, staged rollout bukan versi pengujian yang otomatis aman. Ia hanya memberi kesempatan untuk mengamati dampak pada distribusi bertahap bila kemampuan itu tersedia. Kelompok awal tetap harus mendapat build yang sama dengan yang akan diperluas, dan kriteria berhenti harus disepakati sebelum distribusi dimulai.
+
+Ketiga, “sudah di-upload” tidak sama dengan “siap digunakan”. Metadata store, catatan perubahan, materi bantuan, deklarasi aksesibilitas, serta saluran dukungan perlu cocok dengan perilaku build. Jika deskripsi menjanjikan alur yang tidak ada di aplikasi, proses review dan ekspektasi pengguna sama-sama terganggu.
+
+Keempat, rollback bukan tombol mesin waktu. Anda mungkin dapat menghentikan perluasan atau menyiapkan versi perbaikan, tetapi data yang sudah berubah, migrasi skema, cache, dan tindakan pengguna tetap perlu ditangani. Perlakukan rollback sebagai rencana yang memiliki prasyarat dan konsekuensi, bukan sebagai pengganti pencegahan.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Dalam artikel ini, “release” berarti keputusan operasional untuk membuat satu build tersedia melalui jalur distribusi aplikasi. Build kandidat rilis adalah artefak yang sudah melewati kriteria teknis tim dan diberi identitas unik. **Provenance** (asal-usul artefak) adalah catatan yang menghubungkan commit atau sumber yang disetujui, konfigurasi build, dependensi, proses pembuatan, dan hasil akhirnya. Provenance yang rapi memudahkan Anda menjawab “build ini berasal dari mana?” ketika ada laporan masalah.
+
+“Store” mencakup akun, listing, metadata, formulir deklarasi, artefak yang dikirim, dan proses review pada platform yang dipilih. Artikel ini tidak menyebut aturan platform tertentu sebagai aturan yang sedang berlaku. Periksa dokumentasi primer platform dan kontrak organisasi sebelum mengisi kolom yang dapat berubah.
+
+“Staged rollout” berarti perluasan ketersediaan secara bertahap, apabila platform mendukungnya. “Rollback” di sini berarti menghentikan atau mengurangi dampak rilis dan menjalankan jalur pemulihan yang telah diuji secara masuk akal. Rencana ini tidak menggantikan persetujuan rilis organisasi yang berada di luar scope artikel, juga tidak menyatakan kepatuhan hukum Indonesia, jaminan keamanan, atau hasil performa tertentu.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dari satu lembar keputusan rilis. Catat tujuan, opsi yang dipertimbangkan, alasan memilih kandidat, risiko, dan konsekuensinya. Pola ini sejalan dengan gagasan *Architecture Decision Record* (ADR): keputusan penting disimpan bersama konteks dan konsekuensinya agar dapat ditinjau kembali, bukan hanya tersimpan di percakapan. Lihat panduan proses ADR dari [AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html); contoh vendornya adalah panduan, bukan kewajiban memakai metode AWS.
+
+Urutkan pekerjaan seperti berikut.
+
+1. **Tetapkan pemilik dan batas akses.** Pastikan organisasi yang memiliki akun store, domain kontak, kunci signing, dan kanal dukungan tercatat. Pisahkan izin membuat build, menandatangani, mengirim, dan menyetujui perluasan jika pemisahan itu tersedia. Gunakan akun personal hanya jika kebijakan internal memang mengizinkannya dan ada rencana serah-terima.
+
+2. **Bekukan kandidat dan provenance.** Beri label pada sumber kode, konfigurasi, dependensi, dan artefak hasil build. Simpan hash atau identitas artefak sesuai kemampuan toolchain Anda, bersama hasil pemeriksaan yang menjadi syarat rilis. Jangan membangun ulang diam-diam setelah signing; perubahan apa pun harus menghasilkan kandidat baru dan catatan baru.
+
+3. **Lakukan signing secara terkendali.** Kunci tidak ditempelkan pada chat atau disalin ke perangkat yang tidak dikelola. Tentukan siapa yang mengaktifkan signing, bagaimana dua pihak memeriksa kandidat, dan di mana bukti aktivitas disimpan. Detail rotasi atau pemulihan kunci harus mengikuti prosedur platform dan organisasi; jangan menebak langkah dari memori lama.
+
+4. **Samakan artefak dan metadata store.** Nama versi, catatan perubahan, screenshot, izin yang diminta, tautan kebijakan, dan instruksi bantuan harus menggambarkan build kandidat yang sama. Sediakan akun atau data uji yang memang diperlukan oleh proses review, tanpa menaruh rahasia produksi. Tandai kolom yang memerlukan keputusan pemilik produk sebelum dikirim.
+
+5. **Periksa kualitas dan aksesibilitas dalam cakupan proses.** Uji alur utama dengan keyboard atau teknologi bantu yang relevan, fokus, semantik, formulir dan pesan error, reflow atau zoom, autentikasi, serta media. WCAG 2.2 menjelaskan kriteria untuk konten web; [WCAG-EM](https://www.w3.org/TR/WCAG-EM/) menekankan penentuan scope dan pengambilan sampel evaluasi; [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/) berguna sebagai pemeriksaan awal. Tidak satu scanner pun dapat menyatakan seluruh pengalaman aplikasi dapat diakses, dan hasil ini bukan otomatis bukti kepatuhan hukum Indonesia.
+
+6. **Siapkan observasi dan dukungan.** Tentukan event atau log yang aman dikumpulkan, ambang yang memicu penghentian, pemilik on-call, jalur laporan pengguna, dan pesan status. Jangan mengumpulkan data pribadi hanya karena mudah; pastikan setiap sinyal punya tujuan dan masa simpan yang disetujui.
+
+7. **Mulai bertahap dan catat keputusan.** Bila staged rollout tersedia dan risikonya dapat dipantau, mulai dari kelompok yang disepakati. Setelah periode observasi yang ditentukan tim, tinjau error, crash, alur kritis, laporan dukungan, dan sinyal bisnis yang relevan. Perluasan, penahanan, atau penghentian harus memiliki waktu, pengambil keputusan, bukti, dan alasan.
+
+8. **Jalankan pemulihan bila kriteria berhenti terpenuhi.** Hentikan perluasan terlebih dahulu bila itu mungkin, komunikasikan dampak, lalu pilih perbaikan atau jalur versi sebelumnya berdasarkan kompatibilitas data. Catat apa yang sudah terpasang, perubahan server yang sudah terjadi, dan tindakan pengguna yang tidak dapat dibatalkan. Setelah layanan stabil, buat catatan pascarilis dan perbarui ADR.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Beberapa kondisi mengubah apakah rencana di atas cukup atau memerlukan tinjauan tambahan.
+
+- **Kepemilikan akun dan kunci.** Pergantian personel, akun vendor, atau kunci yang hanya tersimpan di satu laptop membuat serah-terima dan pemulihan rapuh. Minta bukti kepemilikan dan jalur akses cadangan sebelum tanggal submit.
+- **Perubahan data dan backend.** Jika versi baru mengubah skema, kontrak API, atau format cache, versi lama mungkin tidak dapat bekerja setelah rollback aplikasi. Susun kompatibilitas maju dan mundur sebagai pertanyaan eksplisit; jangan mengasumsikan deploy server dapat dibalik sesuka hati.
+- **Kualitas telemetri.** Sinyal yang terlambat, tidak mewakili kelompok awal, atau tidak dapat dipilah menurut versi membuat staged rollout hanya terlihat terkendali. Tetapkan apa yang bisa diketahui dan apa yang tidak diketahui dari setiap dashboard.
+- **Cakupan aksesibilitas.** Aplikasi dengan autentikasi, media, alur pembayaran, atau integrasi teknologi bantu memerlukan scope evaluasi yang jelas. Pemeriksaan cepat berguna untuk menemukan masalah awal, tetapi tidak menutup seluruh proses evaluasi WCAG.
+- **Kapasitas dukungan.** Perluasan pada saat tim tidak mampu membaca laporan atau menghubungi pengguna memperbesar waktu paparan. Jika on-call belum jelas, tahan perluasan meskipun build lolos pemeriksaan teknis.
+- **Batas platform.** Opsi staged rollout, penghentian, versi yang dapat dipasang ulang, dan waktu review berbeda antarplatform serta dapat berubah. Tandai bagian ini sebagai tugas verifikasi, bukan fakta permanen.
+
+Sobat Codev.id, jadikan faktor-faktor ini daftar pertanyaan pada rapat go/no-go. Jawaban “belum tahu” bukan alasan untuk mengisi celah dengan asumsi; itu sinyal untuk menambah bukti atau memperkecil cakupan rilis.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan skenario bersyarat berikut sebagai alat berpikir, bukan sebagai resep platform tertentu.
+
+| Situasi | Keputusan yang masuk akal | Bukti minimum sebelum lanjut | Kondisi berhenti |
+|---|---|---|---|
+| Build kandidat berubah setelah metadata disiapkan | Buat kandidat dan provenance baru; jangan menimpa catatan lama | Identitas artefak, sumber, konfigurasi, dan pemeriksaan ulang | Ada perbedaan antara artefak yang ditandatangani dan yang dideskripsikan |
+| Tim belum sepakat siapa pemilik akun atau kunci | Tunda submit sampai pemilik dan pengganti tercatat | Konfirmasi tertulis, akses yang diuji, dan jalur serah-terima | Akses bergantung pada satu orang tanpa pemulihan |
+| Platform menyediakan distribusi bertahap dan telemetri cukup | Mulai dari kelompok yang disepakati dengan kriteria perluasan | Dashboard versi, pemilik on-call, kanal dukungan, dan waktu tinjau | Error alur kritis atau laporan berdampak meningkat tanpa penjelasan |
+| Migrasi data server ikut dirilis | Uji kompatibilitas dan siapkan pemulihan data sebelum memperluas | Rencana migrasi, titik pemulihan, serta keputusan pemilik data | Versi lama tidak dapat membaca data baru dan belum ada mitigasi |
+| Pemeriksaan aksesibilitas baru memakai scanner | Lanjutkan evaluasi manual dan dengan teknologi bantu yang relevan | Scope, skenario pengguna, temuan, dan keputusan perbaikan | Temuan kritis belum dipahami atau tidak ada pemilik tindak lanjut |
+
+Jika platform tidak mendukung salah satu tindakan di tabel, tulis batas tersebut di keputusan rilis. Jangan menyebut “rollback tersedia” tanpa menjelaskan tindakan nyata yang dapat dilakukan tim.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**“Kunci ada di laptop lead.”** Periksa lokasi penyimpanan, izin, audit akses, dan prosedur pemulihan. Jika hanya satu orang yang dapat menandatangani, risiko operasionalnya belum ditutup.
 
-## Objection or shortcut to address
+**“Build yang sama bisa dibuat ulang nanti.”** Bandingkan provenance dan identitas artefak, bukan hanya nomor versi. Rebuild dengan dependensi atau konfigurasi berbeda harus diperlakukan sebagai kandidat berbeda.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**“Metadata bisa menyusul setelah upload.”** Jadikan metadata bagian dari review kandidat. Minta pemilik produk memeriksa alur yang dijanjikan, izin, bantuan, dan catatan perubahan sebelum submit.
 
-## Required conclusion
+**“Staged rollout berarti pengujian selesai.”** Tinjau sinyal versi dan laporan kelompok awal. Jika tidak ada telemetri yang dapat ditindaklanjuti atau pemilik keputusan, staged rollout hanya menunda penemuan masalah.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**“Rollback menghapus dampak.”** Inventarisasi migrasi, cache, transaksi, notifikasi, dan komunikasi pengguna. Nyatakan mana yang dapat dihentikan, mana yang membutuhkan perbaikan maju, dan siapa yang mengesahkan pilihan itu.
 
-## Draft completion checklist
+**“Scanner memberi sertifikat aksesibilitas.”** Cocokkan scope evaluasi dengan alur nyata. WCAG-EM membedakan penentuan scope, evaluasi, dan pelaporan; [WCAG 2.2](https://www.w3.org/TR/WCAG22/) sendiri tidak menjadikan satu alat sebagai pengganti penilaian manusia. Simpan temuan dan keputusan, bukan hanya skor.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Kawan Codev.id, pemeriksaan yang baik selalu dapat menjawab tiga hal: artefak mana yang diperiksa, siapa yang memutuskan, dan bukti apa yang membuat keputusan itu dapat ditinjau kembali.
+
+## Jalan pintas yang tampak menarik
+
+Jalan pintas paling umum adalah langsung mengirim build yang “bekerja” lalu mengandalkan review store untuk menemukan sisanya. Itu menggeser keputusan penting kepada proses yang tidak Anda kendalikan: identitas akun, kelengkapan metadata, scope aksesibilitas, kesiapan dukungan, dan kemampuan pemulihan masih kabur. Jika review meminta perubahan, kandidat dapat bergeser tanpa provenance yang jelas; jika pengguna sudah menerima build, tim mungkin belum memiliki sinyal untuk membedakan regresi dari perilaku normal.
+
+Alternatif yang lebih dapat dipertanggungjawabkan adalah membuat paket rilis kecil tetapi lengkap: identitas kandidat, bukti signing, metadata yang disetujui, hasil pemeriksaan, rencana observasi, daftar kontak dukungan, dan keputusan rollback. Paket ini tidak perlu mengklaim kepatuhan atau keamanan yang belum diuji. Ia hanya memastikan setiap klaim yang dibuat tim memiliki pemilik dan bukti yang bisa dicari.
+
+## Kesimpulan
+
+Release aplikasi yang terkendali berarti menghubungkan pemilik akun, signing, provenance build, metadata store, review, distribusi bertahap, telemetri, dukungan, dan pemulihan dalam satu keputusan yang tercatat. Mulai dengan membekukan kandidat dan daftar bukti; verifikasi kebijakan store serta persetujuan organisasi; kemudian minta tinjauan teknis atas aksesibilitas, kompatibilitas data, dan batas rollback sebelum perluasan.
+
+Langkah berikutnya: buat lembar keputusan rilis untuk kandidat yang akan dikirim, isi pemilik setiap tindakan, tautkan artefak dan hasil pemeriksaan, lalu tetapkan kriteria berhenti yang dapat diamati. Untuk konteks layanan dan langkah lanjutan, Anda dapat kembali ke [halaman utama Codev.id](/). Jika **[NEEDS GATE-02/GATE-06 REVIEW]** belum ditutup, jangan menyajikan rilis sebagai siap produksi. Aturan operasionalnya sederhana: perluas hanya ketika bukti dan kapasitas respons siap, dan hentikan ketika keduanya tidak lagi memadai.

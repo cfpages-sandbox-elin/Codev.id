@@ -3,7 +3,8 @@ article_id: CDV-08-A05
 title: "Timeout, Rate Limit, Retry, dan Fallback Dependensi"
 slug: "timeout-rate-limit-retry-fallback"
 description: "Classify failures, set deadlines, retry/backoff, circuit/fallback behavior, queueing, user messaging, reconciliation, and alerts"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-09-30"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,45 +16,13 @@ final_route: "/artikel/timeout-rate-limit-retry-fallback.html"
 technical_review: required
 sources:
   - "https://spec.openapis.org/oas/v3.1.1.html"
-  - "https://www.rfc-editor.org/info/rfc9700/"
-  - "https://www.w3.org/TR/webauthn-3/"
   - "https://owasp.org/API-Security/editions/2023/en/0x11-t10/"
   - "https://www.cisa.gov/sbom"
-  - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
+ - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Timeout, Rate Limit, Retry, dan Fallback Dependensi
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Timeout, Rate Limit, Retry, dan Fallback Dependensi”
-- **Reader and situation:** Engineer operating a third-party integration
-- **Reader outcome:** Classify failures, set deadlines, retry/backoff, circuit/fallback behavior, queueing, user messaging, reconciliation, and alerts
-- **Primary intent:** Keep a product safe when a dependency slows or fails
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not claim a dependency can be made fully reliable; CDV-12-A05 owns incident response
-- **Final public route:** `/artikel/timeout-rate-limit-retry-fallback.html`
-- **Appointed CMS date:** `2025-09-30` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Timeout, Rate Limit, Retry, dan Fallback Dependensi**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -64,118 +33,87 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Timeout, Rate Limit, Retry, dan Fallback Dependensi
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Teman Codev.id! Ketika API pihak ketiga melambat, menolak terlalu banyak permintaan, atau berhenti merespons, keputusan aman bukan “ulang terus sampai berhasil”. Tetapkan batas waktu, bedakan jenis kegagalan, lalu pilih retry, antrean, fallback, atau penghentian berdasarkan apakah operasi itu aman diulang dan apakah hasil akhirnya bisa diverifikasi.
 
-### KR-04
+Urutannya praktis: deadline harus membatasi setiap percobaan dan seluruh rantai panggilan; rate limit harus dihormati dengan backoff; retry hanya untuk kegagalan sementara dan operasi idempoten (hasilnya tetap sama bila diulang); fallback harus jujur terhadap pengguna; dan setiap permintaan yang mungkin berhasil tetapi responsnya hilang harus masuk rekonsiliasi. Detail kuota, kontrak, serta perilaku vendor belum tersedia di paket ini, jadi bagian yang bergantung pada informasi tersebut memerlukan `[NEEDS VENDOR REVIEW: GATE-04/GATE-09]`.
 
-- **Original sources:** [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html), [OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/), [WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/), [OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/).
-- **Purpose for this article:** Ground contract-first APIs, authorization flows, passkeys, and API abuse controls.
-- **Safe grounded facts:** RFC 9700 is a 2025 best-current-practice update for OAuth 2.0. OpenAPI describes an interface; it does not prove implementation behavior or security.
-- **Limits:** Never publish secrets/private schemas or prescribe a flow without client/threat context. Apply GATE-03 and GATE-04.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-04, GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-08-A03` → `/artikel/integrasi-pembayaran-status-webhook-rekonsiliasi.html` — Integrasi Pembayaran: Status, Webhook, dan Rekonsiliasi
-- `CDV-08-A04` → `/artikel/email-dan-messaging-yang-bisa-dipantau.html` — Email dan Messaging yang Bisa Dipantau
-- `CDV-08-A06` → `/artikel/acceptance-test-integrasi-eksternal.html` — Acceptance Test untuk Integrasi Eksternal
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Timeout adalah batas menunggu, bukan bukti bahwa operasi gagal. Rate limit adalah sinyal bahwa pengirim perlu mengurangi laju, bukan alasan untuk menambah paralelisme. Retry adalah mekanisme pemulihan terbatas, bukan loop tanpa akhir. Fallback adalah perilaku alternatif yang sudah dirancang, bukan menampilkan data lama tanpa penanda.
+
+Miskonsepsi yang paling mahal ialah menganggap semua error setara. Timeout setelah server menerima pembayaran berbeda dari penolakan kuota sebelum permintaan diproses. Jika aplikasi langsung mengulang transaksi non-idempoten, pesanan atau tagihan ganda dapat tercipta. Sebaliknya, bila semua error dianggap permanen, gangguan singkat berubah menjadi kegagalan yang terlihat pengguna.
+
+Mulailah dengan pertanyaan: “Apakah saya tahu status operasi di sisi dependensi?” Jika tidak, tandai status sebagai tidak diketahui, simpan idempotency key atau korelasi yang sama, dan siapkan rekonsiliasi. Jangan mengklaim sukses hanya karena koneksi terputus setelah pengiriman.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Dependensi di sini berarti layanan eksternal yang dipanggil produk: API pembayaran, pengiriman pesan, identitas, pencarian, atau sumber data lain. Timeout mencakup deadline koneksi, pembacaan, dan total operasi. Rate limit mencakup respons eksplisit seperti 429 maupun kuota yang dinyatakan dalam kontrak.
+
+Retry dan fallback adalah keputusan pada klien atau lapisan perantara; keduanya tidak membuat dependensi sepenuhnya andal. Artikel ini tidak menetapkan angka timeout, jumlah percobaan, SLA, harga, kuota, atau kewajiban hukum vendor. Angka tersebut harus berasal dari kontrak dan uji lingkungan Anda. OpenAPI membantu mendeskripsikan antarmuka, tetapi keberadaan spesifikasi tidak membuktikan implementasi atau perilaku keamanan aktual. ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html))
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Di tepi aplikasi, buat satu deadline keseluruhan dan turunkan sisa waktunya ke setiap panggilan. Bila sisa deadline terlalu pendek, hentikan panggilan berikutnya dan kembalikan status yang dapat ditindaklanjuti. Catat dependency, endpoint, metode, correlation ID, idempotency key, percobaan ke berapa, dan alasan berhenti—tanpa merekam token atau data rahasia.
+
+Klasifikasikan hasil menjadi empat kelompok:
+
+1. **Dapat dicoba ulang:** gangguan jaringan sementara, 502/503, atau rate limit yang memberi petunjuk waktu tunggu. Gunakan exponential backoff dengan jitter agar klien tidak menyerbu bersamaan.
+2. **Jangan diulang otomatis:** validasi 4xx, kredensial tidak sah, atau permintaan yang tidak idempoten tanpa kunci deduplikasi.
+3. **Status tidak diketahui:** timeout setelah pengiriman, putus koneksi saat membaca, atau respons hilang. Simpan pekerjaan untuk pemeriksaan status, bukan retry buta.
+4. **Kegagalan kebijakan:** circuit breaker terbuka setelah ambang kegagalan internal tercapai. Gagal cepat mencegah thread dan koneksi habis.
+
+Rate limit sebaiknya dipatuhi pada beberapa lapisan: per pengguna, tenant, endpoint, dan dependency. Jeda dari header vendor boleh dipakai hanya setelah diverifikasi maknanya. Kontrol terhadap penyalahgunaan API perlu diperlakukan sebagai bagian dari desain, bukan sekadar penanganan 429; OWASP menempatkan risiko otorisasi dan konsumsi sumber daya dalam API Security Top 10. ([OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/))
+
+Antrean memisahkan pekerjaan yang boleh tertunda dari permintaan interaktif. Pesan pengguna dapat berbunyi “sedang diproses” dengan ID pelacakan, sementara worker mengulang sesuai kebijakan. Worker harus idempoten dan memiliki dead-letter queue untuk pekerjaan yang melewati batas, bukan mengulang selamanya.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pertama, sifat operasi: membaca katalog biasanya lebih mudah diulang daripada membuat pembayaran. Kedua, deadline bisnis: pencarian halaman boleh fallback, tetapi keputusan otorisasi mungkin harus berhenti. Ketiga, kapasitas lokal: retry agresif dapat menghabiskan thread pool, koneksi, dan anggaran rate limit sendiri.
+
+Keempat, kontrak vendor. Pastikan status kode, format error, batas kuota, idempotency, dan mekanisme pemeriksaan status tertulis. Inventaris komponen dan pemasok membantu mengetahui siapa yang harus dihubungi ketika jalur kritis berubah; SBOM meningkatkan transparansi komponen, tetapi tidak membuktikan bahwa dependensi aman. ([CISA SBOM resources](https://www.cisa.gov/sbom))
+
+Kelima, bukti operasional. Uji timeout, 429, respons lambat, respons terpotong, dan pemulihan setelah circuit ditutup di lingkungan yang aman. Catat apakah fallback menjaga konsistensi dan apakah rekonsiliasi menemukan operasi yang sebenarnya berhasil. Rencana manajemen risiko rantai pasok dapat membantu menilai pemasok, tetapi bukan pengganti verifikasi kontrak dan uji integrasi. ([NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final))
+
+Untuk kuota, subprosesor, perubahan API, dan kerentanan terkini, tinggalkan `[NEEDS VENDOR REVIEW: GATE-04/GATE-09]` sampai pemilik layanan memeriksa dokumentasi dan kontrak yang berlaku. Jangan mengisi kekosongan itu dengan asumsi dari vendor lain.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan worker mengirim notifikasi ke layanan eksternal. Jika koneksi gagal sebelum request terkirim, retry terbatas dengan backoff masuk akal. Jika request terkirim tetapi respons timeout, simpan status “tidak diketahui”, lalu panggil endpoint status menggunakan ID yang sama atau masukkan rekonsiliasi manual. Jika layanan menjawab 429, hormati jeda yang tervalidasi dan kurangi konkurensi. Jika circuit terbuka, antrekan pekerjaan dan berikan pengguna status tertunda—bukan pesan sukses.
+
+Gunakan tabel keputusan berikut sebagai titik awal, bukan angka baku:
+
+| Sinyal | Tindakan awal | Bukti yang harus dicatat |
+|---|---|---|
+| 400/401/403 | hentikan retry otomatis | kode bisnis, endpoint, versi kredensial |
+| 429 | backoff, batasi konkurensi | header rate limit, tenant, waktu tunggu |
+| 502/503 atau koneksi putus sebelum kirim | retry terbatas bila idempoten | nomor percobaan dan deadline tersisa |
+| timeout setelah kirim | status tidak diketahui, rekonsiliasi | idempotency key dan correlation ID |
+| circuit terbuka | gagal cepat atau antrekan | alasan pembukaan dan waktu pemulihan |
+
+Teman Codev.id, tuliskan keputusan ini dalam runbook per dependency. Sertakan siapa pemiliknya, kapan fallback boleh dipakai, dan bagaimana operator menutup pekerjaan yang buntu.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Timeout, Rate Limit, Retry, dan Fallback Dependensi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah satu timeout global untuk seluruh rantai. Periksa apakah setiap hop memiliki deadline turunan sehingga satu layanan lambat tidak menghabiskan waktu layanan lain. Kedua, retry tanpa jitter. Amati lonjakan serentak setelah pemulihan dan tambahkan variasi jeda.
 
-## Objection or shortcut to address
+Ketiga, menjadikan cache sebagai kebenaran tanpa label usia data. Periksa timestamp dan tampilkan keterbatasannya. Keempat, menyamakan “diterima antrean” dengan “berhasil di vendor”. Pisahkan status queued, sent, confirmed, failed, dan unknown di model data.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kelima, log berisi token, payload sensitif, atau respons mentah. Tinjau redaksi log dan batasi akses. Keenam, alarm hanya pada jumlah error. Pantau latency, timeout rate, 429, ukuran antrean, circuit state, usia pekerjaan tertua, dan selisih hasil rekonsiliasi. Skor repositori pihak ketiga hanyalah sinyal; due diligence tetap diperlukan. ([OpenSSF Scorecard](https://securityscorecards.dev/))
 
-## Required conclusion
+## Jalan pintas yang tampak praktis tetapi berisiko
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+“Tambahkan tiga retry di semua request” terdengar sederhana. Namun angka yang sama mengabaikan jenis operasi, deadline, dan kapasitas. Pada pembayaran, pengulangan dapat menggandakan efek; pada endpoint baca, tiga retry mungkin tetap menghabiskan waktu pengguna. Alternatif yang lebih aman adalah kebijakan per operasi: idempotency key untuk efek samping, retry hanya pada kelas error yang disetujui, circuit breaker, antrean untuk pekerjaan asinkron, dan rekonsiliasi untuk status tidak diketahui.
 
-## Draft completion checklist
+## Kesimpulan dan langkah berikutnya
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Timeout, rate limit, retry, dan fallback harus dipasang sebagai satu sistem keputusan: deadline membatasi waktu, klasifikasi menentukan boleh tidaknya retry, backoff mengendalikan laju, circuit breaker melindungi kapasitas lokal, fallback mengelola ekspektasi, dan rekonsiliasi menutup celah status tidak diketahui.
+
+Kawan Codev.id, buat satu lembar kontrak untuk setiap dependency berisi operasi, klasifikasi error, deadline, aturan retry, status antrean, jalur fallback, metrik, dan pemilik rekonsiliasi. Tautkan pembaca ke [beranda Codev.id](/) bila perlu menelusuri konteks integrasi lain, tetapi jangan anggap dokumentasi umum sebagai bukti perilaku vendor Anda. Minta tinjauan teknis atas kontrak dan uji kegagalan sebelum mengaktifkan kebijakan di produksi. Aturan operasionalnya: jangan menyatakan sukses sampai ada bukti konfirmasi; bila buktinya hilang, simpan status tidak diketahui dan rekonsiliasi.

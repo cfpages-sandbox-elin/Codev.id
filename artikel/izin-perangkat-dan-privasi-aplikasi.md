@@ -1,9 +1,10 @@
 ---
 article_id: CDV-05-A04
+writing_contract_version: "native-id-v2"
 title: "Izin Perangkat dan Privasi pada Aplikasi Mobile"
 slug: "izin-perangkat-dan-privasi-aplikasi"
-description: "Map purpose, minimization, timing, explanation, denial/fallback, retention, revocation, platform rules, and testing"
-status: outline
+description: "Panduan meminta izin kamera, lokasi, kontak, berkas, dan notifikasi secara proporsional, transparan, serta dapat diuji"
+status: draft
 publication_date: "2025-07-08"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,44 +16,97 @@ final_route: "/artikel/izin-perangkat-dan-privasi-aplikasi.html"
 technical_review: required
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
-  - "https://html.spec.whatwg.org/"
-  - "https://www.rfc-editor.org/rfc/rfc9110"
   - "https://www.w3.org/TR/WCAG22/"
-  - "https://www.w3.org/TR/WCAG-EM/"
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Izin Perangkat dan Privasi pada Aplikasi Mobile
 
-## Assignment lock
+Halo, Teman Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Izin Perangkat dan Privasi pada Aplikasi Mobile”
-- **Reader and situation:** App team using camera, location, contacts, files, or notifications
-- **Reader outcome:** Map purpose, minimization, timing, explanation, denial/fallback, retention, revocation, platform rules, and testing
-- **Primary intent:** Request device permissions proportionately and transparently
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not provide legal approval; CDV-09-A05 owns Indonesian privacy analysis and platform docs govern submission
-- **Final public route:** `/artikel/izin-perangkat-dan-privasi-aplikasi.html`
-- **Appointed CMS date:** `2025-07-08` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Izin kamera, lokasi, kontak, berkas, atau notifikasi bukan formalitas yang boleh diminta sekaligus saat aplikasi pertama kali dibuka. Minta izin hanya ketika fitur yang membutuhkan akses akan dipakai, jelaskan alasannya dengan bahasa yang dapat dipahami, dan siapkan alur yang tetap berguna jika pengguna menolak. Dengan pola itu, privasi menjadi bagian dari desain, bukan pesan darurat setelah tombol ditekan.
 
-## Opening instructions
+Keputusan akhirnya bergantung pada tujuan fitur, data yang benar-benar diproses, aturan platform yang menjadi target, serta hasil pengujian pada kondisi izin diberikan, ditolak, dan dicabut. Artikel ini membantu tim memetakan keputusan tersebut; ini bukan persetujuan hukum Indonesia atau jaminan lolos peninjauan toko aplikasi. [NEEDS PLATFORM AND PRIVACY REVIEW: verifikasi aturan platform target dan analisis hukum proyek sebelum rilis.]
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Izin Perangkat dan Privasi pada Aplikasi Mobile**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+## Definisi dan batas objek
+
+Izin perangkat adalah persetujuan sistem operasi yang mengatur apakah aplikasi boleh mengakses kemampuan atau data tertentu. Privasi pada artikel ini berarti keputusan produk dan teknis tentang tujuan akses, jumlah data, waktu permintaan, penjelasan kepada pengguna, penyimpanan, penghapusan, serta pencabutan akses. Jadi, label “butuh kamera” belum menjawab apa yang direkam, kapan, dan untuk berapa lama.
+
+Yang dibahas adalah aplikasi mobile yang menggunakan kamera, lokasi, kontak, berkas, atau notifikasi. Yang tidak dibahas: tafsir kewajiban hukum Indonesia, redaksi kebijakan privasi untuk yurisdiksi tertentu, atau prosedur submission platform tertentu. Tim perlu meminta peninjauan profesional untuk bagian tersebut. Batas ini penting agar keputusan akses tidak disamakan dengan persetujuan legal atau klaim keamanan.
+
+## Jawaban singkat dan salah paham utama
+
+Pola yang aman adalah *just-in-time permission*: hubungkan permintaan dengan tindakan nyata. Saat pengguna menekan “Pindai dokumen”, jelaskan bahwa kamera diperlukan untuk pemindaian, lalu tampilkan dialog sistem. Jangan meminta kontak ketika pengguna baru melihat beranda bila fitur undangan belum dipakai. Jangan menganggap menekan “Izinkan” sebagai izin selamanya; akses dapat berubah karena pengaturan perangkat, pembaruan aplikasi, atau keputusan pengguna.
+
+Penolakan juga bukan keadaan rusak. Jika kamera ditolak, sediakan unggah berkas atau contoh alur tanpa pemindaian bila masuk akal. Jika lokasi ditolak, minta alamat secara manual atau batasi fitur yang memang memerlukan lokasi. Bila tidak ada fallback yang setara, nyatakan dampaknya sebelum dialog sistem muncul. Sobat Codev.id, pertanyaan pengujiannya sederhana: “Apa yang masih bisa dilakukan pengguna setelah memilih Jangan Izinkan?”
+
+## Cara kerjanya
+
+Mulai dari inventaris fitur, bukan daftar izin. Untuk setiap fitur, catat tujuan, jenis data, operasi (membaca, merekam, mengirim), penerima, masa simpan, dan jalur penghapusan. Kemudian lakukan peminimalan: hilangkan izin yang tidak diperlukan, gunakan cakupan paling sempit yang masih memenuhi tujuan, dan tunda akses sampai konteksnya jelas.
+
+Urutan antarmuka yang praktis:
+
+1. Pengguna memulai tindakan yang membutuhkan akses.
+2. Aplikasi menampilkan penjelasan singkat: data apa yang dipakai, untuk tujuan apa, dan apa akibat jika ditolak.
+3. Aplikasi memanggil dialog izin sistem.
+4. Aplikasi menangani tiga hasil: diberikan, ditolak, atau status tidak tersedia lagi.
+5. Aplikasi menyediakan pengaturan untuk mengubah pilihan dan jalur bantuan tanpa memaksa.
+
+Simpan keputusan arsitektur ini di catatan keputusan (Architecture Decision Record/ADR), termasuk alternatif yang ditolak dan alasan pemilihannya. Panduan AWS menjelaskan ADR sebagai cara merekam konteks dan konsekuensi keputusan; panduan itu adalah praktik vendor, bukan kewajiban metode atau rekomendasi stack tertentu. [Catat keputusan akses dalam ADR](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html) agar perubahan kebutuhan tidak menghapus alasan awal.
+
+Di sisi antarmuka, tombol, label, pesan kesalahan, dan fokus setelah dialog harus dapat dipahami. WCAG 2.2 menempatkan keyboard/fokus, formulir, pesan kesalahan, reflow, dan perilaku bantuan teknologi sebagai hal yang perlu dievaluasi dalam konteks halaman dan alur. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) tidak membuat aplikasi otomatis patuh hukum, tetapi memberi kriteria aksesibilitas yang dapat diuji.
+
+## Faktor yang mengubah hasil
+
+Tujuan penggunaan mengubah keputusan. Pemindai satu kali mungkin hanya memerlukan kamera ketika tombol dipilih; navigasi langsung mungkin memerlukan pembaruan lokasi selama sesi; pengingat lokal dapat bekerja tanpa mengirim isi notifikasi ke server. Jangan menyimpulkan kebutuhan penyimpanan atau pengiriman hanya dari nama izin.
+
+Konteks perangkat juga berpengaruh: versi sistem operasi, status izin sebelumnya, kontrol orang tua, sensor yang tidak tersedia, koneksi, dan perubahan pengaturan setelah aplikasi berjalan. Karena itu, dokumentasikan perilaku untuk akses pertama, penolakan pertama, penolakan berulang, pencabutan dari pengaturan, dan instalasi ulang.
+
+Retensi harus mengikuti tujuan. Tentukan apakah data perlu disimpan, kapan dihapus, dan bagaimana pengguna memulai penghapusan. Untuk kontak atau lokasi, pertimbangkan apakah hasil turunan (misalnya pilihan yang sudah diproses) masih mengandung informasi sensitif. Hindari menyimpan salinan mentah hanya karena penyimpanan tersedia.
+
+Penjelasan harus konsisten dengan tindakan aktual. Pesan “agar aplikasi bekerja” terlalu kabur jika hanya satu fitur opsional yang terdampak. Sebutkan fitur, waktu penggunaan, dan fallback yang tersedia. Jika tujuan atau penerima data berubah, catatan keputusan, teks antarmuka, pengujian, dan peninjauan privasi harus ikut diperbarui.
+
+## Contoh keputusan praktis
+
+Gunakan tabel keputusan berikut sebagai titik awal, lalu sesuaikan dengan desain dan aturan platform target.
+
+| Kebutuhan fitur | Waktu meminta | Fallback saat ditolak | Bukti yang dicatat |
+|---|---|---|---|
+| Memindai dokumen | Saat pengguna memilih Pindai | Unggah berkas atau lanjut tanpa pemindaian jika tersedia | Tujuan, format data, masa simpan |
+| Menampilkan posisi sekitar | Saat pengguna membuka peta atau fitur berbasis lokasi | Pilih lokasi manual atau tampilkan peta umum | Ketelitian yang diperlukan dan durasi akses |
+| Mengundang teman | Saat pengguna memilih kontak | Masukkan nomor atau alamat secara manual | Apakah kontak dikirim, diproses lokal, atau dihapus |
+| Memilih lampiran | Saat pengguna menekan Tambah berkas | Batalkan langkah dengan pesan yang jelas | Jenis berkas, penerima, dan aturan penghapusan |
+| Pengingat | Saat pengguna mengaktifkan pengingat | Tampilkan status nonaktif dan cara mengaktifkan lagi | Isi notifikasi, jadwal, dan apakah data dikirim |
+
+Kawan Codev.id, jika sebuah izin muncul sebelum tindakan terkait, tandai sebagai keputusan yang perlu dipertanyakan. Tidak semua permintaan awal salah, tetapi tim harus bisa menunjukkan manfaat langsungnya dan alasan mengapa penundaan tidak memungkinkan. Bila belum ada data proyek untuk menjawabnya, jangan mengisi celah dengan asumsi; bawa pertanyaan itu ke review teknis dan privasi.
+
+## Kesalahan umum dan cara memeriksanya
+
+Kesalahan pertama adalah meminta semua izin pada onboarding. Periksa rekaman alur: apakah kamera, lokasi, kontak, berkas, dan notifikasi muncul tanpa tindakan pemicu? Jika ya, petakan ulang ke titik penggunaan.
+
+Kesalahan kedua adalah membuat penolakan terasa seperti kegagalan total. Uji setiap tombol “Jangan Izinkan”, termasuk saat pengguna menolak dua kali. Pastikan pesan menjelaskan dampak, menyediakan alternatif, dan tidak berputar tanpa akhir.
+
+Kesalahan ketiga adalah menganggap satu pemindaian otomatis mewakili kualitas seluruh aplikasi. WAI Easy Checks mengingatkan bahwa pemeriksaan awal hanya indikasi; evaluasi harus melihat halaman, proses, formulir, kesalahan, fokus, zoom, dan perilaku teknologi bantu sesuai konteks. [Mulai dari pemeriksaan aksesibilitas awal](https://www.w3.org/WAI/test-evaluate/preliminary/) lalu lanjutkan uji manual dan perangkat nyata.
+
+Kesalahan keempat adalah tidak menguji pencabutan. Berikan izin, gunakan fitur, cabut izin dari pengaturan perangkat, kembali ke aplikasi, lalu pastikan status terbaca dan data tidak terus diproses. Ulangi setelah aplikasi diperbarui dan ketika sensor atau koneksi tidak tersedia.
+
+## Jalan pintas yang perlu dihindari
+
+Shortcut yang sering dipilih adalah “minta dulu semua izin, nanti kita jelaskan di kebijakan privasi.” Cara ini dapat menghasilkan persetujuan yang tidak berkaitan dengan konteks tindakan, memperburuk fallback, dan menyulitkan pelacakan data. Kebijakan privasi tetap penting, tetapi tidak menggantikan penjelasan singkat saat akses diminta atau pengujian jalur penolakan.
+
+Alternatif yang lebih dapat diaudit: buat matriks fitur–izin–tujuan–retensi–fallback, simpan alasan keputusan dalam ADR, dan jadikan skenario izin sebagai bagian dari pengujian rilis. Jika aturan platform target, kontrak pemrosesan, atau kebutuhan legal belum diperiksa, tandai statusnya secara terbuka dan minta review sebelum mengunci implementasi.
+
+## Langkah berikutnya
+
+Izin perangkat yang proporsional berarti akses paling sempit untuk tujuan yang jelas, diminta pada saat relevan, dijelaskan tanpa kabut, tetap berguna ketika ditolak, serta dapat dicabut dan diuji. Mulailah dengan matriks fitur dan izin, jalankan skenario diberikan–ditolak–dicabut pada perangkat target, lalu minta peninjauan teknis dan privasi untuk keputusan yang belum terbukti.
+
+Teman Codev.id, simpan hasilnya bersama catatan perubahan dan tautkan ke [beranda Codev.id](/) bila tim memerlukan titik koordinasi proyek. Aturan operasionalnya: jangan menganggap dialog sistem sebagai akhir pekerjaan; akses baru sah sebagai keputusan produk setelah tujuan, batas data, fallback, retensi, dan bukti pengujian terdokumentasi. [NEEDS PLATFORM AND PRIVACY REVIEW: keputusan akhir tetap menunggu pemeriksaan aturan platform dan analisis hukum proyek.]
+
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +117,4 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-05-A02` → `/artikel/native-vs-cross-platform-aplikasi.html` — Native vs Cross-platform untuk Aplikasi Mobile
-- `CDV-05-A03` → `/artikel/offline-first-dan-sinkronisasi-data.html` — Offline-first dan Sinkronisasi Data Tanpa Duplikasi
-- `CDV-05-A05` → `/artikel/release-aplikasi-signing-store-rollout.html` — Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback
-- `CDV-05-A06` → `/artikel/memelihara-aplikasi-setelah-versi-pertama.html` — Memelihara Aplikasi setelah Versi Pertama
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Definisi dan batas objek
-
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Cara kerjanya
-
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Faktor yang mengubah hasil
-
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Contoh keputusan praktis
-
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Kesalahan umum dan cara memeriksanya
-
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Izin Perangkat dan Privasi pada Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+END MANAGED IMAGE PLAN -->

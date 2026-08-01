@@ -3,7 +3,8 @@ article_id: CDV-15-A03
 title: "Technical Debt Register yang Terhubung ke Dampak"
 slug: "technical-debt-register-dampak"
 description: "Record debt source, affected change/incident/security/cost, evidence, options, effort uncertainty, owner, trigger, and outcome"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-03-10"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,100 @@ sources:
   - "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Technical Debt Register yang Terhubung ke Dampak
 
-## Assignment lock
+Halo, Teman Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Technical Debt Register yang Terhubung ke Dampak”
-- **Reader and situation:** Product team debating refactoring versus features
-- **Reader outcome:** Record debt source, affected change/incident/security/cost, evidence, options, effort uncertainty, owner, trigger, and outcome
-- **Primary intent:** Prioritize maintainability work using consequences and evidence
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not label disliked code as debt or justify a rewrite; CDV-15-A04 owns modernization choice
-- **Final public route:** `/artikel/technical-debt-register-dampak.html`
-- **Appointed CMS date:** `2026-03-10` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Ketika product team berdebat antara refactoring dan fitur baru, masalahnya sering bukan kekurangan ide, melainkan utang teknis yang hanya ditulis sebagai “kode jelek” atau “nanti dibereskan”. Label seperti itu tidak cukup untuk menentukan pekerjaan mana yang harus masuk sprint. **Technical debt register yang terhubung ke dampak** mencatat sumber utang, perubahan atau insiden yang terdampak, bukti, pilihan penanganan, ketidakpastian usaha, pemilik, pemicu, dan hasil yang diharapkan.
 
-## Opening instructions
+Jawaban singkatnya: prioritaskan entri yang menunjukkan konsekuensi terukur atau risiko yang segera dipicu, bukan entri yang paling tua atau paling mengganggu selera tim. Catatan itu menjadi dasar keputusan, bukan perintah otomatis untuk menulis ulang sistem. Kesimpulan dapat berubah setelah bukti baru—misalnya jalur eksploitasi, paparan runtime, biaya perubahan, atau kemampuan rollback—diperiksa oleh pemilik teknis dan pemangku kepentingan yang berwenang.
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Technical Debt Register yang Terhubung ke Dampak**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+## Jawaban singkat dan salah paham utama
+
+Utang teknis adalah konsekuensi pemeliharaan yang sengaja atau tidak sengaja ditunda. Register yang baik menghubungkan “apa yang tertunda” dengan “apa yang menjadi lebih mahal, lambat, rentan, atau sulit dipulihkan”. Hubungan itu harus dapat ditelusuri: perubahan mana yang gagal, insiden mana yang berulang, kontrol keamanan mana yang tidak dapat dipenuhi, atau biaya operasi mana yang naik.
+
+Salah paham paling berbahaya adalah menganggap semua kode lama sebagai utang. Kode lama yang stabil, dipahami, dan murah dioperasikan belum tentu perlu disentuh. Sebaliknya, modul yang baru dibuat dapat menjadi utang bila setiap perubahan memerlukan pengecualian, pengujian manual, atau pengetahuan satu orang. Register harus menguji dampak dan bukti, bukan usia atau preferensi.
+
+Kawan Codev.id, tanyakan tiga hal sebelum memasukkan entri: “Peristiwa apa yang dipengaruhi?”, “Bukti apa yang bisa diperiksa orang lain?”, dan “Pemicu apa yang membuat penundaan tidak lagi rasional?” Jika jawabannya masih dugaan, tulis sebagai ketidakpastian dan beri tugas pengumpulan bukti, bukan skor kepastian palsu.
+
+## Definisi dan batas objek
+
+Satu entri register adalah rekaman keputusan kecil. Minimal, isinya:
+
+| Bidang | Yang dicatat | Mengapa penting |
+|---|---|---|
+| Sumber utang | Keputusan, shortcut, kontrak, konfigurasi, atau dependensi yang menimbulkan beban | Menunjukkan titik yang bisa diperbaiki |
+| Dampak terpengaruh | Perubahan, insiden, keamanan, biaya, reliabilitas, atau waktu rilis | Menghubungkan pekerjaan ke hasil bisnis/operasi |
+| Bukti | Tautan tiket, log, metrik, diff, inventaris, atau catatan review | Memisahkan fakta dari ingatan |
+| Opsi | Biarkan dengan kontrol, perbaiki sebagian, ganti komponen, atau hentikan jalur | Membuka pilihan selain rewrite |
+| Usaha dan ketidakpastian | Perkiraan rentang serta asumsi yang belum teruji | Mencegah janji presisi palsu |
+| Pemilik dan pemicu | Orang/tim yang memutuskan dan kondisi yang memicu peninjauan | Menjaga entri tetap hidup |
+| Outcome | Perubahan yang diharapkan dan cara memeriksanya | Menentukan kapan utang dianggap tertangani |
+
+Objek ini bukan backlog refactoring, daftar keluhan gaya, atau persetujuan pengadaan. Register juga tidak menetapkan pilihan modernisasi; keputusan refactor, replatform, strangler, atau rewrite memerlukan analisis tersendiri. Jika suatu opsi menyentuh penghapusan data atau sejarah, batasnya lebih ketat: jangan menyimpulkan aman sebelum tinjauan tata kelola dan pemulihan selesai **[NEEDS GATE-02, GATE-05, GATE-08 REVIEW]**.
+
+## Cara kerjanya
+
+Mulai dari peristiwa nyata atau perubahan yang akan datang. Seorang engineer menulis sumber utang dalam satu kalimat yang dapat diuji, lalu mengaitkannya dengan artefak: misalnya kegagalan deployment, waktu investigasi insiden, daftar komponen, atau permintaan perubahan yang berulang. Pemilik produk menambahkan konsekuensi terhadap target dan pengguna; pemilik operasi menambahkan paparan runtime serta jalur pemulihan.
+
+Untuk dependensi, buat inventaris komponen dan asalnya. [SBOM CISA](https://www.cisa.gov/sbom) membantu transparansi komponen, tetapi tidak membuktikan bahwa sistem aman. Catat versi, penggunaan aktual, pemilik pembaruan, dan cara menguji rollback. Penilaian repositori seperti [OpenSSF Scorecard](https://securityscorecards.dev/) dapat menjadi sinyal untuk pertanyaan lanjutan, bukan pengganti due diligence terhadap vendor, API, kuota, atau subprosesor.
+
+Berikut urutan praktisnya:
+
+1. **Tangkap pemicu.** Catat perubahan, insiden, audit, atau kontrak yang membuat utang terlihat.
+2. **Rumuskan dampak.** Bedakan dampak yang sudah terjadi dari skenario yang mungkin terjadi. Gunakan rentang dan syarat, bukan angka rekaan.
+3. **Kumpulkan bukti.** Tautkan artefak yang dapat dibaca reviewer dan tandai bagian yang belum tersedia.
+4. **Susun opsi.** Bandingkan kontrol sementara, perbaikan lokal, penggantian komponen, dan penundaan dengan alasan.
+5. **Tetapkan pemilik serta pemicu.** Misalnya sebelum rilis tertentu, saat dependensi masuk katalog kerentanan, atau setelah insiden berulang.
+6. **Catat keputusan dan outcome.** Simpan apa yang dipilih, asumsi usaha, hasil verifikasi, dan tanggal tinjauan berikutnya.
+
+Untuk risiko rantai pasok, panduan [NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final) berguna sebagai kerangka mengidentifikasi dan mengelola risiko pemasok. Register menerjemahkan kerangka itu menjadi pertanyaan lokal: siapa yang menerima notifikasi, siapa yang dapat menguji versi baru, dan apa rencana jika integrasi gagal.
+
+## Faktor yang mengubah hasil
+
+Prioritas berubah ketika konteks berubah. Pertama, **paparan**: komponen yang hanya dipakai saat build berbeda dari layanan yang menerima lalu lintas publik. Kedua, **dampak bisnis**: jalur pembayaran, identitas, atau pelaporan mungkin memiliki konsekuensi lebih besar daripada alat internal yang mudah diganti. Ketiga, **kemampuan pemulihan**: backup yang diuji dan rollback cepat menurunkan risiko penundaan, sedangkan perubahan tanpa jalur balik menaikkannya.
+
+Keempat, **bukti eksploitasi dan perbaikan**. Katalog [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) membantu mengidentifikasi kerentanan yang diketahui dieksploitasi. Namun tingkat keparahan saja bukan urutan kerja; gabungkan eksploitasi, paparan, dampak, keamanan perbaikan, rollback, dan kepemilikan. [NIST SSDF](https://csrc.nist.gov/Projects/ssdf/publications) juga menempatkan praktik pengembangan aman sebagai proses yang perlu dipelihara, bukan pemeriksaan satu kali.
+
+Kelima, **ketidakpastian usaha**. Estimasi kecil dengan kontrak eksternal yang tidak terdokumentasi dapat lebih berisiko daripada pekerjaan besar yang sudah dipetakan. Tulis asumsi yang membuat estimasi berubah: cakupan migrasi, kompatibilitas API, ketersediaan penguji, atau kebutuhan paralel-run. Jika sebuah kondisi belum dapat diverifikasi, jadikan itu tugas penemuan (discovery) dengan pemilik dan batas waktu.
+
+## Contoh keputusan praktis
+
+Bayangkan entri berikut: “Dependensi autentikasi tertinggal; setiap upgrade memerlukan perubahan konfigurasi manual.” Bukti yang tersedia adalah catatan deployment dan daftar komponen. Dampaknya: perubahan fitur identitas tertunda, dan rollback belum diuji. Opsi pertama adalah menambah uji kompatibilitas serta prosedur rollback; opsi kedua memperbarui dependensi dalam jendela perubahan; opsi ketiga mengganti komponen. Register tidak memilih opsi ketiga hanya karena versinya tua.
+
+Jika katalog kerentanan menunjukkan eksploitasi dan layanan terpapar publik, pemicu menjadi segera: lakukan triase, validasi perbaikan, dan siapkan rollback. Jika dependensi hanya dipakai dalam pipeline tertutup dan tidak ada perubahan dekat, kontrol sementara mungkin cukup sambil mengumpulkan bukti usaha. Catat siapa yang menyetujui keputusan dan kapan kondisi ditinjau ulang.
+
+Untuk migrasi URL atau data, inventaris sumber dan tujuan, aturan pemetaan, serta rekonsiliasi setelah perubahan. Panduan [Google tentang perpindahan situs dengan perubahan URL](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) menekankan pentingnya inventaris dan pemeriksaan setelah perpindahan; prinsip yang sama membantu register menghindari “selesai” hanya karena deployment berhasil. Jangan menghapus data lama atau riwayat sebelum tinjauan yang diwajibkan selesai **[NEEDS GATE-02, GATE-05, GATE-08 REVIEW]**.
+
+## Kesalahan umum dan cara memeriksanya
+
+Kesalahan pertama adalah memberi skor tunggal tanpa uraian. Periksa apakah skor dapat diurai menjadi paparan, dampak, bukti, dan keyakinan. Kedua, menyamakan sinyal vendor dengan jaminan keamanan. Minta SBOM, proses notifikasi, dan bukti uji yang relevan; jangan menganggap satu nilai repositori sudah cukup.
+
+Ketiga, mencatat “rewrite” sebagai solusi. Ganti dengan beberapa opsi dan tulis kondisi yang membuat masing-masing layak. Keempat, mengabaikan pemilik. Entri tanpa orang yang berwenang memutuskan akan menua tanpa perubahan. Kelima, menutup entri setelah merge. Tanyakan outcome: apakah waktu perubahan, frekuensi insiden, atau kemampuan rollback benar-benar diperiksa? Jika belum, statusnya masih menunggu verifikasi.
+
+Sobat Codev.id dapat memakai pemeriksaan singkat ini pada setiap review register:
+
+- Apakah sumber utang dan dampak berada pada jalur yang sama, bukan sekadar berdekatan?
+- Apakah setiap fakta punya artefak, sementara asumsi diberi label?
+- Apakah opsi menyebut kontrol sementara dan rencana rollback?
+- Apakah pemicu, pemilik, dan tanggal tinjau tercatat?
+- Apakah outcome dapat diverifikasi tanpa mengarang metrik?
+
+## Jalan pintas yang tampak praktis
+
+Shortcut yang sering dipilih adalah “masukkan semua utang ke sprint berikutnya, lalu pilih yang paling mudah”. Ini gagal ketika pekerjaan mudah tidak mengurangi paparan atau dampak terbesar. Alternatif yang lebih aman adalah mengurutkan berdasarkan konsekuensi dan bukti, kemudian memilih pekerjaan yang menurunkan risiko secara nyata dalam kapasitas yang tersedia. Pekerjaan kecil tetap boleh dipilih jika ia membuka bukti penting, menyediakan rollback, atau mencegah pemicu yang dekat—alasan itu harus tertulis di register.
+
+## Penutup
+
+Technical debt register yang terhubung ke dampak adalah catatan keputusan: sumber utang → dampak → bukti → opsi → usaha dan ketidakpastian → pemilik, pemicu, serta outcome. Ia membantu tim membedakan risiko yang perlu ditangani sekarang dari kode yang hanya tidak disukai. Register tidak menggantikan review teknis, keamanan, hukum, atau tata kelola.
+
+Langkah berikutnya, ambil satu insiden atau perubahan tertunda, isi semua bidang di atas, dan minta pemilik teknis memeriksa bukti serta rencana rollback. Jika Anda perlu menyelaraskan istilah dan tanggung jawab dengan komunitas, gunakan [beranda Codev.id](/) sebagai titik koordinasi, bukan sebagai bukti teknis. Tinjau ulang ketika pemicu berubah. Aturan operasinya sederhana: jangan menyebut utang “selesai” sebelum dampak yang dijanjikan diperiksa; jangan memilih rewrite atau penghapusan data hanya karena labelnya terdengar tegas.
+
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +127,4 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-### KR-13
-
-- **Original sources:** [NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications), [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), [Google Search site-move guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
-- **Purpose for this article:** Ground dependency/runtime maintenance, vulnerability prioritization, migration, recovery, and decommissioning.
-- **Safe grounded facts:** Vulnerability severity is not the sole prioritization input; exposure, exploitation, business impact, fix safety, rollback, and ownership matter. URL/data migrations need inventories and reconciliation.
-- **Limits:** Never prescribe replacement from age alone or delete history/data without GATE-02, GATE-05, and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-05, GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-15-A01` → `/artikel/ruang-lingkup-maintenance-software.html` — Ruang Lingkup Maintenance Software yang Jelas
-- `CDV-15-A02` → `/artikel/upgrade-dependency-runtime.html` — Upgrade Dependency dan Runtime dengan Risiko Terkendali
-- `CDV-15-A04` → `/artikel/refactor-replatform-strangler-atau-rewrite.html` — Refactor, Replatform, Strangler, atau Rewrite
-- `CDV-15-A05` → `/artikel/migrasi-schema-konten-kontrak.html` — Migrasi Schema, Konten, dan Kontrak Secara Kompatibel
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Definisi dan batas objek
-
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Cara kerjanya
-
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Faktor yang mengubah hasil
-
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Contoh keputusan praktis
-
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Kesalahan umum dan cara memeriksanya
-
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Technical Debt Register yang Terhubung ke Dampak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+END MANAGED IMAGE PLAN -->

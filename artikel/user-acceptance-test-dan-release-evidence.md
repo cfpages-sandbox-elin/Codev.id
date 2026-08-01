@@ -1,9 +1,10 @@
 ---
 article_id: CDV-10-A05
+writing_contract_version: "native-id-v2"
 title: "User Acceptance Test dan Release Evidence"
 slug: "user-acceptance-test-dan-release-evidence"
 description: "Trace requirements to scenarios, roles/data, expected results, defects, retest, exceptions, evidence, and explicit acceptance decision"
-status: outline
+status: draft
 publication_date: "2025-11-20"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -21,40 +22,21 @@ sources:
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
   - "https://web.dev/articles/vitals"
   - "https://developer.chrome.com/docs/crux"
-  - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # User Acceptance Test dan Release Evidence
 
-## Assignment lock
+Halo, Sobat Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “User Acceptance Test dan Release Evidence”
-- **Reader and situation:** Client/product owner preparing sign-off
-- **Reader outcome:** Trace requirements to scenarios, roles/data, expected results, defects, retest, exceptions, evidence, and explicit acceptance decision
-- **Primary intent:** Verify agreed outcomes before business acceptance
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not treat UAT as a substitute for technical/security testing; CDV-18-A04 owns the complete release gate
-- **Final public route:** `/artikel/user-acceptance-test-dan-release-evidence.html`
-- **Appointed CMS date:** `2025-11-20` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+User Acceptance Test (UAT) bukan sekadar daftar centang bahwa tombol dapat diklik. UAT adalah pemeriksaan bersama: apakah alur yang disepakati benar-benar menghasilkan keluaran yang dibutuhkan pemilik bisnis, pada kondisi dan data yang sudah didefinisikan. Release evidence adalah jejak yang membuat keputusan itu dapat ditelusuri—siapa mencoba apa, dengan hasil apa, cacat mana yang masih terbuka, dan atas dasar apa seseorang menyetujui atau menahan rilis.
 
-## Opening instructions
+Jawaban singkatnya: terima rilis hanya ketika setiap kebutuhan bisnis penting memiliki skenario UAT, pemilik keputusan, data dan lingkungan yang jelas, hasil aktual yang terdokumentasi, serta keputusan eksplisit. Kelulusan UAT tidak menggantikan pengujian teknis, keamanan, kinerja, atau aksesibilitas. NIST menempatkan praktik pengembangan aman sebagai rangkaian kegiatan yang saling melengkapi, bukan satu bukti tunggal; karena itu, hasil UAT harus dibaca bersama pemeriksaan lain yang memang menjadi kewenangannya ([NIST SP 800-218 SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)).
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **User Acceptance Test dan Release Evidence**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -65,125 +47,73 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-10-A03` → `/artikel/test-data-dan-environment.html` — Test Data dan Environment Tanpa Membocorkan Produksi
-- `CDV-10-A04` → `/artikel/regression-suite-cepat-dipercaya.html` — Regression Suite yang Cepat dan Dipercaya
-- `CDV-10-A06` → `/artikel/bug-triage-severity-priority-retest.html` — Bug Triage: Severity, Priority, Root Cause, dan Retest
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+END MANAGED IMAGE PLAN -->
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+UAT berangkat dari kebutuhan yang dapat diamati oleh pengguna bisnis. Kebutuhan itu diterjemahkan menjadi skenario: prasyarat, peran, data uji, langkah, hasil yang diharapkan, hasil aktual, dan status. Release evidence memperluas catatan tersebut dengan versi build, lingkungan, waktu eksekusi, identitas pelaksana, lampiran, hubungan ke tiket cacat, hasil retest, pengecualian, dan keputusan akhir.
+
+Batasnya penting. UAT menjawab “apakah solusi ini memenuhi proses dan hasil yang disepakati?” Ia tidak membuktikan bahwa seluruh kode aman, setiap endpoint tahan beban, atau semua kombinasi perangkat bebas masalah. Spesifikasi OpenAPI dapat membantu menyamakan kontrak endpoint dan contoh respons, tetapi keberadaan dokumen itu sendiri tidak membuktikan perilaku implementasi di lingkungan rilis ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)). Demikian pula, hasil pemindaian otomatis hanya menyatakan pemeriksaan yang diprogram dan sampel yang dijalankan.
+
+Untuk aksesibilitas, rancang evaluasi berdasarkan cakupan halaman, alur, dan teknologi yang benar-benar dipakai. WCAG-EM menjelaskan proses penentuan cakupan, pemilihan sampel, evaluasi, dan pelaporan; satu scanner tidak dapat menggantikan pemeriksaan keyboard, fokus, semantik, formulir, pesan kesalahan, zoom, autentikasi, media, serta perilaku teknologi bantu ([WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/); [WCAG 2.2](https://www.w3.org/TR/WCAG22/); [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)). UAT boleh menemukan hambatan pengguna, tetapi klaim konformansi memerlukan evaluasi dengan cakupan yang dinyatakan dan peninjauan yang sesuai.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari matriks kebutuhan. Beri setiap kebutuhan ID yang stabil, pemilik bisnis, risiko jika gagal, dan kriteria penerimaan. Turunkan satu atau beberapa skenario yang dapat diulang. Skenario yang baik menyebutkan siapa yang bertindak, data apa yang digunakan, kondisi awal, langkah yang terlihat, serta hasil yang bisa diputuskan sebagai lulus atau gagal—bukan kata “berfungsi” tanpa definisi.
+
+Tetapkan peran sebelum sesi dimulai. Pemilik proses mengonfirmasi makna hasil; tester menjalankan langkah dan merekam bukti; tim teknis menjelaskan build atau memperbaiki cacat; fasilitator menjaga lingkungan dan mencatat keputusan. Orang yang memberi persetujuan harus memiliki kewenangan yang disepakati, bukan sekadar orang yang kebetulan hadir.
+
+Siapkan data dan lingkungan yang dapat dipertanggungjawabkan. Tandai akun, tanggal, zona waktu, konfigurasi, feature flag, dan integrasi yang dipakai. Hindari menyalin data produksi tanpa dasar dan pengamanan yang disetujui. Catat versi aplikasi dan commit/build sehingga kegagalan dapat dikaitkan dengan artefak yang tepat.
+
+Pada eksekusi, rekam hasil aktual segera setelah langkah dilakukan. Lampiran dapat berupa tangkapan layar, ekspor transaksi, log yang sudah disanitasi, atau rekaman singkat—pilih bukti yang menjawab hasil, bukan sekadar memperbanyak berkas. Setiap kegagalan mendapat ID cacat, tingkat dampak yang disepakati, langkah reproduksi, dan hubungan balik ke skenario.
+
+Retest harus menunjuk ke versi perbaikan dan mengulang kondisi yang relevan. Jika hasil berubah karena data, konfigurasi, atau dependensi, catat perubahan itu. Setelah retest, tandai apakah cacat ditutup, diterima sebagai pengecualian, atau masih menghalangi. NIST menekankan pentingnya menghubungkan kegiatan dan hasil agar risiko dapat ditelusuri; prinsip itu membantu release evidence tetap bermakna saat banyak tim terlibat ([NIST SP 800-218 SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)).
+
+Buat indeks bukti yang sederhana. Setiap berkas mendapat nama yang memuat ID skenario dan versi build, sementara catatan utama menyimpan tautan ke lokasi berkas, tanggal, dan pemiliknya. Jika bukti memuat data sensitif, simpan hanya salinan tersanitasi untuk pembaca keputusan dan batasi akses ke artefak mentah. Dengan begitu, auditor internal dapat mengulang penelusuran tanpa memperluas paparan data atau mengandalkan ingatan peserta sesi.
+
+Terakhir, buat keputusan tertulis: diterima, diterima dengan pengecualian, atau ditahan. Sertakan ruang lingkup yang disetujui, cacat terbuka, pemilik mitigasi, tenggat atau pemicu peninjauan ulang, serta tanda persetujuan. Jangan mengubah “belum diuji” menjadi “lulus” hanya karena jadwal rilis mendesak.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil UAT berubah ketika kebutuhan atau proses bisnis berubah. Skenario pembayaran dengan mata uang, peran, atau aturan persetujuan berbeda bukan pengulangan yang setara. Perubahan tersebut harus memicu peninjauan ulang prasyarat, data, dan hasil yang diharapkan.
+
+Lingkungan juga menentukan arti bukti. Perbedaan versi browser, layanan pihak ketiga, konfigurasi cache, feature flag, atau hak akses dapat menghasilkan perilaku berbeda. Jika bukti berasal dari lingkungan staging, nyatakan batas generalisasinya; jangan menyebutnya bukti produksi tanpa verifikasi.
+
+Untuk klaim performa, pisahkan pengukuran laboratorium dari data lapangan. Core Web Vitals adalah metrik yang didefinisikan penyedia dan dapat berevolusi; perbandingan sebelum-sesudah memerlukan ruang lingkup, sampel, kondisi, versi, dan caveat yang stabil ([Core Web Vitals](https://web.dev/articles/vitals)). Data Chrome UX Report menggambarkan pengalaman pengguna yang dikumpulkan dari kondisi tertentu, bukan jaminan untuk setiap pengguna atau setiap rilis ([Chrome UX Report](https://developer.chrome.com/docs/crux)). Karena paket ini tidak menetapkan ambang universal, tuliskan [NEEDS GATE-06 REVIEW: ambang dan kriteria penerimaan harus disepakati pemilik proyek] bila angka atau batas performa menentukan keputusan.
+
+Kawan Codev.id, perhatikan juga pengecualian aksesibilitas dan keamanan. UAT dapat menunjukkan bahwa alur tertentu sulit digunakan dengan keyboard atau pesan error tidak terbaca, namun keputusan konformansi dan risiko keamanan membutuhkan pemeriksa serta bukti yang berwenang. Catat temuan itu sebagai kondisi rilis, bukan menutupnya dengan label “minor” tanpa alasan.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan kebutuhan: petugas dapat menyetujui pengajuan, pemohon menerima status, dan auditor dapat menelusuri perubahan. Matriks keputusannya dapat diringkas seperti ini:
+
+| Kondisi bukti | Keputusan yang masuk akal | Tindak lanjut |
+| --- | --- | --- |
+| Semua skenario penting lulus pada build yang akan dirilis; bukti, pelaksana, dan ruang lingkup lengkap | Diterima | Simpan paket bukti dan catat versi rilis |
+| Alur utama lulus, tetapi ada cacat berdampak terbatas dengan mitigasi dan pemilik yang jelas | Diterima dengan pengecualian | Tulis alasan, batas dampak, pemilik, serta pemicu review |
+| Skenario kritis gagal, data tidak dapat direproduksi, atau persetujuan tidak berwenang | Ditahan | Perbaiki prasyarat atau cacat, lalu ulangi UAT |
+| UAT lulus, tetapi pemeriksaan keamanan, aksesibilitas, atau teknis wajib belum selesai | Jangan nyatakan release gate lengkap | Tunggu pemeriksaan yang memang berada di luar UAT |
+
+Contoh ini tidak menetapkan ambang universal. Nilai “kritis”, toleransi pengecualian, dan siapa yang boleh menyetujui harus berasal dari kesepakatan proyek. Jika belum ada, sisakan keputusan terbuka dan minta pemilik produk menetapkannya sebelum tanda tangan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “User Acceptance Test dan Release Evidence”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menguji happy path saja. Tambahkan pertanyaan tentang pembatalan, data kosong, duplikasi, izin berbeda, kegagalan integrasi, dan pemulihan. Kesalahan kedua adalah mencampur hasil dari beberapa build. Periksa nomor build pada setiap bukti dan pastikan retest mengarah ke versi yang benar.
 
-## Objection or shortcut to address
+Kesalahan ketiga adalah bukti tanpa konteks. Tangkapan layar tanpa peran, data, waktu, atau expected result sulit diaudit. Gunakan templat ringkas: ID kebutuhan, ID skenario, aktor, prasyarat, data, langkah, expected, actual, status, bukti, defect, retest, dan catatan pengecualian.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan keempat adalah menyamakan UAT dengan persetujuan teknis. Tanyakan secara terpisah: apakah pemeriksaan keamanan sudah ditandatangani? Apakah cakupan aksesibilitas dan perangkat telah dievaluasi? Apakah perubahan caching atau konfigurasi memerlukan pengukuran ulang? Dokumentasi UAT tidak boleh menjawab “ya” untuk pertanyaan yang tidak diuji.
 
-## Required conclusion
+Sebelum meminta tanda tangan, buka halaman ringkasan keputusan internal [Codev.id](/). Pastikan pembaca berikutnya dapat menemukan artefak yang sama, bukan hanya pesan singkat di chat.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang tampak cepat tetapi berisiko
 
-## Draft completion checklist
+Shortcut yang sering dipilih adalah meminta product owner membalas “approve” setelah melihat demo. Demo menunjukkan alur yang dipilih presenter, bukan seluruh skenario, data, pengecualian, atau versi yang akan dirilis. Balasan singkat juga tidak menyatakan cacat terbuka dan batas persetujuan.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Alternatif yang lebih aman tetap ringan: kirim matriks kebutuhan-skenario, ringkasan hasil, daftar pengecualian, tautan bukti, versi build, dan satu kalimat keputusan dengan nama serta peran pemberi persetujuan. Jika ada yang belum diuji, tulis “belum diuji” dan konsekuensinya. Transparansi ini memudahkan keputusan ditinjau ulang tanpa menafsirkan ulang percakapan lama.
+
+## Penutup
+
+UAT dan release evidence menjawab pertanyaan yang sama dari dua sisi: apakah hasil bisnis yang disepakati tercapai, dan dapatkah keputusan itu dibuktikan kembali? Hubungkan setiap kebutuhan ke skenario, data, pelaksana, expected dan actual result, cacat, retest, pengecualian, serta keputusan eksplisit. Setelah itu, minta pemeriksaan teknis, keamanan, aksesibilitas, dan gate rilis yang memang berada di luar UAT.
+
+Langkah berikutnya adalah membuat satu lembar keputusan untuk build yang akan dirilis, mengisi semua kolom yang masih kosong, lalu meminta pemilik bisnis menandatangani status diterima, diterima dengan pengecualian, atau ditahan. Teman Codev.id, jangan jadikan tanda tangan sebagai pengganti bukti: operating rule-nya sederhana—tidak ada keputusan rilis yang lebih luas daripada ruang lingkup dan bukti yang benar-benar diuji.

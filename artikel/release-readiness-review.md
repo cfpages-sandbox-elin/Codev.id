@@ -2,8 +2,9 @@
 article_id: CDV-18-A04
 title: "Release Readiness Review Sebelum Go-live"
 slug: "release-readiness-review"
-description: "Review scope/acceptance, known defects, security/privacy, accessibility, performance, migrations, rollback, monitoring, support, communications, owner, and exceptions"
-status: outline
+description: "Pemeriksaan cakupan dan penerimaan, cacat yang diketahui, keamanan dan privasi, aksesibilitas, kinerja, migrasi, pemulihan, pemantauan, dukungan, komunikasi, pemilik, dan pengecualian"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-05-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,40 +23,15 @@ sources:
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
   - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
   - "https://www.cisa.gov/securebydesign"
-  - "https://www.gov.uk/guidance/the-technology-code-of-practice"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # Release Readiness Review Sebelum Go-live
 
-## Assignment lock
+Halo, Sobat Codev.id! Release readiness review bukan rapat untuk mencari kalimat “sudah aman”, melainkan pemeriksaan bukti sebelum tim memilih go, no-go, atau go dengan pengecualian yang disetujui. Keputusan go-live layak diambil hanya jika ruang lingkup rilis, kriteria penerimaan, risiko tersisa, cara mundur, pemantauan, dan pemilik tindak lanjut terlihat dalam satu rekam keputusan.
 
-- **Writer task:** Expand this file into one complete article answering: “Release Readiness Review Sebelum Go-live”
-- **Reader and situation:** Cross-functional team approaching production
-- **Reader outcome:** Review scope/acceptance, known defects, security/privacy, accessibility, performance, migrations, rollback, monitoring, support, communications, owner, and exceptions
-- **Primary intent:** Make an explicit evidence-based go/no-go decision
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not guarantee a defect-free release or replace tests; CDV-10-A05 owns UAT and CDV-11-A05 owns rollback
-- **Final public route:** `/artikel/release-readiness-review.html`
-- **Appointed CMS date:** `2026-05-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Lulus tes otomatis tidak dengan sendirinya membuktikan kesiapan produksi. Hasil tes hanya berlaku untuk asersi, lingkungan, build, dan data yang benar-benar diuji. Karena itu, release readiness review menyatukan hasil pengujian dengan pemeriksaan spesialis dan persetujuan bisnis. Praktik secure software development NIST menekankan pentingnya menelusuri risiko, kebutuhan, dan hasil verifikasi; gunakan [SSDF NIST SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) sebagai rujukan proses, bukan sebagai sertifikat bahwa rilis tertentu pasti aman.
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Release Readiness Review Sebelum Go-live**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -66,126 +42,72 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-06, GATE-07, GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-18-A02` → `/artikel/decision-risk-issue-log.html` — Decision Log, Risk Register, dan Issue Log yang Berbeda
-- `CDV-18-A03` → `/artikel/change-control-nilai-baseline.html` — Change Control yang Menjaga Nilai dan Baseline
-- `CDV-18-A05` → `/artikel/checklist-handover-software.html` — Checklist Handover Software dan Bukti Kepemilikan
-- `CDV-18-A06` → `/artikel/vendor-exit-transition-plan.html` — Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Review ini adalah forum lintas fungsi untuk memeriksa apakah rilis tertentu siap dipindahkan ke produksi pada kondisi yang ditetapkan. “Siap” berarti bukti penting tersedia, risiko yang tersisa dipahami, dan orang yang berwenang menerima konsekuensinya. Review ini tidak menjanjikan rilis bebas cacat, tidak menggantikan unit test, integration test, UAT, atau penilaian profesional, serta tidak mengambil alih prosedur rollback milik proyek lain.
+
+Objek yang diperiksa meliputi build dan ruang lingkup, acceptance criteria, defect yang diketahui, keamanan dan privasi, aksesibilitas, kinerja, migrasi data, rollback, monitoring, dukungan, komunikasi, pemilik keputusan, dan pengecualian. Spesifikasi kontrak API, misalnya, harus dibandingkan dengan implementasi dan klien yang terdampak; [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) membantu menyamakan bentuk kontrak, tetapi tidak membuktikan perilaku runtime.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan lembar keputusan yang memiliki identitas rilis, commit atau artefak, lingkungan, waktu pemeriksaan, dan pemilik. Untuk tiap area, catat kriteria, bukti, status, risiko, pemilik, dan batas waktu. Jangan menggabungkan “belum diperiksa” dengan “lulus”.
+
+Urutannya dapat dibuat seperti ini:
+
+1. **Kunci ruang lingkup.** Daftar perubahan, fitur yang sengaja tidak masuk, dependensi, dan kriteria penerimaan harus disepakati. Tautkan setiap kriteria ke hasil uji atau inspeksi yang dapat dibaca ulang.
+2. **Triage defect.** Kelompokkan defect berdasarkan dampak dan kondisi pemicu. Setiap defect yang ditunda memerlukan alasan, mitigasi, pemilik, dan keputusan penerimaan risiko; label “known issue” saja tidak cukup.
+3. **Periksa specialist gate.** Tinjau threat model, izin dan rahasia, perlindungan data, aksesibilitas, kinerja pada beban yang relevan, serta rencana migrasi. Untuk evaluasi aksesibilitas berbasis cakupan dan sampel, gunakan kerangka [WCAG-EM](https://www.w3.org/TR/WCAG-EM/) tanpa mengklaim kepatuhan universal dari satu pemeriksaan.
+4. **Buktikan operasi.** Tunjukkan dashboard, alert, runbook, jalur eskalasi, kapasitas yang disepakati, dan cara mengidentifikasi versi yang sedang berjalan. Instrumentasi OpenTelemetry menghasilkan sinyal yang berguna, tetapi [dokumentasi OpenTelemetry](https://opentelemetry.io/docs/) tidak menjamin reliabilitas tanpa konfigurasi dan operasi yang benar.
+5. **Simulasikan perubahan dan pemulihan.** Pastikan urutan migrasi, kompatibilitas versi, kriteria berhenti, dan otorisasi rollback diketahui. Detail langkah rollback tetap berada di prosedur proyek yang berwenang.
+6. **Putuskan.** Pemilik bisnis, teknis, keamanan, dan operasi menandatangani status go, no-go, atau go dengan pengecualian. Sertakan tanggal kedaluwarsa pengecualian agar keputusan tidak menjadi izin permanen.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil review bergantung pada konteks, bukan pada jumlah kotak yang dicentang. Perubahan skema data yang tidak kompatibel dapat mengubah go menjadi no-go walaupun tes fitur hijau. Dependensi vendor yang belum memiliki jalur eskalasi dapat meningkatkan risiko operasional. Data uji yang tidak mewakili aturan akses atau volume nyata membuat kesimpulan kinerja dan privasi menjadi lemah.
+
+Definisi kesehatan layanan juga harus spesifik. SLO (service level objective) adalah tujuan layanan dan alat mengambil keputusan, bukan janji uptime kontraktual; lihat [Google SRE Workbook tentang SLO](https://sre.google/workbook/implementing-slos/). Tim perlu menyatakan indikator, jendela pengukuran, ambang alert, dan tindakan ketika anggaran error terlampaui. Jangan menulis klaim 24/7 atau kapasitas tertentu tanpa bukti operasi dan kontrak yang relevan.
+
+Rencana respons insiden harus menyebut siapa yang mengklasifikasikan kejadian, siapa yang berkomunikasi, dan bagaimana pembelajaran dicatat. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) dapat menjadi rujukan untuk siklus respons; ia tidak menggantikan kontak dan otorisasi yang harus disepakati tim Anda.
+
+Pemasok dan komponen pihak ketiga menambah pertanyaan tentang asal artefak, pembaruan, kerentanan, dan kemampuan keluar. Prinsip pengelolaan risiko rantai pasok di [NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final) serta pendekatan [CISA Secure by Design](https://www.cisa.gov/securebydesign) membantu membingkai tanggung jawab. Keduanya bukan dasar untuk menyatakan vendor tertentu patuh atau unggul.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan tabel ringkas berikut sebagai rekaman, bukan sebagai pengganti bukti:
+
+| Area | Bukti minimum yang dibaca reviewer | Keputusan bersyarat |
+|---|---|---|
+| Scope dan acceptance | Daftar perubahan, kriteria, hasil uji, artefak rilis | Go bila tidak ada kriteria kritis yang tanpa bukti |
+| Defect | Severity, dampak, mitigasi, pemilik, tenggat | No-go bila risiko kritis belum diterima pihak berwenang |
+| Security, privasi, aksesibilitas | Temuan, pengecualian, keputusan remediasi | Go dengan pengecualian hanya bila dampak dan batasnya eksplisit |
+| Migrasi dan rollback | Urutan langkah, kompatibilitas, pemicu berhenti | No-go bila jalur kembali tidak dapat dijalankan atau tidak berotorisasi |
+| Monitoring dan support | Sinyal, alert, runbook, roster eskalasi | Go bila gejala kegagalan dapat diketahui dan ditangani |
+| Komunikasi dan owner | Pesan, audiens, waktu, pemilik keputusan | Tunda bila tidak ada orang yang menerima tanggung jawab |
+
+Contohnya, jika migrasi bersifat satu arah sementara restore belum diverifikasi, status yang jujur adalah no-go atau menunggu persetujuan risiko tertulis—bukan “go sambil melihat dashboard”. Jika satu defect minor memiliki workaround terdokumentasi, pemilik layanan dapat memilih go dengan pengecualian yang memiliki tanggal tinjau. Bukti proyek aktual untuk ambang dan pengecualian tetap diperlukan: **[NEEDS GATE-06: tetapkan kriteria penerimaan dan ambang proyek sebelum keputusan final]**.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Release Readiness Review Sebelum Go-live”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menjadikan dashboard hijau sebagai bukti kesiapan. Periksa apakah sinyal mencakup alur pengguna penting, apakah alert diuji, dan apakah ada orang yang menerima panggilan. **[NEEDS GATE-07: verifikasi bukti operasi, SLO, alert, dan respons sebelum klaim kesiapan layanan]**.
 
-## Objection or shortcut to address
+Kesalahan kedua adalah menutup semua defect pada hari rilis. Minta daftar defect yang masih terbuka, dampak bisnisnya, dan persetujuan penerimaan risiko. Kesalahan ketiga adalah menganggap hasil pemindaian keamanan sebagai penilaian privasi atau aksesibilitas. Tanyakan cakupan, versi build, data, dan batas metode.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan berikutnya adalah mengandalkan nama atau logo pemasok. Bandingkan ruang lingkup kontrak, deliverable, akses ke artefak, dan rencana transisi. **[NEEDS GATE-09: qualified contract review diperlukan untuk kewajiban, alokasi risiko, dan klaim kemampuan pemasok]**. Terakhir, jangan menganggap rollback sebagai tombol ajaib: perubahan data, cache, antrean, dan komunikasi pengguna dapat membuat pemulihan lebih rumit.
 
-## Required conclusion
+## Jalan pintas yang perlu diuji
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering dipilih adalah rapat singkat dengan pertanyaan “ada blocker?” lalu langsung deploy ketika tidak ada yang bersuara. Cara ini gagal karena diam bukan bukti, dan peserta mungkin tidak melihat artefak yang sama. Alternatif yang lebih aman adalah mengedarkan lembar keputusan sebelum rapat, meminta setiap pemilik menyatakan status berbasis bukti, lalu merekam pengecualian, pemicu penghentian, dan orang yang berwenang mengubah keputusan. Untuk konteks layanan dan langkah lanjutan, pembaca dapat mulai dari [beranda Codev.id](/).
 
-## Draft completion checklist
+Kawan Codev.id, bila bukti utama belum tersedia, keputusan yang bertanggung jawab bukan menebak. Tunda, batasi paparan, atau minta review teknis/keamanan yang sesuai. [NEEDS TECHNICAL REVIEW: keputusan akhir harus diperiksa pemilik proyek dan reviewer berkualifikasi.]
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan
+
+Release readiness review sebelum go-live adalah mekanisme untuk membuat keputusan go, no-go, atau go dengan pengecualian berdasarkan bukti yang dapat ditelusuri. Langkah berikutnya: bekukan artefak rilis, isi matriks area di atas, minta setiap pemilik melampirkan bukti dan batasnya, lalu dokumentasikan keputusan serta tanggal peninjauan ulang.
+
+Teman Codev.id, jangan menyebut rilis “siap” hanya karena tes lulus atau monitoring sudah terpasang. Siap berarti risiko yang tersisa terlihat, diterima oleh pihak yang tepat, dan ada cara mengenali serta merespons kegagalan. Jika salah satu bukti konsekuensial masih kosong, pertahankan status tunda sampai reviewer teknis yang berwenang menyelesaikannya.

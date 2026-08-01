@@ -1,9 +1,10 @@
 ---
 article_id: CDV-20-A02
+writing_contract_version: "native-id-v2"
 title: "Memverifikasi Portfolio: Peran, Scope, dan Provenance"
 slug: "verifikasi-portfolio-peran-scope-provenance"
 description: "Verify relationship/permission, date, problem, exact contribution, technology, collaborators/subcontractors, artifacts, acceptance, current status, and claim limits"
-status: outline
+status: draft
 publication_date: "2026-07-09"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,79 @@ sources:
   - "https://www.w3.org/TR/WCAG-EM/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Memverifikasi Portfolio: Peran, Scope, dan Provenance
 
-## Assignment lock
+Halo, Kawan Codev.id! Ketika sebuah portfolio menampilkan logo, domain, tangkapan layar, atau daftar teknologi, pertanyaan yang perlu dijawab bukan “Apakah tampilannya meyakinkan?” melainkan “Bagian mana yang benar-benar dikerjakan oleh penyedia ini, dengan kewenangan apa, dan bukti apa yang masih bisa diperiksa?”
 
-- **Writer task:** Expand this file into one complete article answering: “Memverifikasi Portfolio: Peran, Scope, dan Provenance”
-- **Reader and situation:** Buyer or editor reviewing named projects on `/portfolio`
-- **Reader outcome:** Verify relationship/permission, date, problem, exact contribution, technology, collaborators/subcontractors, artifacts, acceptance, current status, and claim limits
-- **Primary intent:** Determine what a portfolio entry actually proves
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** A logo/domain does not prove build ownership or results; CDV-20-A03 owns outcome evidence and `/portfolio` owns substantiated display
-- **Final public route:** `/artikel/verifikasi-portfolio-peran-scope-provenance.html`
-- **Appointed CMS date:** `2026-07-09` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: portfolio hanya membuktikan klaim yang dapat ditautkan ke identitas pihak, izin publikasi, waktu, ruang lingkup, kontribusi spesifik, artefak, dan status yang dapat diverifikasi. Logo atau domain sendiri tidak membuktikan kepemilikan build, hasil bisnis, keamanan, aksesibilitas, maupun persetujuan klien. Jika hubungan, scope, atau sumber artefaknya belum jelas, turunkan klaim menjadi “contoh tampilan yang pernah ditangani” atau tahan keputusan sampai bukti tersedia. Kerangka pengadaan NIST juga menempatkan pembagian peran, risiko, dan bukti serah-terima sebagai hal yang perlu dinormalisasi, bukan diasumsikan dari materi promosi ([NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)).
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Memverifikasi Portfolio: Peran, Scope, dan Provenance**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
+## Definisi dan batas objek
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+Dalam pemeriksaan ini, **provenance** berarti jejak asal-usul klaim: siapa yang memberikan informasi, kapan artefak dibuat, versi mana yang diperiksa, dan bagaimana artefak itu berhubungan dengan pekerjaan yang disebut. **Peran** menjawab posisi penyedia—misalnya pemilik produk, pelaksana implementasi, kontributor terbatas, konsultan, atau subkontraktor. **Scope** menjawab bagian pekerjaan yang masuk kontrak dan bagian yang berada di luar kewenangan.
+
+Tiga hal itu berbeda dari “halaman yang bisa dibuka”. Domain mungkin masih aktif setelah tim berganti. Screenshot dapat berasal dari lingkungan demo. Badge alat hanya menunjukkan alat yang disebut, bukan siapa yang mengonfigurasi atau memeliharanya. Panduan Service Standard Inggris menekankan perlunya memahami kebutuhan, menguji layanan, dan memperbaikinya secara berulang; daftar teknologi tanpa jejak keputusan dan pengujian tidak cukup untuk menyimpulkan kualitas layanan ([UK Government Service Standard](https://www.gov.uk/service-manual/service-standard)). Prinsip pengadaan teknologi juga mendorong kejelasan kepemilikan, risiko, dan kemampuan untuk berpindah penyedia ketika hubungan kerja berubah ([UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)).
+
+Batasnya penting. Artikel ini membantu pembeli atau editor menguji apa yang dibuktikan oleh satu entri portfolio. Artikel ini tidak menetapkan hasil bisnis, menyatakan kepatuhan hukum, atau menggantikan persetujuan proyek dan pemeriksaan profesional. Studi kasus before-after, testimonial, dan bukti outcome memerlukan verifikasi tersendiri. Untuk langkah awal, gunakan [halaman portfolio](/portfolio) sebagai daftar klaim yang harus dimintakan buktinya, bukan sebagai bukti final.
+
+## Cara kerjanya
+
+Verifikasi paling rapi berjalan dari identitas ke klaim, lalu dari klaim ke artefak. Minta jawaban tertulis singkat untuk urutan berikut.
+
+1. **Hubungan dan izin.** Siapa entitas yang mengontrak pekerjaan? Siapa kontak yang berwenang mengonfirmasi? Apakah nama, logo, domain, dan gambar boleh dipublikasikan, dan untuk periode apa? Tanpa izin, materi publik tidak boleh dipakai sebagai kesaksian klien.
+2. **Tanggal dan keadaan.** Catat kapan pekerjaan dimulai, kapan kontribusi berakhir, dan status saat diperiksa. Bedakan versi yang dibuat penyedia dari versi yang telah diubah pihak lain.
+3. **Masalah dan batas pekerjaan.** Minta rumusan masalah, deliverable, lingkungan, serta item yang secara eksplisit dikecualikan. “Membangun website” terlalu luas untuk menjadi scope yang dapat diuji.
+4. **Kontribusi dan pelaku.** Petakan siapa yang memimpin discovery, desain, kode, deployment, konten, pengujian, dan operasi. Tandai kolaborator atau subkontraktor serta bagian yang mereka kerjakan. CISA mengingatkan bahwa keamanan perlu dipikirkan sejak desain dan sepanjang siklus hidup; menyebut “secure by design” tanpa menunjukkan tanggung jawab dan proses tidak membuktikan hasil keamanan ([CISA Secure by Design](https://www.cisa.gov/securebydesign)).
+5. **Teknologi dan artefak.** Hubungkan versi, repository atau export yang boleh dilihat, keputusan arsitektur, tiket, catatan rilis, laporan uji, dan dokumentasi handover dengan kontribusi orang atau tim tertentu. Jangan meminta rahasia dagang; cukup minta artefak yang dapat disanitasi dan jejak kepemilikan.
+6. **Penerimaan dan status kini.** Siapa acceptance owner yang menyetujui deliverable? Apakah ada daftar pengecualian? Apakah layanan masih dipelihara oleh penyedia, sudah dialihkan, atau sudah dekomisioning? Status “live” hanya menjelaskan keadaan saat ini, bukan keberhasilan masa lalu.
+7. **Batas klaim.** Tulis kalimat yang boleh digunakan dan kalimat yang harus ditahan. Contoh: “tim mengerjakan integrasi formulir pada versi X” lebih terukur daripada “tim meningkatkan konversi”.
+
+Setiap langkah menghasilkan pasangan **klaim–bukti–pemilik konfirmasi**. Jika salah satu kosong, tandai sebagai belum terverifikasi, bukan diisi dengan dugaan.
+
+## Faktor yang mengubah hasil
+
+Kualitas verifikasi berubah menurut empat kondisi. Pertama, **perubahan kepemilikan**: domain, repository, akun cloud, atau kontrak dukungan dapat berpindah. Kedua, **scope berlapis**: vendor utama dapat menyerahkan desain kepada studio lain dan deployment kepada subkontraktor. Ketiga, **perbedaan lingkungan**: demo, staging, dan produksi bisa memakai konfigurasi serta data yang berbeda. Keempat, **umur bukti**: dokumentasi lama tidak otomatis menggambarkan versi yang sedang dilihat.
+
+Klaim teknis juga membutuhkan disiplin. NIST SSDF menempatkan praktik pengembangan aman dalam konteks versi, organisasi, dan proses; namanya tidak membuktikan bahwa rilis tertentu telah diuji ([NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)). Demikian pula, evaluasi aksesibilitas W3C membutuhkan scope, metode, sampel, dan hasil evaluasi; satu screenshot atau badge tidak cukup untuk menyatakan conformance ([W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/)).
+
+Untuk klaim vendor, identitas, kepemilikan, consent, subkontraktor, warranty, hasil, handover, dan exit perlu ditutup oleh kontrak atau bukti penyedia yang masih berlaku. Jika paket itu belum lengkap, **[NEEDS GATE-09 REVIEW: hubungan, izin publikasi, scope, ownership, kolaborator, dan batas klaim belum terverifikasi]**. Penanda ini bukan tuduhan; ia mencegah editor mengubah materi promosi menjadi fakta proyek.
+
+## Contoh keputusan praktis
+
+Bayangkan editor menemukan entri yang menampilkan logo organisasi, tautan domain aktif, dan teks “platform aman serta mudah diakses”. Tidak ada nama peran, tanggal, atau laporan uji.
+
+| Temuan | Yang boleh disimpulkan | Keputusan |
+|---|---|---|
+| Logo dan domain dapat dibuka | Ada materi publik yang mengaitkan proyek dengan nama tersebut | Minta konfirmasi hubungan dan izin; jangan nyatakan build ownership |
+| Screenshot menampilkan fitur tertentu | Fitur terlihat pada gambar yang disediakan | Minta versi, environment, dan kontribusi; jangan nyatakan hasil pengguna |
+| Badge teknologi tercantum | Teknologi disebut dalam materi | Minta artefak konfigurasi atau keputusan; jangan nyatakan kompetensi tim |
+| Testimonial menyebut hasil | Ada pernyataan yang dikaitkan pada pemberi testimoni | Verifikasi identitas, tanggal, metode ukur, dan consent; tahan angka tanpa sumber |
+| Laporan uji dan acceptance owner tersedia | Klaim terbatas dapat dihubungkan ke rilis dan kriteria | Catat versi, pengecualian, serta status pemeliharaan |
+
+Kawan Codev.id, gunakan tabel seperti ini saat rapat pengadaan. Minta penyedia mengisi kolom “peran saya”, “bagian pihak lain”, “artefak yang bisa dibagikan”, dan “klaim yang tidak saya ajukan”. Bila mereka hanya dapat mengulang logo dan URL, keputusan yang wajar adalah meminta bukti tambahan atau memperkecil bobot portfolio dalam penilaian.
+
+## Kesalahan umum dan cara memeriksanya
+
+Kesalahan pertama adalah menyamakan **akses** dengan **kepemilikan**. Periksa nama kontraktor, repository, akun deployment, dan catatan handover. Kesalahan kedua adalah menganggap **tanggal halaman** sebagai tanggal pekerjaan. Minta tanggal kontrak, rilis, atau persetujuan yang relevan. Kesalahan ketiga adalah mencampur **kontribusi tim** dengan kontribusi individu. Minta pembagian peran dan subkontraktor.
+
+Kesalahan keempat adalah memakai **alat atau standar sebagai hasil**. Tanyakan versi, scope, metode pengujian, defect atau pengecualian, dan siapa yang menerima rilis. Kesalahan kelima adalah mengutip **angka outcome tanpa baseline**. Tanpa jendela waktu, definisi metrik, dan pemilik data, angka itu sebaiknya dihapus dari naskah.
+
+Terakhir, jangan menganggap persetujuan sekali berlaku selamanya. Simpan sumber, tanggal pemeriksaan, status kini, dan batas penggunaan. Jika status atau izin berubah, perbarui entri atau cabut klaimnya.
+
+## Jalan pintas yang tampak praktis
+
+Shortcut yang sering dipilih adalah: “URL-nya live dan kliennya terkenal, jadi kita bisa langsung percaya.” Shortcut ini gagal karena URL hanya menunjukkan keadaan yang dapat dilihat sekarang, sedangkan pekerjaan mungkin dikerjakan pihak berbeda, sudah berubah, atau tidak pernah mencakup klaim yang ditulis. Cara yang lebih aman adalah meminta konfirmasi peran dan izin, menautkan setiap klaim ke artefak bertanggal, lalu menuliskan apa yang tidak diketahui. Proses itu mungkin membuat portfolio lebih pendek, tetapi keputusan menjadi dapat dipertanggungjawabkan.
+
+## Kesimpulan
+
+Portfolio yang terverifikasi bukan yang paling banyak logo, melainkan yang setiap klaimnya punya provenance: hubungan dan izin jelas, tanggal serta scope terbatas, kontribusi dan kolaborator terpetakan, artefak serta acceptance dapat ditunjukkan, dan status kini tidak dibesar-besarkan. Sebelum menyetujui penyedia atau menerbitkan entri, minta satu lembar matriks klaim–bukti–pemilik konfirmasi dan cocokkan dengan kontrak atau catatan handover. Jika GATE-09 belum terpenuhi, pertahankan penanda review dan jangan mengubah tampilan publik menjadi klaim kompetensi, kepemilikan, atau hasil.
+
+Aturan operasionalnya sederhana, Teman Codev.id: nyatakan hanya apa yang dapat Anda tunjukkan, dan sebutkan batas yang belum dapat Anda buktikan.
+
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +106,4 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-### KR-17
-
-- **Original sources:** [UK Government Service Standard](https://www.gov.uk/service-manual/service-standard), [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/).
-- **Purpose for this article:** Establish an evidence hierarchy for provider selection, portfolios, cases, and measured outcomes.
-- **Safe grounded facts:** A screenshot, domain, logo, testimonial, tool badge, or live page alone does not prove authorship, scope, conformance, security, or business impact.
-- **Limits:** Do not invent clients, results, certifications, team competence, or consent. Apply GATE-09. ## Recurring intent-shape map | Intent shape | Representative catalog families | Main records | Control | |---|---|---|---| | Foundation/definitions | CDV-01, CDV-03, CDV-06, CDV-13 | KR-02, KR-03, KR-04, KR-11 | Define term, scope, version, and non-equivalent concepts. | | Selection/decision | CDV-03–CDV-05, CDV-11, CDV-16 | KR-03, KR-09, KR-14 | Compare constraints, alternatives, operating burden, exit, and evidence. | | Specification | CDV-01, CDV-06, CDV-07, CDV-17 | KR-02, KR-04, KR-05, KR-15 | Translate goals into testable contracts and acceptance. | | Design/interfaces | CDV-02, CDV-04, CDV-08 | KR-03, KR-04, KR-07, KR-11 | Model users, states, trust boundaries, data, and failure paths. | | Execution/QC | CDV-09–CDV-14 | KR-06, KR-08–KR-12 | Version evidence and connect controls to tests and release authority. | | Diagnosis | CDV-10, CDV-12, CDV-14, CDV-15 | KR-08, KR-10, KR-12, KR-13 | Preserve environment/timeline; distinguish symptom, cause, and decision. | | Maintenance | CDV-07, CDV-12, CDV-15, CDV-19 | KR-05, KR-10, KR-13, KR-16 | Track ownership, change, restore/rollback, deletion, and refresh. | | Procurement/handover | CDV-17, CDV-18, CDV-20 | KR-07, KR-15, KR-17 | Normalize scope and preserve source, accounts, evidence, and exit. | ## Evidence gates | Gate | Release condition | Held claims | |---|---|---| | `GATE-01` | Named users/stakeholders, current process, constraints, baseline, and acceptance owner are evidenced. | Need, priority, MVP, usability, or fitness for purpose. | | `GATE-02` | Current system/data/dependency inventory, quality attributes, capacity/cost assumptions, and ADR review exist. | Architecture/stack suitability, rewrite/migration, scalability, or cost. | | `GATE-03` | Versioned threat model, control set, secure-development evidence, and qualified verification cover the exact release. | Secure, ASVS-aligned, vulnerability-free, or penetration-tested. | | `GATE-04` | Current provider/API/auth contract, scopes, quotas, data flow, failure behavior, tests, and exit are verified. | Integration compatibility, OAuth safety, API reliability, or vendor behavior. | | `GATE-05` | Current consolidated Indonesian law, sector/local rules, roles, data map, purposes/bases, rights, vendors/transfers, retention, incident and legal review exist. | PDP/legal compliance, consent need, transfer, retention, deletion, or notification duty. | | `GATE-06` | Defined release scope, environments, representative data/users, criteria, test results, defects/exceptions, and decision owner exist. | Quality, accessibility conformance, acceptance, or release readiness. | | `GATE-07` | Actual Cloudflare/account/runtime configuration, current provider docs/limits, deployment, migration, secret, rollback, DNS/cache and smoke tests are recorded. | Production design, deployability, rollback, regional behavior, price, or quota. | | `GATE-08` | Dated lab/field/telemetry evidence states build, environment, sample, percentile, cache, tool/version, baseline, incident/cost window, and owner. | Speed, reliability, uptime, capacity, SEO, conversion, or operating-cost result. | | `GATE-09` | Contract/current offer and verified provider evidence cover entity/team, scope, ownership, consent, source/accounts, subcontractors, warranty/support, results, handover, and exit. | Price, competence, client relationship, certification, warranty, or case outcome. | | `GATE-10` | AI use-case baseline, data rights/provider handling, versioned evaluation set, failure/abuse results, human authority, monitoring, fallback, and retirement plan exist. | AI accuracy, autonomy, safety, privacy, copyright, savings, or business outcome. | ## Parent-topic coverage matrix | Topic family | Main research IDs | Safe ground for the six articles | Remaining gate | |---|---|---|---| | `CDV-01` | KR-01, KR-02 | Software discovery and requirements: problem, users, assumptions, functional/quality requirements, MVP, traceability, acceptance. | GATE-01 | | `CDV-02` | KR-02, KR-11 | Product/UX/interface design: research, flows, prototypes, content, usability, responsive states, accessible handoff. | GATE-01, GATE-06 | | `CDV-03` | KR-03, KR-07 | Architecture and technology decisions: constraints, ADRs, trade-offs, resilience, cost, operability, exit. | GATE-02 | | `CDV-04` | KR-03, KR-11, KR-12 | Website/web-app engineering: standards, rendering/state, CMS/custom, forms, identity, progressive enhancement. | GATE-02, GATE-06 | | `CDV-05` | KR-03, KR-11 | Mobile/installable apps: web/PWA/native choices, offline/sync, permissions, release, telemetry, accessibility. | GATE-02, GATE-06 | | `CDV-06` | KR-04, KR-08 | API lifecycle: contracts, HTTP, auth, errors, pagination, idempotency, versions, deprecation, consumer tests. | GATE-03, GATE-04 | | `CDV-07` | KR-05, KR-13 | Data architecture/quality/privacy/recovery: meaning, integrity, lifecycle, migration, backup/restore, deletion. | GATE-02, GATE-05 | | `CDV-08` | KR-04, KR-07 | Integrations: identity, payments/messaging, webhooks/queues, retry, reconciliation, fallback, vendor exit. | GATE-04, GATE-09 | | `CDV-09` | KR-04–KR-07 | Security and privacy engineering: threat/control lifecycle, identity/access, supply chain, PDP mapping, incidents. | GATE-03, GATE-05 | | `CDV-10` | KR-08, KR-11, KR-12 | Testing and release evidence: risk-based levels, specialist tests, traceability, defects, acceptance, release report. | GATE-06 | | `CDV-11` | KR-09, KR-10 | Cloudflare deployment: Pages/Workers choice, environments, CI/CD, secrets, migrations, cache, rollback. | GATE-07 | | `CDV-12` | KR-10, KR-12 | Operations: SLOs, telemetry, alerts, runbooks, incidents, capacity, quotas, cost and vendor status. | GATE-07, GATE-08 | | `CDV-13` | KR-02, KR-08, KR-11 | Accessibility: WCAG 2.2 scope, design/dev criteria, manual/automated/AT evaluation, procurement and maintenance. | GATE-05, GATE-06 | | `CDV-14` | KR-10, KR-12 | Performance/reliability: budgets, lab/field evidence, bottlenecks, caching, load/resilience and regression. | GATE-08 | | `CDV-15` | KR-07, KR-13 | Maintenance/modernization/decommissioning: dependencies, debt, upgrades, migration/recovery, archive/deletion. | GATE-02, GATE-05, GATE-08 | | `CDV-16` | KR-05, KR-14 | AI/automation delivery: use-case baseline, data/model/provider, evaluation, human control, monitoring, fallback. | GATE-05, GATE-10 | | `CDV-17` | KR-07, KR-15 | Estimation/procurement/contracts/TCO: comparable scope, uncertainty, ownership, risk, change, lifecycle cost, lock-in. | GATE-09 | | `CDV-18` | KR-08–KR-10, KR-15 | Governance/release/handover/vendor exit: roles, decisions, change, gates, source/accounts, runbooks, transition. | GATE-06, GATE-07, GATE-09 | | `CDV-19` | KR-13, KR-16 | Content systems/discoverability/migration: models, workflow, crawl/index/canonical, structured data, redirects, analytics. | GATE-05, GATE-08 | | `CDV-20` | KR-15, KR-17 | Capability proof/cases/provider selection: identity, role, consent, scope, methods, baselines, results, caveats, references. | GATE-09 | ## Mechanical acceptance - [x] Seventeen stable records contain every required field and direct source links. - [x] All 20 frozen topic IDs appear exactly once in the coverage matrix. - [x] Actual recurring intent shapes map to reusable records. - [x] Ten stable gates hold legal, security, project, vendor, release, production, performance, procurement, and AI claims. - [x] No article prose, production change, portfolio-ledger edit, invented metric, vendor endorsement, or compliance declaration is included.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/portfolio` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/portfolio/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-20-A01` → `/artikel/audit-bukti-kapabilitas-perusahaan-software.html` — Audit Bukti Kapabilitas Perusahaan Software
-- `CDV-20-A03` → `/artikel/studi-kasus-before-after-baseline.html` — Studi Kasus Before-after dengan Baseline yang Adil
-- `CDV-20-A04` → `/artikel/testimonial-logo-klien-consent.html` — Testimonial, Logo Klien, dan Consent yang Bisa Dibuktikan
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Definisi dan batas objek
-
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Cara kerjanya
-
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Faktor yang mengubah hasil
-
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Contoh keputusan praktis
-
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Kesalahan umum dan cara memeriksanya
-
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Memverifikasi Portfolio: Peran, Scope, dan Provenance”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+END MANAGED IMAGE PLAN -->

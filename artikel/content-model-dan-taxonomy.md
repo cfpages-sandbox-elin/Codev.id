@@ -3,7 +3,8 @@ article_id: CDV-19-A01
 title: "Content Model dan Taxonomy yang Bisa Dirawat"
 slug: "content-model-dan-taxonomy"
 description: "Define content types, fields, relationships, validation, taxonomy purpose, URL/display separation, roles, migration, and governance"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-06-10"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,13 @@ sources:
   - "https://schema.org/docs/documents.html"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Content Model dan Taxonomy yang Bisa Dirawat
 
-## Assignment lock
+Halo, Teman Codev.id! Content model yang bisa dirawat bukan daftar field sebanyak mungkin, dan taxonomy bukan kumpulan tag untuk mengejar halaman indeks. Keduanya adalah kesepakatan tentang entitas apa yang disimpan, hubungan antarentitas, istilah yang boleh dipakai, serta siapa yang bertanggung jawab ketika kebutuhan berubah.
 
-- **Writer task:** Expand this file into one complete article answering: “Content Model dan Taxonomy yang Bisa Dirawat”
-- **Reader and situation:** Team building a CMS or reorganizing many page types
-- **Reader outcome:** Define content types, fields, relationships, validation, taxonomy purpose, URL/display separation, roles, migration, and governance
-- **Primary intent:** Structure reusable content around entities and user tasks
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not create keyword or location variants; CDV-19-A06 owns editorial quality and CDV-04-A06 owns product archetypes
-- **Final public route:** `/artikel/content-model-dan-taxonomy.html`
-- **Appointed CMS date:** `2026-06-10` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: mulai dari tugas pengguna dan objek bisnis yang stabil, pisahkan tipe konten dari presentasi dan URL, batasi field dengan validasi, lalu tetapkan pemilik serta prosedur perubahan. Taxonomy hanya dipakai bila membantu menemukan, mengelompokkan, atau mengelola konten. Bukti migrasi, risiko keamanan runtime, dan aturan indeks dapat mengubah urutan kerja; jangan menyimpulkan hasil pencarian atau keamanan hanya dari model di atas kertas.
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Content Model dan Taxonomy yang Bisa Dirawat**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,117 +40,76 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-13
-
-- **Original sources:** [NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications), [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), [Google Search site-move guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
-- **Purpose for this article:** Ground dependency/runtime maintenance, vulnerability prioritization, migration, recovery, and decommissioning.
-- **Safe grounded facts:** Vulnerability severity is not the sole prioritization input; exposure, exploitation, business impact, fix safety, rollback, and ownership matter. URL/data migrations need inventories and reconciliation.
-- **Limits:** Never prescribe replacement from age alone or delete history/data without GATE-02, GATE-05, and GATE-08.
-
-### KR-16
-
-- **Original sources:** [Google Search Essentials](https://developers.google.com/search/docs/essentials), [Google people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [Schema.org documentation](https://schema.org/docs/documents.html).
-- **Purpose for this article:** Ground content models, crawl/index controls, structured data, migrations, and evidence-led SEO.
-- **Safe grounded facts:** Sitemaps and structured data aid discovery/interpretation but do not guarantee indexing, rich results, ranking, traffic, or revenue.
-- **Limits:** Search systems and policies change. No city swaps, link schemes, approval, ranking, or income promises; apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-05, GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-19-A02` → `/artikel/editorial-workflow-draft-update.html` — Editorial Workflow dari Draft sampai Update
-- `CDV-19-A03` → `/artikel/technical-seo-audit-crawl-canonical.html` — Technical SEO Audit dari Crawl sampai Canonical
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan paling mahal adalah membuat skema berdasarkan tampilan halaman saat ini. Ketika satu “halaman” menyimpan judul, harga, penulis, dan blok promosi sekaligus, perubahan desain memaksa migrasi data. Model yang lebih tahan lama menyimpan entitas—misalnya artikel, produk, atau orang—beserta atribut dan relasinya; komponen tampilan memilih cara merender data itu.
+
+Taxonomy juga bukan sinonim URL. Istilah seperti topik, status, atau audiens dapat membantu filter internal tanpa harus membuat satu halaman publik untuk setiap kombinasi. Pedoman Google menekankan bahwa sitemap dan structured data membantu penemuan atau pemahaman, tetapi tidak menjamin indeks, rich result, peringkat, trafik, maupun pendapatan ([Search Essentials](https://developers.google.com/search/docs/essentials); [Schema.org documentation](https://schema.org/docs/documents.html)).
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Content type adalah bentuk entitas dengan field, aturan, dan relasi yang konsisten. Field sebaiknya memiliki nama, tipe data, apakah wajib, rentang atau format, serta pemilik. Relationship menyatakan keterkaitan—contoh “artikel ditulis oleh penulis” atau “produk berada dalam kategori”—bukan menyalin data yang sama ke banyak tempat.
+
+Taxonomy adalah kosakata terkontrol untuk klasifikasi. Bedakan kategori yang relatif stabil dari tag yang lebih bebas, dan dokumentasikan definisi setiap istilah. Batas artikel ini adalah struktur dan tata kelola; ia tidak menentukan variasi kata kunci atau lokasi, dan bukan pengganti persetujuan proyek maupun pedoman editorial.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan memetakan tugas: apa yang perlu dibuat editor, dicari pembaca, dan dipelihara operator. Dari sana, identifikasi entitas yang muncul berulang. Tulis contoh rekaman, lalu uji apakah field benar-benar menjawab keputusan pengguna.
+
+Urutan praktisnya:
+
+1. Tetapkan tipe konten dan tujuan pengguna.
+2. Definisikan field, tipe, kewajiban, nilai default, serta aturan validasi.
+3. Modelkan relasi dan kardinalitasnya (satu-ke-satu, satu-ke-banyak, atau banyak-ke-banyak).
+4. Rancang taxonomy dengan definisi, pemilik, dan aturan sinonim.
+5. Pisahkan ID stabil dari label tampilan dan URL. Slug boleh berubah melalui prosedur migrasi; ID internal tetap menjadi rujukan relasi.
+6. Uji alur create, update, preview, publish, dan archive dengan data nyata yang disamarkan.
+
+Validasi di antarmuka membantu editor, tetapi validasi server tetap diperlukan. Log perubahan, versi skema, dan rollback harus dapat ditelusuri. Untuk dependensi CMS dan runtime, rencana pemeliharaan perlu mencakup inventaris, pemilik, jalur perbaikan, dan pemulihan; NIST SSDF menyediakan kerangka praktik pengembangan aman ([NIST SSDF publications](https://csrc.nist.gov/Projects/ssdf/publications)).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ukuran tim mengubah tingkat formalitas. Tim kecil mungkin cukup dengan kamus field dan review mingguan; organisasi besar memerlukan registri skema, approval, serta rekaman keputusan. Frekuensi perubahan juga penting: field eksperimen sebaiknya diisolasi agar tidak mencemari entitas inti.
+
+Risiko keamanan bukan sekadar skor kerentanan. Paparan internet, apakah eksploitasi diketahui, dampak bisnis, keamanan patch, rencana rollback, dan kepemilikan harus ikut menentukan prioritas. Katalog CISA tentang kerentanan yang diketahui dieksploitasi dapat menjadi sinyal prioritas, bukan bukti bahwa semua komponen harus segera diganti ([CISA KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)).
+
+URL publik, canonical, redirect, sitemap, dan structured data adalah lapisan distribusi. Saat slug atau struktur dipindahkan, inventaris URL lama, pemetaan satu-ke-satu, pengujian redirect, dan rekonsiliasi setelah peluncuran diperlukan. Ikuti panduan migrasi URL Google, bukan menghapus riwayat secara spontan ([Site move with URL changes](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)).
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim memiliki 500 artikel dan tiga jenis halaman produk. Pertanyaan pertama bukan “tag apa yang sedang populer?”, melainkan “keputusan apa yang harus dibuat pembaca?” Jika pembaca perlu membandingkan spesifikasi, modelkan `Product` dengan field terstruktur dan relasi ke `Category`. Jika editor perlu menandai tahap review, gunakan taxonomy `status` internal; jangan membuat URL publik untuk setiap status.
+
+Gunakan tabel keputusan sederhana:
+
+| Kebutuhan | Model yang sesuai | Pemeriksaan |
+|---|---|---|
+| Nilai harus konsisten dan dapat disaring | Field terstruktur | Tipe, wajib, rentang |
+| Banyak entitas berbagi objek yang sama | Relationship | Kardinalitas dan penghapusan |
+| Istilah perlu dikelola lintas tim | Taxonomy terkontrol | Definisi, sinonim, pemilik |
+| Tampilan berubah tanpa mengubah data | Lapisan presentasi | Template membaca model, bukan sebaliknya |
+
+Untuk setiap keputusan, catat asumsi dan bukti yang tersedia. Jangan menyebutnya hasil proyek atau jaminan performa sebelum ada pengukuran yang disetujui.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Content Model dan Taxonomy yang Bisa Dirawat”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pertama, membuat field “serba guna” berupa teks bebas. Audit sepuluh rekaman: bila format, satuan, atau ejaan berbeda, ubah menjadi tipe terstruktur dan beri validasi. Kedua, menjejalkan semua istilah menjadi tag. Hapus istilah yang tidak memengaruhi pencarian, navigasi, atau pelaporan; setiap istilah tersisa harus punya definisi dan pemilik.
 
-## Objection or shortcut to address
+Ketiga, mengikat relasi pada URL. Uji perubahan slug di lingkungan terpisah dan pastikan relasi tetap menunjuk ID yang sama. Keempat, memberi hak ubah skema kepada semua pengguna. Tetapkan peran: editor mengisi konten, steward menjaga taxonomy, developer mengubah skema, dan reviewer menyetujui dampak migrasi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kelima, menganggap structured data otomatis meningkatkan visibilitas. Periksa validitas markup dan kesesuaian isi dengan halaman, tetapi perlakukan indeks dan rich result sebagai keputusan sistem pencarian, bukan janji ([Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)).
 
-## Required conclusion
+## Pilihan cepat yang perlu diuji
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering dipilih adalah “ubah saja database produksi dan bereskan nanti.” Ini gagal ketika field baru tidak memiliki pemilik, data lama tidak cocok, atau redirect memutus rujukan. Alternatif yang lebih aman: buat inventaris, snapshot yang dapat dipulihkan, peta field lama-ke-baru, uji sampel, jalankan migrasi bertahap, lalu rekonsiliasi jumlah dan relasi. Jika bukti pemulihan atau persetujuan belum tersedia, tandai pekerjaan sebagai `[NEEDS GATE-05/GATE-08 REVIEW]` dan jangan menghapus data.
 
-## Draft completion checklist
+## Langkah berikutnya
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Content model yang terawat berangkat dari entitas dan tugas pengguna; taxonomy memberi kosakata yang benar-benar berguna; URL dan tampilan tetap menjadi lapisan terpisah. Langkah berikutnya adalah membuat satu kamus skema berisi field, relasi, validasi, pemilik, dan rencana rollback, kemudian mengujinya pada sampel konten. Mulai dari [beranda Codev.id](/) untuk menyepakati konteks produk, dan pastikan aset ilustrasi tetap dikelola dari media lokal.
+
+Teman Codev.id, minta review teknis sebelum perubahan skema, migrasi URL, atau penonaktifan dependensi. Kawan Codev.id, aturan operasionalnya sederhana: jangan mengubah atau menghapus sesuatu yang belum memiliki pemilik, inventaris, bukti pemulihan, dan pemeriksaan pascamigrasi.

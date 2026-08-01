@@ -3,7 +3,8 @@ article_id: CDV-18-A06
 title: "Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi"
 slug: "vendor-exit-transition-plan"
 description: "Plan notice, roles, source/artifacts, accounts, credentials, data export/retention, knowledge transfer, open risks, support overlap, access revocation, verification, and closure"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-06-07"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,7 +16,6 @@ final_route: "/artikel/vendor-exit-transition-plan.html"
 technical_review: required
 sources:
   - "https://csrc.nist.gov/pubs/sp/800/218/final"
-  - "https://www.w3.org/TR/WCAG-EM/"
   - "https://spec.openapis.org/oas/v3.1.1.html"
   - "https://sre.google/workbook/implementing-slos/"
   - "https://opentelemetry.io/docs/"
@@ -25,37 +25,15 @@ sources:
   - "https://www.gov.uk/guidance/the-technology-code-of-practice"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi
 
-## Assignment lock
+Halo, Kawan Codev.id! Vendor exit tidak aman jika hanya berupa email pemberitahuan dan tanggal akses diputus. Agar operasi tetap berjalan, perlakukan perpindahan penyedia atau owner internal sebagai perubahan terkendali: tetapkan kondisi akhir, pemilik keputusan, paket artefak yang harus diserahkan, masa dukungan tumpang tindih, serta bukti verifikasi sebelum akses lama dicabut.
 
-- **Writer task:** Expand this file into one complete article answering: “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”
-- **Reader and situation:** Organization ending or transferring a software relationship
-- **Reader outcome:** Plan notice, roles, source/artifacts, accounts, credentials, data export/retention, knowledge transfer, open risks, support overlap, access revocation, verification, and closure
-- **Primary intent:** Change provider or internal owner without losing continuity
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not determine termination rights or retention; CDV-17-A04/CDV-17-A05 and qualified legal review own terms
-- **Final public route:** `/artikel/vendor-exit-transition-plan.html`
-- **Appointed CMS date:** `2026-06-07` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: mulai dengan inventaris layanan dan kewajiban operasional, sepakati rencana transisi tertulis, lalu jalankan serah terima bertahap dengan titik kembali (rollback) yang jelas. Hak terminasi, masa pemberitahuan, dan retensi data tetap bergantung pada kontrak serta tinjauan legal; artikel ini tidak menentukan hak tersebut. [NEEDS CONTRACT/LEGAL REVIEW: termination, notice, and retention terms]
 
-## Opening instructions
+Urutan praktisnya adalah notice dan peran, inventaris source serta artefak, ekspor dan verifikasi data, pemindahan akun dan kredensial, transfer pengetahuan, dukungan overlap, pengujian penerimaan, kemudian revokasi akses dan penutupan. Satu checklist tidak cukup bila tidak ada pemilik yang menandatangani bukti pada setiap tahap.
 
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -66,124 +44,99 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-15
-
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-06, GATE-07, GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-18-A04` → `/artikel/release-readiness-review.html` — Release Readiness Review Sebelum Go-live
-- `CDV-18-A05` → `/artikel/checklist-handover-software.html` — Checklist Handover Software dan Bukti Kepemilikan
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Definisikan kebutuhan sebelum meminta harga
 
-- **Purpose:** Nyatakan fungsi, kondisi, kuantitas, batas scope, antarmuka, dan hasil penerimaan.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Jangan mulai dengan pertanyaan “berapa biaya mengambil alih sistem ini?”. Mulailah dari keadaan operasi yang harus tetap tersedia setelah vendor lama berhenti. Tulis fungsi layanan, jam kritis, dependensi, antarmuka, data yang berpindah, batas pekerjaan, dan hasil penerimaan. Misalnya, “pesanan dapat diproses dan direkonsiliasi oleh owner baru” lebih dapat diuji daripada “sistem sudah di-handover”.
+
+Buat lembar inventaris dengan kolom berikut:
+
+- layanan dan proses bisnis yang didukung;
+- owner bisnis, owner teknis, pengambil keputusan, serta jalur eskalasi;
+- repository source, konfigurasi, pipeline, dokumentasi, tiket, log, dashboard, dan kontrak pihak ketiga;
+- akun, secret, sertifikat, domain, subscription, dan lokasi penyimpanannya;
+- format ekspor data, periode retensi yang disetujui, serta cara menguji kelengkapan ekspor;
+- risiko terbuka, asumsi, tanggal dependensi, dan kondisi yang memicu rollback.
+
+Sertakan tanggal notice sesuai kontrak, tetapi jangan menganggap tanggal itu sebagai tanggal pemutusan akses. Pisahkan “siap menerima” dari “vendor lama boleh dicabut”. Untuk setiap item, tunjuk seorang accountable (penanggung jawab akhir) dan seorang verifier (pemeriksa bukti). Jika keduanya orang yang sama, catat konflik tersebut dan minta pemeriksaan kedua.
+
+Kawan Codev.id, kebutuhan juga harus menyatakan apa yang tidak termasuk. Contohnya, migrasi data historis dapat menjadi pekerjaan terpisah dari pemindahan operasi harian; perubahan fitur baru bukan otomatis bagian dari exit. Kejelasan ini mengurangi sengketa scope tanpa mengarang kuantitas, durasi, atau harga yang belum diukur.
 
 ## Buat penawaran benar-benar sebanding
 
-- **Purpose:** Susun komponen scope, inklusi, eksklusi, asumsi, logistik, pengujian, dan risiko.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Minta setiap calon penerima transisi mengisi template yang sama. Pecah penawaran menjadi fase discovery, akses dan ekspor, transfer pengetahuan, dukungan overlap, pengujian, serta closure. Untuk tiap fase, minta inklusi, eksklusi, asumsi, input dari organisasi, artefak keluaran, kriteria selesai, dan risiko yang masih tersisa. Panduan pengadaan teknologi pemerintah Inggris juga menekankan keputusan yang dapat dipertanggungjawabkan dan pengelolaan risiko sepanjang siklus hidup, bukan sekadar memilih angka awal ([Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)).
+
+Bandingkan setidaknya empat dimensi:
+
+| Dimensi | Pertanyaan pembanding | Bukti yang diminta |
+|---|---|---|
+| Kontinuitas | Siapa memonitor layanan dan menerima eskalasi selama overlap? | Roster, jadwal, dan jalur kontak |
+| Kepemilikan | Artefak apa yang benar-benar dapat diakses owner baru? | Daftar repository, akun, konfigurasi, dan hak akses |
+| Verifikasi | Bagaimana membuktikan data dan fungsi tidak rusak? | Skrip/checklist uji, hasil, dan penanggung jawab |
+| Risiko dan biaya | Apa yang terjadi bila akses, data, atau pengetahuan terlambat? | Asumsi, tarif kondisi khusus, dan rencana rollback |
+
+Harga pembangunan terendah belum tentu biaya siklus hidup terendah; manajemen risiko rantai pasok NIST meminta organisasi memahami ketergantungan dan bukti pemasok secara lebih menyeluruh ([NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)). Jangan memberi bobot pada logo sertifikasi atau daftar klien sebagai bukti bahwa tim yang ditawarkan mampu menjalankan scope ini. Minta bukti yang langsung terkait artefak dan peran yang akan mereka ambil.
 
 ## Dokumen yang membuktikan hal berbeda
 
-- **Purpose:** Bedakan data produk, sertifikat, laporan tes, metode, pengalaman, garansi, dan persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Serah terima sering gagal karena semua berkas disebut “dokumentasi” tanpa membedakan fungsinya. Pisahkan paket berikut:
+
+1. **Source dan konfigurasi:** repository, riwayat perubahan, manifest dependensi, infrastructure-as-code, konfigurasi runtime, konfigurasi build/deploy. Spesifikasi OpenAPI dapat membantu merekam kontrak antarmuka, tetapi keberadaan spesifikasi tidak membuktikan integrasi masih berjalan ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)).
+2. **Data dan bukti ekspor:** skema, pemetaan field, checksum atau rekonsiliasi jumlah, catatan kegagalan, serta lokasi salinan kerja dan salinan retensi. Retensi final tetap mengikuti kontrak, kebijakan organisasi, dan nasihat legal.
+3. **Operasi:** runbook, dashboard, definisi alert, jadwal batch, dependensi eksternal, dan riwayat insiden. Telemetri menghasilkan sinyal untuk diamati, bukan jaminan reliabilitas; dokumentasikan apa yang diukur dan siapa yang merespons ([OpenTelemetry documentation](https://opentelemetry.io/docs/)).
+4. **Akses:** daftar akun manusia dan layanan, pemilik, metode pemulihan, secret/sertifikat, expiry, serta bukti rotasi. Kirim kredensial melalui kanal yang disetujui, bukan menaruhnya di dokumen umum.
+5. **Pengetahuan dan keputusan:** rekaman sesi, diagram yang diberi tanggal, keputusan arsitektur, daftar pertanyaan terbuka, known errors, dan batas dukungan. Sesi transfer pengetahuan harus menghasilkan tugas demonstrasi, bukan hanya slide.
+
+Catat provenance: siapa membuat artefak, kapan diekspor, dari lingkungan mana, dan siapa memverifikasi. NIST SSDF menekankan ketertelusuran aktivitas dan hasil pengembangan; prinsip itu berguna saat menentukan apakah bukti build atau perubahan dapat dipercaya ([NIST SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final)).
 
 ## Pertanyaan wajib kepada penyedia
 
-- **Purpose:** Buat daftar pertanyaan konkret yang mengungkap kapasitas, batas, tanggung jawab, dan perubahan.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ajukan pertanyaan yang memaksa jawaban operasional, bukan janji umum:
 
-## Red flag dan biaya yang sering tersembunyi
+- Dalam 48 jam pertama setelah notice, siapa hadir, akses apa yang diperlukan, dan artefak apa yang langsung dikunci?
+- Siapa pemilik setiap repository, cloud account, domain, pipeline, subscription, dan data export sebelum serta sesudah transisi?
+- Bagaimana Anda menemukan secret yang tertanam, akun bersama, sertifikat yang akan kedaluwarsa, dan dependensi yang tidak terdokumentasi?
+- Format ekspor apa yang dapat dibaca tanpa tool milik vendor? Bagaimana rekonsiliasi jumlah, checksum, dan sampel pemulihan dilakukan?
+- Sesi demonstrasi apa yang harus dapat dilakukan owner baru tanpa bantuan vendor lama?
+- Sinyal layanan apa yang dipantau selama overlap, siapa on-call, dan berapa lama jalur eskalasi tetap aktif? SLO adalah tujuan pengambilan keputusan layanan, bukan janji uptime universal ([Google SRE Workbook—Implementing SLOs](https://sre.google/workbook/implementing-slos/)).
+- Risiko apa yang Anda belum dapat tutup, apa pemicunya, dan apa rencana rollback-nya?
+- Bukti apa yang Anda serahkan untuk menyatakan fase selesai, dan siapa yang berwenang menolak penerimaan?
 
-- **Purpose:** Jelaskan tanda scope kabur, klaim tanpa bukti, serta biaya akses, tunggu, rework, atau handover.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Jawaban harus masuk ke risk register dengan owner dan tanggal tinjauan. Jangan menerima “nanti kami dokumentasikan” tanpa format, lokasi, dan kriteria kelengkapan.
+
+## Tanda bahaya dan biaya yang sering tersembunyi
+
+Red flag pertama adalah vendor hanya menjanjikan transfer file, tetapi tidak menyebut akun, pipeline, alert, atau keputusan yang melekat pada layanan. Red flag kedua adalah ekspor diberikan dalam format yang hanya dapat dibuka oleh tool vendor. Red flag ketiga adalah penawaran mengasumsikan akses admin tersedia padahal owner akun tidak diketahui.
+
+Biaya tersembunyi biasanya muncul sebagai waktu menunggu persetujuan akses, pekerjaan menemukan konfigurasi yang hilang, rework karena data tidak dapat direkonsiliasi, lisensi sementara untuk menjalankan lingkungan paralel, serta dukungan di luar jam yang disepakati. Tulis masing-masing sebagai asumsi yang dapat diuji; jangan mengubahnya menjadi angka sebelum data proyek tersedia. [NEEDS PROJECT EVIDENCE: effort, duration, license, and support cost]
+
+Teman Codev.id, jangan menutup risiko hanya karena tanggal exit sudah dekat. Jika source belum dapat dibangun, owner belum menguasai pemulihan, atau data ekspor belum diuji, gunakan keputusan “lanjut terbatas”, “tunda pencabutan”, atau “rollback” dengan persetujuan pengambil risiko. CISA menempatkan keamanan sejak desain dan sepanjang siklus hidup, sehingga akses dan dependensi perlu dibenahi sebelum sistem dilepas dari pengelolaan lama ([CISA Secure by Design](https://www.cisa.gov/securebydesign)).
 
 ## Penerimaan, serah terima, dan keputusan akhir
 
-- **Purpose:** Tentukan siapa memeriksa apa, rekaman yang disimpan, dan kapan pembayaran/acceptance layak.
-- **Tie back to this article:** Keep the explanation specific to “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan transisi bertahap, bukan satu tanggal serah terima:
 
-## Objection or shortcut to address
+1. **Notice dan persiapan:** konfirmasi ruang lingkup, peran, kanal eskalasi, freeze perubahan berisiko, dan daftar akses.
+2. **Ekspor dan penguasaan:** salin source, konfigurasi, data, log yang disepakati, dan artefak operasi; owner baru memverifikasi integritas dan aksesnya.
+3. **Demonstrasi dan overlap:** owner baru menjalankan deploy, pemulihan, rotasi secret, monitoring, dan respons insiden dengan vendor lama sebagai pendamping. Rekam hasil serta gap.
+4. **Penerimaan:** accountable memeriksa kriteria fungsi dan bukti. Pengujian hanya membuktikan assertion, environment, build, dan data yang diuji; tidak ada ambang cakupan universal yang boleh diasumsikan. [NEEDS GATE-06 REVIEW: acceptance depth and release decision]
+5. **Revokasi dan closure:** setelah penerimaan tertulis, cabut akses vendor lama, rotasi secret, tutup akun dan subscription yang tidak diperlukan, arsipkan bukti, serta tinjau risiko sisa.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Selama overlap, definisikan indikator layanan dan jalur respons. Instrumentasi dan alert tidak menggantikan latihan pemulihan; prosedur insiden perlu diuji dan dipelajari secara berkala ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)). Jangan klaim operasi 24/7 atau uptime tertentu tanpa bukti operasi dan kontrak. [NEEDS GATE-07 REVIEW: actual support coverage and service objective evidence]
 
-## Required conclusion
+Simpan paket closure: keputusan penerimaan, daftar item yang ditolak, risk register terbuka, bukti revokasi, log ekspor, notulen transfer, dan kontak untuk periode dukungan pasca-transisi bila memang disetujui. Hak penghapusan atau retensi data harus ditentukan melalui kontrak dan review berwenang, bukan diasumsikan dari selesainya checklist. [NEEDS GATE-09 REVIEW: procurement, responsibility allocation, and contract evidence]
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang tampak menarik
 
-## Draft completion checklist
+Jalan pintas yang sering dipilih adalah memutus vendor lama segera setelah source dan dump data diterima. Itu menghemat koordinasi sesaat, tetapi menghilangkan orang yang dapat menjelaskan alarm, keputusan arsitektur, atau pemulihan ketika verifikasi pertama gagal. Alternatif yang lebih aman adalah overlap terbatas dengan exit criteria: owner baru harus menyelesaikan demonstrasi dan menyetujui risiko terbuka sebelum akses lama dicabut. Jika overlap tidak mungkin, minta persetujuan eksplisit atas risiko, pemilik mitigasi, dan rencana eskalasi.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Langkah berikutnya
+
+Jawaban atas “Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi” adalah membuat bukti perpindahan menjadi objek penerimaan, bukan sekadar memindahkan file. Dalam satu sesi kerja, buat inventaris layanan dan akun, tetapkan accountable serta verifier, lalu minta penawaran transisi dengan format yang sama. Setelah itu jadwalkan ekspor yang dapat direkonsiliasi, demonstrasi pemulihan, overlap, dan revokasi berurutan.
+
+Mulai dari [halaman utama Codev.id](/) bila Anda perlu menyelaraskan konteks layanan sebelum menyusun paket kerja. Jangan menutup exit sampai bukti fungsi, data, akses, dukungan, dan risiko sisa ditandatangani pihak yang berwenang. Aturan operasinya sederhana: akses lama dicabut setelah penerimaan dan rotasi terverifikasi—bukan hanya setelah kalender mencapai tanggal exit.

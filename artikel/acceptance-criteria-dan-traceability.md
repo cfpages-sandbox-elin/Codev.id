@@ -3,7 +3,8 @@ article_id: CDV-01-A06
 title: "Acceptance Criteria dan Traceability dari Kebutuhan ke Tes"
 slug: "acceptance-criteria-dan-traceability"
 description: "Write outcome-based acceptance criteria and a requirement-to-design-to-test traceability map"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-04-11"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -18,37 +19,13 @@ sources:
   - "https://www.w3.org/TR/WCAG22/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Acceptance Criteria dan Traceability dari Kebutuhan ke Tes
 
-## Assignment lock
+Halo, Teman Codev.id! Acceptance criteria yang baik bukan daftar fitur yang terdengar meyakinkan. Ia adalah kondisi hasil yang dapat diamati, disepakati, dan diperiksa. Traceability lalu menghubungkan kebutuhan itu ke keputusan desain, implementasi, dan bukti tes. Dengan dua hal tersebut, tim dapat menjawab “apa yang harus benar?” dan “bukti mana yang menunjukkan bahwa itu benar?” tanpa mengandalkan ingatan atau asumsi.
 
-- **Writer task:** Expand this file into one complete article answering: “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”
-- **Reader and situation:** Product owner preparing backlog and acceptance
-- **Reader outcome:** Write outcome-based acceptance criteria and a requirement-to-design-to-test traceability map
-- **Primary intent:** Make requirements verifiable and trace them to evidence
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not replace the full test strategy; CDV-10-A01 owns test planning and CDV-18-A04 owns release gate
-- **Final public route:** `/artikel/acceptance-criteria-dan-traceability.html`
-- **Appointed CMS date:** `2025-04-11` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: tulis kebutuhan sebagai outcome pengguna, ubah tiap outcome menjadi kriteria yang terukur melalui perilaku dan kondisi, lalu beri identitas yang sama pada jejak kebutuhan–desain–kode atau konfigurasi–tes–hasil. Detail alur pengguna, kualitas, dan bukti harus diturunkan dari riset serta keputusan pemilik produk; untuk konteks proyek ini masih diperlukan [NEEDS GATE-01: hasil riset pengguna, asumsi yang disetujui, dan penetapan pemilik keputusan sebelum kriteria dianggap final].
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Acceptance Criteria dan Traceability dari Kebutuhan ke Tes**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -59,117 +36,69 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-01
-
-- **Original sources:** [topical authority](TOPICAL_AUTHORITY.md) and [article catalog](ARTICLE_CATALOG.md).
-- **Purpose for this article:** Preserve the canonical software-development knowledge architecture.
-- **Safe grounded facts:** There are 20 topic families and six distinct articles per family. Commercial routes retain substantiated service intent.
-- **Limits:** Local planning is not technical evidence; never reopen topic boundaries during research.
-
-### KR-02
-
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-01
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-01-A04` → `/artikel/kebutuhan-fungsional-vs-kualitas-software.html` — Kebutuhan Fungsional vs Kebutuhan Kualitas Software
-- `CDV-01-A05` → `/artikel/menentukan-mvp-tanpa-memotong-kontrol.html` — Menentukan MVP Tanpa Memotong Kontrol Penting
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kebutuhan menjelaskan masalah, pengguna, atau hasil yang ingin dicapai. Acceptance criteria (kriteria penerimaan) menjelaskan kondisi yang membuat satu item dapat diterima. Ia bukan langkah internal implementasi dan bukan pengganti seluruh test strategy. Traceability adalah peta hubungan antarartefak: ID kebutuhan menuju kriteria, keputusan desain, perubahan implementasi, kasus tes, dan hasilnya.
+
+Pemisahan ini penting. “Tambahkan ekspor laporan” masih terlalu luas: siapa yang mengekspor, data apa yang boleh terlihat, format apa yang dibutuhkan, dan apa yang terjadi ketika tidak ada data? Kriteria yang baik mengubah pertanyaan tersebut menjadi perilaku yang bisa diperiksa. Sebaliknya, pilihan seperti nama tabel atau pustaka UI biasanya merupakan keputusan desain, bukan acceptance criteria.
+
+Panduan agile pemerintah Inggris menekankan pembelajaran dari pengguna, pekerjaan bertahap, dan pengujian terhadap hasil yang dibutuhkan, bukan sekadar menyelesaikan daftar aktivitas. [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery) dapat menjadi rujukan proses; ia tidak menggantikan riset pada proyek Anda.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan satu kebutuhan yang memiliki pemilik keputusan. Catat outcome, aktor, konteks, dan batasan yang sudah diketahui. Setelah itu tulis kriteria memakai pola “Given–When–Then” atau kalimat kondisi yang setara:
+
+| Artefak | Pertanyaan yang dijawab | Contoh ID |
+| --- | --- | --- |
+| Kebutuhan | Hasil apa dan untuk siapa? | REQ-12 |
+| Acceptance criteria | Kondisi apa yang harus tampak? | AC-12.1 |
+| Desain | Keputusan antarmuka atau sistem apa? | DES-12 |
+| Tes | Pemeriksaan apa yang dijalankan? | TST-12.1 |
+| Bukti | Hasil, log, atau tangkapan apa yang disimpan? | EVD-12.1 |
+
+Contoh: REQ-12 adalah “Pengguna dapat mengunduh laporan transaksi yang telah difilter.” AC-12.1: “Given pengguna memiliki akses laporan dan filter periode valid, when memilih Unduh, then sistem menghasilkan berkas yang memuat hanya transaksi pada periode tersebut dan menampilkan status selesai.” AC-12.2 menangani periode tanpa data: sistem memberi pesan yang dapat dipahami dan tidak membuat berkas kosong tanpa penjelasan. DES-12 mencatat rancangan kontrol filter dan status proses. TST-12.1 memeriksa periode berisi data; TST-12.2 memeriksa periode kosong dan akses tanpa izin. EVD-12.1 menyimpan hasil tes serta versi build yang diuji.
+
+Gunakan satu baris traceability untuk setiap hubungan, bukan tautan samar ke tiket besar. Saat kriteria berubah, pemilik dapat melihat tes dan desain yang ikut terdampak. Saat tes gagal, tim dapat kembali ke outcome yang dipertaruhkan. Kriteria dibahas bersama sebelum pengerjaan dan diperbarui ketika pembelajaran pengguna mengubah asumsi.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Isi kriteria dipengaruhi oleh empat kelompok kondisi. Pertama, pengguna dan tugas: istilah, urutan, kebutuhan bantuan, serta kondisi gagal harus berasal dari observasi atau keputusan yang tercatat. Kedua, kualitas: aksesibilitas, keamanan, privasi, kinerja, dan pemulihan bukan tambahan belakangan bila outcome bergantung padanya. WCAG 2.2 menyediakan kriteria dan teknik aksesibilitas web yang dapat dipakai sebagai rujukan pemeriksaan, tetapi kesesuaian aktual tetap perlu diuji pada antarmuka dan konteks Anda. [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
+
+Ketiga, batasan pelaksanaan seperti integrasi, data uji, dan lingkungan. Kriteria yang hanya berhasil di mesin pengembang belum menjadi bukti penerimaan. Keempat, tata kelola bukti: tentukan siapa yang menyetujui, kapan hasil dianggap cukup, dan bagaimana kegagalan dicatat. Tanpa pemilik keputusan dan riset proyek, angka ambang atau perilaku “ideal” tidak boleh diisi dengan tebakan.
+
+Teman Codev.id, jadikan setiap perubahan sebagai pertanyaan dampak: apakah ID kebutuhan, kriteria, desain, tes, dan bukti masih menunjuk outcome yang sama? Jika tidak, hentikan penerimaan sementara dan minta keputusan eksplisit. Untuk konteks dan langkah berikutnya, Anda dapat mulai dari [beranda Codev.id](/).
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan backlog berisi “login lebih aman”. Jangan langsung memilih mekanisme. Pecah menjadi outcome dan kondisi: pengguna yang benar dapat masuk; percobaan tidak sah ditolak; pesan tidak membocorkan informasi sensitif; dan pemulihan akun memiliki jalur yang disetujui. Tautkan masing-masing kriteria ke keputusan desain, kemudian ke tes positif, negatif, dan batas aksesibilitas.
+
+Gunakan tabel keputusan berikut saat refinement:
+
+| Pertanyaan | Jika jawabannya belum jelas | Tindakan |
+| --- | --- | --- |
+| Siapa yang menerima item? | Tidak ada pemilik | Tunda komitmen dan tetapkan pemilik |
+| Perilaku dapat diamati? | Hanya kata “mudah” atau “cepat” | Ganti dengan kondisi dan bukti yang disepakati |
+| Semua kriteria punya tes? | Ada baris tanpa TST | Tambah tes atau hapus klaim yang tak dibutuhkan |
+| Hasil tes dapat ditelusuri? | Bukti hanya komentar lisan | Simpan artefak, versi, dan keputusan |
+
+Jika sebuah asumsi belum diuji, labeli sebagai asumsi dan hubungkan ke pekerjaan riset. Jangan menyamarkannya sebagai kriteria final.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Acceptance Criteria dan Traceability dari Kebutuhan ke Tes”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menulis kriteria sebagai solusi: “gunakan tombol biru” tidak menerangkan outcome. Tanyakan, “perubahan apa yang dapat diamati pengguna?” Kedua, satu kriteria memuat terlalu banyak kondisi sehingga kegagalan tidak terlokalisasi. Pecah menjadi unit yang dapat diuji.
 
-## Objection or shortcut to address
+Ketiga, tim hanya menguji jalur sukses. Tambahkan kondisi kosong, data tidak valid, hak akses, kegagalan jaringan, dan kebutuhan keyboard atau pembaca layar bila relevan. Keempat, traceability dibuat setelah rilis. Periksa saat refinement dan pull request agar perubahan tidak kehilangan jejak. Kelima, bukti disimpan tanpa konteks. Setiap hasil perlu ID tes, versi yang diuji, lingkungan, tanggal, dan keputusan penerimaan sesuai praktik proyek.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Shortcut yang sering dipilih adalah memakai satu tiket sebagai spesifikasi sekaligus bukti: “QA sudah cek.” Itu gagal karena tiket tidak menunjukkan kondisi yang diperiksa, cakupan negatif, atau versi artefak. Alternatif yang lebih aman adalah menjaga matriks ringkas dan meminta pemilik keputusan menandatangani status setiap kriteria.
 
-## Required conclusion
+## Kesimpulan dan langkah berikutnya
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Acceptance criteria menjadikan outcome dapat diamati; traceability memastikan setiap outcome memiliki jalur menuju desain, tes, dan bukti. Sebelum sprint berikutnya, pilih satu kebutuhan, beri ID, tulis dua atau tiga kondisi Given–When–Then, isi matriks sampai EVD, lalu lakukan review bersama pengguna atau pemilik produk. Tandai asumsi yang belum diteliti dan jangan menyatakan diterima sebelum bukti serta otoritas keputusannya jelas.
 
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Aturan operasinya sederhana: tidak ada kriteria tanpa bukti yang direncanakan, dan tidak ada bukti tanpa kebutuhan yang dapat ditelusuri. Sobat Codev.id dapat memakai beranda Codev.id sebagai titik kembali untuk menata pekerjaan terkait. Artikel ini membantu membuat persyaratan dapat diverifikasi; ia tidak menggantikan strategi pengujian lengkap atau keputusan gerbang rilis profesional.

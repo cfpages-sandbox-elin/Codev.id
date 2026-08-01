@@ -1,9 +1,10 @@
 ---
 article_id: CDV-11-A03
+writing_contract_version: "native-id-v2"
 title: "CI/CD dengan Quality Gate dan Provenance Build"
 slug: "cicd-quality-gate-provenance-build"
-description: "Map triggers, protected source, dependency/build steps, tests, artifact provenance, approval, deployment, evidence, and failure handling"
-status: outline
+description: "Panduan jalur berulang dari sumber yang direview menuju deployment dengan pemeriksaan kualitas, jejak artefak, persetujuan, bukti, dan penanganan kegagalan"
+status: draft
 publication_date: "2025-12-07"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,7 @@ sources:
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# CI/CD dengan Quality Gate dan Provenance Build
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “CI/CD dengan Quality Gate dan Provenance Build”
-- **Reader and situation:** Team replacing manual uploads
-- **Reader outcome:** Map triggers, protected source, dependency/build steps, tests, artifact provenance, approval, deployment, evidence, and failure handling
-- **Primary intent:** Build a repeatable path from reviewed source to deployment
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not require a specific CI vendor or mean every release is automatic; CDV-18-A04 owns release authorization
-- **Final public route:** `/artikel/cicd-quality-gate-provenance-build.html`
-- **Appointed CMS date:** `2025-12-07` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **CI/CD dengan Quality Gate dan Provenance Build**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +34,87 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# CI/CD dengan Quality Gate dan Provenance Build
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id! Jika tim masih mengunggah berkas secara manual, pertanyaan terpenting bukan “alat CI/CD apa yang dipakai?”, melainkan “bukti apa yang membuat sebuah build boleh bergerak ke lingkungan berikutnya?”. CI/CD yang dapat diulang menghubungkan perubahan sumber yang sudah ditinjau dengan pemeriksaan otomatis, artefak yang dapat ditelusuri, persetujuan, dan prosedur ketika pemeriksaan gagal.
 
-### KR-09
+Jawaban singkatnya: susun pipeline sebagai rangkaian gerbang, bukan tombol deploy. Trigger harus berasal dari perubahan yang terlindungi; dependency dikunci dan dibangun di lingkungan yang konsisten; tes dan pemeriksaan kualitas menghentikan alur bila gagal; artefak diberi identitas serta asal-usul (provenance); lalu manusia atau aturan rilis yang berwenang memutuskan promosi. Dokumentasi Cloudflare menjelaskan kemampuan deployment pada Pages serta versi dan deployment pada Workers, tetapi keberhasilan unggah saja tidak membuktikan seluruh alur rilis. ([Cloudflare Pages](https://developers.cloudflare.com/pages/), [versi dan deployment Workers](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/))
 
-- **Original sources:** [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/), [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/), [Cloudflare deployments documentation](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/).
-- **Purpose for this article:** Ground Pages/Workers selection, environments, configuration, deployments, and rollback.
-- **Safe grounded facts:** Provider docs establish current product behavior only for the cited platform/date. A successful upload is not an end-to-end release.
-- **Limits:** Recheck limits, pricing, APIs, runtime compatibility, regional/data implications, and actual account configuration under GATE-07.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-07
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-11-A01` → `/artikel/cloudflare-pages-atau-workers.html` — Cloudflare Pages atau Workers untuk Aplikasi Web
-- `CDV-11-A02` → `/artikel/environment-configuration-secrets-cloudflare.html` — Environment, Configuration, dan Secrets dari Preview ke Production
-- `CDV-11-A04` → `/artikel/deploy-aplikasi-dan-migrasi-data.html` — Deploy Aplikasi dan Migrasi Data Tanpa Deadlock
-- `CDV-11-A05` → `/artikel/rollback-roll-forward-verifikasi-deploy.html` — Rollback, Roll-forward, dan Verifikasi setelah Deploy
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Quality gate adalah syarat yang harus terpenuhi sebelum tahap berikutnya dijalankan. Ia dapat berupa status review, hasil lint, unit test, pemeriksaan dependency, atau validasi konfigurasi. Provenance build adalah catatan yang menghubungkan artefak dengan commit, definisi pipeline, lingkungan build, dan hasil pemeriksaannya. Keduanya menjawab dua risiko berbeda: gate mencegah keluarnya perubahan yang belum layak, sedangkan provenance membantu membuktikan apa yang sebenarnya dibuat.
+
+Salah paham yang sering mahal adalah menganggap “pipeline hijau” sama dengan “rilis aman”. Pipeline hanya menilai aturan yang benar-benar dikonfigurasi. Jika branch dapat ditimpa, secret tidak dipisahkan, atau artefak dibangun ulang saat deploy, tanda hijau kehilangan makna. Kondisi yang dapat mengubah keputusan adalah konfigurasi akun, izin repository, kebutuhan compliance, serta bukti operasi nyata. Untuk paket ini, detail tersebut belum tersedia sehingga perlu pemeriksaan teknis bertanda **[NEEDS GATE-07 REVIEW: verifikasi konfigurasi akun, izin, secret, runtime, dan batas operasional sebelum klaim kesiapan produksi]**.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+CI (continuous integration) berarti perubahan sering digabung dan diperiksa dalam jalur otomatis. CD (continuous delivery/deployment) meneruskan artefak yang lolos menuju lingkungan rilis; “delivery” tidak selalu berarti produksi otomatis. Artikel ini membahas jalur dari source yang telah direview sampai deployment dan bukti setelahnya. Ia tidak memilih vendor CI tertentu dan bukan aturan bahwa setiap rilis harus otomatis.
+
+Quality gate berada di titik keputusan: sebelum merge, sebelum pembuatan artefak final, dan sebelum promosi. Provenance bukan jaminan kualitas atau keamanan; ia adalah jejak yang memungkinkan tim menjawab “sumber mana, dengan dependency apa, dibangun kapan, oleh proses apa, dan diuji bagaimana?”. Pengukuran layanan juga bukan kontrak uptime. SRE menjelaskan SLO sebagai tujuan layanan dan mekanisme keputusan, bukan janji publik tanpa bukti operasi. ([Google SRE Workbook](https://sre.google/workbook/implementing-slos/))
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dari trigger yang dapat diaudit. Pull request menuju branch terlindungi memicu pemeriksaan; merge hanya boleh terjadi bila review dan gate yang diwajibkan berstatus lulus. Pipeline lalu mengambil dependency dari sumber yang disetujui, menggunakan lockfile atau mekanisme setara, menjalankan build yang deterministik, dan menyimpan checksum atau identitas artefak.
+
+Urutan praktisnya dapat diringkas seperti ini:
+
+1. **Trigger dan identitas:** catat repository, commit, branch, pelaku, dan waktu. Batasi trigger manual dengan izin yang jelas.
+2. **Persiapan:** pasang toolchain yang disepakati, gunakan dependency terkunci, dan injeksikan secret hanya saat diperlukan. Secret tidak boleh ditulis ke log.
+3. **Build dan pemeriksaan:** jalankan lint, static check, unit/integration test, serta pemeriksaan dependency. Gate harus gagal secara eksplisit, bukan sekadar memberi peringatan yang diabaikan.
+4. **Artefak:** hasilkan satu artefak yang diberi versi atau digest. Promosi memakai artefak yang sama, bukan build ulang dengan input berbeda.
+5. **Provenance dan persetujuan:** simpan metadata sumber, langkah build, hasil gate, dan siapa yang menyetujui. Pisahkan hak membuat artefak dari hak mempromosikannya bila risiko memerlukannya.
+6. **Deploy dan verifikasi:** gunakan kemampuan environment dan deployment platform yang dipilih; dokumentasi Workers menjelaskan konsep versi dan deployment yang perlu disesuaikan dengan akun nyata. ([Cloudflare Workers](https://developers.cloudflare.com/workers/))
+7. **Sinyal pascadeploy:** periksa log, metrik, dan trace. OpenTelemetry menyediakan dokumentasi untuk menghasilkan dan mengumpulkan sinyal telemetry, tetapi instrumentasi sendiri tidak membuktikan reliability. ([OpenTelemetry](https://opentelemetry.io/docs/))
+
+Jika verifikasi pascadeploy menemukan dampak, hentikan promosi berikutnya, pertahankan bukti, dan aktifkan prosedur respons insiden. NIST SP 800-61 Rev. 3 memberi kerangka respons dan pembelajaran; detail peran, jalur eskalasi, dan waktu tanggap tetap harus ditetapkan oleh organisasi. ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final))
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pertama, **perlindungan sumber**: aturan merge, review, dan izin token menentukan apakah pipeline memeriksa kode yang benar. Kedua, **reproducibility**: versi runtime, dependency, image builder, dan konfigurasi yang berubah diam-diam dapat menghasilkan artefak berbeda. Ketiga, **pemisahan environment**: preview, staging, dan production memerlukan variabel serta secret yang tepat; jangan menyalin secret production ke log atau preview.
+
+Keempat, **kualitas gate**: tes yang tidak mewakili jalur risiko hanya menciptakan rasa aman. Tetapkan pemilik setiap gate, ambang gagal, dan masa berlaku pengecualian. Kelima, **bukti operasi**: dashboard, alert, dan trace harus menjawab apakah layanan sehat setelah deployment. SLO membantu memilih kapan sebuah sinyal memerlukan tindakan, sementara biaya penyimpanan telemetry dan kapasitas perlu dikendalikan.
+
+Kawan Codev.id, jangan mengisi kekosongan bukti dengan asumsi “platform pasti mengurusnya”. Periksa izin repository, retention log, lokasi data, kompatibilitas runtime, limit, dan konfigurasi akun aktual sebelum menjadikan pipeline sebagai kontrol produksi. **[NEEDS GATE-07 REVIEW]**
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Anggap tim memiliki pull request untuk perubahan aplikasi web. Bila review belum lengkap, gate merge berhenti. Bila unit test lulus tetapi dependency scan gagal, artefak produksi tidak dibuat; tim memperbaiki dependency atau mendokumentasikan pengecualian yang disetujui. Bila semua gate lulus, artefak diberi digest dan dipromosikan ke staging. Setelah sinyal pascadeploy stabil sesuai kriteria layanan, pemilik rilis dapat menyetujui promosi berikutnya.
+
+| Kondisi | Keputusan | Bukti minimum |
+|---|---|---|
+| Commit belum direview | Jangan merge | Status review dan identitas commit |
+| Build lulus, provenance tidak lengkap | Tahan artefak | Metadata sumber dan langkah build |
+| Test lulus, health check pascadeploy gagal | Hentikan promosi; respons insiden | Log, metrik/trace, waktu kejadian |
+| Semua gate lulus, tetapi konfigurasi production belum diverifikasi | Jangan klaim siap produksi | Catatan **GATE-07** dan review teknis |
+
+Contoh ini adalah pola keputusan, bukan laporan proyek atau jaminan hasil. Ambang test, definisi sehat, serta siapa yang berwenang menyetujui harus berasal dari kebutuhan layanan Anda.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “CI/CD dengan Quality Gate dan Provenance Build”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Shortcut pertama adalah menjalankan build ulang di server deploy. Tanyakan apakah digest artefak sama dengan yang diuji; jika tidak, provenance terputus. Shortcut kedua adalah menyimpan secret sebagai variabel bebas tanpa audit. Periksa siapa yang dapat membaca, memutar, dan mencabutnya. Shortcut ketiga adalah menjadikan warning sebagai gate semu. Pastikan status gagal menghentikan tahap berikutnya dan memiliki jalur pengecualian yang tercatat.
 
-## Objection or shortcut to address
+Shortcut keempat adalah menganggap rollback selalu aman. Rollback aplikasi dapat berinteraksi dengan perubahan skema data atau dependency eksternal; siapkan keputusan roll-forward, kompatibilitas, dan verifikasi sebelum eksekusi. Shortcut kelima adalah memasang telemetry tanpa tujuan. Tentukan sinyal yang diperlukan untuk SLO dan respons, lalu tinjau retensi serta biaya.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Gunakan checklist singkat pada setiap perubahan:
 
-## Required conclusion
+- Apakah commit, pipeline, dependency, dan artefak memiliki identitas yang saling terhubung?
+- Gate mana yang wajib lulus, siapa pemiliknya, dan apa bukti pengecualiannya?
+- Apakah deployment memakai artefak yang sama dengan yang diuji?
+- Sinyal apa yang memicu penghentian, eskalasi, atau rollback/roll-forward?
+- Apakah konfigurasi akun dan runtime sudah diverifikasi, bukan diasumsikan?
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang tampak praktis
 
-## Draft completion checklist
+“Kami tim kecil; satu tombol deploy lebih cepat.” Memang lebih cepat pada satu kejadian, tetapi sulit dijelaskan ketika hasilnya berbeda atau insiden muncul. Jalur minimum tetap dapat ringkas: branch terlindungi, build terkunci, beberapa test relevan, digest artefak, satu persetujuan, dan verifikasi kesehatan. Otomatisasi boleh bertambah setelah bukti menunjukkan gate tersebut efektif. Jangan menukar kecepatan sesaat dengan hilangnya jejak keputusan.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan dan langkah berikutnya
+
+CI/CD dengan quality gate dan provenance build adalah jalur yang membuat perubahan teruji, artefak dapat ditelusuri, dan promosi dapat dihentikan dengan alasan yang terlihat. Mulai dengan memetakan trigger, gate, metadata artefak, pemilik persetujuan, dan sinyal pascadeploy dalam satu dokumen; kemudian uji satu perubahan melalui staging memakai konfigurasi akun nyata.
+
+Teman Codev.id, minta technical review untuk mengisi **[NEEDS GATE-07 REVIEW]** sebelum menyebut jalur ini siap produksi. Untuk langkah awal dan konteks layanan, Anda dapat kembali ke [halaman utama Codev.id](/). Aturan operasionalnya sederhana: tidak ada promosi tanpa artefak yang sama dengan yang diuji, bukti provenance yang cukup, dan keputusan yang dapat dipertanggungjawabkan.

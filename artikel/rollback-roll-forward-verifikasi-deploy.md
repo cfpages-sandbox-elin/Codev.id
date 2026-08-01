@@ -1,9 +1,10 @@
 ---
 article_id: CDV-11-A05
+writing_contract_version: "native-id-v2"
 title: "Rollback, Roll-forward, dan Verifikasi setelah Deploy"
 slug: "rollback-roll-forward-verifikasi-deploy"
 description: "Set health checks, decision authority, reversible components, data constraints, rollback/roll-forward steps, communication, and evidence"
-status: outline
+status: draft
 publication_date: "2025-12-15"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -14,45 +15,23 @@ reader_address: "Sobat Codev.id"
 final_route: "/artikel/rollback-roll-forward-verifikasi-deploy.html"
 technical_review: required
 sources:
-  - "https://developers.cloudflare.com/pages/"
-  - "https://developers.cloudflare.com/workers/"
   - "https://developers.cloudflare.com/workers/configuration/versions-and-deployments/"
   - "https://sre.google/workbook/implementing-slos/"
   - "https://opentelemetry.io/docs/"
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Rollback, Roll-forward, dan Verifikasi setelah Deploy
 
-## Assignment lock
+Halo, Sobat Codev.id! Ketika rilis baru membuat error, pertanyaan pentingnya bukan “bagaimana mengembalikan kode secepat mungkin?”, melainkan “perubahan mana yang aman dibalik, siapa yang berwenang memutuskan, dan bukti apa yang menunjukkan layanan sudah sehat?”. Rollback mengembalikan komponen aplikasi ke versi yang diketahui baik. Roll-forward memperbaiki rilis yang bermasalah dengan perubahan baru. Verifikasi memastikan pemulihan itu benar-benar terasa pada layanan, bukan hanya sukses pada pipeline.
 
-- **Writer task:** Expand this file into one complete article answering: “Rollback, Roll-forward, dan Verifikasi setelah Deploy”
-- **Reader and situation:** Release team defining failure response
-- **Reader outcome:** Set health checks, decision authority, reversible components, data constraints, rollback/roll-forward steps, communication, and evidence
-- **Primary intent:** Recover safely from a bad release
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not claim instant recovery or reversible data changes; CDV-07-A05 owns restore and CDV-12-A05 owns incident command
-- **Final public route:** `/artikel/rollback-roll-forward-verifikasi-deploy.html`
-- **Appointed CMS date:** `2025-12-15` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Urutannya harus ditetapkan sebelum keadaan mendesak: hentikan perluasan dampak, ukur gejala dengan health check dan telemetri, pilih rollback atau roll-forward berdasarkan reversibilitas kode serta keadaan data, jalankan perubahan terkendali, lalu amati indikator yang disepakati. Dokumentasikan keputusan dan hasilnya. Detail perilaku deployment, versi, dan konfigurasi tetap harus dicocokkan dengan platform dan akun yang dipakai; dokumentasi penyedia bukan bukti bahwa konfigurasi Anda sudah benar ([dokumentasi deployment Cloudflare Workers](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/)).
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Rollback, Roll-forward, dan Verifikasi setelah Deploy**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+*Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.*
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,118 +42,78 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-09
-
-- **Original sources:** [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/), [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/), [Cloudflare deployments documentation](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/).
-- **Purpose for this article:** Ground Pages/Workers selection, environments, configuration, deployments, and rollback.
-- **Safe grounded facts:** Provider docs establish current product behavior only for the cited platform/date. A successful upload is not an end-to-end release.
-- **Limits:** Recheck limits, pricing, APIs, runtime compatibility, regional/data implications, and actual account configuration under GATE-07.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-07
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-11-A03` → `/artikel/cicd-quality-gate-provenance-build.html` — CI/CD dengan Quality Gate dan Provenance Build
-- `CDV-11-A04` → `/artikel/deploy-aplikasi-dan-migrasi-data.html` — Deploy Aplikasi dan Migrasi Data Tanpa Deadlock
-- `CDV-11-A06` → `/artikel/redirect-cache-tls-dns-release-web.html` — Redirect, Cache, TLS, dan DNS dalam Release Web
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Rollback cocok bila artefak aplikasi dapat dikembalikan tanpa membuat data baru menjadi tidak terbaca. Roll-forward lebih aman bila perubahan skema atau format data sudah telanjur berjalan dan versi lama tidak lagi kompatibel. Keduanya bukan tombol darurat universal: migrasi destruktif, perubahan konfigurasi eksternal, atau pekerjaan manual dapat membuat “versi lama” tetap gagal.
+
+Tetapkan ambang keputusan sebelum memilih tindakan. Contohnya, bila error rate pada jalur kritis melewati ambang yang disepakati selama beberapa menit dan tidak ada tanda anomali pada sistem pemantauan, release owner boleh menghentikan promosi. Angka dan durasi itu harus berasal dari SLO serta konteks layanan Anda, bukan angka generik; SLO adalah tujuan layanan dan alat pengambilan keputusan, bukan janji uptime kontraktual ([Google SRE Workbook](https://sre.google/workbook/implementing-slos/)).
+
+Sukses upload atau status “deployed” juga bukan verifikasi end-to-end. Pengguna dapat tetap gagal login, transaksi dapat tertahan, atau antrean pesan dapat menumpuk. Karena itu keputusan selesai hanya setelah sinyal teknis, alur bisnis yang aman, dan komunikasi pemulihan sama-sama diperiksa.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Rollback adalah perpindahan terkontrol ke artefak atau konfigurasi sebelumnya yang telah diberi identitas. Roll-forward adalah deploy perbaikan baru untuk membawa sistem dari keadaan bermasalah ke keadaan yang diinginkan. Verifikasi setelah deploy adalah rangkaian pemeriksaan sebelum, selama, dan sesudah perubahan: health check, metrik, log, trace, serta uji alur pengguna yang tidak merusak data.
+
+Komponen yang dapat dibalik perlu dipisahkan dari yang tidak. Binary aplikasi, routing, dan feature flag sering dapat diganti kembali bila versinya tersimpan. Sebaliknya, migrasi yang menghapus kolom, perubahan data satu arah, pengiriman email massal, atau perubahan pada sistem pihak ketiga mungkin tidak dapat dipulihkan dengan deploy lama. Artikel ini tidak menjanjikan pemulihan data instan; pemulihan cadangan dan restore adalah pembahasan terpisah. Pengendalian insiden menyeluruh juga memerlukan peran dan prosedur organisasi yang sesuai ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)).
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan satu catatan perubahan: commit atau build ID, waktu mulai, komponen, pemilik keputusan, dan pemeriksaan yang akan dijalankan. Tandai versi yang sedang menerima trafik serta versi terakhir yang diketahui baik. Pada platform yang menyediakan riwayat versi dan deployment, gunakan identitas versi tersebut; jangan mengandalkan nama folder atau “build terbaru” ([Cloudflare Workers versions and deployments](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/)).
+
+Alur praktisnya sebagai berikut.
+
+1. **Deteksi dan bekukan perluasan.** Hentikan promosi ke lingkungan berikutnya, kurangi perubahan paralel, dan catat gejala. Jangan menghapus artefak yang mungkin dibutuhkan untuk perbandingan.
+2. **Nilai blast radius.** Bedakan apakah masalah hanya pada satu endpoint, satu wilayah, atau seluruh layanan. Periksa error rate, latency, saturasi, dan dampak bisnis yang memang Anda ukur.
+3. **Pilih otoritas.** Release owner memimpin keputusan teknis; pemilik data menyetujui langkah yang menyentuh skema; perwakilan layanan atau bisnis menyetujui komunikasi pengguna. Jika peran ini belum ditetapkan, tandai `[NEEDS GATE-07: otoritas dan konfigurasi produksi belum diverifikasi]` sebelum tindakan berisiko.
+4. **Pilih jalur.** Rollback bila kontrak data dan konfigurasi kompatibel. Roll-forward bila versi lama tidak dapat membaca keadaan data sekarang atau akar masalah memerlukan perubahan konfigurasi yang baru.
+5. **Jalankan perubahan terkecil.** Gunakan artefak teridentifikasi, catat siapa yang mengeksekusi, dan simpan waktu mulai serta selesai. Jangan mencampur perbaikan tak terkait.
+6. **Verifikasi berlapis.** Jalankan health check sintetik, uji jalur kritis dengan data aman, lalu lihat metrik, log, dan trace. OpenTelemetry menyediakan kerangka untuk menghasilkan dan mengirim sinyal-sinyal observabilitas, tetapi sinyal itu tetap perlu interpretasi dan ambang yang ditetapkan tim ([OpenTelemetry documentation](https://opentelemetry.io/docs/)).
+7. **Amati dan tutup.** Pertahankan pemantauan selama jendela observasi yang sudah ditulis di runbook. Nyatakan layanan pulih hanya jika indikator stabil dan tidak ada regresi; kemudian kirim pembaruan status dan simpan bukti.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Kontrak data.** Tambahan kolom yang kompatibel dapat memberi ruang rollback, sedangkan penghapusan atau perubahan makna kolom dapat memaksa roll-forward. Tulis apakah setiap migrasi bersifat additive, reversible, atau membutuhkan langkah kompensasi. Jangan menyebut migrasi aman tanpa meninjau query, worker, dan batch yang masih memakai format lama.
+
+**Konfigurasi dan dependency.** Secret, environment variable, routing, cache, queue, dan API pihak ketiga dapat bertahan setelah binary dikembalikan. Versi kode lama dengan konfigurasi baru belum tentu sama dengan keadaan sebelumnya. Dokumentasikan pasangan artefak-konfigurasi yang diuji.
+
+**Sinyal kesehatan.** SLO membantu memilih indikator yang mewakili pengalaman pengguna; latency rata-rata saja dapat menyembunyikan tail latency. Pastikan setiap health check memiliki definisi lulus/gagal, pemilik, dan tindakan berikutnya. Alarm yang tidak memiliki tindakan hanya menambah kebisingan.
+
+**Kapasitas dan biaya.** Roll-forward dengan instance tambahan atau logging lebih rinci mungkin mengubah kapasitas dan biaya. Perubahan tersebut harus disetujui dan dipantau, bukan dibiarkan sebagai efek samping pemulihan.
+
+**Komunikasi dan bukti.** Catat timeline, keputusan, versi, hasil pemeriksaan, dan pesan kepada pemangku kepentingan. NIST menekankan respons yang terkoordinasi dan pembelajaran setelah kejadian; catatan ini membantu evaluasi tanpa mengarang kepastian yang belum diukur.
+
+Kawan Codev.id, jika satu-satunya bukti adalah pipeline hijau, anggap pemulihan belum terbukti. Minta bukti dari jalur pengguna dan sistem observabilitas yang relevan.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan tabel berikut sebagai kerangka, lalu isi ambang dan pemilik sesuai layanan Anda.
+
+| Kondisi yang teramati | Pertanyaan kunci | Arah awal |
+| --- | --- | --- |
+| Error aplikasi meningkat, skema data kompatibel | Apakah artefak sebelumnya masih tersedia dan konfigurasi pasangannya tercatat? | Rollback aplikasi, lalu verifikasi jalur kritis |
+| Versi lama tidak bisa membaca skema baru | Apakah ada langkah kompensasi tanpa menghapus data? | Roll-forward dengan perbaikan kompatibilitas |
+| Hanya dependency eksternal gagal | Apakah rollback kode mengubah beban atau kontrak ke dependency? | Mitigasi konfigurasi/traffic; jangan rollback otomatis |
+| Metrik teknis normal, pengguna tetap gagal | Health check mencakup login/transaksi aman? | Tahan deklarasi pulih; perluas verifikasi |
+| Bukti dan otoritas tidak jelas | Siapa yang menyetujui perubahan berisiko? | Hentikan tindakan destruktif dan eskalasi |
+
+Contoh ini bersifat kondisional, bukan laporan proyek. Dalam latihan game day, simulasi hanya boleh memakai data dan lingkungan yang disetujui. Hasil latihan tidak otomatis membuktikan waktu pemulihan produksi.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Rollback, Roll-forward, dan Verifikasi setelah Deploy”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menganggap rollback selalu lebih aman. Periksa kompatibilitas baca-tulis setiap versi dan daftar migrasi yang sudah berjalan. Kedua, menghapus versi lama segera setelah deploy. Pertahankan artefak dan metadata secukupnya agar keputusan dapat diaudit. Ketiga, memeriksa satu endpoint lalu menutup insiden. Tambahkan uji alur pengguna yang paling mewakili dampak.
 
-## Objection or shortcut to address
+Keempat, mengubah banyak variabel sekaligus. Buat diff perubahan dan tetapkan satu pemilik eksekusi. Kelima, mengirim pesan “sudah normal” sebelum jendela observasi berakhir. Tulis status sebagai fakta terukur: indikator apa yang pulih, sejak kapan, dan apa yang masih dipantau.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Sebelum menekan tombol deploy, tanyakan: versi target apa, data apa yang berubah, health check mana yang wajib lulus, siapa yang dapat menghentikan, dan bukti apa yang disimpan? Setelah tindakan, cocokkan jawaban dengan log deployment, metrik, trace, hasil uji aman, serta timeline komunikasi.
 
-## Required conclusion
+## Jalan pintas yang tampak praktis
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+“Kalau gagal, kembalikan saja ke commit kemarin.” Shortcut itu mengabaikan skema data, secret, queue, cache, dan perubahan dependency yang mungkin sudah bergerak. Commit lama juga tidak menjelaskan konfigurasi yang menyertainya. Alternatif yang lebih dapat dipertanggungjawabkan adalah menyimpan paket artefak-konfigurasi, menulis matriks kompatibilitas, lalu memilih rollback atau roll-forward lewat otoritas yang jelas. Bila informasi itu belum tersedia, berhenti sebelum langkah yang tidak reversibel dan tandai kebutuhan review.
 
-## Draft completion checklist
+## Langkah berikutnya
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Rollback mengembalikan komponen yang memang masih kompatibel; roll-forward memperbaiki keadaan ketika versi lama tidak aman; verifikasi membuktikan layanan pulih melalui sinyal teknis dan alur pengguna. Tidak ada jalur yang menjamin pemulihan seketika atau membalik data yang sudah berubah.
+
+Teman Codev.id, buat runbook satu halaman berisi matriks komponen reversibel, kontrak migrasi, ambang SLO, health check, otoritas, langkah komunikasi, dan lokasi bukti. Uji runbook itu di lingkungan yang disetujui, lalu minta technical review untuk konfigurasi produksi yang belum diverifikasi. Untuk langkah pengantar dan konteks layanan, Anda dapat mulai dari [beranda Codev.id](/). Aturan operasinya sederhana: jangan menyatakan pulih sebelum versi, data, sinyal, dan keputusan memiliki bukti yang dapat ditelusuri.

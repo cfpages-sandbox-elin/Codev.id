@@ -3,7 +3,7 @@ article_id: CDV-10-A06
 title: "Bug Triage: Severity, Priority, Root Cause, dan Retest"
 slug: "bug-triage-severity-priority-retest"
 description: "Capture reproducibility, environment, impact, evidence, severity, priority, workaround, owner, fix, regression risk, retest, and root-cause follow-up"
-status: outline
+status: draft
 publication_date: "2025-11-25"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -13,48 +13,17 @@ reader_community: "Codev.id"
 reader_address: "Sobat Codev.id"
 final_route: "/artikel/bug-triage-severity-priority-retest.html"
 technical_review: required
+writing_contract_version: "native-id-v2"
 sources:
   - "https://csrc.nist.gov/pubs/sp/800/218/final"
-  - "https://www.w3.org/TR/WCAG-EM/"
   - "https://spec.openapis.org/oas/v3.1.1.html"
-  - "https://www.w3.org/TR/WCAG22/"
+  - "https://www.w3.org/TR/WCAG-EM/"
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
   - "https://web.dev/articles/vitals"
   - "https://developer.chrome.com/docs/crux"
-  - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Bug Triage: Severity, Priority, Root Cause, dan Retest
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Bug Triage: Severity, Priority, Root Cause, dan Retest”
-- **Reader and situation:** Product, support, and engineering teams handling reports
-- **Reader outcome:** Capture reproducibility, environment, impact, evidence, severity, priority, workaround, owner, fix, regression risk, retest, and root-cause follow-up
-- **Primary intent:** Turn defects into consistent decisions and learning
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not let priority erase security/privacy incident duties; CDV-09-A06 and CDV-12-A05 own incidents
-- **Final public route:** `/artikel/bug-triage-severity-priority-retest.html`
-- **Appointed CMS date:** `2025-11-25` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Bug Triage: Severity, Priority, Root Cause, dan Retest**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -65,125 +34,67 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Bug Triage: Severity, Priority, Root Cause, dan Retest
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Sobat Codev.id! Bug triage bukan lomba memberi label “critical”. Tujuannya adalah membuat keputusan yang dapat ditelusuri: apa yang terjadi, seberapa besar dampaknya, kapan harus ditangani, siapa pemiliknya, lalu bukti apa yang menutup pekerjaan. **Severity** menggambarkan dampak teknis atau pengguna; **priority** menggambarkan urutan kerja berdasarkan risiko, nilai, dan kapasitas saat ini. Keduanya boleh berbeda.
 
-### KR-08
+Catatan yang baik memisahkan gejala dari dugaan akar masalah. Ia menyimpan langkah reproduksi, lingkungan, bukti, workaround, owner, perbaikan, risiko regresi, dan hasil retest. Keputusan rilis tetap membutuhkan kriteria produk dan persetujuan yang berlaku. Lulus satu skrip otomatis hanya membuktikan asersi, data, build, dan lingkungan yang dicakup skrip itu—bukan seluruh sistem. Prinsip pengembangan aman NIST juga menekankan penelusuran risiko, kebutuhan, dan hasil verifikasi ([NIST SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)).
 
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/website/e-learning` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/website/e-learning/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-10-A04` → `/artikel/regression-suite-cepat-dipercaya.html` — Regression Suite yang Cepat dan Dipercaya
-- `CDV-10-A05` → `/artikel/user-acceptance-test-dan-release-evidence.html` — User Acceptance Test dan Release Evidence
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Satu tiket bug sebaiknya menjawab empat pertanyaan berbeda. **Severity**: apa yang rusak—misalnya transaksi gagal, data salah, atau hanya tata letak bergeser? **Priority**: kapan tim perlu mengerjakannya dibanding pekerjaan lain? **Root cause**: perubahan atau kondisi apa yang memungkinkan kegagalan? **Retest**: bukti bahwa perilaku yang diperbaiki sudah diuji ulang, termasuk jalur yang berisiko ikut rusak.
+
+Jangan memakai priority untuk menghapus kewajiban insiden keamanan atau privasi. Bila ada indikasi akses tidak sah, kebocoran, atau kewajiban pelaporan, jalur insiden yang sesuai harus berjalan; triage produk tidak menggantikannya. Demikian pula, halaman ini bukan penetapan kepatuhan hukum. Evaluasi aksesibilitas perlu melihat cakupan halaman dan proses, bukan mengandalkan satu pemindai ([WCAG-EM](https://www.w3.org/TR/WCAG-EM/)).
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari laporan mentah, lalu ubah menjadi rekaman yang bisa diuji. Urutan berikut membantu tim berhenti berdebat berdasarkan intuisi:
+
+1. **Tangkap fakta.** Tulis waktu, akun/peran, URL atau endpoint, build/versi, perangkat dan browser, konfigurasi, data uji, serta langkah minimal untuk mengulanginya. Sertakan hasil aktual dan hasil yang diharapkan.
+2. **Simpan bukti.** Lampirkan screenshot atau video seperlunya, log dengan rahasia disamarkan, request/response, dan tautan ke observabilitas. Format API yang terdokumentasi membantu menyamakan nama parameter dan respons; spesifikasi OpenAPI menjelaskan kontrak tersebut ([OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)).
+3. **Nilai dampak (severity).** Tanyakan siapa yang terhalang, apakah data hilang atau salah, seberapa luas permukaan terdampak, dan apakah ada workaround yang aman. Gunakan skala internal yang dijelaskan; jangan menyamakan “sering terlihat” dengan “dampaknya paling berat”.
+4. **Tentukan urutan (priority).** Gabungkan severity dengan tenggat, jumlah pengguna, risiko bisnis, dependensi rilis, dan biaya menunggu. Tuliskan alasan serta tanggal peninjauan ulang. Priority dapat berubah tanpa mengubah severity.
+5. **Tetapkan owner dan rencana.** Satu orang bertanggung jawab mengoordinasikan diagnosis, sementara reviewer atau spesialis (misalnya keamanan dan aksesibilitas) dilibatkan saat sinyalnya muncul. Jika belum bisa diperbaiki, catat workaround dan komunikasi yang harus dilakukan.
+6. **Klasifikasikan akar masalah.** Setelah perbaikan ditemukan, bedakan pemicu langsung (contoh: validasi hilang) dari kondisi sistemik (kontrak tidak jelas, test data tidak representatif, atau review terlewat). Gunakan bahasa “terkonfirmasi oleh bukti” atau “masih hipotesis”.
+7. **Retest dan regresi.** Ulangi langkah awal pada build perbaikan, lalu uji variasi input, peran, browser, dan integrasi yang terdampak. Catat build, data, hasil, dan bukti. Status “fixed” tanpa hasil retest berarti pekerjaan belum tertutup.
+
+Untuk menyusun bukti pengujian yang konsisten, gunakan [materi e-learning pengujian perangkat lunak](/website/e-learning) sebagai langkah belajar berikutnya. Bila perlu menyelaraskan istilah dengan konteks layanan, kembali ke beranda Codev.id.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Severity dipengaruhi konteks penggunaan. Kegagalan checkout pada jam sibuk, formulir yang tidak dapat dipakai keyboard, dan teks salah pada halaman informasi dapat memiliki dampak berbeda meski sama-sama tampak sebagai error. Untuk aksesibilitas, keyboard/fokus, semantik, formulir dan pesan kesalahan, reflow/zoom, autentikasi, media, serta teknologi bantu membutuhkan pemeriksaan yang sesuai—bukan satu alat otomatis ([WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)).
+
+Lingkungan juga menentukan reproduksi. “Tidak terjadi di laptop saya” belum menjawab apakah build, flag, cache, data, jaringan, atau akun berbeda. Ukur dan catat kondisi itu. Untuk metrik performa, bedakan pengujian lab dari data lapangan; metrik Core Web Vitals dan sumber data Chrome UX Report memiliki konteks serta sampel sendiri ([web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report](https://developer.chrome.com/docs/crux)). Jangan mengubah satu angka sebelum/sesudah menjadi janji ranking, waktu muat, atau konversi.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan pengguna tidak dapat mengirim formulir hanya ketika sesi kedaluwarsa. Severity dapat tinggi karena alur utama buntu, sedangkan priority bergantung pada proporsi pengguna dan jadwal rilis. Tiket harus menyertakan akun uji, durasi sesi, respons jaringan, dan build. Workaround—misalnya masuk ulang—ditulis sebagai mitigasi sementara, bukan bukti bug selesai.
+
+Contoh lain: tombol terlihat benar tetapi tidak mendapat fokus keyboard. Severity ditetapkan berdasarkan tugas yang terhalang dan cakupan komponen; priority naik bila komponen dipakai di banyak alur atau rilis akan segera dipublikasikan. Retest mencakup keyboard saja, pembaca layar yang relevan, zoom, dan halaman lain yang memakai komponen. Kawan Codev.id, keputusan seperti ini lebih kuat bila setiap alasan tercatat daripada sekadar angka P1/P2.
+
+| Pertanyaan | Bukti minimum | Keputusan |
+|---|---|---|
+| Bisa diulang? | Langkah, build, lingkungan, data | Lanjut diagnosis atau minta informasi |
+| Seberapa parah? | Pengguna, fungsi, data, cakupan | Severity dan batas dampak |
+| Kapan dikerjakan? | Risiko menunggu, tenggat, dependensi | Priority dan tanggal review |
+| Sudah benar? | Build perbaikan, hasil retest, regresi | Tutup, kembalikan, atau eskalasi |
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Bug Triage: Severity, Priority, Root Cause, dan Retest”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah memberi label sebelum mengumpulkan fakta. Periksa apakah tiket memuat langkah minimal dan hasil aktual. Kedua, menyamakan priority dengan severity. Minta alasan urutan kerja yang menyebut risiko menunggu dan kapasitas. Ketiga, menulis root cause sebagai tebakan. Tandai hipotesis dan ubah hanya setelah log, diff, atau eksperimen mendukungnya.
 
-## Objection or shortcut to address
+Keempat, menganggap “sudah diperbaiki” sebagai “sudah diverifikasi”. Pastikan retest memakai build yang benar dan menyentuh jalur regresi. Kelima, menghapus bukti sensitif ke kolom publik. Samarkan token, data pribadi, dan rahasia; simpan akses terbatas sesuai kebijakan. Terakhir, memakai satu scanner untuk menyatakan aksesibilitas atau satu angka performa untuk menyatakan dampak bisnis. Cocokkan metode, cakupan, dan batas kesimpulannya.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+## Jalan pintas yang tampak cepat
 
-## Required conclusion
+Shortcut yang sering dipilih adalah membuat semua laporan “P1” agar cepat masuk antrean. Cara ini gagal karena antrean kehilangan sinyal: insiden nyata bersaing dengan gangguan kecil, sementara alasan dan pemilik tidak jelas. Alternatif yang lebih aman adalah skala severity dan priority yang didefinisikan tim, bukti minimum wajib, owner tunggal, serta tanggal peninjauan ulang. Jika bukti belum cukup, minta data yang spesifik—jangan menebak.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Penutup
 
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Bug triage yang sehat memisahkan dampak (severity), urutan (priority), penjelasan yang terbukti (root cause), dan verifikasi (retest). Sebelum menutup tiket, minta rekaman reproduksi, lingkungan, bukti, owner, build perbaikan, hasil retest, dan risiko regresi; tandai isu keamanan/privasi untuk jalur insiden yang tepat. Teman Codev.id, jadikan tiket sebagai jejak keputusan dan pembelajaran, bukan tempat menyimpan label. Bila cakupan atau bukti belum memadai, hentikan klaim, minta tinjauan teknis yang relevan, lalu jadwalkan pemeriksaan ulang.

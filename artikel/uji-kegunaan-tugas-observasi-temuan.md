@@ -3,7 +3,8 @@ article_id: CDV-02-A04
 title: "Uji Kegunaan: Tugas, Observasi, dan Temuan"
 slug: "uji-kegunaan-tugas-observasi-temuan"
 description: "Define participants, realistic tasks, facilitation, observation, severity, evidence, and retest"
-status: outline
+writing_contract_version: "native-id-v2"
+status: draft
 publication_date: "2025-04-26"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -20,37 +21,7 @@ sources:
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Uji Kegunaan: Tugas, Observasi, dan Temuan
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Uji Kegunaan: Tugas, Observasi, dan Temuan”
-- **Reader and situation:** Team validating a flow before or after development
-- **Reader outcome:** Define participants, realistic tasks, facilitation, observation, severity, evidence, and retest
-- **Primary intent:** Plan and interpret a usability test
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not prove WCAG conformance or broad market demand; CDV-13-A05 and CDV-02-A01 own those questions
-- **Final public route:** `/artikel/uji-kegunaan-tugas-observasi-temuan.html`
-- **Appointed CMS date:** `2025-04-26` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Uji Kegunaan: Tugas, Observasi, dan Temuan**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -61,119 +32,96 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Uji Kegunaan: Tugas, Observasi, dan Temuan
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id!
 
-### KR-02
+Jika tim hanya bertanya, “Apakah desain ini sudah bagus?”, uji kegunaan akan berjalan tanpa arah. Uji yang berguna dimulai dari tugas nyata yang hendak diselesaikan peserta, diamati saat mereka mencobanya, lalu diterjemahkan menjadi temuan yang bisa diprioritaskan dan diuji ulang. Jadi, hasilnya bukan sekadar daftar komentar, melainkan bukti tentang bagian alur yang membantu atau menghambat tujuan pengguna.
 
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
+Jawaban singkatnya: tetapkan profil peserta yang relevan, susun skenario tugas dengan hasil yang dapat diamati, fasilitasi tanpa membocorkan jawaban, catat perilaku dan ucapan secara terpisah, lalu nilai dampak serta buktinya sebelum mengubah rancangan. [NEEDS PROJECT RESEARCH AND DECISION OWNER] Uji ini tetap membutuhkan riset proyek dan pemilik keputusan agar temuan tidak dianggap mewakili seluruh pasar atau semua pengguna.
 
-### KR-11
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-01, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-02-A02` → `/artikel/information-architecture-dan-user-flow.html` — Information Architecture dan User Flow yang Bisa Diuji
-- `CDV-02-A03` → `/artikel/wireframe-mockup-atau-prototype.html` — Wireframe, Mockup, atau Prototype: Pilih Sesuai Risiko
-- `CDV-02-A05` → `/artikel/design-system-kecil-yang-konsisten.html` — Design System Kecil yang Tetap Konsisten
-- `CDV-02-A06` → `/artikel/handoff-desain-ke-developer.html` — Handoff Desain ke Developer Tanpa Tebak-tebakan
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Uji kegunaan bukan demo yang dipresentasikan kepada calon pengguna, bukan pula polling apakah mereka menyukai warna. Peserta menerima konteks dan tugas yang masuk akal, kemudian tim melihat apa yang mereka lakukan, titik ragu, kesalahan, pertanyaan, dan hasil akhirnya. Fasilitator boleh memberi konteks atau pertanyaan netral, tetapi tidak mengarahkan langkah.
+
+Salah paham yang paling mahal adalah menganggap satu sesi yang lancar sebagai bukti bahwa produk telah selesai. Satu sesi hanya memberi potongan bukti pada tugas, peserta, perangkat, dan versi yang diuji. Dalam praktik pengiriman bertahap, asumsi, perjalanan pengguna, perilaku fungsional, kualitas, batasan, dan bukti penerimaan menjawab pertanyaan yang berbeda. Karena itu, catat temuan bersama konteksnya dan cocokkan dengan keputusan produk; panduan pengiriman tangkas pemerintah Inggris juga menekankan pembelajaran dan pengujian dalam siklus bertahap ([UK Government Service Manual](https://www.gov.uk/service-manual/agile-delivery)).
+
+Pertanyaan pembuka yang lebih tajam adalah: “Tugas apa yang harus berhasil dilakukan orang ini, dan bukti apa yang membuat kita percaya ia berhasil tanpa bantuan?”
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Objek uji adalah interaksi pada alur tertentu: misalnya mencari informasi, mengisi formulir, memilih opsi, atau menyelesaikan langkah konfirmasi. “Berhasil” harus didefinisikan dengan perilaku atau keluaran yang dapat dilihat, bukan dengan kesan fasilitator. Peserta tidak harus pengguna lama; yang penting kriteria pemilihannya sesuai asumsi yang hendak diuji.
+
+Batasnya penting. Uji kegunaan dapat menunjukkan bahwa label membingungkan, fokus keyboard tidak terlihat, pesan kesalahan tidak membantu, atau urutan langkah membuat orang tersesat. Namun, temuan itu tidak otomatis menjadi sertifikasi kesesuaian WCAG, kepatuhan hukum Indonesia, atau bukti permintaan pasar. WCAG 2.2 mencakup kebutuhan akses yang luas, sedangkan evaluasi seperti WCAG-EM meminta penentuan cakupan halaman dan proses; satu pengamatan singkat tidak menggantikan evaluasi tersebut ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/)).
+
+Dengan batas ini, tim dapat menyebut hasil secara jujur: “Pada tugas pendaftaran dengan prototipe versi X, tiga peserta berhenti di langkah verifikasi,” bukan “produk ini mudah digunakan semua orang.”
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari tujuan keputusan. Apakah tim hendak memilih antara dua struktur halaman, memeriksa formulir sebelum pengembangan, atau mencari regresi setelah perubahan? Tujuan menentukan peserta, tugas, dan bukti yang perlu dicatat.
+
+Berikut urutan yang dapat dipakai:
+
+1. **Tetapkan peserta dan konteks.** Tulis ciri yang relevan dengan tugas, pengalaman yang diasumsikan, perangkat, serta kebutuhan akses yang ingin dipertimbangkan. Jangan menyamakan “teman satu kantor” dengan representasi pengguna.
+2. **Tulis skenario tugas.** Beri tujuan dan konteks secukupnya, tanpa menyebut tombol atau menu yang ingin diuji. Definisikan kondisi berhasil, kondisi berhenti, dan data uji yang aman.
+3. **Siapkan fasilitasi.** Buka dengan penjelasan bahwa yang diuji adalah rancangan, bukan kemampuan peserta. Minta peserta berpikir keras bila sesuai protokol, dan gunakan pertanyaan netral seperti “Apa yang Anda harapkan terjadi?”
+4. **Observasi terstruktur.** Tandai waktu, langkah yang diambil, kesalahan, permintaan bantuan, kutipan penting, dan hasil. Bedakan fakta yang terlihat dari tafsir seperti “peserta tidak paham.”
+5. **Debrief dan sintesis.** Gabungkan catatan per tugas, bukan per opini. Cari pola, tetapi simpan kasus tunggal jika dampaknya besar atau menyentuh akses.
+6. **Nilai dan prioritaskan.** Untuk setiap temuan, tulis tugas terdampak, bukti, dampak terhadap tujuan, frekuensi dalam sesi, serta keyakinan pengamat. Keparahan adalah keputusan produk berdasarkan dampak dan risiko, bukan angka yang tampak ilmiah.
+7. **Perbaiki lalu uji ulang.** Nyatakan perubahan yang dilakukan, versi yang diuji, dan kriteria lulus. Retest boleh terfokus pada temuan yang diperbaiki, tetapi jangan menghapus regresi pada tugas lain.
+
+Kawan Codev.id, format catatan sederhana sering lebih berguna daripada rekaman panjang tanpa indeks: `tugas | perilaku terlihat | ucapan | dampak | bukti | hipotesis | keputusan berikutnya`.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Peserta dan konteks.** Pengalaman, bahasa, perangkat, koneksi, dan kebutuhan akses memengaruhi strategi. Jelaskan siapa yang tidak tercakup sehingga temuan tidak diperluas secara sembarangan.
+
+**Tugas dan prototipe.** Tugas yang terlalu rinci menguji kemampuan mengikuti instruksi, bukan kemampuan menemukan jalan. Prototipe yang belum memiliki respons penting dapat menghasilkan kegagalan palsu; tandai keterbatasan itu di catatan.
+
+**Fasilitator dan lingkungan.** Nada menghakimi, terlalu cepat memberi petunjuk, atau kehadiran pemangku kepentingan dapat mengubah perilaku. Uji jarak jauh menambah faktor audio, berbagi layar, dan gangguan rumah; uji langsung menambah efek ruangan dan perangkat.
+
+**Cara mengamati.** Waktu penyelesaian saja tidak menjelaskan sebab. Perhatikan jalur alternatif, fokus, urutan, pemahaman pesan, serta apakah peserta dapat pulih dari kesalahan. Easy Checks WAI berguna sebagai pemeriksaan awal, tetapi bukan pengganti evaluasi menyeluruh ([WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)).
+
+**Bukti dan interpretasi.** Rekaman, catatan, dan artefak versi harus dapat ditelusuri ke tugas. Pisahkan “peserta memilih menu A” dari “menu A membingungkan”; yang kedua adalah hipotesis yang perlu diuji atau didukung catatan lain.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim menguji alur pengajuan layanan. Tugasnya: “Anda perlu mengirim permohonan untuk kebutuhan minggu depan. Tunjukkan bagaimana Anda akan menyelesaikannya.” Kriteria berhasil: peserta menemukan formulir, mengisi bidang wajib dengan data uji, memahami pesan kesalahan, dan mencapai konfirmasi tanpa petunjuk.
+
+| Temuan | Bukti yang dicatat | Keputusan awal |
+|---|---|---|
+| Peserta tidak menemukan formulir | Dua peserta mencari di menu berbeda dan bertanya “mulai dari mana?” | Uji dua label/navigasi pada sesi berikutnya; jangan langsung menyimpulkan seluruh struktur gagal. |
+| Pesan kesalahan tidak menjelaskan perbaikan | Peserta melihat pesan, mengulang nilai yang sama, lalu meminta bantuan | Prioritaskan penulisan ulang dan uji keyboard/fokus pada bidang terkait. |
+| Peserta memakai jalur berbeda tetapi tetap selesai | Jalur, hasil, dan waktu dicatat; tidak ada kesalahan | Pertahankan bila memenuhi tujuan dan tidak menambah risiko; jangan memaksa satu jalur hanya demi keseragaman. |
+
+Jika perubahan dilakukan, buat retest dengan versi dan kriteria yang disebutkan. Bila keputusan menyentuh aksesibilitas, tandai kebutuhan evaluasi tambahan: [NEEDS ACCESSIBILITY EVALUATION BEYOND USABILITY SESSION].
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Uji Kegunaan: Tugas, Observasi, dan Temuan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+- **Tugas berbentuk instruksi tombol.** Periksa apakah skenario masih dapat dipahami tanpa nama menu. Jika tidak, tulis ulang berdasarkan tujuan pengguna.
+- **Fasilitator menyelamatkan peserta.** Hitung setiap petunjuk dan catat kapan diberikan. Ulangi tugas atau sesi dengan skrip netral bila bantuan mengubah hasil.
+- **Menggabungkan observasi dan opini.** Sorot kalimat faktual dalam catatan; ubah opini menjadi hipotesis yang dapat diperiksa.
+- **Keparahan tanpa dampak.** Tanyakan tujuan apa yang terhambat, siapa yang terdampak, dan apa konsekuensinya. Gunakan prioritas yang dapat dipertanggungjawabkan, bukan sekadar “terasa kritis.”
+- **Menganggap lolos satu peserta sebagai selesai.** Periksa cakupan peserta, tugas, versi, dan kondisi. Temuan yang belum diuji ulang tetap terbuka.
 
-## Objection or shortcut to address
+Checklist sebelum menutup putaran: setiap temuan punya tugas dan bukti; asumsi peserta tertulis; bantuan fasilitator tercatat; versi artefak jelas; pemilik keputusan ditunjuk; dan klaim aksesibilitas tidak melampaui metode yang dipakai.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+## Pilihan cepat yang tampak praktis
 
-## Required conclusion
+Shortcut yang menggoda adalah meminta lima orang mencoba semua fitur sekaligus, lalu memilih komentar yang paling keras. Cara ini gagal karena tugas menjadi kabur, beban sesi terlalu besar, dan prioritas tercampur dengan preferensi. Alternatif yang lebih aman adalah membatasi satu putaran pada beberapa keputusan berisiko, menulis kriteria berhasil, serta menghubungkan setiap temuan ke bukti dan tindak lanjut.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Sobat Codev.id, bila waktu hanya cukup untuk satu sesi, pilih tugas yang paling menentukan keputusan rilis dan dokumentasikan apa yang belum teruji. Kejujuran tentang celah bukti lebih berguna daripada label “sudah tervalidasi.”
 
-## Draft completion checklist
+## Kesimpulan
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Uji kegunaan yang dapat ditindaklanjuti menyatukan peserta yang relevan, tugas realistis, fasilitasi netral, observasi terstruktur, penilaian dampak, dan retest pada versi yang berubah. Hasilnya menjawab apakah alur tertentu membantu peserta mencapai tujuan dalam kondisi uji tertentu—bukan apakah seluruh pasar akan membeli atau produk otomatis memenuhi WCAG.
+
+Langkah berikutnya: pilih satu alur berisiko, tulis dua atau tiga tugas dengan kriteria berhasil, tetapkan siapa yang mengamati dan memutuskan, lalu jadwalkan retest untuk temuan prioritas. Untuk konteks produk dan keputusan desain berikutnya, Anda dapat mulai dari [beranda Codev.id](/).
+
+Teman Codev.id, operating rule-nya sederhana: jangan ubah opini menjadi persyaratan sebelum ada perilaku yang diamati, bukti yang tersimpan, dan batas cakupan yang dinyatakan.

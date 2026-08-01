@@ -3,7 +3,8 @@ article_id: CDV-13-A06
 title: "Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan"
 slug: "pengguna-disabilitas-dalam-riset-pengadaan"
 description: "Plan accessible recruitment/materials/sessions, consent, accommodations, compensation, task evidence, privacy, interpretation, and procurement questions"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-02-03"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,19 @@ sources:
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan
 
-## Assignment lock
+Halo, Teman Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”
-- **Reader and situation:** Buyer or research team seeking more than compliance checklists
-- **Reader outcome:** Plan accessible recruitment/materials/sessions, consent, accommodations, compensation, task evidence, privacy, interpretation, and procurement questions
-- **Primary intent:** Include disabled users and evidence in product decisions
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not treat a few participants as universal representation or replace WCAG evaluation; CDV-13-A05 owns technical audit
-- **Final public route:** `/artikel/pengguna-disabilitas-dalam-riset-pengadaan.html`
-- **Appointed CMS date:** `2026-02-03` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Melibatkan pengguna disabilitas dalam riset dan pengadaan bukan sekadar menambah satu sesi uji atau mencentang pernyataan “inklusif”. Keputusan yang dapat dipertanggungjawabkan harus menunjukkan siapa yang direkrut, tugas apa yang dicoba, dukungan apa yang tersedia, persetujuan apa yang diberikan, dan bagaimana temuan itu mengubah prioritas produk. Jawaban singkatnya: libatkan orang dengan kebutuhan akses yang relevan sejak discovery, rancang sesi yang bisa mereka ikuti, dokumentasikan bukti tugas dan hambatan, lalu jadikan bukti tersebut masukan eksplisit dalam spesifikasi dan penerimaan pengadaan.
 
-## Opening instructions
+Jumlah peserta yang sedikit tetap berguna untuk menemukan hambatan nyata, tetapi tidak menjadikan mereka wakil universal semua penyandang disabilitas. Riset pengguna juga tidak menggantikan evaluasi teknis WCAG atau pengujian dengan teknologi bantu. Jika keputusan rilis bergantung pada kepatuhan, keamanan, atau perilaku perangkat tertentu, hasilnya perlu pemeriksaan spesialis dan persetujuan pemilik risiko. [NEEDS TECHNICAL REVIEW: GATE-05 dan GATE-06 harus dikonfirmasi pada produk dan lingkungan target.]
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
+*Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.*
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,124 +46,65 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-02
-
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-05, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-13-A04` → `/artikel/semantik-gambar-media-struktur-konten.html` — Semantik, Gambar, Media, dan Struktur Konten
-- `CDV-13-A05` → `/artikel/audit-aksesibilitas-otomatis-manual-at.html` — Audit Aksesibilitas: Otomatis, Manual, dan Assistive Technology
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+END MANAGED IMAGE PLAN -->
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+“Pengguna disabilitas” di sini berarti orang yang akan memakai layanan atau berinteraksi dengan hasil pengadaan dan memiliki kebutuhan akses yang relevan dengan konteks itu. Kebutuhan dapat berkaitan dengan penglihatan, pendengaran, gerak, kognisi, bicara, atau kombinasi beberapa hal. Tanyakan dukungan yang dibutuhkan; jangan menebak diagnosis dari penampilan atau meminta peserta membuktikan kondisi medis yang tidak diperlukan untuk riset.
+
+Objek risetnya adalah pengalaman dan tugas: menemukan informasi, mengisi formulir, masuk, mengunggah dokumen, memahami pesan kesalahan, atau menyelesaikan alur lain yang memang akan dibeli. Satu sesi tidak membuktikan seluruh pengalaman. WCAG 2.2 mencakup aspek seperti keyboard, fokus, formulir, reflow, autentikasi, media, dan perilaku dengan teknologi bantu; evaluasi harus menentukan cakupan halaman serta proses yang benar-benar digunakan ([W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/)).
+
+Karena itu, halaman ini membahas keputusan riset dan pengadaan—bukan audit teknis, sertifikasi, atau penetapan kepatuhan hukum Indonesia. Riset memberi bukti tentang kemampuan menyelesaikan tugas dan konteks penggunaan. Audit memberi pemeriksaan terhadap implementasi. Keduanya menjawab pertanyaan berbeda dan harus dilacak terpisah.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan keputusan yang hendak dibuat. Tulis pertanyaan seperti “Apakah kandidat dapat mengirim permohonan tanpa mouse?” atau “Dukungan apa yang wajib tersedia ketika autentikasi gagal?” Jangan mulai dari daftar fitur aksesibilitas yang tidak terkait alur. Praktik delivery yang iteratif memisahkan asumsi, kebutuhan pengguna, perilaku fungsional, kualitas, kendala, dan bukti penerimaan ([UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery)).
+
+Susun rekrutmen bersama organisasi atau jaringan yang dipercaya, lalu berikan undangan dalam format yang bisa diakses. Jelaskan durasi, aktivitas, rekaman, kompensasi, risiko ketidaknyamanan, dan hak untuk berhenti. Sediakan formulir pendaftaran alternatif—misalnya surel atau telepon—serta jangan menjadikan pengungkapan diagnosis sebagai syarat bila kebutuhan akses saja sudah cukup.
+
+Sebelum sesi, tanyakan preferensi komunikasi dan akomodasi: pembaca layar, teks langsung, penerjemah bahasa isyarat, jeda tambahan, ruang tenang, perangkat pribadi, atau pendamping. Konfirmasi siapa yang menanggung biaya akses dan kapan kompensasi dibayar. Persetujuan harus dipisahkan dari persetujuan perekaman; peserta boleh ikut tanpa direkam jika desain riset memungkinkan.
+
+Saat sesi berlangsung, berikan tugas yang sama dengan tujuan produk, tetapi izinkan jalur dan alat yang biasa dipakai peserta. Catat tindakan, titik berhenti, bantuan yang diminta, pesan yang membingungkan, dan kondisi lingkungan. Bedakan observasi (“fokus berpindah ke awal halaman”) dari interpretasi (“peserta tidak paham”). Tanyakan alasan setelah tugas, tanpa mengarahkan jawaban.
+
+Setelahnya, ubah temuan menjadi keputusan yang dapat dilacak: risiko atau kebutuhan, bukti tugas, dampak, pemilik, kriteria penerimaan, dan status. Pengujian otomatis atau satu pemeriksaan manual hanya membuktikan pernyataan yang diuji pada build, data, dan lingkungan sampel. SSDF NIST menekankan praktik aman yang dapat ditelusuri dari risiko hingga hasil dan cacat yang belum terselesaikan ([NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)). Untuk menyiapkan pertanyaan lanjutan tentang praktik digital, Anda dapat mulai dari [beranda Codev.id](/).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Profil peserta mengubah pertanyaan yang dapat dijawab. Pengguna pembaca layar dapat menemukan masalah struktur dan nama kontrol; pengguna keyboard dapat mengungkap jebakan fokus; pengguna dengan gangguan pendengaran dapat memeriksa apakah informasi penting hanya disampaikan lewat suara. Ini bukan pembagian kotak-kotak permanen—tanyakan pengalaman dan alat yang nyata.
+
+Material dan fasilitator sama pentingnya dengan produk. Dokumen pra-sesi perlu format yang dapat dibaca teknologi bantu, kontras yang memadai, bahasa langsung, dan alternatif bila lampiran tidak terbuka. Fasilitator perlu menyebutkan perubahan agenda, membaca teks yang relevan, dan memberi waktu hening untuk mengetik atau menggunakan alat komunikasi. Jika penerjemah atau pendamping hadir, sepakati peran serta kerahasiaannya terlebih dahulu.
+
+Kompensasi, privasi, dan keamanan memengaruhi kualitas bukti. Simpan catatan dengan kode peserta, batasi akses, tetapkan masa simpan, dan hapus rekaman ketika tidak lagi diperlukan sesuai persetujuan. Jangan memasukkan rekaman mentah atau diagnosis ke tiket vendor. Untuk API atau integrasi, minta kontrak antarmuka yang jelas tentang skema, error, autentikasi, dan perubahan versi; spesifikasi OpenAPI dapat menjadi format pertukaran, bukan bukti bahwa alurnya mudah diakses ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)).
+
+Lingkungan juga menentukan hasil: browser, sistem operasi, teknologi bantu, koneksi, akun uji, dan data yang dipakai. Catat semuanya agar temuan dapat diulang. Jangan mengubah kegagalan pada satu kombinasi menjadi klaim semua pengguna akan gagal, dan jangan menganggap keberhasilan pada satu kombinasi sebagai jaminan universal.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim akan membeli portal pengajuan. Pertanyaan risetnya: “Dapatkah pengguna menyelesaikan pengajuan dan memperbaiki kesalahan tanpa bantuan fasilitator?” Rekrut beberapa pengguna dengan kebutuhan akses berbeda yang memang relevan, tawarkan pilihan komunikasi, dan biarkan mereka memakai perangkat sendiri. Bukti yang disimpan bukan skor kepuasan saja, melainkan langkah yang dilakukan, hambatan, bantuan, dan pesan kesalahan yang ditemui.
+
+Gunakan tabel keputusan berikut sebagai contoh format, bukan ambang universal:
+
+| Temuan sesi | Keputusan pengadaan | Bukti penerimaan |
+|---|---|---|
+| Fokus hilang setelah dialog ditutup | Minta perilaku fokus yang dapat diprediksi dan skenario uji keyboard | Rekaman langkah pada build kandidat, lalu verifikasi manual |
+| Instruksi penting hanya berupa audio | Wajibkan teks atau transkrip yang setara | Tugas diselesaikan dengan audio dimatikan |
+| Peserta memerlukan bantuan fasilitator untuk error | Minta pesan error yang menjelaskan masalah dan tindakan berikutnya | Uji data tidak valid dengan akun uji |
+| Vendor menyatakan “lulus scanner” | Jangan terima sebagai satu-satunya bukti | Laporan cakupan, pemeriksaan manual, dan temuan teknologi bantu |
+
+Kawan Codev.id, minta vendor mengaitkan setiap kriteria dengan artefak dan lingkungan uji. Jika bukti belum ada, statusnya “belum terbukti”, bukan “diasumsikan lulus”. Pemilik produk kemudian memutuskan apakah risiko diterima, diperbaiki, atau menghalangi rilis.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Melibatkan Pengguna Disabilitas dalam Riset dan Pengadaan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah merekrut setelah solusi dipilih. Periksa dokumen keputusan: adakah kebutuhan pengguna disabilitas yang memengaruhi masalah, alur, dan prioritas sejak awal? Kedua, memakai satu peserta sebagai simbol representasi. Tulis karakteristik dan konteks yang benar-benar diteliti, serta nyatakan yang belum terjawab.
 
-## Objection or shortcut to address
+Ketiga, memberikan materi yang tidak dapat diakses lalu menyalahkan peserta. Kirim materi uji coba sebelum sesi dan sediakan jalur alternatif. Keempat, menganggap persetujuan umum mencakup perekaman, penggunaan kutipan, dan berbagi dengan vendor. Gunakan pilihan persetujuan terpisah dan hormati penolakan.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kelima, mengubah komentar menjadi persyaratan tanpa bukti tugas. Sertakan langkah, kondisi, dampak, dan kriteria penerimaan. Keenam, menyamakan hasil scanner atau checklist dengan konformansi penuh. WAI Easy Checks berguna sebagai pemeriksaan awal, tetapi tidak menggantikan evaluasi proses dan cakupan yang direncanakan ([WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)).
 
-## Required conclusion
+Sebelum menerima penawaran, ajukan pertanyaan berikut: siapa yang melakukan evaluasi dan dengan alat apa; alur, halaman, dan integrasi mana yang tercakup; bagaimana temuan diberi tingkat risiko dan ditutup; apakah vendor menyediakan build uji, data uji, serta log perubahan; dan siapa yang menandatangani penerimaan. Mintalah bukti yang dapat diperiksa, bukan janji “accessible by design”.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Kesimpulan
 
-## Draft completion checklist
+Melibatkan pengguna disabilitas berarti merancang partisipasi yang dapat diakses, mengamati tugas dalam konteks nyata, menjaga persetujuan dan privasi, lalu mengubah temuan menjadi kriteria pengadaan yang dapat diuji. Riset tersebut memperjelas kebutuhan dan risiko; ia tidak mengklaim mewakili semua orang dan tidak menggantikan audit WCAG atau peninjauan profesional.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Langkah berikutnya adalah membuat satu lembar keputusan untuk alur yang akan dibeli: pertanyaan, peserta dan akomodasi, tugas, bukti, kriteria penerimaan, pemilik risiko, serta pemeriksaan teknis yang masih harus dilakukan. Teman Codev.id, tunda penerimaan bila bukti penting belum dapat ditelusuri atau kondisi uji berbeda dari lingkungan target. Aturan kerjanya sederhana: tidak ada klaim aksesibel tanpa pengguna yang dapat ikut, tugas yang dapat diamati, dan bukti yang dapat diperiksa.

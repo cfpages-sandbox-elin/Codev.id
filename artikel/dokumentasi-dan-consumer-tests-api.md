@@ -1,9 +1,10 @@
 ---
 article_id: CDV-06-A06
+writing_contract_version: "native-id-v2"
 title: "Dokumentasi dan Consumer Tests untuk API"
 slug: "dokumentasi-dan-consumer-tests-api"
 description: "Provide quick start, authentication context, examples, errors, limits, changelog, sandbox, contract/consumer tests, and support ownership"
-status: outline
+status: draft
 publication_date: "2025-08-11"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -16,43 +17,17 @@ technical_review: required
 sources:
   - "https://spec.openapis.org/oas/v3.1.1.html"
   - "https://www.rfc-editor.org/info/rfc9700/"
-  - "https://www.w3.org/TR/webauthn-3/"
   - "https://owasp.org/API-Security/editions/2023/en/0x11-t10/"
   - "https://csrc.nist.gov/pubs/sp/800/218/final"
-  - "https://www.w3.org/TR/WCAG-EM/"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # Dokumentasi dan Consumer Tests untuk API
 
-## Assignment lock
+Halo, Teman Codev.id! Dokumentasi API yang hanya berisi daftar endpoint belum cukup untuk membuat tim konsumen berhasil mengintegrasikan layanan. Mereka perlu jalur quick start, konteks autentikasi, contoh request dan response yang jujur, arti error, batas pemakaian, changelog, serta tempat mencoba tanpa menyentuh data produksi. Tim pemilik API juga perlu bukti bahwa kontrak yang dibaca konsumen masih cocok dengan implementasi.
 
-- **Writer task:** Expand this file into one complete article answering: “Dokumentasi dan Consumer Tests untuk API”
-- **Reader and situation:** Team publishing or integrating an interface
-- **Reader outcome:** Provide quick start, authentication context, examples, errors, limits, changelog, sandbox, contract/consumer tests, and support ownership
-- **Primary intent:** Make an API understandable and verifiable by consumers
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not publish private endpoints, credentials, or unsupported SDKs; product documentation remains with its owning property
-- **Final public route:** `/artikel/dokumentasi-dan-consumer-tests-api.html`
-- **Appointed CMS date:** `2025-08-11` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban praktisnya: satukan dokumentasi yang dapat dijalankan dengan kontrak API dan consumer tests. Tulis alur mulai dari prasyarat sampai response pertama, jelaskan bagaimana token diperoleh dan kapan harus disegarkan, lalu uji contoh itu di pipeline. Consumer test (tes dari sudut pandang pemakai) memverifikasi janji yang benar-benar dipakai klien; ia tidak menggantikan pengujian keamanan, beban, atau persetujuan rilis. Detail flow autentikasi tetap harus dipilih berdasarkan klien dan model ancaman. **[NEEDS AUTHENTICATION REVIEW: GATE-03/GATE-04 — validasi flow, audience, scope, dan kontrol abuse sebelum publikasi.]**
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Dokumentasi dan Consumer Tests untuk API**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,117 +38,58 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
-### KR-04
+## Mulai dari quick start yang bisa diikuti
 
-- **Original sources:** [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html), [OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/), [WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/), [OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/).
-- **Purpose for this article:** Ground contract-first APIs, authorization flows, passkeys, and API abuse controls.
-- **Safe grounded facts:** RFC 9700 is a 2025 best-current-practice update for OAuth 2.0. OpenAPI describes an interface; it does not prove implementation behavior or security.
-- **Limits:** Never publish secrets/private schemas or prescribe a flow without client/threat context. Apply GATE-03 and GATE-04.
+Quick start harus membawa pembaca dari prasyarat ke panggilan yang sukses tanpa menebak. Cantumkan base URL per lingkungan, format media, versi API, cara memperoleh kredensial uji, dan satu contoh request minimal. Contoh sebaiknya dapat disalin, tetapi gunakan placeholder seperti `YOUR_TOKEN` dan data sintetis—jangan pernah menaruh secret aktif.
 
-### KR-08
+Kontrak OpenAPI membantu menyatakan path, parameter, schema, dan response secara terstruktur. Spesifikasi itu mendeskripsikan interface, bukan bukti bahwa server berperilaku sesuai kontrak; contoh tetap perlu dieksekusi terhadap sandbox atau pipeline integrasi. ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html))
 
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
+Setiap contoh perlu menunjukkan header penting, body valid, response sukses, dan setidaknya satu response gagal. Jelaskan prasyarat idempotensi atau urutan panggilan bila endpoint kedua bergantung pada ID dari endpoint pertama. Dengan begitu, konsumen dapat membedakan kesalahan setup dari perilaku API.
 
-## Evidence gates
+## Jelaskan autentikasi, otorisasi, dan batas aman
 
-- **TOPIC-GATE:** GATE-03, GATE-04
+Pisahkan istilah autentikasi (siapa pemanggil) dan otorisasi (apa yang boleh ia lakukan). Tabel singkat dapat memetakan jenis klien, cara mendapatkan token, scope yang diperlukan, masa berlaku, serta tindakan ketika token ditolak. Hindari menuliskan kredensial, endpoint privat, atau SDK yang belum benar-benar didukung.
 
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
+Untuk OAuth, dokumentasi harus menyebut aktor, redirect atau mekanisme non-interaktif, scope, dan cara menyimpan token secara aman. RFC 9700 merupakan pembaruan praktik terbaik keamanan OAuth 2.0; gunakan sebagai rujukan untuk keputusan flow, bukan sebagai alasan memilih flow tanpa konteks klien. ([OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/)) Jika API membuka passkey atau WebAuthn, jelaskan batas dukungan dan fallback hanya setelah pemilik produk mengonfirmasi implementasinya.
 
-## Internal-link plan
+Kawan Codev.id, perlakukan rate limit dan kontrol abuse sebagai bagian dari kontrak pengalaman, bukan catatan kaki. Nyatakan unit limit, header informasi bila tersedia, respons saat terlampaui, dan perilaku retry yang aman. Jangan mengarang angka. OWASP menempatkan risiko seperti broken authorization dan unrestricted resource consumption sebagai perhatian API; dokumentasi harus mengarahkan konsumen ke penggunaan yang tidak memperbesar risiko itu. ([OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/))
 
-### Existing local routes
+## Buat contoh, error, limit, dan changelog dapat diverifikasi
 
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
+Gunakan format tetap untuk setiap endpoint: tujuan, input, contoh, response, error, dan batas. Untuk error, berikan status, kode aplikasi, arti, tindakan pemulihan, serta apakah aman mengulang. Jangan menjanjikan angka limit, latency, atau SLA jika belum ada sumber operasional yang disetujui; tulis “lihat header respons” atau `[NEEDS LIMIT REVIEW]` bila nilainya belum ditetapkan.
 
-### Planned sibling articles
+Changelog perlu membedakan perubahan dokumentasi, perubahan kontrak, dan perubahan perilaku. Sertakan tanggal rilis, versi terdampak, migrasi yang diperlukan, dan masa deprecation bila memang telah diputuskan. Tautkan ke [beranda Codev.id](/) hanya bila pembaca membutuhkan konteks layanan atau jalur dukungan; jangan menambahkan tautan yang tidak membantu langkah berikutnya.
 
-These are future routes. Do not link them as live until their HTML exists.
+Sandbox harus memiliki data uji yang dapat di-reset, identitas yang jelas, dan peringatan bahwa perilakunya tidak membuktikan kapasitas produksi. Catat perbedaan konfigurasi sandbox dan produksi sehingga hasil consumer test tidak disalahartikan sebagai jaminan operasional.
 
-- `CDV-06-A04` → `/artikel/versioning-dan-deprecation-api.html` — Versioning dan Deprecation API Tanpa Memutus Klien
-- `CDV-06-A05` → `/artikel/error-retry-dan-idempotency-api.html` — Error, Retry, dan Idempotency pada API
+## Rancang contract test dan consumer test dari janji nyata
 
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Contract test memeriksa kecocokan bentuk dan aturan yang disepakati—misalnya nama field wajib, tipe data, status respons, atau header. Consumer test menambahkan perspektif klien: alur yang benar-benar dipanggil, fallback ketika field opsional hilang, dan penanganan error. Mulailah dari contoh paling penting di quick start, lalu simpan fixture tanpa data pribadi.
 
-## Definisikan kebutuhan sebelum meminta harga
+Di pipeline, jalankan tes terhadap versi kontrak dan environment yang ditentukan. Beri nama tes berdasarkan kebutuhan konsumen, simpan log request yang sudah disensor, dan tetapkan pemilik ketika tes gagal. Tes yang lulus hanya membuktikan assertion yang diambil sampelnya pada build, data, dan environment tersebut; ia tidak membuktikan keamanan menyeluruh atau kompatibilitas semua klien. Prinsip secure software development NIST menekankan keterlacakan risiko, kebutuhan, hasil verifikasi, dan defect yang belum selesai. ([NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final))
 
-- **Purpose:** Nyatakan fungsi, kondisi, kuantitas, batas scope, antarmuka, dan hasil penerimaan.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pisahkan pemeriksaan: lint/schema untuk kontrak, integration test untuk alur server, consumer test untuk perilaku klien, dan review keamanan oleh pihak yang kompeten. Tidak ada ambang coverage universal yang otomatis berarti siap rilis. Jika perubahan memengaruhi otorisasi atau batas sumber daya, hentikan promosi sampai review keamanan dan acceptance owner selesai.
 
-## Buat penawaran benar-benar sebanding
+## Tetapkan support ownership dan bukti penerimaan
 
-- **Purpose:** Susun komponen scope, inklusi, eksklusi, asumsi, logistik, pengujian, dan risiko.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Dokumentasi yang baik menyebut siapa menjawab pertanyaan kontrak, siapa menangani insiden autentikasi, dan jalur eskalasi ketika sandbox atau produksi bermasalah. Cantumkan jam layanan atau target respons hanya jika benar-benar disetujui; selain itu, tulis kanal dan informasi minimum yang harus disertakan konsumen (versi, correlation ID, waktu, dan contoh teranonim).
 
-## Dokumen yang membuktikan hal berbeda
+Sebelum acceptance, minta paket bukti: versi kontrak, hasil consumer test pada commit yang dirilis, daftar error yang diuji, catatan limit, changelog, dan keputusan atas defect terbuka. Pemilik konsumen memeriksa alur bisnis; pemilik API memeriksa implementasi dan observabilitas; reviewer keamanan memeriksa autentikasi, otorisasi, secret handling, dan abuse control. Pembayaran atau serah terima tidak seharusnya bergantung pada screenshot “200 OK” saja.
 
-- **Purpose:** Bedakan data produk, sertifikat, laporan tes, metode, pengalaman, garansi, dan persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+## Jalan pintas yang sering menggagalkan integrasi
 
-## Pertanyaan wajib kepada penyedia
+Jalan pintas yang umum adalah menerbitkan satu halaman endpoint hasil ekspor schema lalu meminta konsumen “coba saja”. Ini gagal ketika token membutuhkan konteks, error tidak menjelaskan pemulihan, sandbox berbeda dari produksi, atau perubahan kecil mematahkan parser klien. Schema yang valid tidak menguji urutan panggilan dan tidak menunjukkan apakah contoh masih hidup.
 
-- **Purpose:** Buat daftar pertanyaan konkret yang mengungkap kapasitas, batas, tanggung jawab, dan perubahan.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Alternatif yang lebih aman adalah memilih satu perjalanan konsumen prioritas, menjalankannya dari quick start di sandbox, dan menjadikannya consumer test berulang. Tautkan hasil tes ke versi kontrak dan changelog. Teman Codev.id, bila ada ketidakpastian pada flow autentikasi atau kontrol abuse, tandai dan minta review—jangan menutup celah dengan asumsi.
 
-## Red flag dan biaya yang sering tersembunyi
+## Langkah berikutnya
 
-- **Purpose:** Jelaskan tanda scope kabur, klaim tanpa bukti, serta biaya akses, tunggu, rework, atau handover.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Buat satu paket rilis berisi quick start, matriks autentikasi, contoh sukses-gagal, aturan error dan limit, changelog, akses sandbox, kontrak, consumer tests, serta daftar owner dukungan. Jalankan perjalanan konsumen prioritas pada build kandidat, simpan bukti yang disensor, dan minta technical review untuk gate autentikasi/abuse yang belum terjawab.
 
-## Penerimaan, serah terima, dan keputusan akhir
-
-- **Purpose:** Tentukan siapa memeriksa apa, rekaman yang disimpan, dan kapan pembayaran/acceptance layak.
-- **Tie back to this article:** Keep the explanation specific to “Dokumentasi dan Consumer Tests untuk API”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Objection or shortcut to address
-
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
-
-## Required conclusion
-
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
-
-## Draft completion checklist
-
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Aturan operasionalnya sederhana: dokumentasi menyatakan janji yang bisa dicoba, consumer test memeriksa janji yang dipakai, dan reviewer berwenang memutuskan risiko yang tidak dapat dibuktikan oleh tes otomatis. Jangan publikasikan endpoint atau kredensial di luar scope yang disetujui.

@@ -2,8 +2,9 @@
 article_id: CDV-11-A06
 title: "Redirect, Cache, TLS, dan DNS dalam Release Web"
 slug: "redirect-cache-tls-dns-release-web"
-description: "Map route redirects, cache keys/invalidation, headers, certificate/DNS dependencies, tests, propagation, rollback, and ownership"
-status: outline
+description: "Panduan memetakan redirect rute, cache, header, TLS, DNS, pengujian, propagasi, pemulihan, dan penanggung jawab saat rilis web"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-12-18"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,7 @@ sources:
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Redirect, Cache, TLS, dan DNS dalam Release Web
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Redirect, Cache, TLS, dan DNS dalam Release Web”
-- **Reader and situation:** Team changing routes, origins, caching, or domains
-- **Reader outcome:** Map route redirects, cache keys/invalidation, headers, certificate/DNS dependencies, tests, propagation, rollback, and ownership
-- **Primary intent:** Control edge behavior during a web release
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not manage a domain portfolio or WHOIS; `domain.codev.id` and `whois.codev.id` own product intent, while CDV-19-A05 owns SEO migration
-- **Final public route:** `/artikel/redirect-cache-tls-dns-release-web.html`
-- **Appointed CMS date:** `2025-12-18` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Redirect, Cache, TLS, dan DNS dalam Release Web**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,120 +34,65 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Redirect, Cache, TLS, dan DNS dalam Release Web
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Teman Codev.id! Saat release web mengubah URL, origin, atau domain, empat lapisan ini harus dipetakan sebagai satu rantai: DNS mengarahkan nama ke edge, TLS memeriksa identitas koneksi, aturan redirect memilih URL tujuan, lalu cache menentukan respons mana yang disajikan. Jadi, upload build yang sukses belum berarti release aman.
 
-### KR-09
+Jawaban praktisnya: buat peta request dari nama domain sampai origin, tetapkan pemilik tiap aturan, uji status code dan header dari lokasi yang relevan, lalu siapkan rollback yang mengembalikan konfigurasi edge sekaligus artefak aplikasi. Pages dan Workers dapat menyediakan lingkungan serta deployment yang berbeda, tetapi detail akun, runtime, dan konfigurasi aktual tetap harus diverifikasi pada proyek Anda ([Cloudflare Pages](https://developers.cloudflare.com/pages/), [Cloudflare Workers](https://developers.cloudflare.com/workers/), [versi dan deployment Workers](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/)).
 
-- **Original sources:** [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/), [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/), [Cloudflare deployments documentation](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/).
-- **Purpose for this article:** Ground Pages/Workers selection, environments, configuration, deployments, and rollback.
-- **Safe grounded facts:** Provider docs establish current product behavior only for the cited platform/date. A successful upload is not an end-to-end release.
-- **Limits:** Recheck limits, pricing, APIs, runtime compatibility, regional/data implications, and actual account configuration under GATE-07.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-07
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/web-google-adsense` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-google-adsense/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-11-A04` → `/artikel/deploy-aplikasi-dan-migrasi-data.html` — Deploy Aplikasi dan Migrasi Data Tanpa Deadlock
-- `CDV-11-A05` → `/artikel/rollback-roll-forward-verifikasi-deploy.html` — Rollback, Roll-forward, dan Verifikasi setelah Deploy
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+<p>Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.</p>
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Redirect adalah keputusan HTTP untuk memindahkan klien dari URL lama ke URL baru. Cache adalah penyimpanan respons berdasarkan kunci tertentu—biasanya gabungan host, path, query, dan header yang dipilih. TLS mengamankan koneksi dan memvalidasi sertifikat untuk nama host. DNS memetakan nama host ke layanan yang melayani trafik.
+
+Artikel ini membahas perilaku edge selama satu release: perubahan route, origin, cache key atau invalidation, header, sertifikat, DNS, pengujian, propagasi, rollback, dan ownership. Ia tidak mengelola portofolio domain atau WHOIS; kebutuhan itu berada pada layanan domain terkait. Migrasi SEO juga bukan ruang lingkupnya, sehingga keputusan canonical, nilai pencarian, dan rencana migrasi harus ditangani pada proses khusus.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari request nyata. Resolver DNS mencari alamat layanan; koneksi TLS dinegosiasikan untuk host tersebut; edge membaca aturan redirect dan header; cache memutuskan hit atau meneruskan request ke origin. Origin mengembalikan status, header, dan body; edge dapat menyimpan respons sebelum mengirimkannya kembali. Satu kesalahan di awal dapat terlihat seperti kesalahan di lapisan berikutnya: DNS yang masih menunjuk layanan lama tidak akan menguji build baru, sedangkan cache hit dapat menyembunyikan perubahan origin.
+
+Dokumentasikan urutan ini sebagai tabel: host dan path, tujuan redirect, metode yang diizinkan, cache key, TTL atau aturan bypass, header penting, sertifikat yang mencakup nama host, record DNS, origin, serta pemilik dan cara rollback. Pada platform seperti Pages atau Workers, pisahkan preview, staging, dan production; deployment yang dipilih harus dapat diidentifikasi dan dikembalikan ([Cloudflare deployments](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/)).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Perubahan query string, cookie, authorization, atau header dapat mengubah cache key. Respons personal dan respons yang memiliki efek samping sebaiknya tidak diperlakukan seperti aset publik tanpa aturan eksplisit. Redirect berantai menambah titik gagal dan menyulitkan observasi; pilih satu tujuan final dan uji loop. Pastikan juga format kompresi, metode HTTP, dan variasi bahasa tidak membuat dua pengguna menerima representasi yang keliru.
+
+Sertifikat harus mencakup setiap hostname yang benar-benar digunakan, termasuk nama alternatif bila ada. DNS memiliki TTL dan resolver berbeda, sehingga perpindahan record tidak serentak. Selama propagasi, sebagian pengguna dapat mencapai layanan lama dan sebagian lainnya layanan baru. Tandai kondisi ini di rencana release, lengkap dengan batas waktu observasi.
+
+Telemetry membantu melihat status code, latency, cache hit/miss, error origin, dan jejak lintas komponen. OpenTelemetry mendokumentasikan cara mengumpulkan sinyal tersebut, tetapi instrumentasi sendiri bukan bukti reliabilitas ([OpenTelemetry documentation](https://opentelemetry.io/docs/)). Gunakan SLO sebagai ambang keputusan selama observasi, bukan sebagai janji uptime tanpa bukti operasi ([Google SRE Workbook](https://sre.google/workbook/implementing-slos/)).
+
+Konfigurasi akun, batas runtime, biaya, wilayah data, dan kompatibilitas aktual belum tersedia dalam packet ini. **[NEEDS GATE-07: verifikasi konfigurasi, limit, dan jalur rollback pada akun/platform proyek sebelum menyetujui release.]**
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Misalkan `/produk-lama` dipindahkan ke `/produk-baru` dan origin juga berganti. Keputusan minimum dapat diringkas sebagai berikut:
+
+| Temuan uji | Keputusan |
+|---|---|
+| DNS dan sertifikat benar, redirect satu langkah, origin baru sehat | Lanjutkan canary/rollout sesuai rencana observasi. |
+| Redirect benar tetapi body lama muncul pada cache hit | Hentikan rollout; periksa cache key, TTL, dan invalidation sebelum purge terukur. |
+| Sebagian resolver menuju origin lama | Pertahankan kompatibilitas sementara atau tunda cutover; jangan menyimpulkan propagasi selesai dari satu lokasi. |
+| Error meningkat melewati ambang SLO | Jalankan rollback konfigurasi edge dan deployment yang sudah disiapkan, lalu catat waktu serta pemilik keputusan. |
+
+Uji sekurangnya URL lama dan baru dengan metode yang dipakai pengguna, dari jaringan yang berbeda. Periksa status 3xx, `Location`, `Cache-Control`, `Age` atau indikator hit/miss yang tersedia, rantai sertifikat, dan respons origin. Simpan hasil beserta timestamp agar perubahan selama propagasi dapat dibandingkan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Redirect, Cache, TLS, dan DNS dalam Release Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menguji hanya dari browser yang sudah memiliki cache. Gunakan request baru dan endpoint diagnostik yang tidak memuat data sensitif. Kedua, melakukan purge global tanpa memahami kunci cache; ini bisa meningkatkan beban origin dan tidak menyelesaikan respons yang dikunci oleh variasi header.
 
-## Objection or shortcut to address
+Ketiga, mengganti DNS lalu langsung menonaktifkan origin lama. Periksa TTL, resolver utama, health check, dan log kedua origin sebelum mematikan layanan lama. Keempat, menganggap sertifikat valid karena satu hostname berhasil; uji semua nama host dan jalur HTTP-to-HTTPS.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kelima, hanya memantau availability. Sobat Codev.id, pantau juga redirect loop, cache miss yang melonjak, latency origin, dan error per route. Sinyal yang dikumpulkan perlu ambang, owner, dan tindakan; panduan respons insiden NIST menekankan persiapan, deteksi, respons, dan pembelajaran yang terdokumentasi ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)).
 
-## Required conclusion
+## Jalan pintas yang perlu dihindari
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering dipilih adalah “deploy dulu, nanti purge dan cek DNS.” Urutan ini berisiko karena pengguna bisa menerima kombinasi redirect baru, cache lama, dan origin berbeda yang tidak pernah diuji bersama. Alternatif yang lebih aman: bekukan peta route dan ownership, uji pada preview/staging, verifikasi TLS dan DNS sebelum cutover, lakukan rollout bertahap, lalu tetapkan kondisi rollback yang dapat dijalankan oleh orang yang sedang on-call.
 
-## Draft completion checklist
+## Penutupan sebelum perubahan
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Redirect, cache, TLS, dan DNS harus diperlakukan sebagai satu kontrak perilaku request, bukan empat pekerjaan terpisah. Sebelum release, minta dokumen peta host-route-cache, bukti uji dari beberapa lokasi, daftar pemilik, serta prosedur rollback dan batas observasi. Teman Codev.id, jika salah satu bukti itu belum ada—terutama konfigurasi platform dan cakupan sertifikat—tahan cutover dan minta review teknis. Untuk langkah implementasi aplikasi, Anda dapat melanjutkan ke panduan [pengembangan web](/web-development); bila kebutuhan berikutnya adalah pengukuran monetisasi, lihat [pengelolaan Google AdSense](/web-google-adsense). Catat keputusan, waktu, dan orang yang menyetujui agar perubahan dapat diaudit setelah kondisi stabil. Operating rule-nya sederhana: tidak ada perubahan edge tanpa jalur kembali yang bisa diuji.

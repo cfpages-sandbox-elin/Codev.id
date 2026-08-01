@@ -1,9 +1,10 @@
 ---
 article_id: CDV-04-A03
+writing_contract_version: "native-id-v2"
 title: "Siklus Request Back-end: Validasi sampai Respons"
 slug: "siklus-request-back-end"
 description: "Trace authentication context, validation, authorization, business rules, data transaction, side effects, error, logging, and response"
-status: outline
+status: draft
 publication_date: "2025-06-10"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,47 +16,19 @@ final_route: "/artikel/siklus-request-back-end.html"
 technical_review: required
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
-  - "https://html.spec.whatwg.org/"
   - "https://www.rfc-editor.org/rfc/rfc9110"
   - "https://www.w3.org/TR/WCAG22/"
-  - "https://www.w3.org/TR/WCAG-EM/"
-  - "https://www.w3.org/WAI/test-evaluate/preliminary/"
-  - "https://web.dev/articles/vitals"
-  - "https://developer.chrome.com/docs/crux"
   - "https://www.rfc-editor.org/rfc/rfc9111"
+  - "https://web.dev/articles/vitals"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # Siklus Request Back-end: Validasi sampai Respons
 
-## Assignment lock
+Halo, Sobat Codev.id! Request back-end bukan sekadar menerima data lalu mengembalikan JSON. Siklus yang sehat memeriksa siapa pengirimnya, apakah input dapat diproses, apakah ia berhak melakukan aksi, lalu menjalankan aturan bisnis dan transaksi data secara aman sebelum mengirim respons yang bisa ditindaklanjuti. Jika satu tahap dilewati, gejalanya bisa berupa data ganda, kebocoran informasi, atau pesan gagal yang membingungkan.
 
-- **Writer task:** Expand this file into one complete article answering: “Siklus Request Back-end: Validasi sampai Respons”
-- **Reader and situation:** Product owner or junior developer reviewing a custom feature
-- **Reader outcome:** Trace authentication context, validation, authorization, business rules, data transaction, side effects, error, logging, and response
-- **Primary intent:** Understand server-side responsibilities for a web workflow
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not define a public API contract; CDV-06 owns API design and CDV-09 owns security controls
-- **Final public route:** `/artikel/siklus-request-back-end.html`
-- **Appointed CMS date:** `2025-06-10` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Urutan praktisnya adalah: bangun konteks autentikasi, validasi bentuk dan isi, otorisasi terhadap objek yang dituju, jalankan aturan bisnis, kelola transaksi, proses side effect, petakan error, catat log, dan bentuk respons. Urutan detail dapat berubah sesuai arsitektur; keputusan itu seharusnya dicatat bersama alasan dan konsekuensinya, bukan dianggap sebagai peringkat “lebih modern”. [NEEDS GATE-02 REVIEW: pilihan stack dan pola deployment belum memiliki bukti kebutuhan proyek.] Untuk prinsip pencatatan keputusan arsitektur, lihat [panduan Architecture Decision Record AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html).
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Siklus Request Back-end: Validasi sampai Respons**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -66,129 +39,81 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/web-google-adsense` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-google-adsense/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-04-A01` → `/artikel/website-static-dinamis-ssr-atau-client-rendered.html` — Website Static, Dinamis, SSR, atau Client-rendered
-- `CDV-04-A02` → `/artikel/struktur-front-end-mudah-diuji-dirawat.html` — Struktur Front-end yang Mudah Diuji dan Dirawat
-- `CDV-04-A04` → `/artikel/cms-builder-atau-custom-development.html` — CMS, Website Builder, atau Custom Development
-- `CDV-04-A05` → `/artikel/form-login-dan-workflow-web.html` — Form, Login, dan Workflow Bisnis di Web
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+END MANAGED IMAGE PLAN -->
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
+Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+“Request” di sini adalah perjalanan satu permintaan web dari batas masuk server sampai respons dikirim. Batas ini mencakup endpoint, middleware, service, repositori data, antrean atau pengirim notifikasi yang dipicu, serta observabilitasnya. Ia bukan spesifikasi API publik: penamaan endpoint, skema versi, dan kontrak lintas konsumen berada di ruang desain API tersendiri.
+
+Authentication (autentikasi) menjawab “siapa”, sedangkan authorization (otorisasi) menjawab “boleh melakukan apa pada objek mana”. Validasi memastikan data memenuhi bentuk dan aturan awal; validasi bukan pengganti otorisasi. Sebaliknya, respons HTTP perlu menyatakan hasil pemrosesan secara konsisten—kode status, header, dan isi—sesuai semantik HTTP, bukan sekadar selalu `200 OK` ([RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)).
+
+Untuk product owner atau junior developer, batas ini membantu memisahkan pertanyaan: “Apakah tombol bekerja?” dari “Apakah server mencegah tindakan yang salah dan meninggalkan jejak yang bisa diperiksa?” Detail kontrol keamanan mendalam tetap memerlukan review keamanan khusus; halaman ini memetakan tanggung jawab dan urutan, bukan sertifikasi keamanan.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+1. **Terima dan bentuk konteks.** Server menetapkan request ID, membaca metode dan target, membatasi ukuran payload, lalu mengambil kredensial dari mekanisme yang disepakati. Middleware memverifikasi sesi atau token dan menaruh identitas minimum ke konteks. Jangan menyalin seluruh klaim identitas ke log atau meneruskan token ke lapisan yang tidak membutuhkannya.
+
+2. **Validasi input.** Periksa tipe, format, field wajib, rentang, dan hubungan antarfield. Lakukan normalisasi yang terdokumentasi, misalnya trim spasi bila memang aturan domain mengizinkannya. Validasi sintaks yang lolos belum berarti operasi boleh dilakukan; hasilnya harus berupa error terstruktur yang dapat dipetakan ke field tanpa membocorkan detail internal.
+
+3. **Otorisasi pada objek dan aksi.** Setelah identitas diketahui dan input menghasilkan ID yang sah, service memeriksa kepemilikan, peran, status workflow, atau kebijakan organisasi. Pemeriksaan harus terjadi dekat dengan keputusan bisnis dan diulang pada jalur alternatif seperti job atau endpoint internal. UI yang menyembunyikan tombol bukan kontrol otorisasi.
+
+4. **Jalankan aturan bisnis.** Service menggabungkan fakta dari input dan data saat ini: apakah transisi status valid, kuota tersedia, atau syarat proses terpenuhi. Aturan ini sebaiknya tidak tersebar di controller dan query acak. Bila ada trade-off antara monolit modular, layanan terpisah, atau fungsi serverless, tulis keputusan, asumsi, dan cara membatalkannya dalam catatan arsitektur; tidak ada pilihan yang otomatis paling matang.
+
+5. **Kelola transaksi data.** Tentukan batas atomik: operasi mana harus berhasil bersama dan mana yang boleh terpisah. Di dalam transaksi, baca versi data yang relevan, cek konflik, tulis perubahan, lalu commit. Siapkan idempotensi (aman diulang) untuk request yang dapat dikirim ulang, dan gunakan constraint database sebagai pagar terakhir, bukan hanya pemeriksaan di kode.
+
+6. **Pisahkan side effect.** Email, webhook, pengurangan stok eksternal, atau penerbitan event dapat gagal setelah data utama tersimpan. Jika side effect tidak boleh hilang, catat pekerjaan tertunda dalam pola seperti outbox lalu proses ulang dengan kunci idempotensi. Jika boleh tertunda, respons dapat menyatakan status “diterima untuk diproses”, bukan berpura-pura sudah selesai.
+
+7. **Petakan error secara jujur.** Bedakan input tidak valid, tidak terautentikasi, tidak berwenang, konflik, resource tidak ditemukan, dan kegagalan tak terduga. Gunakan pesan yang berguna bagi pengguna, sementara detail stack trace hanya untuk log terlindungi. Jangan mengubah semua kegagalan menjadi 500 atau semua hasil menjadi 200 karena itu menghilangkan sinyal bagi klien dan operator.
+
+8. **Log dan kirim respons.** Log terstruktur minimal mengikat request ID, hasil keputusan, durasi, dan kategori error; rahasiakan token, password, dan data pribadi yang tidak perlu. Respons menetapkan status, content type, cache policy, dan body yang konsisten. Untuk respons yang dapat disimpan, aturan cache perlu dipilih sadar terhadap kebaruan dan privasi ([RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil siklus bergantung pada model data, konkurensi, dan cara request dipicu ulang. Form pembayaran yang menerima retry memerlukan idempotency key; pencarian yang boleh stale dapat memakai cache; perubahan hak akses biasanya membutuhkan pembacaan kebijakan terbaru. Batas waktu, pembatalan koneksi, dan retry proxy juga menentukan apakah side effect mungkin berjalan dua kali.
+
+Jenis klien mengubah kebutuhan respons. Browser mungkin membutuhkan error per-field dan status fokus yang jelas, sedangkan job internal memerlukan kode retry dan dead-letter. Untuk alur yang dipakai keyboard atau teknologi bantu, pesan error, label, dan urutan fokus harus dirancang serta diuji dalam proses, bukan disimpulkan dari satu pemindaian otomatis. WCAG 2.2 menekankan evaluasi pada cakupan halaman dan proses; [NEEDS GATE-06 REVIEW: bukti evaluasi aksesibilitas untuk alur proyek belum tersedia](https://www.w3.org/TR/WCAG22/).
+
+Lingkungan operasi juga berpengaruh: koneksi database yang habis, antrean penuh, atau dependency lambat mengubah kategori error dan strategi fallback. Karena Core Web Vitals dan data lapangan memiliki definisi serta kondisi pengukuran tertentu, jangan mengklaim perbaikan performa hanya dari satu request lokal; dokumentasikan scope, sampel, versi, dan kondisi sebelum membandingkan ([web.dev Core Web Vitals](https://web.dev/articles/vitals)). Kawan Codev.id, perlakukan angka itu sebagai hasil pengukuran bersyarat, bukan janji.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan fitur “mengubah alamat pengiriman”. Jejak keputusan yang dapat direview terlihat seperti ini:
+
+| Tahap | Pertanyaan yang harus terjawab | Jika gagal |
+|---|---|---|
+| Konteks | Sesi valid dan request ID tercatat? | Hentikan tanpa memproses data |
+| Validasi | Kode pos, negara, dan field wajib sesuai aturan? | Kembalikan error field yang dapat diperbaiki |
+| Otorisasi | Pengguna boleh mengubah alamat pesanan ini? | Tolak tanpa mengungkap kepemilikan |
+| Bisnis | Pesanan belum dikunci untuk pengiriman? | Kembalikan konflik/status yang jelas |
+| Transaksi | Update alamat dan audit tersimpan atomik? | Rollback dan catat kategori kegagalan |
+| Side effect | Perlu sinkronisasi ke kurir? | Antrekan pekerjaan idempotent bila tertunda |
+| Respons | Klien tahu perubahan selesai atau masih diproses? | Gunakan status dan body yang sesuai |
+
+Asumsi di contoh ini hanya pola analisis, bukan bukti bahwa proyek tertentu memakai kurir atau audit trail. Dokumen desain perlu menyebutkan siapa pemilik setiap keputusan, data apa yang menjadi sumber kebenaran, dan kondisi yang memicu retry. Untuk langkah berikutnya dalam implementasi situs, Anda dapat meninjau konteks [pengembangan web](/web-development) sekali sebagai referensi umum, bukan sebagai kontrak endpoint. Sobat Codev.id, tautan itu memberi konteks layanan, bukan bukti bahwa stack tertentu cocok untuk fitur Anda.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Siklus Request Back-end: Validasi sampai Respons”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menaruh semua logika di controller: periksa apakah controller hanya mengorkestrasi dan service memegang aturan bisnis. Kedua, memvalidasi hanya di browser: kirim request langsung ke server dalam pengujian dan pastikan aturan tetap berlaku. Ketiga, melakukan write lalu mengirim email sinkron tanpa rencana retry: tanyakan apa yang terjadi jika email timeout setelah commit.
 
-## Objection or shortcut to address
+Kesalahan lain adalah log yang berisi token atau payload penuh. Audit sampel log dengan data sintetis dan daftar field terlarang. Periksa juga korelasi request ID dari gateway sampai worker, metrik durasi per tahap, dan alert untuk lonjakan kategori error. Untuk respons, uji jalur sukses, input salah, sesi kedaluwarsa, akses ditolak, konflik, timeout dependency, retry, dan pembatalan koneksi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Checklist review singkat:
 
-## Required conclusion
+- Apakah setiap aksi memiliki pemeriksaan identitas dan izin pada objek yang tepat?
+- Apakah validasi server mendefinisikan pesan yang aman dan dapat diperbaiki?
+- Apakah transaksi dan constraint mencegah duplikasi atau partial write?
+- Apakah side effect memiliki status, retry, dan idempotensi yang terlihat?
+- Apakah status HTTP, cache, log, dan correlation ID konsisten di semua jalur?
+- Apakah alur lengkap diuji dengan keyboard dan teknologi bantu, serta oleh reviewer yang kompeten?
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang perlu dihindari
 
-## Draft completion checklist
+Shortcut yang sering muncul adalah “cukup return JSON sukses; detail lain bisa menyusul”. Ini gagal ketika klien mengulang request karena timeout, ketika pengguna tidak memiliki izin, atau ketika database sudah commit tetapi notifikasi belum terkirim. Respons sukses tanpa status proses membuat klien menebak dan operator kehilangan titik diagnosis. Alternatif yang lebih dapat dipercaya adalah menetapkan state eksplisit, menyimpan jejak transaksi, memberi kunci idempotensi, dan mendokumentasikan trade-off arsitektur. Jika kebutuhan stack atau kontrol akses belum disepakati, tandai keputusan untuk review teknis—jangan mengisinya dengan asumsi.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan: jadikan siklus sebagai jejak yang bisa diperiksa
+
+Siklus request back-end yang dapat dipercaya bergerak dari konteks autentikasi, validasi, otorisasi, aturan bisnis, transaksi, side effect, error, logging, lalu respons yang jujur. Nilainya bukan pada banyaknya lapisan, melainkan pada alasan, batas atomik, dan bukti bahwa tiap jalur gagal ditangani.
+
+Teman Codev.id, sebelum menyetujui fitur, minta satu diagram urutan dan tabel keputusan seperti contoh di atas, lalu telusuri minimal satu jalur sukses dan seluruh jalur gagal penting. Sertakan pengujian aksesibilitas proses dan review teknis untuk keputusan arsitektur yang belum memiliki bukti. Aturan operasionalnya sederhana: setiap request harus meninggalkan hasil yang dapat dipahami klien dan jejak yang dapat diperiksa operator; di luar itu, klaim performa, keamanan, atau kepatuhan memerlukan bukti proyek dan review profesional.

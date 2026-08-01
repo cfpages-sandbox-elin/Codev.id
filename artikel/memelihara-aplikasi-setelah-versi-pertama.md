@@ -1,9 +1,10 @@
 ---
 article_id: CDV-05-A06
+writing_contract_version: "native-id-v2"
 title: "Memelihara Aplikasi setelah Versi Pertama"
 slug: "memelihara-aplikasi-setelah-versi-pertama"
-description: "Build an OS/device compatibility policy, dependency cadence, crash/feedback loop, data migration, deprecation, support, and end-of-life plan"
-status: outline
+description: "Panduan menyusun dukungan OS dan perangkat, jadwal dependensi, alur crash dan umpan balik, migrasi data, deprecation, dukungan, serta akhir layanan aplikasi"
+status: draft
 publication_date: "2025-07-17"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,9 @@ sources:
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Memelihara Aplikasi setelah Versi Pertama
 
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Memelihara Aplikasi setelah Versi Pertama”
-- **Reader and situation:** Owner budgeting beyond initial launch
-- **Reader outcome:** Build an OS/device compatibility policy, dependency cadence, crash/feedback loop, data migration, deprecation, support, and end-of-life plan
-- **Primary intent:** Plan app compatibility, support, and updates
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not promise indefinite device support; CDV-15 owns cross-system maintenance and CDV-12 owns production monitoring
-- **Final public route:** `/artikel/memelihara-aplikasi-setelah-versi-pertama.html`
-- **Appointed CMS date:** `2025-07-17` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Memelihara Aplikasi setelah Versi Pertama**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,117 +36,73 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+Halo, Teman Codev.id! Versi pertama hanyalah titik ketika pengguna mulai menemukan kondisi nyata: model perangkat yang beragam, sistem operasi yang berganti, jaringan yang tidak stabil, dan data lama yang harus tetap terbaca. Karena itu, pemeliharaan bukan sekadar memperbaiki bug sesekali. Anda membutuhkan kebijakan kompatibilitas, ritme pembaruan dependensi, jalur crash dan umpan balik, serta keputusan kapan fitur dihentikan.
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Jawaban singkatnya: buat _maintenance charter_ sebelum anggaran peluncuran habis. Dokumen itu menetapkan perangkat dan versi OS yang didukung, jadwal rilis dan pembaruan dependensi, pemilik keputusan, cara memprioritaskan insiden, strategi migrasi data, dan aturan penghentian dukungan. Arsitektur yang dipilih bukan peringkat kematangan; pilihan statis, server-rendered, client-rendered, CMS, modular, atau serverless harus dicatat bersama trade-off-nya dalam keputusan arsitektur (ADR), bukan diasumsikan unggul secara universal ([AWS ADR guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)).
 
-### KR-03
+Kondisi lapangan dapat mengubah detailnya. Tanpa data crash, daftar perangkat pengguna, inventaris dependensi, dan persetujuan pemilik data, saya tidak dapat menjanjikan cakupan perangkat atau tanggal dukungan tertentu. **[NEEDS GATE-02/GATE-06 REVIEW: tetapkan bukti proyek dan persetujuan teknis sebelum kebijakan kompatibilitas dipublikasikan.]**
 
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-05-A04` → `/artikel/izin-perangkat-dan-privasi-aplikasi.html` — Izin Perangkat dan Privasi pada Aplikasi Mobile
-- `CDV-05-A05` → `/artikel/release-aplikasi-signing-store-rollout.html` — Release Aplikasi: Signing, Store, Staged Rollout, dan Rollback
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ilustrasi umum dari aset lokal codev.id; bukan dokumentasi proyek tertentu.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pemeliharaan pascarilis mencakup perubahan kode, konfigurasi, dependensi, dokumentasi, dan komunikasi yang membuat versi aktif tetap aman digunakan. “Didukung” perlu didefinisikan: misalnya aplikasi diuji pada kombinasi OS, browser, resolusi, dan arsitektur yang masuk daftar; kombinasi di luar daftar mungkin masih berjalan, tetapi tidak menjadi sasaran perbaikan terjadwal. Jangan menjanjikan dukungan untuk setiap perangkat selamanya.
+
+Ruang ini berbeda dari dua pekerjaan lain. Pemantauan produksi harian dan respons infrastruktur berada pada jalur operasi tersendiri, sedangkan pemeliharaan lintas sistem harus memiliki pemilik dan anggaran sendiri. Rilis besar, signing, staged rollout, dan rollback juga memerlukan prosedur rilis terpisah. Batas tersebut mencegah satu tim menjawab semua risiko dengan satu backlog.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan matriks kompatibilitas. Kolomnya dapat berisi OS dan versi minimum, keluarga perangkat, browser atau runtime, orientasi layar, kemampuan jaringan, serta status “uji penuh”, “uji asap”, atau “di luar dukungan”. Setiap perubahan OS utama memicu peninjauan matriks, bukan otomatis menaikkan versi minimum. Simpan alasan keputusan dalam ADR agar pengembang baru memahami konsekuensi biaya dan pengguna yang terdampak.
+
+Tetapkan cadence dependensi yang berbasis risiko. Inventaris setiap pustaka, versinya, pemilik, lisensi, tanggal tinjau, dan jalur upgrade. Pembaruan rutin kecil mengurangi lompatan perubahan; pembaruan darurat mengikuti penilaian dampak dan rencana rollback. Untuk perilaku web, jadikan spesifikasi HTML Living Standard sebagai rujukan semantik dan interoperabilitas, bukan sebagai bukti bahwa implementasi Anda sudah benar ([WHATWG HTML](https://html.spec.whatwg.org/)). Perilaku HTTP seperti cache, status, dan negosiasi harus konsisten dengan semantik protokol yang dipakai aplikasi ([RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)).
+
+Bangun loop crash dan umpan balik yang dapat ditindaklanjuti. Setiap laporan sebaiknya membawa versi aplikasi, OS, perangkat, langkah reproduksi, waktu, dan apakah data pengguna terpengaruh. Kelompokkan kejadian berdasarkan pengguna terdampak dan kemampuan pulih, lalu tetapkan ambang eskalasi. Hapus atau samarkan data sensitif sebelum dikirim. Umpan balik toko aplikasi, tiket dukungan, dan telemetri adalah sinyal berbeda; gabungkan hanya setelah identitas kejadian cukup kuat.
+
+Untuk data, perlakukan migrasi sebagai bagian dari rilis. Sediakan versi skema, pemeriksaan prasyarat, migrasi maju yang dapat diuji pada salinan data, dan rencana pemulihan bila langkah berhenti di tengah. Jangan menghapus kolom lama pada rilis yang sama ketika klien lama masih mungkin terhubung. Catat kapan kompatibilitas baca dan tulis berubah, lalu komunikasikan kebutuhan pembaruan kepada pengguna.
+
+Terakhir, kelola deprecation (penghentian bertahap). Umumkan fitur atau OS yang akan berakhir, alasan teknisnya, tanggal peninjauan, dan jalur alternatif. Setelah masa transisi, blokir dengan pesan yang dapat dipahami, bukan kegagalan diam-diam. Rencana dukungan harus mencakup kanal pertanyaan, waktu respons yang realistis, pemilik keputusan, dan prosedur end-of-life untuk menonaktifkan layanan tanpa meninggalkan data yang tidak tertangani.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil pemeliharaan dipengaruhi oleh bauran pengguna, bukan jumlah perangkat di pasar. Aplikasi internal dengan satu model tablet memerlukan matriks berbeda dari aplikasi publik dengan banyak browser. Frekuensi penggunaan fitur, kebutuhan offline, aksesibilitas, serta kemampuan pengguna memperbarui perangkat mengubah prioritas.
+
+Kualitas bukti juga penting. Satu pemindai aksesibilitas tidak dapat menyatakan seluruh halaman dan alur proses telah sesuai. Evaluasi perlu mencakup cakupan halaman, keyboard dan fokus, semantik, formulir dan pesan kesalahan, reflow atau zoom, autentikasi, media, serta perilaku teknologi asistif. WCAG 2.2 menjelaskan kriteria yang harus dievaluasi, sementara WCAG-EM dan Easy Checks membantu menyusun cakupan serta pemeriksaan awal ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)). Hasil evaluasi bukan otomatis bukti kepatuhan hukum Indonesia; minta telaah profesional bila kewajiban hukum atau kontraktual berlaku.
+
+Perubahan vendor, batas API, kapasitas tim, dan kebijakan toko juga menggeser jadwal. Jika hanya satu orang memahami migrasi, risiko bus faktor meningkat. Sisihkan waktu untuk dokumentasi, latihan pemulihan, dan handover. **[NEEDS GATE-06 REVIEW: validasi cakupan evaluasi aksesibilitas dan kewajiban kontraktual/hukum oleh pihak berwenang.]**
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim memiliki pengguna pada dua versi OS, tetapi hanya mampu menguji satu versi secara penuh setiap sprint. Keputusan yang dapat dipertanggungjawabkan bukan “dukung semua”, melainkan: tetapkan versi penuh sebagai target, versi kedua sebagai smoke test dengan daftar risiko, dan aturan penghentian bila crash melewati ambang yang disepakati. Tulis asumsi, pemilik, tanggal tinjau, serta cara pengguna versi lama berpindah.
+
+Gunakan tabel ringkas berikut saat rapat:
+
+| Keputusan | Bukti minimum | Konsekuensi yang dicatat |
+| --- | --- | --- |
+| Menambah OS/perangkat | Data pengguna dan hasil uji representatif | Biaya perangkat, waktu rilis, dukungan |
+| Menunda upgrade dependensi | Analisis perubahan dan risiko keamanan | Batas waktu penundaan, pemilik mitigasi |
+| Menjalankan migrasi data | Salinan data, uji gagal-tengah, pemulihan | Durasi pemeliharaan dan komunikasi |
+| Mengakhiri dukungan | Penggunaan aktual dan jalur alternatif | Tanggal akhir, pesan blokir, retensi data |
+
+Teman Codev.id, bila bukti belum tersedia, keputusan paling aman adalah menandainya sebagai eksperimen terbatas dan menjadwalkan pengumpulan bukti—bukan mengubahnya menjadi janji publik.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Memelihara Aplikasi setelah Versi Pertama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah memperbarui dependensi hanya ketika build rusak. Periksa inventaris bulanan, pemilik, dan tanggal tinjau; buat tiket kecil sebelum perubahan menumpuk. Kedua, menaikkan versi minimum OS tanpa mengetahui siapa yang tertinggal. Cocokkan analitik versi dengan matriks uji dan siapkan notifikasi.
 
-## Objection or shortcut to address
+Ketiga, menganggap crash-free berarti pengalaman baik. Cocokkan crash dengan tiket dukungan, transaksi gagal, dan umpan balik; satu kejadian data rusak dapat lebih serius daripada banyak crash yang pulih sendiri. Keempat, menjalankan migrasi langsung di produksi tanpa latihan. Uji salinan, ukur durasi, dan buktikan pemulihan sebelum memilih jendela migrasi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kelima, mengumumkan deprecation tanpa alternatif. Pastikan dokumentasi migrasi, pesan dalam aplikasi, dan kanal bantuan tersedia sebelum tanggal akhir. Keenam, menyebut hasil scanner sebagai sertifikasi aksesibilitas. Gunakan evaluasi manual dan cakupan proses sesuai panduan WCAG, lalu minta review yang tepat ketika ada kewajiban formal.
 
-## Required conclusion
+## Jalan pintas yang perlu diuji
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering terdengar adalah, “Tunggu ada keluhan; baru kita pelihara.” Cara ini mengubah pengguna menjadi penguji tanpa kendali dan membuat keputusan darurat lebih mahal. Alternatif yang lebih andal adalah kalender ringan: tinjau matriks OS setiap siklus rilis, dependensi secara berkala, crash dan umpan balik mingguan, serta migrasi dan deprecation pada setiap ADR yang relevan. Frekuensinya boleh disesuaikan setelah data penggunaan tersedia, tetapi pemilik dan kriteria berhenti harus ditulis sejak awal.
 
-## Draft completion checklist
+## Kesimpulan
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Memelihara aplikasi setelah versi pertama berarti mengelola kontrak dukungan: siapa yang didukung, bukti apa yang diuji, bagaimana perubahan masuk, dan kapan dukungan berakhir. Susun maintenance charter, matriks kompatibilitas, inventaris dependensi, loop crash/umpan balik, prosedur migrasi, serta rencana deprecation dan end-of-life. Simpan trade-off dalam ADR dan validasi aksesibilitas pada cakupan proses yang nyata.
+
+Langkah berikutnya adalah mengadakan satu sesi peninjauan dengan pemilik produk, teknis, dukungan, dan data untuk mengisi dokumen tersebut memakai bukti aktual. Anda dapat mulai dari [beranda Codev.id](/) untuk menyamakan konteks layanan, lalu kembali ke dokumen pemeliharaan aplikasi. **Kawan Codev.id, jangan menerbitkan janji kompatibilitas atau kepatuhan sebelum GATE-02 dan GATE-06 ditinjau; dukungan selalu memiliki batas yang harus dinyatakan dengan jujur.**

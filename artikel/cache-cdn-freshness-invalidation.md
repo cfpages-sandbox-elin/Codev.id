@@ -3,7 +3,8 @@ article_id: CDV-14-A05
 title: "Cache dan CDN: Freshness, Invalidation, dan Variasi"
 slug: "cache-cdn-freshness-invalidation"
 description: "Define cacheability, key/variation, freshness, revalidation, purge, personalized/private data, browser/edge layers, tests, and rollout"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2026-02-22"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -14,45 +15,22 @@ reader_address: "Sobat Codev.id"
 final_route: "/artikel/cache-cdn-freshness-invalidation.html"
 technical_review: required
 sources:
-  - "https://sre.google/workbook/implementing-slos/"
+  - "https://www.rfc-editor.org/rfc/rfc9111"
   - "https://opentelemetry.io/docs/"
+  - "https://sre.google/workbook/implementing-slos/"
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
   - "https://web.dev/articles/vitals"
-  - "https://developer.chrome.com/docs/crux"
-  - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
-
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
 
 # Cache dan CDN: Freshness, Invalidation, dan Variasi
 
-## Assignment lock
+Halo, Sobat Codev.id! Cache dan CDN aman dipakai bila Anda menetapkan tiga hal sebelum mengaktifkannya: respons mana yang boleh disimpan, variasi apa yang membentuk cache key, dan kapan salinan dianggap kedaluwarsa atau harus dibuang. Tanpa keputusan itu, “lebih cepat” dapat berubah menjadi halaman lama, harga yang salah, atau data pengguna tampil kepada orang lain.
 
-- **Writer task:** Expand this file into one complete article answering: “Cache dan CDN: Freshness, Invalidation, dan Variasi”
-- **Reader and situation:** Team deploying content/API responses through an edge
-- **Reader outcome:** Define cacheability, key/variation, freshness, revalidation, purge, personalized/private data, browser/edge layers, tests, and rollout
-- **Primary intent:** Design cache behavior without serving wrong or private data
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not copy provider defaults from memory; CDV-11-A06 owns release/DNS/TLS interface and current provider docs govern behavior
-- **Final public route:** `/artikel/cache-cdn-freshness-invalidation.html`
-- **Appointed CMS date:** `2026-02-22` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban praktisnya: pisahkan data publik yang dapat dibagi dari data personal yang harus privat; tetapkan `Cache-Control` dan key berdasarkan seluruh input yang memengaruhi respons; lalu siapkan revalidasi, purge terarah, dan pengujian sebelum rollout. Freshness bukan janji bahwa semua edge selalu memegang versi terbaru. Ia adalah aturan waktu dan validasi, sedangkan invalidation adalah tindakan eksplisit ketika perubahan tidak boleh menunggu.
 
-## Opening instructions
+Kondisi yang dapat mengubah keputusan adalah sifat endpoint, risiko kebocoran, pola perubahan, dan kemampuan Anda mengamati hasilnya. [NEEDS TECHNICAL REVIEW: konfirmasi kebijakan provider CDN, default cache key, dan perilaku purge/revalidasi yang benar-benar dipakai sebelum produksi.]
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Cache dan CDN: Freshness, Invalidation, dan Variasi**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,118 +41,74 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-08
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/cdn-cgi/l/email-protection/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-14-A03` → `/artikel/optimasi-gambar-dan-font.html` — Optimasi Gambar dan Font Tanpa Merusak Pengalaman
-- `CDV-14-A04` → `/artikel/mengurangi-biaya-javascript-css.html` — Mengurangi Biaya JavaScript dan CSS
-- `CDV-14-A06` → `/artikel/bottleneck-api-database-dependensi.html` — Mencari Bottleneck API, Database, dan Dependensi
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+*Gambar ini merupakan aset lokal untuk ilustrasi dan bukan dokumentasi proyek tertentu.*
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Cache adalah salinan respons yang disimpan agar permintaan berikutnya tidak selalu mencapai origin. CDN (content delivery network) menempatkan cache pada jaringan edge; browser dan service worker dapat menjadi lapisan lain. HTTP caching mendefinisikan freshness, validasi ulang, dan aturan penyimpanan melalui metadata respons, bukan melalui asumsi aplikasi semata ([RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)).
+
+Cacheability menjawab “bolehkah respons disimpan dan dibagikan?”. Freshness menjawab “sampai kapan salinan boleh dipakai tanpa bertanya lagi?”. Revalidation mengirim pemeriksaan ke origin untuk memastikan salinan masih berlaku, biasanya memakai validator seperti `ETag` atau `Last-Modified`. Purge menghapus objek lebih awal dari umur normalnya. Variasi adalah perbedaan respons berdasarkan bahasa, perangkat, cookie, otorisasi, atau parameter lain.
+
+Batas pentingnya: halaman atau API yang memuat identitas, token, keranjang, saldo, atau keputusan per pengguna tidak otomatis aman di cache bersama. `private` pada respons browser tidak sama dengan “boleh disimpan di edge”. Untuk objek publik, Anda tetap perlu menentukan data apa yang tidak boleh ikut masuk ke key. Artikel ini membahas perilaku cache dan pembuktiannya, bukan kontrak uptime, konfigurasi vendor tertentu, atau pengganti persetujuan keamanan proyek.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Alurnya dapat ditulis sebagai urutan keputusan:
+
+1. Klien mengirim URL, metode, header, dan kredensial.
+2. Lapisan cache menghitung key. Key yang terlalu sempit mencampur variasi; terlalu lebar menurunkan hit rate.
+3. Jika objek ada dan masih fresh, cache mengembalikannya. Jika stale, lapisan itu melakukan revalidasi atau meminta objek baru, sesuai kebijakan.
+4. Origin menghasilkan respons beserta `Cache-Control`, validator, dan penanda variasi yang diperlukan.
+5. Saat konten berubah, aplikasi menerbitkan versi URL baru atau memicu purge pada objek yang terdampak.
+
+Gunakan versi URL (misalnya hash aset) untuk file statis yang berubah sebagai unit; ini mengurangi kebutuhan purge menyeluruh. Untuk data yang sering berubah, umur singkat dengan revalidasi lebih dapat diprediksi daripada TTL panjang yang berharap operator mengingat purge. Jangan memasukkan seluruh cookie secara membabi buta ke key: itu bisa memecah cache menjadi terlalu banyak varian, tetapi mengabaikannya ketika cookie memengaruhi isi juga berbahaya.
+
+Observabilitas harus membedakan hit, miss, stale, revalidated, bypass, dan purge. OpenTelemetry menyediakan kerangka untuk mengumpulkan traces, metrics, dan logs, tetapi sinyal itu perlu definisi atribut dan sampling yang konsisten agar berguna ([OpenTelemetry documentation](https://opentelemetry.io/docs/)). SLO adalah tujuan layanan dan alat pengambilan keputusan, bukan bukti bahwa cache Anda selalu benar atau janji uptime kontraktual ([Google SRE Workbook](https://sre.google/workbook/implementing-slos/)).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pertama, klasifikasi data. Respons katalog publik, CSS, dan JavaScript biasanya kandidat cache bersama setelah header sensitif dipastikan tidak ikut. Respons yang bergantung pada `Authorization`, cookie sesi, atau izin harus default bypass/private sampai desain variasinya dibuktikan.
+
+Kedua, sumber variasi. Bahasa, negara, device hint, eksperimen, dan query parameter dapat mengubah representasi. Dokumentasikan mana yang benar-benar memengaruhi body dan mana yang hanya untuk logging. Cache key harus mencerminkan yang pertama.
+
+Ketiga, pola perubahan dan toleransi stale. Banner berita mungkin menerima keterlambatan singkat; saldo atau status pembayaran tidak. Pilih TTL, revalidasi, dan purge berdasarkan dampak kesalahan, bukan angka default provider.
+
+Keempat, lapisan. Browser bisa menyajikan salinan walau edge sudah dipurge; edge bisa menyimpan salinan walau origin sudah berubah. Uji dari klien bersih, edge berbeda, dan origin agar Anda tidak salah menyimpulkan satu lapisan sebagai sumber kebenaran.
+
+Kelima, bukti operasi. Pantau rasio hit, usia objek, status revalidasi, error origin, dan indikasi respons salah-variasi. Metrik pengalaman seperti Core Web Vitals adalah metrik yang didefinisikan dan berkembang; gunakan sebagai sinyal terukur dengan ruang lingkup dan kondisi yang jelas, bukan jaminan ranking, waktu muat, atau konversi ([web.dev Core Web Vitals](https://web.dev/articles/vitals)).
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+| Situasi | Kebijakan awal | Bukti sebelum diperluas |
+|---|---|---|
+| Aset statis berversi | Cache bersama dengan TTL panjang; URL berubah saat isi berubah | Tes bahwa HTML menunjuk versi baru dan klien lama tetap mendapat aset valid |
+| Halaman publik dengan bahasa | Variasikan key pada bahasa yang benar-benar didukung; tetapkan fallback | Permintaan berulang lintas bahasa tidak bertukar body |
+| API katalog tanpa akun | Cache bersama dengan TTL yang sesuai toleransi stale; revalidasi saat perlu | Perbandingan body origin dan edge pada perubahan data |
+| API memakai sesi/otorisasi | Bypass cache bersama atau tandai private; jangan mengandalkan purge sebagai pagar keamanan | Tes dua akun, token kadaluarsa, dan respons tanpa kredensial |
+| Perubahan darurat | Purge objek spesifik atau matikan cache untuk rute terdampak | Log purge, waktu propagasi yang terukur, dan verifikasi dari beberapa lokasi |
+
+Kawan Codev.id, tabel ini bukan konfigurasi vendor. Ia adalah hipotesis yang harus diterjemahkan ke kontrak header, key, dan runbook tim Anda. Jika dampak salah-saji tinggi, hubungi tim untuk peninjauan keamanan dan pemilik data sebelum cache bersama diaktifkan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Cache dan CDN: Freshness, Invalidation, dan Variasi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah memakai TTL panjang untuk semua rute. Periksa daftar endpoint yang berubah dan tulis toleransi stale masing-masing. Kedua, menganggap `no-cache` berarti “jangan simpan”; dalam HTTP, itu umumnya berarti harus memvalidasi sebelum dipakai kembali. Baca header aktual dari browser dan edge, lalu cocokkan dengan kebijakan RFC, bukan dengan nama opsi dashboard.
 
-## Objection or shortcut to address
+Kesalahan ketiga adalah purge wildcard setiap deploy. Ukur objek yang benar-benar berubah dan gunakan versi URL atau purge terarah; wildcard dapat menciptakan lonjakan ke origin. Keempat, menguji hanya dari satu browser. Buat matriks pengujian: anonim versus login, bahasa berbeda, parameter berbeda, edge berbeda, dan setelah purge. Simpan body, header, usia, dan cache status sebagai artefak uji.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan kelima adalah menganggap dashboard hit-rate membuktikan kebenaran. Hit tinggi dapat menyembunyikan key yang salah. Tambahkan assertion bahwa identitas, harga, izin, dan bahasa pada respons cocok dengan permintaan. Untuk insiden, siapkan jalur deteksi, containment, pemulihan, dan pembelajaran; kerangka respons insiden NIST menekankan siklus tersebut, tanpa memberi Anda bukti bahwa implementasi tertentu sudah memadai ([NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)).
 
-## Required conclusion
+## Mengapa purge saja bukan strategi
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering dipilih adalah “cache saja semuanya, lalu purge saat ada perubahan”. Ini gagal ketika data personal masuk ke cache bersama, ketika purge terlambat di lapisan browser, atau ketika daftar objek yang harus dibuang tidak lengkap. Purge juga tidak memperbaiki key yang sejak awal salah.
 
-## Draft completion checklist
+Alternatif yang lebih dapat diaudit: mulai dari allowlist rute publik, definisikan key dan header untuk setiap variasi, gunakan versi URL untuk aset, dan perlakukan bypass/private sebagai default untuk data berotorisasi. Lakukan rollout bertahap dengan observabilitas; hentikan perluasan bila ada respons silang antar-konteks atau metrik origin memburuk. [NEEDS TECHNICAL REVIEW: tetapkan kriteria rollback dan batas toleransi stale berdasarkan risiko layanan aktual.]
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Langkah berikutnya
+
+Cache dan CDN bukan sakelar “cepat”, melainkan kontrak tentang siapa boleh menerima salinan apa, dari key mana, dan sampai kapan. Freshness mengatur penggunaan normal; revalidasi menguji ulang; invalidation atau versi URL menangani perubahan yang tidak boleh menunggu. Variasi dan data privat menentukan batas keamanan.
+
+Teman Codev.id, langkah berikutnya adalah membuat tabel rute berisi klasifikasi data, sumber variasi, TTL, validator, mekanisme purge, dan pemilik keputusan. Jalankan matriks uji anonim/login serta lintas-lapisan, simpan header dan body sebagai bukti, lalu [minta technical review melalui kanal tim](/cdn-cgi/l/email-protection/) untuk kebijakan provider dan kriteria rollback. Aturan operasinya: jangan menaikkan TTL atau memperluas cache bersama sebelum Anda dapat membuktikan bahwa setiap variasi menerima respons yang benar dan tidak ada data privat yang terbagi.

@@ -3,7 +3,7 @@ article_id: CDV-03-A01
 title: "Architecture Decision Record untuk Keputusan yang Bisa Dilacak"
 slug: "architecture-decision-record"
 description: "Write a concise ADR with status, drivers, options, trade-offs, evidence, consequences, and revisit trigger"
-status: outline
+status: draft
 publication_date: "2025-05-08"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -13,46 +13,24 @@ reader_community: "Codev.id"
 reader_address: "Sobat Codev.id"
 final_route: "/artikel/architecture-decision-record.html"
 technical_review: required
+writing_contract_version: "native-id-v2"
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
-  - "https://html.spec.whatwg.org/"
-  - "https://www.rfc-editor.org/rfc/rfc9110"
   - "https://www.cisa.gov/sbom"
-  - "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Architecture Decision Record untuk Keputusan yang Bisa Dilacak
 
-## Assignment lock
+Halo, Sobat Codev.id! Keputusan arsitektur sering terasa jelas saat rapat berlangsung, lalu berubah menjadi teka-teki beberapa bulan kemudian: mengapa integrasi dipilih, opsi apa yang ditolak, dan asumsi mana yang dahulu dianggap benar? Architecture Decision Record (ADR) adalah catatan singkat yang menjawab pertanyaan itu. Ia menyimpan konteks, keputusan, pilihan yang dipertimbangkan, serta konsekuensi agar tim dapat menelusuri alasan—bukan sekadar hasil akhir.
 
-- **Writer task:** Expand this file into one complete article answering: “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”
-- **Reader and situation:** Team making a consequential technology or design decision
-- **Reader outcome:** Write a concise ADR with status, drivers, options, trade-offs, evidence, consequences, and revisit trigger
-- **Primary intent:** Record architectural context, alternatives, and consequences
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not approve a specific architecture; CDV-03-A06 owns review and system topics own implementation
-- **Final public route:** `/artikel/architecture-decision-record.html`
-- **Appointed CMS date:** `2025-05-08` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+ADR bukan formulir untuk membuktikan bahwa satu teknologi paling unggul. Pilihan seperti situs statis, render di server atau klien, CMS, sistem kustom, monolit, modular, maupun serverless adalah opsi dengan konsekuensi berbeda. Keputusan baru layak dicatat setelah kebutuhan dan batasannya jelas; jika data utama belum tersedia, ADR harus menyatakannya dan menyediakan saat untuk meninjau ulang. Panduan AWS juga menempatkan ADR sebagai cara mendokumentasikan keputusan penting beserta konteks dan konsekuensinya, bukan sebagai persetujuan otomatis atas satu rancangan tertentu ([AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)).
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Architecture Decision Record untuk Keputusan yang Bisa Dilacak**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,117 +41,75 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-03-A02` → `/artikel/monolith-modular-serverless-atau-layanan-terpisah.html` — Monolith, Modular, Serverless, atau Layanan Terpisah
-- `CDV-03-A03` → `/artikel/memilih-tech-stack-dari-kebutuhan.html` — Memilih Tech Stack dari Kebutuhan, Bukan Tren
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+ADR yang berguna cukup menjawab tujuh hal: status keputusan, konteks dan pendorongnya, opsi, trade-off, bukti yang diperiksa, konsekuensi, serta pemicu peninjauan ulang. Catatan ini dibuat ketika keputusan masih dapat dipahami dan diperdebatkan; bukan laporan retrospektif yang memoles keputusan lama.
+
+Salah paham yang mahal adalah menganggap ADR sebagai dokumen desain lengkap atau berita acara persetujuan. Jika semua detail implementasi dimasukkan, catatan sulit dibaca dan cepat kedaluwarsa. Sebaliknya, satu kalimat seperti “pakai layanan X karena modern” tidak memberi jejak alasan. Tulis keputusan pada tingkat yang memengaruhi struktur sistem, batas antarkomponen, ketergantungan, atau cara perubahan akan dilakukan.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Satu ADR membahas satu keputusan yang dapat ditunjuk. Contohnya, “gunakan CMS untuk penerbitan” atau “pisahkan proses unggah dari aplikasi utama”—bukan “rancang seluruh platform”. Statusnya dapat berupa diusulkan, diterima, digantikan, atau ditolak. Status membuat pembaca tahu apakah ia harus mengikuti keputusan itu, menilainya, atau mencari catatan yang menggantikannya.
+
+Yang tidak dilakukan ADR adalah menetapkan bahwa rancangan sudah aman, patuh, hemat, atau siap produksi. Ia juga tidak menggantikan peninjauan teknis maupun persetujuan proyek. Kawan Codev.id, batas ini penting: sebuah catatan yang jujur tentang ketidakpastian lebih dapat ditindaklanjuti daripada keputusan yang terdengar final tanpa data.
+
+Untuk keputusan utama pada artikel ini, informasi kebutuhan dan batas proyek belum disediakan. Karena itu, keputusan arsitektur spesifik tidak boleh ditarik dari contoh di bawah ini. **[NEEDS GATE-02: kebutuhan pengguna, batas operasional, dan kriteria keberhasilan yang disetujui sebelum memilih arsitektur.]**
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dengan konteks yang dapat diverifikasi: masalah yang hendak dipecahkan, siapa yang terdampak, serta batas yang tidak boleh dilanggar. Lalu tulis pendorong keputusan dalam bahasa operasional, misalnya kebutuhan editor menerbitkan tanpa perubahan kode, kebutuhan tim merawat integrasi, atau kebutuhan menghindari ketergantungan yang belum dapat dievaluasi.
+
+Setelah itu, daftar opsi yang benar-benar mungkin, termasuk opsi mempertahankan keadaan sekarang bila relevan. Untuk tiap opsi, bandingkan trade-off: pekerjaan operasional, keterampilan tim, batas integrasi, cara pemulihan saat gagal, dan konsekuensi perubahan di masa depan. “Trade-off” berarti manfaat pada satu sisi dibayar dengan beban atau batas pada sisi lain.
+
+Bagian bukti harus menyebut apa yang diperiksa dan apa yang belum diperiksa. Jika keputusan melibatkan komponen pihak ketiga, inventaris komponen atau SBOM membantu transparansi komponen, tetapi tidak dengan sendirinya membuktikan bahwa komponen aman ([CISA SBOM resources](https://www.cisa.gov/sbom)). Cantumkan pula konsekuensi setelah keputusan diterima: pekerjaan migrasi, dokumentasi antarmuka, kepemilikan pemeliharaan, dan risiko yang masih terbuka.
+
+Terakhir, tentukan pemicu revisi yang dapat diamati, bukan janji samar untuk “mengevaluasi nanti”. Misalnya: kebutuhan penerbitan berubah, volume integrasi melampaui batas yang telah disepakati, kontrak vendor berubah, atau bukti keamanan baru menuntut penilaian ulang. Pemicu itu mengubah ADR dari arsip pasif menjadi alat pengendalian perubahan.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Arsitektur yang tepat bergantung pada konteks. Kebutuhan perubahan konten, jenis data yang diproses, kemampuan pemeliharaan, tanggung jawab operasi, dan batas layanan eksternal dapat menghasilkan keputusan berbeda meski produknya tampak serupa. Karena itu, jangan memberi peringkat kedewasaan pada pola seperti monolit atau serverless; pilihannya harus mengikuti masalah dan kemampuan yang nyata.
+
+Ketergantungan menambah faktor lain. Periksa sumber komponen, pemiliknya, cara pembaruan, serta rencana bila integrasi berhenti bekerja. Skor repositori dapat menjadi sinyal awal, tetapi bukan pengganti uji tuntas terhadap layanan, kontrak, API, kuota, atau kerentanan saat ini ([OpenSSF Scorecard](https://securityscorecards.dev/)). Teman Codev.id, tuliskan keterbatasan pemeriksaan tersebut sebagai risiko terbuka, jangan ubah sinyal menjadi kesimpulan.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Berikut contoh hipotetis, bukan rekomendasi untuk proyek tertentu. Sebuah tim perlu menerbitkan halaman informasi dan sedang membandingkan situs statis dengan CMS terkelola. ADR-nya dapat diringkas seperti ini.
+
+| Bagian ADR | Isi contoh bersyarat |
+| --- | --- |
+| Status | Diusulkan sampai kebutuhan editor dan operasi dikonfirmasi |
+| Pendorong | Pembaruan konten perlu dilakukan oleh peran non-teknis; beban pemeliharaan harus jelas |
+| Opsi | Situs statis dengan alur perubahan kode; CMS terkelola dengan integrasi penerbitan |
+| Trade-off | Situs statis dapat menyederhanakan permukaan sistem, tetapi perubahan konten mungkin bergantung pada alur teknis; CMS dapat memberi alur editorial, tetapi menambah ketergantungan dan pengelolaan integrasi |
+| Bukti yang diperlukan | Alur penerbitan, kebutuhan akses, daftar integrasi, syarat vendor, dan pemilik operasi |
+| Konsekuensi bila diterima | Dokumentasikan batas integrasi, penanggung jawab, cara cadangan, dan rencana bila layanan berubah |
+| Pemicu revisi | Kebutuhan editorial, kontrak layanan, atau batas operasi yang disetujui berubah |
+
+Contoh itu belum memilih pemenang, karena data penentunya belum ada. Sobat Codev.id, justru itulah nilai ADR: ia memperlihatkan pertanyaan yang harus dijawab sebelum keputusan dikunci, sekaligus membuat asumsi yang keliru mudah ditemukan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Architecture Decision Record untuk Keputusan yang Bisa Dilacak”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah menulis keputusan tanpa alternatif. Tanpa opsi yang ditolak, pembaca tidak dapat memahami trade-off atau menguji kembali keputusan ketika kondisi berubah. Kesalahan kedua adalah mencampur fakta, asumsi, dan preferensi. Beri label yang jelas: “bukti”, “asumsi”, atau “risiko terbuka”.
 
-## Objection or shortcut to address
+Kesalahan berikutnya adalah mengabaikan kegagalan integrasi. Catat siapa yang memantau, apa dampaknya, bagaimana sistem melanjutkan pekerjaan atau berhenti dengan aman, dan kapan tim perlu meninjau keputusan. Hindari menyatakan ketergantungan telah aman hanya karena tersedia daftar komponen atau skor publik; keduanya membantu pemeriksaan, bukan memberikan jaminan.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Gunakan pemeriksaan singkat sebelum mengubah status menjadi diterima:
 
-## Required conclusion
+- Apakah masalah dan pendorong keputusan dapat dipahami orang yang tidak hadir di rapat?
+- Apakah setidaknya dua opsi yang realistis serta alasan penolakannya dicatat?
+- Apakah bukti dipisahkan dari asumsi dan ada pemilik untuk risiko terbuka?
+- Apakah konsekuensi operasional dan pemicu revisi dapat diamati?
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang tampak cepat
 
-## Draft completion checklist
+Shortcut yang sering dipilih adalah membuat keputusan di tiket atau percakapan singkat, lalu menganggap riwayat percakapan cukup. Cara ini gagal ketika anggota tim berubah, tautan percakapan tercecer, atau asumsi awal tidak lagi berlaku. Bahkan jika keputusan akhirnya tetap tepat, biaya memahami alasan dan batasnya dapat kembali dibayar berulang kali.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Alternatif yang lebih andal bukan menulis dokumen panjang. Buat satu ADR ringkas pada saat keputusan diusulkan, tautkan bukti yang benar-benar dipakai, dan perbarui status bila ia digantikan. Bila data kebutuhan inti belum selesai, biarkan keputusan tetap diusulkan dengan marker peninjauan—jangan menjadikannya diterima hanya agar pekerjaan terlihat bergerak.
+
+## Langkah berikutnya
+
+Architecture Decision Record membuat keputusan dapat dilacak karena ia mengikat keputusan pada konteks, alternatif, bukti, konsekuensi, dan saat peninjauan ulang. Langkah berikutnya adalah memilih satu keputusan yang sedang berjalan, menulis tujuh bagian tersebut dalam satu halaman, lalu meminta peninjauan teknis sebelum statusnya diterima. Jika Anda perlu kembali ke titik awal informasi situs, gunakan [halaman utama Codev.id](/).
+
+Aturan operasinya sederhana: jangan pilih arsitektur spesifik sebelum **[NEEDS GATE-02]** dipenuhi dan risiko yang tersisa memiliki pemilik serta pemicu revisi yang jelas. Peninjauan teknis koordinator tetap diperlukan.

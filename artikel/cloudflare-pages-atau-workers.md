@@ -2,8 +2,9 @@
 article_id: CDV-11-A01
 title: "Cloudflare Pages atau Workers untuk Aplikasi Web"
 slug: "cloudflare-pages-atau-workers"
-description: "Compare Pages assets/Functions and Workers by request model, build, bindings, limits, observability, migration, and rollback using current docs"
-status: outline
+description: "Panduan memilih Cloudflare Pages atau Workers berdasarkan model request, build, binding, batas, observability, migrasi, dan rollback"
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-11-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -22,37 +23,9 @@ sources:
   - "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Cloudflare Pages atau Workers untuk Aplikasi Web
 
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Cloudflare Pages atau Workers untuk Aplikasi Web”
-- **Reader and situation:** Team choosing how to deploy static, dynamic, or edge code
-- **Reader outcome:** Compare Pages assets/Functions and Workers by request model, build, bindings, limits, observability, migration, and rollback using current docs
-- **Primary intent:** Select a Cloudflare application deployment surface
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not define the architecture of Codev or a related product; CDV-03-A02 owns structural architecture
-- **Final public route:** `/artikel/cloudflare-pages-atau-workers.html`
-- **Appointed CMS date:** `2025-11-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Cloudflare Pages atau Workers untuk Aplikasi Web**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-005`
@@ -63,120 +36,79 @@ sources:
 - **Selection basis:** filename/source metadata identifies `cloudflare` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-005]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+Halo, Kawan Codev.id! Kebingungan biasanya muncul ketika satu aplikasi punya halaman statis, endpoint API, dan pekerjaan singkat di edge. Pages dan Workers sama-sama berada di Cloudflare, tetapi objek yang dikelola berbeda. Pilih Pages bila pusat masalah Anda adalah build dan publikasi aset web, dengan Functions bila hanya perlu endpoint server-side yang dekat dengan aplikasi. Pilih Workers bila request, runtime, binding, atau alur deployment perlu dikendalikan sebagai layanan edge tersendiri.
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Jawaban itu berubah jika kode Anda membutuhkan runtime atau binding yang tidak tersedia pada bentuk Pages yang dipilih, atau jika prosedur rilis dan rollback menuntut versi Worker yang eksplisit. Dokumentasi resmi Cloudflare menjadi acuan perilaku produk; batas akun, harga, kompatibilitas runtime, dan konfigurasi nyata tetap harus diverifikasi sebelum keputusan final. `[NEEDS GATE-07: verifikasi limits, pricing, API, runtime compatibility, regional/data implications, dan konfigurasi akun yang akan dipakai.]`
 
-### KR-09
+![Ilustrasi cloudflare](/wp-content/uploads/2022/11/cloudflare.jpg)
 
-- **Original sources:** [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/), [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/), [Cloudflare deployments documentation](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/).
-- **Purpose for this article:** Ground Pages/Workers selection, environments, configuration, deployments, and rollback.
-- **Safe grounded facts:** Provider docs establish current product behavior only for the cited platform/date. A successful upload is not an end-to-end release.
-- **Limits:** Recheck limits, pricing, APIs, runtime compatibility, regional/data implications, and actual account configuration under GATE-07.
-
-### KR-10
-
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-07
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/web-google-adsense` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-google-adsense/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-- `/web-development/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-11-A02` → `/artikel/environment-configuration-secrets-cloudflare.html` — Environment, Configuration, dan Secrets dari Preview ke Production
-- `CDV-11-A03` → `/artikel/cicd-quality-gate-provenance-build.html` — CI/CD dengan Quality Gate dan Provenance Build
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pages bukan sekadar “hosting murah”, dan Workers bukan otomatis pilihan yang lebih canggih. Pages mengatur alur build lalu menyajikan hasilnya sebagai aset situs; fungsi server-side di dalam proyek Pages cocok ketika perilaku dinamis masih mengikuti situs tersebut. Workers memosisikan kode sebagai handler request edge dengan konfigurasi dan binding yang dapat dikelola sendiri. Rujuk [dokumentasi Pages](https://developers.cloudflare.com/pages/) dan [dokumentasi Workers](https://developers.cloudflare.com/workers/) untuk detail kemampuan yang tersedia saat ini.
+
+Salah paham yang mahal adalah menganggap upload berhasil berarti rilis selesai. Rilis juga mencakup artefak yang benar, environment yang tepat, binding yang terpasang, sinyal kesehatan, serta jalan kembali bila perubahan bermasalah. Karena itu, keputusan permukaan deployment harus dibuat bersama rencana observability dan rollback, bukan dari nama produknya saja.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Dalam artikel ini, “Pages” berarti proyek yang berpusat pada source aplikasi web, perintah build, dan output aset. “Functions” berarti kode server-side yang dipanggil melalui pola aplikasi Pages. “Workers” berarti layanan edge yang menerima request dan menjalankan kode sesuai konfigurasi Worker. Detail implementasi seperti framework, cara binding, dan batas resource mengikuti dokumentasi serta akun yang digunakan.
+
+Batasnya penting: artikel ini tidak mendesain arsitektur produk Codev, memilih database, atau menetapkan kontrak ketersediaan. SLO (service level objective) adalah sasaran internal untuk mengambil keputusan operasional, bukan janji uptime; [panduan SRE Google tentang SLO](https://sre.google/workbook/implementing-slos/) menjelaskan fungsi tersebut. Demikian pula, instrumentasi OpenTelemetry menghasilkan sinyal telemetry, bukan jaminan reliabilitas ([dokumentasi OpenTelemetry](https://opentelemetry.io/docs/)).
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Alur Pages dimulai dari perubahan source: pipeline menjalankan build, menghasilkan aset, lalu deployment menyajikan hasil pada environment yang dituju. Bila ada Functions, request tertentu diteruskan ke kode server-side itu. Pemisahan ini membuat pertanyaan utama berada pada build reproducibility, variabel environment, dan kecocokan endpoint dengan batas runtime Functions.
+
+Alur Workers berangkat dari request yang masuk ke Worker. Kode kemudian memanggil binding yang dikonfigurasi—misalnya layanan penyimpanan atau service lain—dan mengembalikan response. Build dapat menjadi bagian dari pipeline, tetapi objek operasionalnya adalah versi Worker beserta konfigurasi dan binding-nya.
+
+Untuk kedua jalur, tetapkan urutan yang dapat diaudit: source commit, hasil build, konfigurasi environment, verifikasi smoke test, pengamatan sinyal, lalu keputusan promosi. Dokumentasi [versions dan deployments Workers](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/) berguna ketika Anda memerlukan versi yang jelas, deployment bertahap, atau rollback yang dapat ditelusuri. Jangan menganggap fitur yang terlihat di dashboard otomatis tersedia dengan cara yang sama di semua akun.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Bentuk request.** Situs dokumentasi, landing page, atau frontend hasil build biasanya memulai dari Pages. API yang memiliki routing, middleware, atau transformasi request kompleks cenderung lebih mudah diperlakukan sebagai Worker mandiri. Jika fungsi dinamis hanya pelengkap halaman, menjaga semuanya dalam satu proyek Pages dapat mengurangi koordinasi; jika fungsi menjadi pusat produk, pemisahan Worker memberi batas operasi yang lebih tegas.
+
+**Build dan runtime.** Catat perintah build, artefak yang dihasilkan, dependensi native, dan API runtime yang dipanggil. “Berjalan di lokal” tidak membuktikan kompatibilitas edge. Uji pada environment yang setara dan simpan log versi dependency. Untuk batas waktu eksekusi, ukuran bundle, atau kuota, jangan menyalin angka dari contoh lama; lakukan pemeriksaan akun sebagai bagian dari GATE-07.
+
+**Bindings dan rahasia.** Binding bukan sekadar environment variable. Ia menghubungkan kode dengan resource tertentu, sehingga nama, izin, dan environment harus diverifikasi bersama. Rahasia untuk preview tidak boleh diasumsikan sama dengan production. Pisahkan nilai konfigurasi, rotasi, dan prosedur pencabutan akses dari source code.
+
+**Observability.** Tentukan indikator yang menjawab apakah request penting berhasil: error rate, latency, serta gejala dependency gagal. OpenTelemetry membantu mengirim traces, metrics, dan logs ke backend yang dipilih, tetapi Anda tetap harus menetapkan sampling, retensi, dan siapa yang merespons alarm. SLO yang disepakati memberi ambang untuk menghentikan promosi atau memulai mitigasi.
+
+**Respons insiden dan kapasitas.** [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) menempatkan persiapan, deteksi, respons, dan pembelajaran sebagai siklus. Terapkan siklus itu pada Pages maupun Workers: siapkan pemilik layanan, bukti yang dikumpulkan, jalur komunikasi, dan latihan pemulihan. Biaya dan kapasitas harus diukur dari pola request nyata, bukan dari asumsi bahwa edge selalu tanpa batas.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan tabel ini sebagai titik awal, lalu uji asumsi pada repository dan akun Anda.
+
+| Situasi | Permukaan awal | Alasan yang perlu diuji |
+| --- | --- | --- |
+| Frontend statis dengan build rutin dan sedikit endpoint | Pages, Functions bila perlu | Fokusnya artefak build; pastikan endpoint cocok dengan runtime dan binding yang tersedia. |
+| API edge menjadi produk utama dengan routing dan beberapa binding | Worker mandiri | Versi, konfigurasi, dan rollback dapat dikelola sebagai layanan request. |
+| Frontend dan API berubah bersama tetapi tim kecil | Pages + Functions | Satu alur build dapat mengurangi koordinasi, selama batas runtime dan observability memadai. |
+| Migrasi dari aplikasi server tradisional | Mulai dari komponen yang paling stateless | Petakan dependency, sesi, background job, dan fallback; jangan memindahkan seluruh aplikasi sekaligus. |
+
+Misalnya, tim memiliki frontend hasil build dan endpoint form sederhana. Mereka dapat memulai Pages, menambahkan Functions, lalu mengukur error dan latency endpoint tersebut. Jika kemudian routing API, binding, atau siklus rilis berkembang melampaui batas yang disepakati, ekstraksi ke Worker menjadi keputusan berbasis bukti. Ini contoh bersyarat, bukan klaim bahwa satu pola selalu unggul.
+
+Kawan Codev.id, sebelum menyetujui pilihan, minta empat artefak: diagram alur request, daftar binding per environment, catatan hasil smoke test, dan prosedur rollback. Jika salah satunya belum ada, keputusan masih berupa hipotesis.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Cloudflare Pages atau Workers untuk Aplikasi Web”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan pertama adalah memilih berdasarkan label “static” atau “serverless” tanpa memetakan request. Tulis daftar route, siapa yang memanggilnya, dependency yang disentuh, dan response yang diharapkan. Tandai route yang membutuhkan sesi, streaming, atau pekerjaan panjang untuk peninjauan kompatibilitas.
 
-## Objection or shortcut to address
+Kesalahan kedua adalah menyamakan preview dengan production. Periksa source commit, environment variable, binding, domain, dan izin pada kedua environment. Jalankan smoke test yang sama setelah promosi dan simpan hasilnya.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Kesalahan ketiga adalah tidak menguji rollback. Buat rilis kecil yang bisa dibedakan, catat versi yang sedang aktif, lalu lakukan latihan kembali ke versi sebelumnya pada jendela aman. Fitur deployment dan versi harus dibaca dari [dokumentasi resmi Cloudflare](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/), sedangkan langkah aktual mengikuti pipeline Anda.
 
-## Required conclusion
+Kesalahan keempat adalah menambah telemetry tanpa aturan tindakan. Untuk setiap alarm, tulis ambang, pemilik, langkah mitigasi, dan bukti penutupan. Jika tidak ada keputusan yang dipicu oleh sinyal itu, evaluasi kembali apakah telemetry tersebut perlu dipertahankan.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Jalan pintas yang perlu dihindari
 
-## Draft completion checklist
+Shortcut yang sering dipilih adalah “deploy dulu ke Pages, nanti semua masalah runtime dibereskan”. Ini dapat gagal ketika endpoint membutuhkan API atau binding yang berbeda, ketika secret preview terbawa ke production, atau ketika tidak ada versi yang bisa dikembalikan. Alternatif yang lebih aman adalah membuat matriks route–runtime–binding sebelum deploy, memilih satu alur kecil untuk uji, memasang sinyal dasar, dan mendokumentasikan rollback. Dengan begitu, migrasi tetap bertahap tanpa menyamarkan ketidakpastian.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan operasional
+
+Pilih Pages ketika build dan aset web adalah pusat layanan, lalu gunakan Functions untuk dinamika yang masih dekat dengan situs. Pilih Workers ketika request handler, binding, runtime, dan lifecycle deployment perlu berdiri sebagai layanan edge yang terkontrol. Tidak ada jawaban final sebelum Anda memverifikasi batas akun, kompatibilitas runtime, konfigurasi environment, observability, dan rollback—itulah bagian GATE-07 yang harus ditutup.
+
+Teman Codev.id, langkah berikutnya adalah mengisi matriks route–runtime–binding untuk satu release kecil, menetapkan SLO dan alarm yang dapat ditindaklanjuti, kemudian meminta technical review atas hasil uji serta prosedur kembali. Jika Anda masih menyusun situs dan butuh bantuan implementasi, lihat [layanan web development](/web-development/); bila aplikasi juga mengandalkan monetisasi konten, [panduan web Google AdSense](/web-google-adsense/) dapat menjadi konteks lanjutan. Aturan operasionalnya sederhana: jangan mempromosikan deployment yang tidak punya versi teridentifikasi, sinyal kesehatan, dan jalan rollback yang sudah diuji.

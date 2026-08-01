@@ -1,9 +1,10 @@
 ---
 article_id: CDV-01-A02
+writing_contract_version: "native-id-v2"
 title: "Peta Pemangku Kepentingan untuk Proyek Digital"
 slug: "peta-pemangku-kepentingan-proyek-digital"
-description: "Build a stakeholder map with influence, needs, decisions, risks, and interview priority"
-status: outline
+description: "Panduan menyusun peta pemangku kepentingan dengan pengaruh, kebutuhan, keputusan, risiko, dan prioritas wawancara."
+status: draft
 publication_date: "2025-03-28"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -18,37 +19,7 @@ sources:
   - "https://www.w3.org/TR/WCAG22/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Peta Pemangku Kepentingan untuk Proyek Digital
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Peta Pemangku Kepentingan untuk Proyek Digital”
-- **Reader and situation:** Team starting discovery across business, user, technical, and compliance roles
-- **Reader outcome:** Build a stakeholder map with influence, needs, decisions, risks, and interview priority
-- **Primary intent:** Identify stakeholders, decisions, conflicts, and evidence needs
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not define delivery accountability; CDV-18-A01 owns RACI and CDV-01-A03 owns user journeys
-- **Final public route:** `/artikel/peta-pemangku-kepentingan-proyek-digital.html`
-- **Appointed CMS date:** `2025-03-28` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Peta Pemangku Kepentingan untuk Proyek Digital**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -59,118 +30,86 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Peta Pemangku Kepentingan untuk Proyek Digital
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id! Banyak proyek digital tersendat bukan karena tim tidak punya alat, melainkan karena keputusan penting dibuat oleh orang yang tidak tepat, sementara pengguna yang terdampak tidak pernah didengar. Peta pemangku kepentingan membantu Anda melihat siapa yang memengaruhi proyek, siapa yang menanggung akibatnya, dan bukti apa yang harus dikumpulkan sebelum memilih arah.
 
-### KR-01
+Jawaban singkatnya: buat satu daftar yang dapat ditelusuri dari setiap kelompok terkait ke kebutuhan, keputusan yang mereka pegang, tingkat pengaruh, risiko bila diabaikan, serta prioritas wawancara. Perbarui peta itu ketika asumsi berubah. Peta ini belum membuktikan bahwa kebutuhan pasar benar atau menetapkan pembagian tugas delivery; ia adalah alat discovery untuk mengarahkan percakapan dan menguji bukti. **[NEEDS GATE-01: validasi pemangku kepentingan, kebutuhan, dan pemilik keputusan pada proyek nyata.]**
 
-- **Original sources:** [topical authority](TOPICAL_AUTHORITY.md) and [article catalog](ARTICLE_CATALOG.md).
-- **Purpose for this article:** Preserve the canonical software-development knowledge architecture.
-- **Safe grounded facts:** There are 20 topic families and six distinct articles per family. Commercial routes retain substantiated service intent.
-- **Limits:** Local planning is not technical evidence; never reopen topic boundaries during research.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-02
-
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-01
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-01-A01` → `/artikel/brief-penemuan-masalah-software.html` — Brief Penemuan Masalah Sebelum Membuat Software
-- `CDV-01-A03` → `/artikel/proses-saat-ini-dan-user-journey.html` — Memetakan Proses Saat Ini dan User Journey
-- `CDV-01-A04` → `/artikel/kebutuhan-fungsional-vs-kualitas-software.html` — Kebutuhan Fungsional vs Kebutuhan Kualitas Software
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Aset lokal proyek; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulailah dari keputusan yang harus dibuat, bukan dari jabatan di bagan organisasi. Untuk tiap keputusan, tulis siapa yang mengusulkan, memberi persetujuan, menjalankan, memakai hasil, mengawasi risiko, dan dapat memblokirnya. Lalu tanyakan kebutuhan apa yang mereka bawa dan bukti apa yang akan membuat mereka mengubah pendapat.
+
+Kesalahan umum adalah menganggap pemangku kepentingan hanya sponsor dan pengguna akhir. Operator layanan, admin data, keamanan, aksesibilitas, legal, dukungan pelanggan, vendor, bahkan kelompok yang tidak dapat menggunakan kanal tertentu dapat mengubah desain. Panduan agile pemerintah Inggris menempatkan riset kebutuhan, pengujian, dan penyampaian bertahap sebagai aktivitas berulang, sehingga daftar orang yang perlu diajak bicara juga harus mengikuti pembelajaran proyek ([UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery)).
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Peta pemangku kepentingan adalah artefak kerja: tabel atau visualisasi yang menghubungkan aktor dengan kepentingan, pengaruh, keputusan, ketergantungan, risiko, dan rencana keterlibatan. “Pengaruh” bukan ukuran senioritas saja. Seorang petugas loket mungkin punya pengaruh tinggi terhadap kelancaran proses karena ia menguasai pengecualian yang tidak tercatat. “Kebutuhan” juga bukan daftar fitur; itu dapat berupa batas waktu, privasi, kemampuan akses, atau bukti audit.
+
+Batasnya perlu tegas. Peta ini tidak menggantikan user journey, spesifikasi kebutuhan, atau matriks RACI untuk akuntabilitas delivery. Ia hanya menjawab: siapa yang harus dipahami atau dilibatkan agar keputusan discovery tidak berdiri di atas asumsi. Setiap entri sebaiknya memiliki sumber: wawancara, observasi, dokumen kebijakan, data layanan, atau catatan keputusan. Tanpa sumber, tandai sebagai asumsi dan jadwalkan verifikasi.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan urutan berikut agar peta menghasilkan tindakan, bukan sekadar daftar nama.
+
+1. **Tetapkan keputusan dan batas proses.** Tulis keputusan terdekat, misalnya memilih alur pengajuan atau menentukan data yang wajib dikumpulkan. Nyatakan kanal, periode, dan proses yang termasuk; hal di luar batas menjadi catatan, bukan alasan memperluas proyek tanpa persetujuan.
+2. **Temukan kelompok, lalu nama peran.** Mulai dari pengguna langsung, pemilik layanan, pelaksana operasi, pemilik data, teknis, keamanan, aksesibilitas, kepatuhan, dan pihak eksternal. Hindari nama individu sebagai satu-satunya representasi; satu orang dapat pindah, sedangkan tanggung jawab peran tetap perlu diwakili.
+3. **Catat kepentingan dan keputusan.** Tanyakan: hasil apa yang dianggap berhasil, keputusan apa yang dapat mereka setujui atau tolak, dan kendala apa yang tidak boleh dilanggar? Pisahkan pernyataan faktual dari dugaan tim.
+4. **Nilai pengaruh dan dampak.** Pakai skala sederhana (rendah, sedang, tinggi) dengan alasan tertulis. Pengaruh tinggi berarti mampu mengubah prioritas, akses, anggaran, atau penerimaan; dampak tinggi berarti hasil buruk langsung membebani pekerjaan atau hak kelompok tersebut.
+5. **Hubungkan risiko dan bukti.** Untuk risiko “proses manual tidak terwakili”, bukti yang dibutuhkan bisa observasi dan contoh pengecualian. Untuk risiko aksesibilitas, uji dengan pengguna dan kriteria yang dapat diperiksa; WCAG 2.2 menyediakan rujukan teknis untuk menilai aksesibilitas, tetapi tidak membuktikan bahwa produk Anda sudah sesuai ([W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
+6. **Tetapkan prioritas wawancara.** Dahulukan kombinasi pengaruh tinggi, dampak tinggi, dan ketidakpastian tinggi. Sertakan suara dengan pengaruh rendah namun dampak tinggi agar keputusan tidak hanya mengikuti pemegang otoritas.
+7. **Jadikan peta hidup.** Setelah setiap wawancara atau uji, perbarui status bukti, konflik, dan pertanyaan terbuka. Simpan tanggal dan pemilik tindak lanjut sehingga perubahan dapat dilacak.
+
+Format minimum yang cukup praktis:
+
+| Peran/kelompok | Kebutuhan atau kekhawatiran | Keputusan/pengaruh | Dampak bila terlewat | Bukti yang ada | Prioritas & langkah |
+|---|---|---|---|---|---|
+| Operator layanan | Pengecualian proses tercatat | Tinggi pada kelancaran operasi | Gangguan dan pekerjaan ulang | Observasi belum dilakukan | Tinggi; jadwalkan observasi |
+| Pengguna dengan kebutuhan akses | Tugas dapat diselesaikan mandiri | Sedang pada penerimaan, tinggi pada dampak | Akses layanan terhambat | Satu laporan dukungan | Tinggi; uji tugas dengan beberapa pengguna |
+
+Contoh di atas adalah format ilustratif, bukan fakta proyek tertentu.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Peta berubah ketika konteks berubah. Regulasi baru dapat menaikkan pengaruh pemilik kepatuhan. Integrasi dengan sistem lama dapat membuat admin data menjadi penjaga keputusan teknis. Layanan publik dengan pengguna yang beragam memerlukan sampel wawancara yang tidak hanya mencerminkan pengguna paling mudah dijangkau. Pergantian vendor atau sponsor juga mengubah jalur persetujuan.
+
+Perhatikan empat sinyal: **konflik tujuan** (kecepatan peluncuran berbenturan dengan verifikasi keamanan), **ketergantungan tersembunyi** (tim yang mengendalikan akses data), **ketidakpastian bukti** (klaim “semua orang membutuhkan ini”), dan **kualitas representasi** (satu narasumber tidak mewakili seluruh kelompok). Jika salah satu muncul, naikkan prioritas verifikasi, bukan tingkat keyakinan.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Bayangkan tim hendak memilih antara mempertahankan formulir lama atau membuat alur digital baru. Peta menunjukkan sponsor berpengaruh tinggi, operator berpengaruh tinggi terhadap operasi, pengguna akhir berdampak tinggi, dan tim keamanan berhak menolak risiko tertentu. Keputusan belum boleh diambil hanya dari preferensi sponsor.
+
+| Pertanyaan | Jika jawabannya “ya” | Tindakan berikutnya |
+|---|---|---|
+| Apakah operator menemukan pengecualian yang tidak ada di formulir? | Risiko pekerjaan ulang tinggi | Observasi beberapa kasus dan dokumentasikan pengecualian |
+| Apakah data sensitif melewati kanal baru? | Risiko keamanan/kepatuhan meningkat | Minta penilaian pemilik keamanan dan kebijakan yang berlaku |
+| Apakah pengguna dengan kebutuhan akses dapat menyelesaikan tugas? | Bukti penerimaan belum cukup | Uji tugas dan catat hambatan |
+| Apakah keputusan memiliki pemilik yang jelas? | Tidak ada otorisasi yang dapat ditelusuri | Tunda keputusan sampai pemilik ditunjuk |
+
+Sobat Codev.id, bedakan “belum diwawancarai” dari “tidak berkepentingan”. Kategori pertama adalah kekosongan bukti; kategori kedua adalah kesimpulan yang memerlukan alasan.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Peta Pemangku Kepentingan untuk Proyek Digital”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Hanya memetakan struktur organisasi.** Periksa siapa yang memegang pengetahuan kerja, akses, atau hak veto; tambahkan peran yang tidak tampak di bagan.
 
-## Objection or shortcut to address
+**Mengurutkan orang berdasarkan jabatan.** Minta alasan di balik setiap skor pengaruh dan dampak. Bila alasan tidak menyebut keputusan atau konsekuensi, skor itu belum berguna.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**Mengubah peta menjadi daftar undangan rapat.** Setiap pertemuan harus punya pertanyaan, bukti yang dicari, dan keputusan yang mungkin berubah.
 
-## Required conclusion
+**Menganggap satu wawancara sebagai validasi.** Catat variasi sumber dan tandai pola yang belum konsisten. Pembelajaran berulang diperlukan; satu sesi tidak menutup kebutuhan riset ([UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery)).
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**Memakai label “sesuai WCAG” sebagai klaim selesai.** Gunakan WCAG 2.2 untuk kriteria yang dapat diuji, lalu dokumentasikan hasil pengujian yang benar-benar dilakukan. Standar tidak menggantikan pengujian dengan pengguna ([W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
 
-## Draft completion checklist
+Sebelum rapat keputusan, periksa: apakah setiap keputusan punya pemilik, setiap risiko punya bukti atau pertanyaan, kelompok berdampak tinggi masuk daftar wawancara, dan konflik dicatat tanpa dipoles menjadi konsensus palsu?
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan
+
+Peta pemangku kepentingan proyek digital yang berguna menghubungkan kelompok terkait dengan kebutuhan, pengaruh, keputusan, risiko, bukti, dan urutan wawancara. Buat versi pertama dari keputusan terdekat, uji melalui percakapan dan observasi, lalu perbarui ketika bukti berubah. Teman Codev.id, minta pemilik proyek mengesahkan batas proses dan daftar keputusan, kemudian jadwalkan wawancara untuk entri berdampak serta berketidakpastian tinggi. Jika perlu menyelaraskan langkah discovery berikutnya, gunakan [beranda Codev.id](/) sebagai titik masuk resmi.
+
+Jangan menyatakan kebutuhan sudah tervalidasi atau akuntabilitas delivery sudah jelas hanya karena petanya rapi. Tandai kekosongan bukti, libatkan peninjau berwenang, dan tunda keputusan yang belum memiliki pemilik serta dasar yang dapat diperiksa.

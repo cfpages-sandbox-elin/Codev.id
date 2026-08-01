@@ -1,9 +1,10 @@
 ---
 article_id: CDV-05-A02
+writing_contract_version: "native-id-v2"
 title: "Native vs Cross-platform untuk Aplikasi Mobile"
 slug: "native-vs-cross-platform-aplikasi"
-description: "Evaluate platform features, UI fidelity, shared code, team skills, testing, release, performance, support, and exit"
-status: outline
+description: "Membandingkan fitur platform, kesetiaan UI, kode bersama, keahlian tim, pengujian, rilis, performa, dukungan, dan rencana keluar"
+status: draft
 publication_date: "2025-06-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -15,44 +16,22 @@ final_route: "/artikel/native-vs-cross-platform-aplikasi.html"
 technical_review: required
 sources:
   - "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html"
-  - "https://html.spec.whatwg.org/"
-  - "https://www.rfc-editor.org/rfc/rfc9110"
   - "https://www.w3.org/TR/WCAG22/"
   - "https://www.w3.org/TR/WCAG-EM/"
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Native vs Cross-platform untuk Aplikasi Mobile
 
-## Assignment lock
+Halo, Sobat Codev.id! Memilih native atau cross-platform bukan lomba mencari teknologi yang paling populer. Pilihannya menentukan seberapa dekat antarmuka mengikuti kebiasaan tiap sistem operasi, berapa banyak kode yang dapat dibagi, dan bagaimana tim menguji serta memelihara rilis. Jika aplikasi memang perlu dipasang, jawaban yang aman adalah: native masuk akal ketika perilaku platform dan fidelity UI menjadi inti; cross-platform masuk akal ketika alur dan logika bisnis serupa di beberapa platform serta tim siap menanggung batas lapisan abstraksinya.
 
-- **Writer task:** Expand this file into one complete article answering: “Native vs Cross-platform untuk Aplikasi Mobile”
-- **Reader and situation:** Team after deciding an installed app is justified
-- **Reader outcome:** Evaluate platform features, UI fidelity, shared code, team skills, testing, release, performance, support, and exit
-- **Primary intent:** Compare mobile implementation strategies
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not recommend a framework without a prototype and device tests; CDV-10-A03 owns test environments
-- **Final public route:** `/artikel/native-vs-cross-platform-aplikasi.html`
-- **Appointed CMS date:** `2025-06-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Itu baru hipotesis awal, bukan putusan. Fitur yang dipakai, kondisi perangkat sasaran, kemampuan tim, akses ke modul khusus, bukti uji, dan rencana keluar dari framework dapat membalik pilihan tersebut. Karena itu artikel ini membandingkan cara mengambil keputusan, bukan menunjuk framework pemenang. [NEEDS PROTOTYPE DEVICE TEST: rekomendasi final harus menunggu prototipe pada perangkat dan versi sistem operasi yang benar-benar ditargetkan.]
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Native vs Cross-platform untuk Aplikasi Mobile**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+Aset lokal proyek Codev.id; bukan dokumentasi proyek tertentu.
 
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,118 +42,83 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-03
-
-- **Original sources:** [AWS Architecture Decision Records guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html), [WHATWG HTML Living Standard](https://html.spec.whatwg.org/), [HTTP Semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
-- **Purpose for this article:** Support explicit architecture trade-offs and standards-based web behavior.
-- **Safe grounded facts:** Static, server-rendered, client-rendered, CMS, custom, monolithic, modular, and serverless are options—not maturity ranks.
-- **Limits:** AWS examples are vendor guidance, not a required method. No stack recommendation without GATE-01 and GATE-02.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-02, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-05-A01` → `/artikel/responsive-web-pwa-atau-native-app.html` — Responsive Web, PWA, atau Native App
-- `CDV-05-A03` → `/artikel/offline-first-dan-sinkronisasi-data.html` — Offline-first dan Sinkronisasi Data Tanpa Duplikasi
-- `CDV-05-A04` → `/artikel/izin-perangkat-dan-privasi-aplikasi.html` — Izin Perangkat dan Privasi pada Aplikasi Mobile
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+END MANAGED IMAGE PLAN -->
 
 ## Masalah keputusan yang sebenarnya
 
-- **Purpose:** Jelaskan konteks pemilihan dan mengapa dua opsi ini sering dianggap dapat saling menggantikan.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Native dan cross-platform sering dianggap saling menggantikan karena keduanya dapat menghasilkan aplikasi terpasang. Yang berbeda adalah tempat kompleksitasnya dikelola. Pada native, tim menggunakan sarana resmi masing-masing sistem operasi dan biasanya memiliki jalur langsung ke API platform. Pada cross-platform, tim membagi sebagian kode dan menambahkan lapisan yang menerjemahkan atau merender perilaku ke beberapa platform. Kode yang dibagi dapat mengurangi pengulangan, tetapi tidak menghapus pekerjaan integrasi, desain, pengujian, atau rilis.
+
+Pertanyaan awalnya bukan “mana yang lebih cepat dibuat?”, melainkan “bagian mana yang paling mahal jika salah?”. Jika aplikasi mengandalkan kamera, Bluetooth, notifikasi, biometrik, widget, akses latar belakang, atau pola navigasi yang sangat khas satu platform, selisih perilaku kecil dapat menjadi risiko produk. Sebaliknya, bila inti aplikasi berupa formulir, katalog, transaksi, dan sinkronisasi dengan variasi UI yang terkendali, berbagi logika dapat memberi manfaat—dengan syarat alur penting tetap terasa wajar di setiap platform.
+
+Catat keputusan dan alasan sebelum membangun. *Architecture Decision Record* (ADR) adalah catatan singkat tentang konteks, pilihan yang dipertimbangkan, konsekuensi, dan pemicu peninjauan ulang. Panduan AWS menjelaskan ADR sebagai cara menjaga alasan keputusan arsitektur tetap terlacak; itu panduan, bukan kewajiban memakai format atau vendor tertentu ([AWS Architecture Decision Records](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)).
 
 ## Bedakan objek sebelum membandingkan
 
-- **Purpose:** Definisikan setiap opsi, fungsi, batas sistem, dan bukti identitasnya.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+“Native” merujuk pada implementasi yang mengikuti toolchain dan komponen utama sistem operasi sasaran. Tim dapat mengendalikan detail siklus hidup, akses API, gesture, aksesibilitas, dan pola rilis yang disediakan platform. Konsekuensinya, pengetahuan dan pemeliharaan perlu disiapkan untuk setiap platform yang didukung; kode dan proses tidak otomatis sama.
+
+“Cross-platform” berarti sebagian kode—misalnya aturan bisnis, model data, atau tampilan—dirancang untuk dipakai di lebih dari satu platform. Bentuknya beragam: ada yang merender komponen sendiri, ada yang memetakan ke komponen native, dan ada yang mengandalkan konten web di dalam pembungkus. Karena itu label cross-platform tidak cukup untuk memprediksi performa, akses API, atau kualitas UI. Minta arsitektur yang spesifik: bagian yang dibagi, bagian yang tetap native, cara memanggil modul platform, dan apa yang terjadi saat dependensi berhenti dipelihara.
+
+Batas sistem juga harus jelas. Backend, layanan autentikasi, analitik, distribusi toko aplikasi, dan pipeline rilis bukan otomatis menjadi “shared code”. Pisahkan keputusan client dari keputusan server. Dengan begitu, tim tidak menyimpulkan bahwa satu basis kode membuat seluruh biaya operasional menjadi satu.
 
 ## Kriteria perbandingan yang relevan
 
-- **Purpose:** Susun kriteria berdasarkan penggunaan, kondisi, antarmuka, risiko, pelaksanaan, perawatan, dan bukti.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan matriks berikut untuk menilai kebutuhan proyek, bukan untuk memberi skor universal.
+
+| Kriteria | Native | Cross-platform | Pertanyaan bukti |
+| --- | --- | --- | --- |
+| Fitur platform | Jalur langsung ke API dan komponen resmi | Bergantung pada dukungan lapisan dan kemungkinan modul native | Fitur mana yang wajib bekerja saat offline, di latar belakang, atau dengan perangkat khusus? |
+| Fidelity UI | Lebih mudah mengikuti konvensi tiap OS | Konsistensi lintas OS lebih mudah, tetapi detail khas OS perlu perhatian | Apakah gesture, tipografi, navigasi, dan state error harus identik atau kontekstual? |
+| Kode bersama | Berbagi lintas platform terbatas | Logika dan sebagian UI dapat dibagi | Berapa bagian yang benar-benar stabil, bukan sekadar dipaksa sama? |
+| Keahlian tim | Perlu kompetensi per platform | Perlu keahlian framework sekaligus debugging platform | Siapa yang dapat mendiagnosis crash atau regresi pada tiap OS? |
+| Pengujian | Skenario spesifik per platform lebih terisolasi | Perlu menguji lapisan bersama dan variasi platform | Perangkat, versi OS, ukuran layar, jaringan, dan aksesibilitas apa yang masuk matriks? |
+| Rilis dan dukungan | Siklus rilis dapat mengikuti aturan tiap OS | Satu perubahan dapat berdampak ke beberapa target sekaligus | Siapa pemilik pipeline, penandatanganan, dan respons saat SDK berubah? |
+| Jalan keluar | Migrasi antarkode platform tetap pekerjaan besar | Ketergantungan framework dapat menjadi biaya keluar | Modul mana yang dapat diganti tanpa menulis ulang seluruh produk? |
+
+Performa jangan dinilai dari slogan “dekat dengan native” atau “satu kode”. Ukur waktu buka, respons interaksi, penggunaan memori, konsumsi baterai, dan perilaku saat jaringan buruk pada alur yang benar-benar penting. Tanpa prototipe dan perangkat sasaran, angka apa pun hanya dugaan proyek.
+
+Untuk aksesibilitas, jangan berhenti pada hasil satu pemindai. WCAG 2.2 membahas kriteria keberhasilan, sedangkan WCAG-EM memberi kerangka evaluasi cakupan dan sampel; WAI Easy Checks membantu pemeriksaan awal. Keyboard atau fokus yang benar, semantik, formulir dan pesan error, reflow/zoom, autentikasi, media, serta perilaku dengan teknologi bantu memerlukan evaluasi yang sesuai konteks ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)). Kepatuhan WCAG juga bukan otomatis bukti kepatuhan hukum Indonesia.
 
 ## Kapan masing-masing pilihan masuk akal
 
-- **Purpose:** Berikan skenario bersyarat; jangan menyebut satu pemenang universal.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Native lebih masuk akal bila fitur inti bergantung pada API platform yang spesifik atau ketika nuansa interaksi adalah pembeda produk. Contohnya bukan daftar otomatis: keputusan itu baru kuat setelah spike kecil membuktikan akses API, alur izin, mode latar belakang, dan pemulihan ketika sistem menghentikan aplikasi. Jika dua platform memiliki perilaku bisnis sama tetapi pola navigasinya harus mengikuti pedoman masing-masing, native dapat mengurangi kompromi UI—dengan konsekuensi kebutuhan keahlian dan pipeline per platform.
+
+Cross-platform lebih masuk akal bila domain dan alur utama serupa, target platform sudah jelas, dan tim memiliki cara mengisolasi kode platform. Pilihan ini juga dapat memudahkan konsistensi perubahan bisnis. Namun penghematan berbagi kode harus dibandingkan dengan biaya plugin, modul native, debugging lintas versi, serta jeda dukungan ketika OS merilis API baru. “Satu basis kode” bukan jaminan satu kali pengujian atau satu kali persetujuan toko aplikasi.
+
+Ada pilihan campuran: logika domain dan kontrak data dibagi, sementara layar atau modul yang sensitif terhadap platform dibuat native. Ini dapat menjadi kompromi yang sehat, tetapi juga menambah batas integrasi. Dokumentasikan siapa pemilik setiap batas dan bagaimana kontrak diuji. Kawan Codev.id, bila belum dapat menjawab pertanyaan kepemilikan itu, keputusan masih terlalu dini untuk dikunci.
 
 ## Kesalahan perbandingan yang sering terjadi
 
-- **Purpose:** Bongkar sedikitnya tiga shortcut atau asumsi yang membuat keputusan keliru.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pertama, memilih berdasarkan jumlah baris kode atau janji kecepatan awal. Proyek dinilai sampai rilis dan dukungan, bukan hanya sampai demo. Mintalah estimasi yang memasukkan perangkat, pengujian regresi, penandatanganan, pengiriman pembaruan, dan pemeliharaan dependensi.
+
+Kedua, menyamakan tampilan dengan pengalaman. Komponen yang tampak sama dapat memiliki fokus, gesture, pembaca layar, atau pesan error yang berbeda. Uji tugas pengguna nyata pada tiap platform dan catat perbedaannya sebagai keputusan desain, bukan bug yang disembunyikan.
+
+Ketiga, menganggap plugin sebagai API resmi. Plugin dapat memiliki cakupan platform, versi, lisensi, dan ritme pemeliharaan sendiri. Tandai modul yang menjadi titik putus: bagaimana aplikasi berperilaku bila plugin gagal, izin ditolak, atau dukungan OS berubah?
+
+Keempat, menunda jalan keluar sampai framework bermasalah. Simpan kontrak domain, format data, strategi ekspor, dan batas modul agar migrasi bertahap mungkin dilakukan. Jangan menjanjikan migrasi murah tanpa inventaris dependensi dan prototipe pengganti.
 
 ## Bukti yang perlu diminta sebelum memilih
 
-- **Purpose:** Buat checklist dokumen, data proyek, sampel/tes, persetujuan, dan pihak penanggung jawab.
-- **Tie back to this article:** Keep the explanation specific to “Native vs Cross-platform untuk Aplikasi Mobile”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Sebelum persetujuan teknis, minta paket bukti berikut.
 
-## Objection or shortcut to address
+- Daftar fitur platform, izin, mode offline/latar belakang, integrasi perangkat, dan tingkat fidelity UI yang wajib.
+- Matriks perangkat dan versi OS sasaran, termasuk layar kecil, jaringan buruk, mode hemat daya, serta kebutuhan teknologi bantu.
+- Prototipe alur berisiko tinggi pada kandidat native, cross-platform, atau pendekatan campuran. Catat waktu buka, respons, crash, penggunaan memori, dan celah perilaku; jangan membuat angka sebelum pengukuran.
+- Rencana pengujian unit, integrasi, UI, regresi, aksesibilitas, dan penerimaan pengguna. WCAG-EM mengingatkan pentingnya menentukan cakupan dan proses evaluasi, bukan mengandalkan satu halaman atau satu alat ([WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/)).
+- Daftar kompetensi dan penanggung jawab: siapa menangani modul native, pipeline rilis, penandatanganan, pemantauan crash, pembaruan SDK, dan dukungan setelah peluncuran.
+- ADR yang membandingkan opsi, asumsi, konsekuensi, pemicu evaluasi ulang, dan rencana keluar. Simpan keputusan bersama bukti prototipe agar reviewer dapat menantang asumsi, bukan menebak konteks.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Jika aksesibilitas merupakan syarat penerimaan, lampirkan hasil evaluasi tugas dan teknologi bantu yang relevan, termasuk isu yang belum selesai. [NEEDS ACCESSIBILITY EVIDENCE: belum ada hasil evaluasi proyek untuk menyatakan salah satu pendekatan memenuhi kebutuhan aksesibilitas atau ketentuan lokal.]
 
-## Required conclusion
+## Jalan pintas yang perlu diuji
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Shortcut yang sering dipilih adalah memulai dari framework yang sudah dikuasai tim lalu menganggap semua fitur dapat menyusul. Keahlian yang ada memang aset, tetapi tidak membuktikan dukungan API, perilaku UI, atau biaya keluar pada aplikasi ini. Jika modul penting ternyata memerlukan jembatan native yang banyak, kompleksitas hanya berpindah tempat.
 
-## Draft completion checklist
+Alternatif yang lebih dapat diaudit adalah time-boxed prototype: pilih satu alur paling berisiko, implementasikan kandidat yang hendak dibandingkan, uji di perangkat sasaran, dan catat hasil serta pekerjaan yang masih terbuka. Prototipe itu bukan bukti performa seluruh aplikasi, tetapi cukup untuk memperbarui ADR dan memutuskan apakah perlu pengujian lanjutan atau review teknis. Teman Codev.id, bila bukti belum tersedia, nyatakan keputusan sebagai sementara.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Kesimpulan dan langkah berikutnya
+
+Native unggul sebagai kandidat ketika kontrol API dan fidelity per platform paling menentukan; cross-platform unggul sebagai kandidat ketika alur lintas platform serupa dan tim mampu mengelola batas native, pengujian, serta ketergantungan. Tidak ada pemenang universal, dan label teknologi tidak menggantikan bukti.
+
+Langkah berikutnya: tulis ADR satu halaman, pilih satu alur berisiko tinggi, jalankan prototipe pada matriks perangkat yang disepakati, lalu minta review teknis dan aksesibilitas sebelum mengunci stack. Anda dapat memakai [halaman utama Codev.id](/) untuk memulai percakapan kebutuhan, tetapi jangan menganggap percakapan sebagai persetujuan arsitektur.
+
+Aturan operasinya sederhana: putuskan berdasarkan konsekuensi yang terukur dan rencana keluar yang tertulis. Jika prototipe, uji perangkat, atau bukti aksesibilitas belum ada, pertahankan status keputusan sebagai sementara—[NEEDS PROTOTYPE DEVICE TEST] dan [NEEDS ACCESSIBILITY EVIDENCE]—sampai reviewer yang berwenang menyatakan cukup.

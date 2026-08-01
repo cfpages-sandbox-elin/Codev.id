@@ -1,9 +1,10 @@
 ---
 article_id: CDV-06-A03
+writing_contract_version: "native-id-v2"
 title: "Autentikasi dan Otorisasi API Bukan Hal yang Sama"
 slug: "autentikasi-dan-otorisasi-api"
-description: "Map caller identity, token/session scope, resource ownership, policy enforcement, service accounts, audit, and denial tests"
-status: outline
+description: "Memetakan identitas pemanggil, cakupan token atau sesi, kepemilikan sumber daya, kebijakan izin, akun layanan, audit, dan pengujian penolakan"
+status: draft
 publication_date: "2025-07-29"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -19,40 +20,9 @@ sources:
   - "https://www.w3.org/TR/webauthn-3/"
   - "https://owasp.org/API-Security/editions/2023/en/0x11-t10/"
   - "https://csrc.nist.gov/pubs/sp/800/218/final"
-  - "https://www.w3.org/TR/WCAG-EM/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Autentikasi dan Otorisasi API Bukan Hal yang Sama
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Autentikasi dan Otorisasi API Bukan Hal yang Sama”
-- **Reader and situation:** Team designing private, partner, or public access
-- **Reader outcome:** Map caller identity, token/session scope, resource ownership, policy enforcement, service accounts, audit, and denial tests
-- **Primary intent:** Separate API identity from resource/action permission
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Kawan Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not provide an OAuth implementation recipe; CDV-08-A02 owns OAuth integration and CDV-09-A03 owns identity controls
-- **Final public route:** `/artikel/autentikasi-dan-otorisasi-api.html`
-- **Appointed CMS date:** `2025-07-29` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Kawan Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Autentikasi dan Otorisasi API Bukan Hal yang Sama**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Kawan Codev.id`, `Sobat Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -63,119 +33,84 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Autentikasi dan Otorisasi API Bukan Hal yang Sama
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Kawan Codev.id! Saat sebuah API menolak atau menerima permintaan, ada dua pertanyaan berbeda: “Siapa yang memanggil?” dan “Apa yang boleh dilakukan pemanggil itu?” Pertanyaan pertama adalah autentikasi (authentication), sedangkan pertanyaan kedua adalah otorisasi (authorization). Token yang valid hanya menjawab identitas atau kredensial; token itu belum otomatis memberi hak membaca, mengubah, atau menghapus setiap sumber daya.
 
-### KR-04
+Kesalahan mencampur keduanya membuat endpoint terlihat aman padahal izin terlalu luas. Perbaikannya adalah memetakan identitas pemanggil, konteks token atau sesi, kepemilikan resource, lalu menerapkan kebijakan pada setiap aksi. OpenAPI dapat mendeskripsikan skema keamanan dan antarmuka, tetapi deskripsi kontrak tidak membuktikan perilaku implementasi di runtime ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)). Pilihan alur token juga harus mengikuti tipe klien dan model ancaman; [NEEDS CONTEXT REVIEW: tipe klien, threat model, dan desain token/sesi sebelum alur autentikasi dipilih].
 
-- **Original sources:** [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html), [OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/), [WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/), [OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/).
-- **Purpose for this article:** Ground contract-first APIs, authorization flows, passkeys, and API abuse controls.
-- **Safe grounded facts:** RFC 9700 is a 2025 best-current-practice update for OAuth 2.0. OpenAPI describes an interface; it does not prove implementation behavior or security.
-- **Limits:** Never publish secrets/private schemas or prescribe a flow without client/threat context. Apply GATE-03 and GATE-04.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-03, GATE-04
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-06-A01` → `/artikel/contract-first-api-dengan-openapi.html` — Contract-first API dengan OpenAPI
-- `CDV-06-A02` → `/artikel/rest-webhook-queue-atau-event.html` — REST, Webhook, Queue, atau Event
-- `CDV-06-A04` → `/artikel/versioning-dan-deprecation-api.html` — Versioning dan Deprecation API Tanpa Memutus Klien
-- `CDV-06-A05` → `/artikel/error-retry-dan-idempotency-api.html` — Error, Retry, dan Idempotency pada API
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Jawaban singkat dan salah paham utama
-
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Autentikasi memeriksa bukti yang dibawa caller: misalnya kredensial pengguna, sesi, kunci API, atau kredensial layanan. Hasilnya sebaiknya berupa identitas yang dapat ditelusuri, seperti `user_id`, `service_id`, atau subjek lain yang jelas. “Terautentikasi” berarti sistem mengenali siapa atau apa yang mengirim permintaan, bukan berarti semua tindakannya sah.
+
+Otorisasi mengambil identitas itu bersama konteks permintaan: endpoint, metode HTTP, organisasi, peran, scope token, resource yang dituju, dan tindakan yang diminta. Kebijakan kemudian menjawab apakah aksi tersebut diizinkan. Seorang pengguna dapat terautentikasi sebagai anggota organisasi A tetapi tetap ditolak saat mencoba mengubah dokumen milik organisasi B. Demikian juga service account untuk proses sinkronisasi mungkin boleh membaca antrean tertentu, tetapi tidak boleh menghapus akun manusia.
+
+Batas ini penting karena autentikasi biasanya terjadi di lapisan masuk, sedangkan otorisasi harus tetap diperiksa ketika objek dan aksi sudah diketahui. API publik, partner, dan privat dapat memakai mekanisme identitas yang berbeda, namun semuanya memerlukan keputusan izin yang eksplisit. Artikel ini tidak memberi resep implementasi OAuth; integrasi OAuth dan kontrol identitas khusus memerlukan konteks tersendiri serta tinjauan profesional.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Urutan praktisnya dapat dipandang sebagai rantai keputusan berikut.
+
+1. **Terima dan batasi permintaan.** Gateway atau aplikasi memeriksa format dasar, ukuran, dan kredensial tanpa mencatat rahasia. Kredensial yang gagal tidak boleh diperlakukan sebagai identitas yang sah.
+2. **Bangun konteks identitas.** Setelah bukti diverifikasi, sistem membuat konteks terautentikasi: subjek, penerbit, masa berlaku, audience, dan bila relevan scope. RFC 9700 adalah pembaruan praktik terbaik keamanan OAuth 2.0; rujukannya membantu menilai pilihan alur, tetapi tidak menggantikan analisis klien dan ancaman ([RFC 9700](https://www.rfc-editor.org/info/rfc9700/)).
+3. **Resolve resource.** URL seperti `/orders/123` harus dipetakan ke data nyata dan tenant yang benar. Jangan memakai `user_id` dari body sebagai bukti kepemilikan; gunakan konteks identitas dan relasi yang disimpan server.
+4. **Evaluasi kebijakan.** Cocokkan subjek, resource, aksi, scope, dan kondisi bisnis. Periksa izin pada jalur baca maupun tulis, termasuk endpoint turunan, ekspor, pencarian, dan operasi batch.
+5. **Terapkan keputusan dan catat secukupnya.** Izinkan hanya setelah semua syarat terpenuhi. Penolakan harus konsisten, sementara audit menyimpan subjek, aksi, resource, waktu, hasil, dan korelasi tanpa membocorkan token atau data sensitif.
+
+Passkey dapat memperkuat bukti autentikasi pengguna melalui WebAuthn, tetapi keberhasilan upacara WebAuthn tetap hanya menghasilkan identitas yang terverifikasi. Hak atas resource masih ditentukan kebijakan API ([WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/)).
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Beberapa kondisi sering mengubah keputusan izin meskipun identitas sama:
+
+- **Jenis caller.** Browser pengguna, aplikasi mobile, integrasi partner, dan job internal memiliki kemampuan menyimpan rahasia serta risiko pencurian yang berbeda. Service account perlu identitas dan ruang kerja yang terpisah dari akun manusia; jangan menyamakan “proses internal” dengan administrator.
+- **Scope dan peran.** Scope token seharusnya membatasi kelas aksi, bukan menjadi pengganti pemeriksaan kepemilikan. Peran `editor` pada organisasi A tidak berarti editor global.
+- **Kepemilikan dan tenancy.** Setiap query perlu mengikat resource pada tenant atau pemilik yang berasal dari konteks tepercaya. ID yang dapat ditebak, endpoint batch, dan filter pencarian adalah tempat umum terjadinya akses lintas objek.
+- **Siklus hidup sesi.** Kedaluwarsa, pencabutan, rotasi kredensial, dan perubahan keanggotaan dapat membuat keputusan lama tidak lagi berlaku. Tetapkan kapan konteks izin harus dihitung ulang.
+- **Jalur non-utama.** Unduhan berkas, webhook, GraphQL resolver, fungsi admin, dan ekspor sering melewati middleware yang sama secara tidak lengkap. OWASP menempatkan broken object-level authorization dan broken authentication sebagai risiko utama API; pengujian harus menyasar objek serta aksi, bukan hanya status login ([OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/)).
+- **Bukti dan observabilitas.** Log yang terlalu minim menghambat investigasi; log yang memuat token, password, atau payload sensitif menambah risiko. Tentukan bidang audit dan retensinya bersama pemilik data.
+
+Kawan Codev.id, jangan menyimpulkan “aman” dari satu status `200` pada happy path. Yang perlu dibuktikan adalah kombinasi identitas, resource, dan aksi pada konteks yang berubah.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan matriks kecil sebelum menulis middleware. Contoh berikut adalah skenario bersyarat, bukan klaim tentang proyek tertentu.
+
+| Caller terautentikasi | Resource dan aksi | Keputusan yang diharapkan | Alasan yang harus diuji |
+|---|---|---|---|
+| Pengguna organisasi A | Membaca invoice milik A | Izinkan bila scope baca dan status keanggotaan berlaku | Identitas cocok dengan tenant dan aksi |
+| Pengguna organisasi A | Membaca invoice milik B | Tolak | Kepemilikan berbeda meski token valid |
+| Editor organisasi A | Menghapus invoice A | Tolak bila peran hanya mengizinkan ubah | Peran tidak boleh diperluas diam-diam |
+| Service account sinkronisasi | Membaca antrean sinkronisasi yang ditetapkan | Izinkan terbatas | Audience, scope, dan resource dipatok |
+| Service account sinkronisasi | Mengubah kebijakan akses pengguna | Tolak | Tanggung jawab layanan berbeda |
+| Token kedaluwarsa atau dicabut | Aksi apa pun | Tolak dan minta autentikasi ulang sesuai kontrak | Konteks identitas tidak lagi berlaku |
+
+Untuk setiap baris, tulis predikat kebijakan dalam bahasa yang bisa diuji: `subject`, `tenant`, `resource_owner`, `action`, `scope`, dan kondisi tambahan. Jika salah satu nilai tidak tersedia, keputusan default harus menolak sambil menghasilkan sinyal audit yang dapat ditindaklanjuti.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Autentikasi dan Otorisasi API Bukan Hal yang Sama”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**“Ada bearer token berarti bebas.”** Periksa endpoint yang menerima token dengan scope kosong atau terlalu luas. Uji token pengguna A pada resource B, termasuk variasi ID, urutan halaman, dan operasi batch.
 
-## Objection or shortcut to address
+**Otorisasi hanya di gateway.** Gateway dapat memeriksa kredensial dan rute, tetapi service yang mengetahui pemilik objek tetap harus mengevaluasi izin. Buat pengujian langsung ke setiap service yang memiliki data.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**ID dari klien dianggap sebagai pemilik.** Bandingkan `owner_id` dari body atau query dengan relasi di server. Ubah nilai itu dalam pengujian dan pastikan sistem tidak berpindah tenant.
 
-## Required conclusion
+**Admin bypass tanpa jejak.** Jika ada jalur dukungan atau impersonasi, dokumentasikan siapa yang menyetujui, alasan, durasi, dan auditnya. “Internal” bukan alasan untuk menghapus kontrol.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**Tes hanya untuk respons sukses.** Tambahkan denial tests: kredensial hilang, token kedaluwarsa, scope tidak cukup, role salah, objek milik tenant lain, resource tidak ada, dan kombinasi batch campuran. Catat apakah respons, log, dan efek samping sesuai kebijakan.
 
-## Draft completion checklist
+NIST SSDF menekankan keterlacakan risiko, persyaratan, dan hasil verifikasi; lulus tes otomatis hanya membuktikan assertion, lingkungan, build, dan data yang disampel ([NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)). Karena itu, simpan matriks izin, daftar skenario penolakan, hasil pengujian, serta defect yang belum selesai sebagai paket review. [NEEDS SECURITY REVIEW: konfirmasi cakupan denial test, audit event, dan residual risk pada lingkungan target].
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Kawan Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Jalan pintas yang tampak praktis
+
+Shortcut yang sering dipilih adalah memakai satu API key bersama untuk semua integrasi lalu menganggap pembatasan jaringan sudah cukup. Cara ini mengaburkan caller, memperbesar dampak kebocoran satu kunci, dan menyulitkan pencabutan satu pihak tanpa memutus pihak lain. Alternatif yang lebih dapat diaudit adalah identitas per caller atau service account, scope minimum, rotasi dan pencabutan yang terukur, serta pemeriksaan resource di service pemilik data. Detail umur token, media penyimpanan, dan alur pertukaran tetap harus ditinjau berdasarkan klien dan threat model; jangan menyalin konfigurasi dari konteks lain.
+
+## Penutup: aturan operasi
+
+Autentikasi menjawab siapa pemanggilnya; otorisasi menjawab aksi apa yang boleh dilakukan pada resource tertentu. Pisahkan keduanya dalam model data, middleware, kebijakan, audit, dan pengujian. Sebelum rilis, minta tim mengisi matriks `subject–resource–action`, menjalankan skenario izin dan penolakan, lalu menelusurkan setiap hasil ke risiko dan defect yang masih terbuka. Untuk langkah awal dan konteks layanan, gunakan [beranda Codev.id](/) sebagai titik masuk dokumentasi yang tersedia. Teman Codev.id, bila bukti itu belum ada atau konteks klien dan ancaman belum jelas, perlakukan keputusan izin sebagai belum selesai dan minta tinjauan teknis sebelum endpoint dibuka.

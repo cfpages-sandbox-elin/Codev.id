@@ -1,9 +1,10 @@
 ---
 article_id: CDV-02-A01
+writing_contract_version: "native-id-v2"
 title: "Rencana Riset Pengguna yang Proporsional"
 slug: "rencana-riset-pengguna-proporsional"
 description: "Match questions to interviews, observation, surveys, analytics, and usability methods with sampling limits"
-status: outline
+status: draft
 publication_date: "2025-04-15"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -20,37 +21,7 @@ sources:
   - "https://www.w3.org/WAI/test-evaluate/preliminary/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
-# Rencana Riset Pengguna yang Proporsional
-
-## Assignment lock
-
-- **Writer task:** Expand this file into one complete article answering: “Rencana Riset Pengguna yang Proporsional”
-- **Reader and situation:** Team with assumptions but limited time or access to users
-- **Reader outcome:** Match questions to interviews, observation, surveys, analytics, and usability methods with sampling limits
-- **Primary intent:** Choose research methods for a product decision
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not claim statistical representativeness or accessibility conformance; CDV-13-A06 owns disabled-user participation
-- **Final public route:** `/artikel/rencana-riset-pengguna-proporsional.html`
-- **Appointed CMS date:** `2025-04-15` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
-
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Rencana Riset Pengguna yang Proporsional**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -61,117 +32,100 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+# Rencana Riset Pengguna yang Proporsional
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Halo, Sobat Codev.id! Rencana riset pengguna yang proporsional bukanlah riset paling besar yang dapat dilakukan tim. Rencana ini memilih metode yang cukup untuk menjawab keputusan tertentu, pada saat yang tepat, dengan batas sampel dan tingkat keyakinan yang jujur. Wawancara cocok untuk memahami alasan dan bahasa pengguna; observasi untuk melihat pekerjaan nyata; survei untuk memetakan pola pada kelompok yang lebih luas; analitik untuk membaca perilaku yang sudah terjadi; dan usability test untuk menemukan hambatan pada alur atau rancangan.
 
-### KR-02
+Mulailah dari keputusan, bukan dari daftar metode. Tulis: “Keputusan apa yang harus dibuat, asumsi apa yang paling berisiko, dan bukti minimum apa yang akan mengubah keputusan?” Jika pertanyaannya masih kabur, lakukan percakapan singkat dengan pemangku kepentingan dan calon pengguna. Jika risikonya adalah orang gagal menyelesaikan tugas, uji tugas itu dengan prototipe sederhana. Jika risikonya adalah prioritas masalah, gabungkan wawancara atau observasi dengan data perilaku. Pilihan akhir berubah ketika akses pengguna, tahap produk, konsekuensi kesalahan, atau kualitas data berubah.
 
-- **Original sources:** [UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery), [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/).
-- **Purpose for this article:** Ground discovery, user/task research, incremental delivery, and testable acceptance.
-- **Safe grounded facts:** Assumptions, stakeholders, journeys, functional behavior, quality attributes, constraints, acceptance evidence, and traceability answer different questions.
-- **Limits:** A template does not validate demand or represent all users; require project research and decision ownership under GATE-01.
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-01, GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-02-A02` → `/artikel/information-architecture-dan-user-flow.html` — Information Architecture dan User Flow yang Bisa Diuji
-- `CDV-02-A03` → `/artikel/wireframe-mockup-atau-prototype.html` — Wireframe, Mockup, atau Prototype: Pilih Sesuai Risiko
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+*Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.*
 
 ## Jawaban singkat dan salah paham utama
 
-- **Purpose:** Jawab pertanyaan judul dalam pembuka dan luruskan miskonsepsi yang paling berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kesalahan paling mahal adalah menganggap satu survei atau satu sesi uji sudah mewakili semua orang. Setiap metode menjawab jenis pertanyaan berbeda. Data analitik dapat menunjukkan halaman yang ditinggalkan, tetapi tidak otomatis menjelaskan niat pengguna. Wawancara dapat mengungkap kebutuhan dan istilah, tetapi jawaban yang diucapkan bukan bukti bahwa perilaku itu selalu terjadi. Uji usability dapat menemukan masalah dalam tugas yang diuji, tetapi bukan sertifikat bahwa seluruh produk mudah dipakai.
+
+Riset yang proporsional berarti membatasi klaim sesuai bukti. Untuk keputusan awal, beberapa percakapan terarah dan pengamatan terhadap pekerjaan nyata bisa cukup untuk memperbaiki hipotesis. Untuk memilih antara dua solusi, uji tugas pada prototipe yang sama-sama realistis lebih relevan daripada menambah pertanyaan survei. Untuk memantau perubahan setelah rilis, analitik dan pertanyaan dukungan memberi sinyal, lalu riset kualitatif membantu menjelaskan sinyal tersebut. Praktik agile juga menempatkan pembelajaran, pengujian, dan pengiriman bertahap sebagai siklus, bukan gerbang riset sekali jadi ([UK Government Service Manual—agile delivery](https://www.gov.uk/service-manual/agile-delivery)).
+
+Catat keputusan yang belum dapat dibuktikan: **[NEEDS PROJECT RESEARCH AND DECISION OWNER: tetapkan siapa yang berwenang menerima atau menolak bukti sebelum pengambilan sampel dimulai.]** Tanpa pemilik keputusan, tim mudah mengumpulkan data yang menarik tetapi tidak pernah mengubah pekerjaan.
 
 ## Definisi dan batas objek
 
-- **Purpose:** Jelaskan apa yang dibahas, apa yang tidak, dan mengapa batas itu mengubah keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Objek rencana ini adalah hubungan antara pertanyaan produk, metode, peserta atau sumber data, batas waktu, dan keputusan. “Proporsional” bukan istilah untuk mengurangi kualitas. Artinya, usaha riset mengikuti besarnya risiko, kebaruan asumsi, dan biaya jika keputusan keliru.
+
+Yang dibahas:
+
+- pertanyaan eksploratif tentang kebutuhan, konteks, dan bahasa pengguna;
+- pertanyaan perilaku tentang apa yang benar-benar dilakukan;
+- pertanyaan evaluatif tentang kemampuan menyelesaikan tugas;
+- pertanyaan pemantauan tentang perubahan setelah peluncuran;
+- batas siapa yang diamati, berapa banyak bukti yang diperlukan, dan kapan berhenti.
+
+Yang tidak dibahas adalah klaim keterwakilan statistik, persetujuan profesional untuk proyek tertentu, atau pernyataan bahwa produk sudah memenuhi persyaratan aksesibilitas. WCAG menjelaskan kriteria dan ruang lingkup evaluasi aksesibilitas, tetapi rencana riset umum ini tidak boleh dipasarkan sebagai bukti conformance. Evaluasi yang bermakna mempertimbangkan cakupan halaman, proses, dan kondisi penggunaan; metodologi WCAG-EM menekankan penentuan cakupan dan pemilihan sampel sebagai bagian dari evaluasi ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/)). Partisipasi pengguna disabilitas, bila dibutuhkan, memerlukan rencana khusus dan tidak boleh diasumsikan tercakup di sini.
 
 ## Cara kerjanya
 
-- **Purpose:** Terangkan mekanisme, urutan, pelaku, material/sistem, dan antarmuka secara sebab-akibat.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Susun rencana dalam urutan berikut.
+
+1. **Nyatakan keputusan.** Contohnya memilih label navigasi, menentukan urutan langkah, atau memutuskan apakah masalah tertentu layak diprioritaskan. Hindari tujuan seperti “memahami pengguna” tanpa keputusan turunan.
+2. **Petakan ketidakpastian.** Bedakan asumsi tentang motivasi, perilaku, kelayakan teknis, dan akses. Tulis konsekuensi jika asumsi itu salah.
+3. **Pilih metode yang menutup celah.** Wawancara menjawab mengapa dan bagaimana orang menjelaskan kebutuhannya. Observasi mengikuti konteks, alat, gangguan, dan jalan pintas. Survei mengukur jawaban terstruktur pada populasi yang dapat dijangkau. Analitik membaca jejak penggunaan. Usability test meminta peserta menjalankan tugas dengan kriteria pengamatan yang jelas.
+4. **Tentukan sumber dan batas sampel.** Untuk kualitatif, cari variasi konteks yang relevan dan berhenti ketika sesi tambahan tidak lagi mengubah pemahaman kerja. Untuk survei, jelaskan siapa yang diundang, siapa yang tidak terjangkau, dan bahwa hasilnya tidak otomatis representatif. Untuk analitik, periksa definisi event, periode, dan data yang hilang.
+5. **Siapkan protokol singkat.** Tulis skrip, tugas, urutan, cara mencatat, aturan privasi, dan kondisi penghentian. Pilot kecil dapat menunjukkan apakah pertanyaan dipahami sebelum tim memperluas pengumpulan data.
+6. **Hubungkan temuan ke keputusan.** Setelah sintesis, pisahkan observasi, kutipan, angka, interpretasi, dan usulan. Buat jejak dari temuan ke risiko, opsi, keputusan, serta bukti yang masih kurang.
+
+Kawan Codev.id, “sampel kecil” bukan izin untuk memilih peserta yang paling mudah ditemui. Ia hanya masuk akal bila pertanyaan, variasi konteks, dan batas klaim ditulis terang. Bila keputusan berdampak pada kelompok yang tidak terjangkau, tandai kekosongan itu dan cari masukan tambahan atau tunda klaim.
 
 ## Faktor yang mengubah hasil
 
-- **Purpose:** Kelompokkan kondisi proyek, penggunaan, lingkungan, pelaksanaan, dan bukti yang relevan.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Beberapa kondisi membuat rencana yang sama menghasilkan keyakinan berbeda:
+
+- **Tahap produk.** Pada tahap penemuan, pertanyaan terbuka dan observasi biasanya lebih berguna. Pada tahap rancangan, uji tugas menguji alur tertentu. Setelah rilis, analitik memerlukan definisi event yang stabil dan konteks dari dukungan pengguna.
+- **Risiko keputusan.** Kesalahan kecil pada label dapat diuji cepat; keputusan yang menyentuh transaksi, keselamatan, atau akses membutuhkan pemeriksaan lebih ketat dan pemilik keputusan yang jelas.
+- **Keragaman konteks.** Peran, perangkat, koneksi, bahasa, lokasi kerja, dan frekuensi tugas dapat mengubah pengalaman. Pilih variasi yang berhubungan dengan keputusan, bukan sekadar menambah jumlah.
+- **Kualitas instrumen.** Pertanyaan yang menggiring, tugas yang tidak lengkap, event analitik yang salah nama, atau survei dengan opsi jawaban timpang dapat menghasilkan kepastian palsu.
+- **Aksesibilitas dan evaluasi.** Pemeriksaan awal seperti keyboard, fokus, label formulir, pesan kesalahan, pembesaran, dan reflow dapat menemukan isu yang tampak cepat, tetapi pemeriksaan seperti itu bukan pengganti evaluasi proses dan cakupan penuh ([WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)). Jangan menyimpulkan conformance atau kepatuhan hukum Indonesia dari satu scanner atau satu sesi.
+- **Kendala pelaksanaan.** Waktu, insentif, keamanan data, penerjemahan, dan kapasitas moderator memengaruhi siapa yang hadir serta apa yang dapat dicatat. Tuliskan komprominya agar pembaca hasil tidak salah menafsirkan.
 
 ## Contoh keputusan praktis
 
-- **Purpose:** Berikan skenario bersyarat atau tabel keputusan; tandai asumsi dan jangan mengarang pengalaman.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Gunakan tabel ini sebagai titik awal, lalu sesuaikan dengan risiko dan akses yang nyata.
+
+| Keputusan yang hendak dibuat | Bukti awal yang paling tepat | Batas dan pemeriksaan |
+|---|---|---|
+| Apakah istilah menu dipahami? | Wawancara singkat untuk bahasa, lalu uji tugas pada beberapa variasi istilah | Jangan mengklaim seluruh populasi; catat peran dan konteks peserta. |
+| Mengapa proses kerja terhenti? | Observasi alur nyata, dilengkapi analitik atau tiket dukungan | Pastikan event dan catatan tidak mencampur penyebab yang berbeda. |
+| Masalah mana yang paling sering dirasakan? | Survei terstruktur setelah hipotesis masalah dirumuskan | Laporkan siapa yang menjawab dan siapa yang tidak terjangkau. |
+| Apakah rancangan baru membantu tugas utama? | Usability test berbasis skenario dengan kriteria berhasil yang eksplisit | Temuan berlaku pada tugas dan kondisi yang diuji, bukan seluruh produk. |
+| Apakah ada hambatan akses yang terlihat? | Pemeriksaan manual terarah dan evaluasi dengan cakupan yang ditetapkan | Jangan menyebutnya sertifikasi; pertimbangkan evaluasi aksesibilitas yang lengkap bila keputusan menuntutnya. |
+
+Misalnya, tim hanya punya tiga hari untuk memilih antara dua alur pendaftaran. Pertanyaan utamanya bukan “alur mana yang disukai?”, melainkan “di langkah mana pengguna gagal atau ragu, dan apakah alur alternatif mengurangi risiko itu?” Rekrut variasi konteks yang paling relevan, jalankan tugas yang sama pada kedua alur, catat perilaku dan pertanyaan spontan, lalu tetapkan ambang keputusan sebelum melihat hasil. Jika peserta sulit diakses, hasilkan rekomendasi sementara dengan batasan tertulis—bukan kepastian palsu.
 
 ## Kesalahan umum dan cara memeriksanya
 
-- **Purpose:** Bongkar shortcut umum lalu ubah menjadi pertanyaan/checklist verifikasi.
-- **Tie back to this article:** Keep the explanation specific to “Rencana Riset Pengguna yang Proporsional”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+**Memulai dari metode favorit.** Periksa setiap metode dengan kalimat: “Jawaban apa yang dapat diberikan metode ini, dan jawaban apa yang tidak?” Bila tidak ada keputusan yang terhubung, hentikan pengumpulan.
 
-## Objection or shortcut to address
+**Menyamakan ucapan dengan perilaku.** Minta contoh kejadian terakhir, amati bila memungkinkan, dan bandingkan dengan jejak penggunaan. Perbedaan bukan kegagalan peserta; itu sinyal untuk diselidiki.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+**Menambah peserta tanpa menambah variasi.** Tanyakan konteks apa yang belum tercakup. Sampel yang lebih besar dari kelompok yang sama belum tentu menjawab risiko yang berbeda.
 
-## Required conclusion
+**Mengubah temuan menjadi angka yang tampak presisi.** Cantumkan ukuran dan cara pengumpulan, tetapi hindari persentase yang tidak memiliki denominator jelas. Untuk hasil kualitatif, jelaskan pola, contoh, dan pengecualian tanpa mengklaim prevalensi.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+**Mengandalkan satu alat aksesibilitas.** Gunakan pemeriksaan manual dan evaluasi yang cakupannya jelas; isu keyboard, fokus, semantik, formulir, reflow, autentikasi, media, dan teknologi bantu memerlukan lebih dari satu pemeriksaan ([WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
 
-## Draft completion checklist
+Sebelum rapat keputusan, minta setiap temuan menjawab empat pertanyaan: sumbernya apa, konteksnya siapa, seberapa langsung bukti itu, dan tindakan apa yang berubah karenanya. Temuan tanpa jawaban tersebut masuk daftar asumsi, bukan daftar fakta.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Mengapa survei cepat tidak selalu menjadi pilihan aman
+
+Shortcut yang sering dipilih adalah mengirim survei umum karena cepat dan mudah dihitung. Ini dapat gagal ketika tim belum tahu istilah pengguna, pilihan jawaban belum mencerminkan konteks, atau responden yang paling terdampak tidak terjangkau. Angka yang rapi lalu memberi ilusi kepastian.
+
+Alternatif yang lebih aman adalah melakukan percakapan atau observasi terbatas untuk membentuk hipotesis, menguji pertanyaan survei pada skala kecil, lalu memakai survei hanya untuk keputusan yang memang memerlukan pemetaan terstruktur. Simpan batas responden dan nonresponden di halaman hasil. Bila keputusan menyangkut alur tertentu, dahulukan uji tugas yang mereproduksi pekerjaan itu.
+
+## Kesimpulan: mulai dari keputusan, berhenti pada bukti yang cukup
+
+Rencana riset pengguna yang proporsional memasangkan pertanyaan dengan metode: wawancara untuk alasan dan bahasa, observasi untuk konteks, survei untuk pola pada kelompok terjangkau, analitik untuk perilaku yang tercatat, dan usability test untuk hambatan pada tugas. Ukuran sampel, variasi peserta, serta kekuatan klaim harus mengikuti risiko keputusan—bukan target angka yang berdiri sendiri.
+
+Teman Codev.id, sebelum mengundang peserta, tulis satu halaman berisi keputusan, asumsi berisiko, metode, batas sampel, kriteria berhenti, pemilik keputusan, dan bukti yang akan mengubah arah. Setelah pengumpulan, pisahkan fakta dari interpretasi dan catat siapa yang belum terwakili. Untuk langkah berikutnya, Anda dapat meninjau konteks layanan dan keputusan produk di [halaman utama Codev.id](/). Jika keputusan memerlukan kepastian aksesibilitas, keamanan, hukum, atau dampak tinggi, minta evaluasi profesional yang sesuai. Aturan operasionalnya sederhana: jangan memperbesar klaim melebihi konteks dan bukti yang benar-benar Anda miliki.

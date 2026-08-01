@@ -1,9 +1,10 @@
 ---
 article_id: CDV-10-A03
+writing_contract_version: "native-id-v2"
 title: "Test Data dan Environment Tanpa Membocorkan Produksi"
 slug: "test-data-dan-environment"
 description: "Plan synthetic/masked data, accounts/roles, environment parity, fixtures, cleanup, isolation, secrets, external sandboxes, and limitations"
-status: outline
+status: draft
 publication_date: "2025-11-12"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -24,37 +25,13 @@ sources:
   - "https://www.rfc-editor.org/rfc/rfc9111"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Test Data dan Environment Tanpa Membocorkan Produksi
 
-## Assignment lock
+Halo, Sobat Codev.id! Menyalin database produksi ke staging memang membuat skenario terasa nyata, tetapi sekaligus membuka jalan bagi data pribadi, token, dan akses istimewa untuk tersebar. Jawaban praktisnya: bangun data sintetis sebagai default, masking untuk kolom yang benar-benar perlu mempertahankan bentuk, dan environment yang cukup setara pada perilaku—bukan menyalin seluruh produksi. Setiap akun, secret, fixture, dan integrasi harus punya pemilik, masa berlaku, serta prosedur pembersihan.
 
-- **Writer task:** Expand this file into one complete article answering: “Test Data dan Environment Tanpa Membocorkan Produksi”
-- **Reader and situation:** Team using staging, sandboxes, devices, or third parties
-- **Reader outcome:** Plan synthetic/masked data, accounts/roles, environment parity, fixtures, cleanup, isolation, secrets, external sandboxes, and limitations
-- **Primary intent:** Create realistic tests without unsafe production copies
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not authorize copying personal data; CDV-09-A05 owns privacy and provider policies govern sandbox use
-- **Final public route:** `/artikel/test-data-dan-environment.html`
-- **Appointed CMS date:** `2025-11-12` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Kondisi yang dapat mengubah keputusan adalah kebutuhan uji yang memang bergantung pada pola data atau respons vendor tertentu. Dalam kasus itu, dokumentasikan elemen minimum yang diperlukan, minta persetujuan pemilik data dan keamanan, lalu gunakan salinan terfilter yang tidak dapat dipakai untuk mengidentifikasi orang. Artikel ini membahas cara merencanakan pengujian tanpa mengotorisasi penyalinan data pribadi; kebijakan privasi dan ketentuan provider tetap berlaku.
 
-## Opening instructions
-
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Test Data dan Environment Tanpa Membocorkan Produksi**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
+<!-- BEGIN MANAGED IMAGE PLAN
 ## Image plan
 
 - **Image ID:** `LOCAL-001`
@@ -65,126 +42,63 @@ sources:
 - **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
 - **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
 - **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+END MANAGED IMAGE PLAN -->
 
-## Evidence packet
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-08
-
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
-
-### KR-11
-
-- **Original sources:** [WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/).
-- **Purpose for this article:** Ground accessible design, implementation, evaluation, procurement, and maintenance.
-- **Safe grounded facts:** Full-page and process scope matter. Keyboard/focus, semantics, forms/errors, reflow/zoom, authentication, media, and assistive-technology behavior cannot be certified by one scanner.
-- **Limits:** WCAG conformance is not automatically Indonesian legal compliance. Apply GATE-05 and GATE-06.
-
-### KR-12
-
-- **Original sources:** [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report documentation](https://developer.chrome.com/docs/crux), [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111).
-- **Purpose for this article:** Ground lab/field measurement, budgets, caching, regression, and causal claims.
-- **Safe grounded facts:** Core Web Vitals are provider-defined evolving metrics. A before/after claim needs stable scope, sample, conditions, version, and caveats.
-- **Limits:** No ranking, load-time, energy, or conversion guarantee. Recheck thresholds/tools and apply GATE-08.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-06
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-10-A01` → `/artikel/strategi-testing-berbasis-risiko.html` — Strategi Testing Berbasis Risiko
-- `CDV-10-A02` → `/artikel/unit-integration-contract-end-to-end.html` — Unit, Integration, Contract, dan End-to-end Tests
-- `CDV-10-A04` → `/artikel/regression-suite-cepat-dipercaya.html` — Regression Suite yang Cepat dan Dipercaya
-- `CDV-10-A05` → `/artikel/user-acceptance-test-dan-release-evidence.html` — User Acceptance Test dan Release Evidence
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Ilustrasi umum dari aset lokal Codev.id; bukan dokumentasi proyek tertentu.
 
 ## Mulai dari gejala, bukan tebakan penyebab
 
-- **Purpose:** Tentukan apa yang terlihat/terukur, lokasi, waktu, perubahan, dan keterbatasan pengamatan.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Catat gejalanya sebelum memilih dataset: endpoint mana yang gagal, alur pengguna pada perangkat apa, waktu kejadian, build yang diuji, dan data apa yang tersedia saat itu. “Checkout lambat” belum menjelaskan apakah penyebabnya fixture terlalu kecil, cache yang masih hangat, sandbox pembayaran, atau konfigurasi jaringan. Sertakan ID run dan versi fixture agar hasil bisa diulang.
+
+Buat matriks kebutuhan sederhana: alur normal, input batas, error dari dependency, peran pengguna, serta kondisi kosong dan duplikat. Untuk kontrak API, gunakan skema dan contoh yang terdokumentasi dalam OpenAPI sebagai kesepakatan bentuk request dan response, bukan sebagai bukti bahwa layanan nyata selalu sehat ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)). Dengan begitu, tim dapat membedakan cacat aplikasi dari data uji yang tidak mewakili kondisi.
 
 ## Saringan risiko langsung
 
-- **Purpose:** Jelaskan kapan pembaca harus membatasi akses, menghentikan pekerjaan, atau meminta pemeriksaan kompeten.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hentikan pemuatan dataset bila berisi nama, alamat, nomor identitas, kredensial, cookie, token, atau berkas unggahan yang belum disetujui untuk lingkungan nonproduksi. Kawan Codev.id, perlakukan secret staging sebagai secret sungguhan: simpan di secret manager, batasi peran baca, rotasi setelah eksperimen, dan pastikan log tidak mencetak nilainya. Jangan mengandalkan “staging tidak bisa diakses publik” sebagai satu-satunya kontrol.
+
+Tentukan jalur eskalasi ketika vendor tidak menyediakan sandbox, masking merusak relasi data, atau pengujian menyentuh transaksi nyata. Minta keputusan tertulis dari pemilik sistem, keamanan, dan pemilik data sebelum memakai pengecualian. Praktik pengembangan aman seharusnya menghubungkan risiko, persyaratan, hasil verifikasi, dan defect yang belum selesai; prinsip ini sejalan dengan NIST SSDF ([NIST SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final)).
 
 ## Kemungkinan mekanisme
 
-- **Purpose:** Kelompokkan kemungkinan penyebab tanpa menyatakan diagnosis dari bukti yang belum cukup.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ada beberapa mekanisme yang sering tercampur:
+
+- **Sintetis:** generator membuat record baru berdasarkan aturan domain. Tidak ada record yang disalin, tetapi generator tetap harus diuji agar tidak menghasilkan secret atau kombinasi yang tidak masuk akal.
+- **Masking atau tokenisasi:** nilai produksi diganti sambil mempertahankan format atau relasi. Konsistensi antar-tabel harus dipertahankan, dan kunci pemulihannya tidak boleh hadir di tester.
+- **Fixture:** paket data kecil, deterministik, dan berversi untuk satu skenario. Fixture memudahkan cleanup dan review, tetapi tidak menggambarkan distribusi produksi.
+- **Sandbox eksternal:** endpoint milik vendor yang memang ditujukan untuk pengujian. Periksa batas kuota, data yang mereka simpan, callback, dan cara menghapus akun uji sesuai kebijakan provider.
+
+Environment parity berarti menyamakan perilaku penting—versi runtime, feature flag, skema, konfigurasi cache, autentikasi, dan bentuk dependency—tanpa harus menyamai kapasitas atau data produksi. Perbedaan yang sengaja dibuat harus dicatat di README environment agar hasil tidak dibaca sebagai bukti universal.
 
 ## Urutan pemeriksaan dan pengujian
 
-- **Purpose:** Susun observasi, dokumen, tes, sampel, atau pengukuran dari yang paling aman dan informatif.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari inventaris: sumber data, klasifikasi kolom, pemilik, retensi, akun, role, secret, endpoint keluar, dan jalur callback. Lanjutkan dengan aturan generator atau transformasi masking yang dapat direview. Jalankan pemeriksaan otomatis bahwa tidak ada pola token, email internal, atau identifier terlarang sebelum data masuk ke database uji.
+
+Siapkan akun per peran—misalnya pembaca, operator, approver, dan auditor—dengan password sementara yang unik. Verifikasi bahwa setiap akun hanya dapat melihat fungsi yang dibutuhkan. Seed fixture melalui skrip idempotent sehingga reset environment tidak memerlukan dump produksi. Setelah test run, hapus objek temporer, cabut token, kosongkan bucket unggahan, dan catat hasil cleanup.
+
+Baru setelah isolasi lolos, uji alur aplikasi. Pisahkan unit, integrasi, kontrak, dan end-to-end; hasil lulus hanya berlaku untuk assertion, build, environment, dan data yang disampel. Untuk aksesibilitas, scanner saja tidak cukup: keyboard/focus, semantik, formulir dan error, zoom/reflow, autentikasi, media, serta perilaku teknologi bantu perlu pemeriksaan sesuai konteks ([WCAG 2.2](https://www.w3.org/TR/WCAG22/), [WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), dan [WAI Easy Checks](https://www.w3.org/WAI/test-evaluate/preliminary/)).
+
+Untuk performa, bedakan pengukuran laboratorium dari data lapangan. Core Web Vitals adalah metrik yang ditetapkan provider dan dapat berevolusi; CrUX merefleksikan pengalaman pengguna nyata pada cakupan tertentu ([web.dev Core Web Vitals](https://web.dev/articles/vitals), [Chrome UX Report](https://developer.chrome.com/docs/crux)). Jika cache ikut diuji, dokumentasikan status cold/warm dan aturan cache HTTP ([RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)).
 
 ## Cara membaca hasil tanpa melompat ke kesimpulan
 
-- **Purpose:** Pisahkan hasil tes, kriteria proyek, sebab, konsekuensi, dan otoritas keputusan.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Setiap laporan sebaiknya memuat tujuan, versi aplikasi, commit, fixture, role, perangkat, kondisi jaringan, dependency, timestamp, assertion yang gagal, dan link log yang sudah disensor. Bedakan “request mendapat 500 di sandbox” dari “provider produksi akan gagal”; yang pertama adalah observasi, yang kedua memerlukan bukti tambahan.
+
+Buat traceability kecil: risiko atau requirement → test case → hasil → defect → keputusan. Tidak ada ambang coverage atau bentuk “piramida” yang otomatis cocok untuk semua proyek. [NEEDS GATE-06 REVIEW: tetapkan kriteria penerimaan dan otoritas keputusan sesuai risiko proyek.] Tanpa kriteria itu, status hijau pada pipeline tidak boleh dipakai sebagai izin rilis.
 
 ## Pilihan tindakan dan titik eskalasi
 
-- **Purpose:** Bedakan kontrol sementara, pemantauan, perbaikan, penggantian, dan review profesional.
-- **Tie back to this article:** Keep the explanation specific to “Test Data dan Environment Tanpa Membocorkan Produksi”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Jika parity belum cukup, pilih kontrol yang terukur: tambahkan fixture untuk kasus kosong, samakan versi schema, buat stub untuk respons vendor yang deterministik, atau jalankan uji lapangan terpisah. Jika secret terpapar, cabut dan rotasi segera, telusuri log, lalu minta review keamanan. Jika masking memutus relasi sehingga hasil menyesatkan, kembali ke generator sintetis atau minta persetujuan atas subset minimum—bukan menyalin ulang seluruh database.
 
-## Objection or shortcut to address
+Teman Codev.id, jadikan reset sebagai bagian dari desain, bukan pekerjaan setelah insiden. Atur TTL untuk environment sementara, jadwal penghapusan, dan pemeriksaan bahwa akun serta bucket sudah kosong. Simpan keputusan pengecualian bersama pemiliknya sehingga reviewer berikutnya tahu kapan kontrol itu berakhir.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+## Jalan pintas yang sering menggoda
 
-## Required conclusion
+“Ambil snapshot produksi sekali, lalu hapus nanti” terdengar cepat. Ia gagal ketika proses masking tidak lengkap, snapshot ikut tersalin ke backup, log merekam payload asli, atau akun uji masih dapat mengirim email dan transaksi keluar. Alternatif yang lebih dapat dipertanggungjawabkan adalah fixture sintetis berversi, sandbox vendor, dan subset terfilter yang disetujui dengan retensi pendek. Kecepatan diperoleh dari reset otomatis dan diagnosis yang dapat diulang, bukan dari menghapus jejak setelah data telanjur tersebar.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+## Kesimpulan: aturan operasi sebelum test run
 
-## Draft completion checklist
+Test data dan environment yang aman berarti realisme secukupnya, isolasi yang dapat dibuktikan, akses berbasis peran, secret terkelola, serta cleanup yang tercatat. Sebelum run berikutnya, buat satu halaman inventaris berisi sumber data, metode sintetis/masking, perbedaan parity, akun dan TTL, endpoint eksternal, kriteria lulus, dan penanggung jawab review. Untuk konteks proyek lain, mulai dari halaman [Codev.id](/) bila Anda membutuhkan langkah lanjutan yang tersedia.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Aturan akhirnya sederhana: bila Anda belum dapat menjelaskan siapa yang boleh melihat data, bagaimana data dibuat, kapan dihapus, dan bukti apa yang membuat rilis boleh diputuskan, jangan bawa salinan produksi ke environment uji. Minta review teknis yang berwenang sebelum membuka pengecualian.
