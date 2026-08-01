@@ -1,9 +1,10 @@
 ---
 article_id: CDV-18-A05
+writing_contract_version: "native-id-v2"
 title: "Checklist Handover Software dan Bukti Kepemilikan"
 slug: "checklist-handover-software"
 description: "Inventory repositories/source, builds, environments, accounts/access, domains/services, data/backup, architecture, runbooks, tests, licenses, decisions, training, support, and acceptance"
-status: outline
+status: draft
 publication_date: "2026-06-02"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -25,166 +26,87 @@ sources:
   - "https://www.gov.uk/guidance/the-technology-code-of-practice"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Checklist Handover Software dan Bukti Kepemilikan
 
-## Assignment lock
+Halo, Sobat Codev.id!
 
-- **Writer task:** Expand this file into one complete article answering: “Checklist Handover Software dan Bukti Kepemilikan”
-- **Reader and situation:** Client accepting a project or changing maintainers
-- **Reader outcome:** Inventory repositories/source, builds, environments, accounts/access, domains/services, data/backup, architecture, runbooks, tests, licenses, decisions, training, support, and acceptance
-- **Primary intent:** Receive everything needed to own and operate delivered software
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Sobat Codev.id`
-- **Natural variants:** `Kawan Codev.id` and `Teman Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not transfer rights that the contract does not grant; CDV-17-A04 owns IP/account terms and CDV-18-A06 owns exit transition
-- **Final public route:** `/artikel/checklist-handover-software.html`
-- **Appointed CMS date:** `2026-06-02` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Handover software yang sehat bukan sekadar menerima tautan repository dan kata sandi. Anda baru benar-benar bisa memiliki dan mengoperasikan sistem ketika sumber, cara build, lingkungan, akses, data, bukti pengujian, serta keputusan penerimaan dapat diperiksa dan dijalankan ulang. Checklist ini membantu memeriksa setiap barang dan bukti itu sebelum serah terima ditandatangani.
 
-## Opening instructions
+Kumpulkan paket handover, lakukan uji akses dengan akun organisasi Anda, dan catat penerimaan atau kekurangannya. Detail kontrak yang menentukan hak atas kode, akun, atau lisensi tetap berlaku; checklist ini tidak memindahkan hak yang tidak diberikan kontrak. Untuk butir yang menyangkut keamanan, kepatuhan, atau penerimaan formal, minta tinjauan teknis yang berwenang.
 
-- Open with the exact short salutation: **“Halo, Sobat Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Checklist Handover Software dan Bukti Kepemilikan**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Sobat Codev.id`, `Kawan Codev.id`, or `Teman Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
+<!-- BEGIN MANAGED IMAGE PLAN
+Image ID: LOCAL-001; placement: after opening; source: local; provenance: assigned outline.
+**Exact Markdown to insert:** `![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)`
+END MANAGED IMAGE PLAN -->
 
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-<!-- BEGIN MANAGED IMAGE PLAN -->
-## Image plan
+Aset lokal proyek; jangan klaim sebagai dokumentasi proyek tertentu.
 
-- **Image ID:** `LOCAL-001`
-- **Source type:** `local`
-- **Placement:** after the opening has answered the main question, before the first detailed H2
-- **Exact Markdown to insert:** `![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)`
-- **Caption/credit:** Aset lokal proyek; jangan klaim sebagai dokumentasi proyek tertentu.
-- **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
-- **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
-- **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
+## Definisikan kebutuhan sebelum meminta serah terima
 
-## Evidence packet
+Mulailah dari daftar yang ingin Anda kuasai, bukan dari format folder yang disukai penyedia. Tetapkan nama aplikasi dan versinya, komponen yang termasuk, lingkungan (development, staging, production), integrasi, data yang boleh disentuh, serta kriteria penerimaan. Untuk tiap item, tulis pemilik, lokasi, versi, tanggal ekspor, dan cara memverifikasi.
 
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
+Paket minimum biasanya mencakup:
 
-### KR-08
+- repository seluruh source, konfigurasi contoh, riwayat perubahan, dan instruksi build;
+- artefak rilis, pipeline CI/CD, manifest dependensi, serta cara rollback;
+- inventaris environment, domain, DNS, cloud, akun layanan, secret, sertifikat, dan masa kedaluwarsanya;
+- skema data, migrasi, backup, prosedur pemulihan, retensi, dan bukti uji restore;
+- diagram arsitektur, kontrak API (misalnya spesifikasi OpenAPI), runbook operasi, dan kontak eskalasi;
+- hasil pengujian, daftar defect terbuka, lisensi pihak ketiga, keputusan desain, materi pelatihan, dan dukungan pascapenerimaan.
 
-- **Original sources:** [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [W3C WCAG-EM 1.0](https://www.w3.org/TR/WCAG-EM/), [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html).
-- **Purpose for this article:** Separate test levels, specialist checks, acceptance, and release decisions.
-- **Safe grounded facts:** Passing automated tests proves only the sampled assertions, environment, build, and data. Traceability connects risks and requirements to results and unresolved defects.
-- **Limits:** No universal test pyramid or coverage threshold; use GATE-06.
+Jangan meminta secret melalui dokumen terbuka. Serahkan akses melalui pengelola identitas organisasi, lalu cabut akun sementara setelah uji. Sobat Codev.id, bukti “sudah dikirim” berbeda dari bukti “tim baru dapat menjalankan”.
 
-### KR-10
+## Buat paket serah terima yang dapat diverifikasi
 
-- **Original sources:** [Google SRE Workbook—SLOs](https://sre.google/workbook/implementing-slos/), [OpenTelemetry documentation](https://opentelemetry.io/docs/), [NIST incident response SP 800-61 Rev.3](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
-- **Purpose for this article:** Ground service health definitions, telemetry, alerting, response, learning, and capacity/cost controls.
-- **Safe grounded facts:** Instrumentation creates signals, not reliability. An SLO is a service objective and decision mechanism, not a contractual uptime promise.
-- **Limits:** No 24/7 or uptime claim without actual operating evidence/contract. Apply GATE-07 and GATE-08.
+Gunakan matriks sederhana: `item`, `pemilik`, `lokasi`, `versi`, `bukti`, `penguji`, `status`, dan `catatan risiko`. Minta penerima melakukan checkout bersih, menjalankan build di lingkungan yang disepakati, dan membandingkan checksum atau tag rilis bila proses Anda memerlukannya. Dokumentasi API harus cocok dengan implementasi yang diserahkan; OpenAPI adalah format deskripsi, bukan bukti bahwa endpoint telah diuji ([OpenAPI Specification](https://spec.openapis.org/oas/v3.1.1.html)).
 
-### KR-15
+Pisahkan artefak dari klaim. Diagram menunjukkan rancangan, bukan kapasitas yang telah terbukti. Runbook menunjukkan langkah, bukan keberhasilan pemulihan. Catat hasil observasi, log, dan tanggal pengujian. Untuk akses, minta bukti bahwa organisasi dapat mengundang, menonaktifkan, dan memulihkan akun tanpa bergantung pada akun pribadi penyedia.
 
-- **Original sources:** [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [CISA Secure by Design](https://www.cisa.gov/securebydesign), [UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice).
-- **Purpose for this article:** Ground comparable procurement, risk allocation, delivery roles, evidence handover, and operational independence.
-- **Safe grounded facts:** Lowest build price is not total lifecycle cost. A portfolio or certification logo does not prove the proposed team's scope or outcomes.
-- **Limits:** No legal interpretation, market price, vendor endorsement, or capability claim without GATE-09 and qualified contract review.
+## Bedakan bukti pengujian, operasi, dan kepemilikan
 
-## Evidence gates
+Bukti pengujian harus menyebut build, environment, data uji, skenario, hasil, dan defect yang belum selesai. Automated test hanya membuktikan assertion yang tersampel pada kondisi tersebut; ia tidak otomatis membuktikan kesiapan produksi. Untuk aksesibilitas, evaluasi perlu mencakup ruang lingkup dan metode yang jelas, bukan sekadar label “WCAG compliant” ([W3C WCAG-EM](https://www.w3.org/TR/WCAG-EM/)). Praktik pengembangan aman NIST juga menekankan jejak antara kebutuhan, risiko, dan hasil verifikasi ([NIST SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)).
 
-- **TOPIC-GATE:** GATE-06, GATE-07, GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-18-A03` → `/artikel/change-control-nilai-baseline.html` — Change Control yang Menjaga Nilai dan Baseline
-- `CDV-18-A04` → `/artikel/release-readiness-review.html` — Release Readiness Review Sebelum Go-live
-- `CDV-18-A06` → `/artikel/vendor-exit-transition-plan.html` — Vendor Exit dan Transition Plan Tanpa Kehilangan Operasi
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
-
-## Definisikan kebutuhan sebelum meminta harga
-
-- **Purpose:** Nyatakan fungsi, kondisi, kuantitas, batas scope, antarmuka, dan hasil penerimaan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Buat penawaran benar-benar sebanding
-
-- **Purpose:** Susun komponen scope, inklusi, eksklusi, asumsi, logistik, pengujian, dan risiko.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
-
-## Dokumen yang membuktikan hal berbeda
-
-- **Purpose:** Bedakan data produk, sertifikat, laporan tes, metode, pengalaman, garansi, dan persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pisahkan pula bukti kepemilikan dari pengalaman vendor: invoice atau sertifikat tidak membuktikan bahwa akun, domain, atau lisensi kini berada di organisasi Anda. Cocokkan nama pemegang akun, peran administrator, tanggal berakhir, dan hak transfer dengan kontrak. Jika kontrak atau status lisensi belum jelas, tandai `[NEEDS CONTRACT/LICENSE REVIEW]` sebelum menyatakan sistem sepenuhnya dapat dimiliki.
 
 ## Pertanyaan wajib kepada penyedia
 
-- **Purpose:** Buat daftar pertanyaan konkret yang mengungkap kapasitas, batas, tanggung jawab, dan perubahan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Ajukan pertanyaan yang menghasilkan artefak dan tindakan, bukan jawaban “aman”.
 
-## Red flag dan biaya yang sering tersembunyi
+1. Repository mana yang lengkap, siapa administratornya, dan bagaimana checkout bersih diverifikasi?
+2. Build rilis mana yang sedang diterima; perintah build, dependensi, dan rollback-nya apa?
+3. Environment dan akun layanan apa saja yang ada; siapa pemilik organisasi dan bagaimana rotasi secret dilakukan?
+4. Di mana DNS, domain, sertifikat, pipeline, dan kontrak layanan dikelola? Apa tanggal kedaluwarsanya?
+5. Kapan backup terakhir dipulihkan pada lingkungan uji, oleh siapa, dan dengan hasil apa?
+6. Apa dependensi pihak ketiga, lisensi, kewajiban atribusi, dan komponen yang tidak boleh dipindahkan?
+7. Bagaimana alarm dibuat, siapa merespons insiden, dan apa rekaman insiden yang tersedia?
+8. Definisi layanan apa yang dipantau? SLO adalah tujuan dan mekanisme keputusan, bukan janji uptime kontraktual ([Google SRE Workbook](https://sre.google/workbook/implementing-slos/)).
+9. Telemetri apa yang dikumpulkan, berapa retensinya, dan bagaimana akses datanya dibatasi? Instrumentasi menghasilkan sinyal, bukan jaminan reliabilitas ([OpenTelemetry](https://opentelemetry.io/docs/)).
+10. Siapa yang menyetujui defect terbuka, pengecualian keamanan, dan tanggal penyelesaiannya? Untuk prosedur deteksi, respons, dan pembelajaran insiden, selaraskan runbook dengan panduan [NIST incident response](https://csrc.nist.gov/pubs/sp/800/61/r3/final).
 
-- **Purpose:** Jelaskan tanda scope kabur, klaim tanpa bukti, serta biaya akses, tunggu, rework, atau handover.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+## Tanda bahaya dan biaya yang sering tersembunyi
 
-## Penerimaan, serah terima, dan keputusan akhir
+Waspadai “source code sudah di-zip” tanpa riwayat, build yang hanya berhasil di laptop tertentu, akun cloud atas nama pribadi, secret tertanam di repository, backup tanpa uji restore, atau dashboard tanpa pemilik dan prosedur respons. Biaya sebenarnya lalu muncul sebagai waktu menunggu akses, rework konfigurasi, lisensi darurat, atau ketergantungan pada satu orang.
 
-- **Purpose:** Tentukan siapa memeriksa apa, rekaman yang disimpan, dan kapan pembayaran/acceptance layak.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Handover Software dan Bukti Kepemilikan”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Kawan Codev.id, harga proyek yang rendah tidak otomatis berarti biaya siklus hidup rendah. NIST merekomendasikan pengelolaan risiko rantai pasok yang mempertimbangkan pemasok, komponen, dan bukti sepanjang siklus hidup ([NIST SP 800-161](https://csrc.nist.gov/pubs/sp/800/161/r1/final)). Prinsip secure-by-design juga mendorong agar keamanan dan pengoperasian tidak ditinggalkan sebagai pekerjaan penerima ([CISA Secure by Design](https://www.cisa.gov/securebydesign)). Minta estimasi berbasis item yang belum diserahterimakan, bukan menerima klaim “tinggal operasional”.
 
-## Objection or shortcut to address
+## Penerimaan dan keputusan akhir
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+Tetapkan sesi penerimaan dengan peran jelas: penyedia mendemokan, penerima menjalankan ulang, dan penanggung jawab bisnis menyetujui ruang lingkup. Simpan berita acara yang merujuk versi rilis, matriks item, hasil uji akses/build/restore, defect terbuka, pengecualian, serta tanggal tindak lanjut. Panduan Technology Code of Practice menekankan pengelolaan layanan, data, dan kemampuan internal sebagai bagian dari keputusan teknologi ([UK Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)).
 
-## Required conclusion
+Jangan menandatangani penerimaan hanya karena demo berjalan. Tahan penerimaan atau buat penerimaan bersyarat ketika item kritis tidak dapat diverifikasi: misalnya organisasi belum memegang administrator domain, restore belum diuji, atau defect keamanan belum memiliki keputusan tertulis. Tanpa kontrak, bukti operasi aktual, dan kriteria yang disepakati, status 24/7, uptime, kapasitas, atau garansi tidak boleh disimpulkan—`[NEEDS OPERATING EVIDENCE/CONTRACT REVIEW]`.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+### Pilihan cepat yang sering dipilih
 
-## Draft completion checklist
+Shortcut paling menggoda adalah menerima handover dalam satu folder dan menganggap sisanya akan dipelajari sambil jalan. Cara ini gagal ketika build, akses, atau pemulihan memerlukan konteks yang hanya dimiliki penyedia. Alternatif yang lebih aman: jadwalkan uji serah-terima berurutan—akses, checkout, build, deploy nonproduksi, restore, observability, lalu simulasi insiden—dan beri status lulus, bersyarat, atau tertunda pada tiap tahap.
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Sobat Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+## Langkah berikutnya
+
+Checklist handover software dan bukti kepemilikan berarti setiap komponen punya lokasi, pemilik organisasi, versi, bukti verifikasi, dan keputusan penerimaan. Cetak matriks item di atas, minta penyedia mengisinya, lalu lakukan satu sesi uji ulang dengan tim yang akan mengoperasikan sistem.
+
+Teman Codev.id, simpan berita acara beserta daftar kekurangan dan tanggal penutupannya; minta tinjauan teknis untuk risiko keamanan, lisensi, dan kontrak. Aturan operasionalnya sederhana: jangan menyebut software “sudah menjadi milik dan siap dioperasikan” sebelum akses dapat dikendalikan, build dapat diulang, pemulihan dapat dibuktikan, dan batas kontraknya tertulis.
+
+Jika Anda perlu menyelaraskan langkah ini dengan konteks layanan yang lebih luas, mulai dari [halaman utama Codev.id](/).
+
+Metadata aset dapat diperiksa melalui [tautan aset ilustrasi](/wp-content/uploads/2022/12/CODEV.png).

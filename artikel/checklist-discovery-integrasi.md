@@ -3,7 +3,8 @@ article_id: CDV-08-A01
 title: "Checklist Discovery Integrasi Pihak Ketiga"
 slug: "checklist-discovery-integrasi"
 description: "Inventory business purpose, data, interface, auth, environments, limits, failure, support, security, privacy, cost, and exit"
-status: outline
+status: draft
+writing_contract_version: "native-id-v2"
 publication_date: "2025-09-13"
 publication_date_basis: editorial_backfill
 date_modified: null
@@ -23,158 +24,72 @@ sources:
   - "https://securityscorecards.dev/"
 ---
 
-<!-- GENERATED ARTICLE OUTLINE: expand this file; do not delete scope/evidence constraints -->
-
 # Checklist Discovery Integrasi Pihak Ketiga
+<!-- BEGIN MANAGED IMAGE PLAN
+Image ID: LOCAL-001
+Placement: after opening, before first H2
+**Exact Markdown to insert:** `![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)`
+Caption/credit: Aset lokal proyek; jangan klaim sebagai dokumentasi proyek tertentu.
+Selection basis: filename/source metadata only; no pixels inspected.
+Hard boundary: do not infer visual details, ownership, location, people, brands, condition, performance, or outcome.
+END MANAGED IMAGE PLAN -->
 
-## Assignment lock
+Halo, Teman Codev.id! Integrasi pihak ketiga layak masuk backlog hanya setelah tim dapat menjawab apa yang hendak dicapai, data apa yang berpindah, siapa yang berwenang, dan bagaimana layanan itu dihentikan bila gagal. Checklist discovery membantu memisahkan fakta dari asumsi sebelum satu baris kode ditulis.
 
-- **Writer task:** Expand this file into one complete article answering: “Checklist Discovery Integrasi Pihak Ketiga”
-- **Reader and situation:** Team adding identity, payment, messaging, analytics, or business software
-- **Reader outcome:** Inventory business purpose, data, interface, auth, environments, limits, failure, support, security, privacy, cost, and exit
-- **Primary intent:** Determine whether and how an external service should be integrated
-- **Reader community:** `Codev.id`
-- **Primary friendly address:** `Teman Codev.id`
-- **Natural variants:** `Sobat Codev.id` and `Kawan Codev.id`
-- **Address cadence:** use a friendly project-community address three to five times in a typical long article, only at natural conversational pivots.
-- **Scope boundary:** Does not select a vendor; CDV-03-A04 owns build/buy and CDV-17-A03 owns vendor comparison
-- **Final public route:** `/artikel/checklist-discovery-integrasi.html`
-- **Appointed CMS date:** `2025-09-13` (`editorial_backfill`; preserve exactly)
-- **Target length:** normally 1,400–2,200 useful words; stop earlier if the answer is complete.
-- **Do not drift:** do not turn this page into a broad category page, sales landing page, or substitute for professional/project approval.
+Jawaban singkatnya: buat inventaris tujuan bisnis, alur data, kontrak antarmuka, autentikasi, lingkungan, batas pemakaian, kegagalan, dukungan, keamanan, privasi, biaya, dan rencana keluar. Keputusan dapat berubah bila dokumentasi aktual, uji sandbox, syarat kontrak, atau penilaian risiko menemukan batas yang belum terlihat.
 
-## Opening instructions
+![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)
 
-- Open with the exact short salutation: **“Halo, Teman Codev.id!”**
-- Start with the concrete decision, confusion, risk, or costly shortcut behind **Checklist Discovery Integrasi Pihak Ketiga**.
-- Give the short answer within the first two or three paragraphs.
-- State what evidence or condition can change that answer.
-- Later, sprinkle `Teman Codev.id`, `Sobat Codev.id`, or `Kawan Codev.id` at useful warnings, decisions, examples, or the conclusion; do not force them into every section.
-- Do not use a generic industry-history or “Di era digital” introduction.
-
-
-<!-- BEGIN MANAGED IMAGE PLAN -->
-## Image plan
-
-- **Image ID:** `LOCAL-001`
-- **Source type:** `local`
-- **Placement:** after the opening has answered the main question, before the first detailed H2
-- **Exact Markdown to insert:** `![Ilustrasi CODEV](/wp-content/uploads/2022/12/CODEV.png)`
-- **Caption/credit:** Aset lokal proyek; jangan klaim sebagai dokumentasi proyek tertentu.
-- **Selection basis:** filename/source metadata identifies `CODEV` as relevant content media; no pixels were inspected.
-- **Hard boundary:** do not infer or describe unseen visual details, project ownership, location, people, brands, condition, performance, or outcome.
-- **Substitution rule:** do not replace this image. If unavailable or provenance is incomplete, insert `[NEEDS IMAGE REVIEW: LOCAL-001]` and continue drafting the prose.
-<!-- END MANAGED IMAGE PLAN -->
-
-## Evidence packet
-
-Use the original source links below. Do not cite this outline or `GLOBAL_RESEARCH.md`.
-
-### KR-04
-
-- **Original sources:** [OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html), [OAuth 2.0 Security BCP—RFC 9700](https://www.rfc-editor.org/info/rfc9700/), [WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/), [OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/).
-- **Purpose for this article:** Ground contract-first APIs, authorization flows, passkeys, and API abuse controls.
-- **Safe grounded facts:** RFC 9700 is a 2025 best-current-practice update for OAuth 2.0. OpenAPI describes an interface; it does not prove implementation behavior or security.
-- **Limits:** Never publish secrets/private schemas or prescribe a flow without client/threat context. Apply GATE-03 and GATE-04.
-
-### KR-07
-
-- **Original sources:** [CISA SBOM resources](https://www.cisa.gov/sbom), [NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final), [OpenSSF Scorecard](https://securityscorecards.dev/).
-- **Purpose for this article:** Ground dependency inventory, vendor evaluation, provenance, and integration failure planning.
-- **Safe grounded facts:** An SBOM improves component transparency but does not establish safety. A repository score is a signal, not due diligence.
-- **Limits:** Current vendor terms, APIs, quotas, subprocessors, and vulnerabilities require GATE-04 and GATE-09.
-
-## Evidence gates
-
-- **TOPIC-GATE:** GATE-04, GATE-09
-
-If a gate affects the article's main conclusion, keep a visible `[NEEDS ...]` marker for coordinator review. Do not guess.
-
-## Internal-link plan
-
-### Existing local routes
-
-- `/` — use only if it helps the reader's next step; verify the anchor describes the destination.
-
-### Planned sibling articles
-
-These are future routes. Do not link them as live until their HTML exists.
-
-- `CDV-08-A02` → `/artikel/oauth-actor-scope-token-revocation.html` — OAuth Integration: Actor, Scope, Token, dan Revocation
-- `CDV-08-A03` → `/artikel/integrasi-pembayaran-status-webhook-rekonsiliasi.html` — Integrasi Pembayaran: Status, Webhook, dan Rekonsiliasi
-
-<!-- BEGIN PUBLIC ARTICLE SECTIONS -->
+Aset lokal proyek; jangan klaim sebagai dokumentasi proyek tertentu. Simpan salinan rujukan media pada [aset lokal](/wp-content/uploads/2022/12/CODEV.png) bila paket handover perlu dikirim ulang.
 
 ## Hasil akhir dan prasyarat
 
-- **Purpose:** Nyatakan hasil yang ingin dicapai, siapa yang berwenang, data awal, alat/dokumen, dan kondisi yang harus tersedia.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hasil discovery bukan rekomendasi vendor, melainkan lembar keputusan yang bisa diaudit. Tetapkan pemilik keputusan dari bisnis, produk, teknik, keamanan, dan privasi sesuai dampak layanan. Siapkan tujuan terukur, diagram alur saat ini, contoh data yang sudah disamarkan, dokumentasi API, akses sandbox, serta draf persyaratan kontrak dan dukungan. Catat tanggal pemeriksaan dan versi dokumen agar perubahan berikutnya dapat dibandingkan, bukan diperdebatkan berdasarkan ingatan.
 
-## Langkah 1 — tetapkan scope
+Untuk setiap jawaban, tandai sumbernya: dokumentasi resmi, hasil uji, pernyataan vendor, atau asumsi internal. OpenAPI berguna untuk mendeskripsikan antarmuka, tetapi deskripsi itu tidak membuktikan perilaku implementasi atau keamanannya ([OpenAPI Specification 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)).
 
-- **Purpose:** Jelaskan objek, batas pekerjaan, antarmuka, risiko, serta hal yang sengaja tidak dikerjakan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+## Langkah 1 — tetapkan batas pekerjaan
+
+Tuliskan satu kalimat tujuan, misalnya “menerima status pembayaran dan mencatatnya ke sistem pesanan”. Lalu batasi objek yang ditangani: endpoint atau event apa, sistem internal mana, tenant mana, dan data minimum yang diperlukan. Nyatakan yang sengaja tidak dikerjakan, seperti migrasi historis, perubahan proses settlement, atau pemilihan vendor.
+
+Buat peta aktor: pengguna akhir, operator, aplikasi Anda, layanan eksternal, dan pihak yang menerima notifikasi. Untuk tiap panah, catat pemilik, arah data, frekuensi, dan keputusan saat koneksi putus. Sobat Codev.id, batas ini mencegah diskusi melebar menjadi proyek baru yang belum disetujui.
 
 ## Langkah 2 — kumpulkan dan cocokkan bukti
 
-- **Purpose:** Susun dokumen, observasi, data, produk, atau standar yang harus cocok dengan kasus.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Susun tabel dengan kolom kebutuhan, bukti, status, dan pertanyaan terbuka. Cocokkan nama field, tipe, format waktu, idempotensi, versi, dan arti status dengan contoh respons nyata di sandbox. Jangan menyamakan “ada di spesifikasi” dengan “tersedia di akun dan paket Anda”.
+
+Di sisi autentikasi, catat aktor, scope, masa berlaku token, penyimpanan rahasia, rotasi, revocation, dan alur ketika kredensial dicabut. RFC 9700 adalah pembaruan praktik terbaik keamanan OAuth 2.0; gunakan sebagai rujukan untuk menilai alur yang ditawarkan, bukan sebagai izin menerapkan satu pola tanpa konteks ancaman ([RFC 9700](https://www.rfc-editor.org/info/rfc9700/)). Bila identitas tanpa kata sandi dipertimbangkan, dokumentasikan perangkat, origin, pemulihan, dan UX yang didukung WebAuthn ([WebAuthn Level 3](https://www.w3.org/TR/webauthn-3/)).
+
+Inventaris juga komponen perangkat lunak, SDK, webhook handler, dan pipeline deployment. SBOM membantu transparansi komponen, tetapi bukan bukti bahwa seluruh rantai aman ([CISA SBOM resources](https://www.cisa.gov/sbom)). Tanyakan lokasi pemrosesan data, subprosesor, retensi, penghapusan, notifikasi insiden, serta hak audit. Syarat dan kerentanan yang berubah harus diverifikasi kembali sebelum go-live; jangan mengisi celah dengan asumsi.
 
 ## Langkah 3 — jalankan urutan kerja
 
-- **Purpose:** Berikan urutan konseptual yang dapat diikuti tanpa berubah menjadi instruksi teknis berbahaya.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Mulai dari skenario sukses paling kecil, kemudian skenario ulang, terlambat, duplikat, tidak berurutan, dan layanan tidak tersedia. Definisikan timeout, retry dengan batas, deduplikasi, circuit breaker, antrean, dan rekonsiliasi sebagai perilaku yang harus disetujui—bukan detail yang dibiarkan pada implementer.
 
-## Hold point dan kondisi berhenti
+Uji kontrak di sandbox menggunakan data sintetis. Simpan request, respons, correlation ID, dan versi skema tanpa menyimpan rahasia. Untuk API, tetapkan validasi input, pembatasan laju, otorisasi objek, dan pemantauan penyalahgunaan; OWASP menempatkan kelemahan otorisasi dan konsumsi sumber daya sebagai risiko penting API ([OWASP API Security Top 10 2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/)).
 
-- **Purpose:** Nyatakan kapan pekerjaan tidak boleh diteruskan tanpa review, tes, atau persetujuan.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Pisahkan konfigurasi dev, staging, dan produksi. Pastikan endpoint, kredensial, daftar IP, webhook secret, dan data uji tidak tertukar. Tetapkan siapa yang menerima alarm, target waktu respons, jalur eskalasi, dan prosedur rollback. Catat biaya tetap, biaya per panggilan, minimum bulanan, biaya data, serta biaya pemulihan; minta angka aktual dari kontrak atau akun, bukan perkiraan.
 
-## Verifikasi hasil dan handover
+## Kapan harus berhenti
 
-- **Purpose:** Buat checklist penerimaan, rekaman, tindak lanjut, dan pemicu koreksi.
-- **Tie back to this article:** Keep the explanation specific to “Checklist Discovery Integrasi Pihak Ketiga”.
-- **Evidence:** Use only relevant facts from the evidence packet; add an original source near consequential claims.
-- **Practical value:** Add a concrete question, conditional scenario, checklist item, or decision consequence.
-- **Boundary:** Preserve the assignment lock and evidence gates; do not fill missing project facts.
+Hentikan implementasi bila tujuan bisnis belum memiliki pemilik, data sensitif belum punya dasar pemrosesan, kontrak tidak menjelaskan penghapusan atau insiden, atau sandbox tidak dapat memverifikasi perilaku penting. Hentikan juga bila autentikasi, rotasi rahasia, revocation, atau otorisasi objek masih berupa jawaban “nanti”.
 
-## Objection or shortcut to address
+Kawan Codev.id, skor repositori atau vendor dapat menjadi sinyal awal, bukan due diligence; OpenSSF Scorecard sendiri tidak menggantikan pemeriksaan konteks ([OpenSSF Scorecard](https://securityscorecards.dev/)). Rantai pasok perlu ditinjau dengan pendekatan risiko organisasi, sebagaimana dibahas NIST SP 800-161 Rev.1 ([NIST SP 800-161 Rev.1](https://csrc.nist.gov/pubs/sp/800/161/r1/final)). Karena detail vendor, kuota, subprosesor, dan kerentanan bersifat berubah, tandai `[NEEDS VENDOR TERMS, CURRENT QUOTAS, SUBPROCESSORS, AND VULNERABILITY REVIEW]` sampai coordinator melakukan verifikasi.
 
-- Identify one realistic shortcut a reader may prefer.
-- Explain why it can fail in this exact context, using mechanism and evidence rather than scolding.
-- Give the safer or more reliable alternative.
+## Verifikasi hasil dan serah terima
 
-## Required conclusion
+Paket handover minimal berisi tujuan dan batas scope, diagram alur data, matriks field dan status, kontrak versi, keputusan autentikasi, daftar environment, batas dan biaya, runbook kegagalan, kontak dukungan, inventaris komponen, catatan privasi, serta rencana keluar. Lampirkan bukti uji untuk sukses, duplikat, keterlambatan, pencabutan akses, dan pemulihan.
 
-- Answer the title again in one compact, non-repetitive form.
-- Give the reader the next action, document, question, inspection, or professional review to obtain.
-- End with an operating rule or honest boundary. Do not end with a generic summary.
+Minta pemilik bisnis menandatangani tujuan, pemilik teknik menerima kontrak dan observabilitas, serta keamanan/privasi menyetujui risiko yang memang berada dalam kewenangan mereka. Jadwalkan pemicu koreksi: perubahan versi, kenaikan error, perubahan syarat, insiden, atau biaya yang melampaui ambang. Tanpa rekaman ini, integrasi belum siap diserahkan. Simpan paket tersebut bersama catatan keputusan saat ditinjau ulang.
 
-## Draft completion checklist
+## Jalan pintas yang sering gagal
 
-- [ ] Opening answers the main question within two or three paragraphs.
-- [ ] The article opens with `Halo, Teman Codev.id!` and uses friendly `Codev.id` community address naturally three to five times total.
-- [ ] Every H2 above has been replaced with finished, non-repetitive prose.
-- [ ] Facts, project facts, inferences, assumptions, and judgments are not blurred together.
-- [ ] Every consequential claim has an original source or `[NEEDS ...]` marker.
-- [ ] No exact standard clause, number, price, test result, capacity, warranty, or personal experience was invented.
-- [ ] Internal links use exact listed routes and helpful natural anchors.
-- [ ] Future sibling routes are not presented as live.
-- [ ] The public prose does not mention prompts, outlines, SEO, AI, or evidence gates.
-- [ ] Front matter is preserved; `status` changed from `outline` to `draft` only after completion.
-- [ ] Conclusion gives a concrete next action and an honest limit.
+Jalan pintasnya adalah langsung memasang SDK karena contoh “happy path” terlihat berhasil. Itu mengabaikan data yang bocor lewat log, token yang tidak dicabut, event duplikat, kuota habis, dan ketergantungan pada satu endpoint. Alternatif yang lebih aman: bekukan scope kecil, tulis kontrak dan failure modes, uji sandbox dengan data sintetis, lalu minta review risiko sebelum akses produksi.
+
+## Kesimpulan
+
+Tinjau ulang sebelum menyetujui.
+
+Catat tanggal pemeriksaan, versi dokumen, dan pemilik setiap jawaban. Dengan begitu, perubahan kuota atau syarat dapat dibandingkan secara jelas, bukan diperdebatkan berdasarkan ingatan. Simpan keputusan lintas peran di [panduan tindak lanjut Codev.id](/#panduan) agar pertanyaan terbuka memiliki tempat yang dapat ditemukan kembali.
+
+Checklist discovery integrasi pihak ketiga adalah alat untuk memutuskan apakah integrasi dapat dilanjutkan, dengan syarat apa, dan bagaimana keluar bila syarat berubah. Langkah berikutnya: jadikan daftar di atas satu lembar keputusan, isi setiap kolom dengan bukti yang dapat ditelusuri, lalu minta review teknis, keamanan, privasi, dan kontrak untuk celah yang ditandai. Aturan operasionalnya sederhana: tanpa bukti untuk data, otorisasi, kegagalan, biaya, dan exit, jangan naikkan integrasi ke produksi.
